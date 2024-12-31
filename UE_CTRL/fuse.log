@@ -1,0 +1,30 @@
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "F:/ISE/UE_CTRL/top_tb_isim_beh.exe" -prj "F:/ISE/UE_CTRL/top_tb_beh.prj" "work.top_tb" "work.glbl" 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Analyzing Verilog file "F:/ISE/UE_CTRL/srcs/UART_TX.v" into library work
+Analyzing Verilog file "F:/ISE/UE_CTRL/srcs/UART_RX.v" into library work
+Analyzing Verilog file "F:/ISE/UE_CTRL/srcs/rst.v" into library work
+Analyzing Verilog file "F:/ISE/UE_CTRL/srcs/process.v" into library work
+Analyzing Verilog file "F:/ISE/UE_CTRL/srcs/FEM_TR_switch.v" into library work
+Analyzing Verilog file "F:/ISE/UE_CTRL/srcs/CTRL_TOP.v" into library work
+Analyzing Verilog file "F:/ISE/UE_CTRL/srcs/tb_Top.v" into library work
+Analyzing Verilog file "E:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling module IBUFG
+Compiling module BUFG
+Compiling module UART_RX(Baud_rate=115200,clk_frq...
+Compiling module UART_TX(Baud_rate=115200,clk_frq...
+Compiling module spi_process(uart_max_byte_len=10...
+Compiling module FEM_TR_switch
+Compiling module rst(delay_cnt=10)
+Compiling module CTRL_TOP
+Compiling module top_tb
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Compiled 10 Verilog Units
+Built simulation executable F:/ISE/UE_CTRL/top_tb_isim_beh.exe
+Fuse Memory Usage: 30060 KB
+Fuse CPU Usage: 483 ms

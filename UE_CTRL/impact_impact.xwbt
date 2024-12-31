@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=E:\work\AcAnt\01-design\09-eMIMO_Array\05-code\FPGA\UE_CTRL\V1\UE_CTRL\impact.xsl
+OUTFILE=E:\work\AcAnt\01-design\09-eMIMO_Array\05-code\FPGA\UE_CTRL\V1\UE_CTRL\impact.xsl
+FAMILY=Single
+PART=Single
+WORKINGDIR=E:\work\AcAnt\01-design\09-eMIMO_Array\05-code\FPGA\UE_CTRL\V1\UE_CTRL
+LICENSE=iMPACT
+USER_INFO=iMPACT

@@ -1,0 +1,9 @@
+
+# PlanAhead Generated IO constraints 
+
+NET "aux1_spi_cs" IOSTANDARD = LVCMOS33;
+NET "aux2_spi_cs" IOSTANDARD = LVCMOS33;
+NET "debug_mode" IOSTANDARD = LVCMOS33;
+NET "fpga_spi_clk_p" IOSTANDARD = LVDS_33;
+NET "fpga_spi_cs" IOSTANDARD = LVCMOS33;
+NET "fpga_spi_mosi_p" IOSTANDARD = LVDS_33;

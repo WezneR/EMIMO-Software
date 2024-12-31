@@ -1,0 +1,107 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7
+# Build 321239 by xbuild on Fri Sep 27 19:31:35 MDT 2013
+# Start of session at: Sun Oct 27 01:51:58 2024
+# Process ID: 22272
+# Log file: E:/work/AcAnt/01-design/09-eMIMO_Array/05-code/FPGA/UE_CTRL/V1/UE_CTRL/planAhead_run_1/planAhead.log
+# Journal file: E:/work/AcAnt/01-design/09-eMIMO_Array/05-code/FPGA/UE_CTRL/V1/UE_CTRL/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source E:/work/AcAnt/01-design/09-eMIMO_Array/05-code/FPGA/UE_CTRL/V1/UE_CTRL/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+set_property iostandard LVCMOS33 [get_ports [list {RX_B1_DSA[5]} {RX_B1_DSA[4]} {RX_B1_DSA[3]} {RX_B1_DSA[2]} {RX_B1_DSA[1]} {RX_B1_DSA[0]}]]
+set_property iostandard LVCMOS33 [get_ports [list {RX_B1_LE[7]} {RX_B1_LE[6]} {RX_B1_LE[5]} {RX_B1_LE[4]} {RX_B1_LE[3]} {RX_B1_LE[2]} {RX_B1_LE[1]} {RX_B1_LE[0]}]]
+set_property iostandard LVCMOS25 [get_ports [list {RX_B2_LNA_BYPASS[7]} {RX_B2_LNA_BYPASS[6]} {RX_B2_LNA_BYPASS[5]} {RX_B2_LNA_BYPASS[4]} {RX_B2_LNA_BYPASS[3]} {RX_B2_LNA_BYPASS[2]} {RX_B2_LNA_BYPASS[1]} {RX_B2_LNA_BYPASS[0]}]]
+set_property iostandard LVCMOS33 [get_ports [list {RX_B1_LNA_BYPASS[7]} {RX_B1_LNA_BYPASS[6]} {RX_B1_LNA_BYPASS[5]} {RX_B1_LNA_BYPASS[4]} {RX_B1_LNA_BYPASS[3]} {RX_B1_LNA_BYPASS[2]} {RX_B1_LNA_BYPASS[1]} {RX_B1_LNA_BYPASS[0]}]]
+set_property iostandard LVCMOS33 [get_ports [list {RX_B2_DSA[5]} {RX_B2_DSA[4]} {RX_B2_DSA[3]} {RX_B2_DSA[2]} {RX_B2_DSA[1]} {RX_B2_DSA[0]}]]
+set_property iostandard LVCMOS33 [get_ports [list {RX_B2_LE[7]} {RX_B2_LE[6]} {RX_B2_LE[5]} {RX_B2_LE[4]} {RX_B2_LE[3]} {RX_B2_LE[2]} {RX_B2_LE[1]} {RX_B2_LE[0]}]]
+set_property iostandard LVCMOS33 [get_ports [list {RX_B2_LNA_BYPASS[7]} {RX_B2_LNA_BYPASS[6]} {RX_B2_LNA_BYPASS[5]} {RX_B2_LNA_BYPASS[4]} {RX_B2_LNA_BYPASS[3]} {RX_B2_LNA_BYPASS[2]} {RX_B2_LNA_BYPASS[1]} {RX_B2_LNA_BYPASS[0]}]]
+set_property iostandard LVCMOS33 [get_ports [list {TX_B1_DSA[5]} {TX_B1_DSA[4]} {TX_B1_DSA[3]} {TX_B1_DSA[2]} {TX_B1_DSA[1]} {TX_B1_DSA[0]}]]
+set_property iostandard LVCMOS33 [get_ports [list {TX_B1_LE[7]} {TX_B1_LE[6]} {TX_B1_LE[5]} {TX_B1_LE[4]} {TX_B1_LE[3]} {TX_B1_LE[2]} {TX_B1_LE[1]} {TX_B1_LE[0]}]]
+set_property iostandard LVCMOS33 [get_ports [list {TX_B2_DSA[5]} {TX_B2_DSA[4]} {TX_B2_DSA[3]} {TX_B2_DSA[2]} {TX_B2_DSA[1]} {TX_B2_DSA[0]}]]
+set_property iostandard LVCMOS33 [get_ports [list {TX_B2_LE[7]} {TX_B2_LE[6]} {TX_B2_LE[5]} {TX_B2_LE[4]} {TX_B2_LE[3]} {TX_B2_LE[2]} {TX_B2_LE[1]} {TX_B2_LE[0]}]]
+startgroup
+set_property package_pin M3 [get_ports {RX_B1_DSA[5]}]
+endgroup
+startgroup
+set_property package_pin K6 [get_ports {RX_B1_DSA[4]}]
+endgroup
+startgroup
+set_property package_pin K5 [get_ports {RX_B1_DSA[3]}]
+endgroup
+startgroup
+set_property package_pin N5 [get_ports {RX_B1_DSA[2]}]
+endgroup
+startgroup
+set_property package_pin M1 [get_ports {RX_B1_DSA[1]}]
+endgroup
+startgroup
+set_property package_pin M2 [get_ports {RX_B1_DSA[0]}]
+endgroup
+startgroup
+set_property package_pin N3 [get_ports {RX_B1_LE[7]}]
+endgroup
+startgroup
+set_property package_pin N1 [get_ports {RX_B1_LE[6]}]
+endgroup
+startgroup
+set_property package_pin P1 [get_ports {RX_B1_LE[5]}]
+endgroup
+startgroup
+set_property package_pin P2 [get_ports {RX_B1_LE[4]}]
+endgroup
+startgroup
+set_property package_pin R1 [get_ports {RX_B1_LE[3]}]
+endgroup
+startgroup
+set_property package_pin R2 [get_ports {RX_B1_LE[2]}]
+endgroup
+startgroup
+set_property package_pin N4 [get_ports {RX_B1_LE[1]}]
+endgroup
+startgroup
+set_property package_pin M4 [get_ports {RX_B1_LE[0]}]
+endgroup
+startgroup
+set_property package_pin G3 [get_ports {RX_B1_LNA_BYPASS[7]}]
+endgroup
+startgroup
+set_property package_pin G5 [get_ports {RX_B1_LNA_BYPASS[6]}]
+endgroup
+startgroup
+set_property package_pin F2 [get_ports {RX_B1_LNA_BYPASS[5]}]
+endgroup
+startgroup
+set_property package_pin H3 [get_ports {RX_B1_LNA_BYPASS[4]}]
+endgroup
+startgroup
+set_property package_pin F1 [get_ports {RX_B1_LNA_BYPASS[3]}]
+endgroup
+startgroup
+set_property package_pin M6 [get_ports {RX_B1_LNA_BYPASS[2]}]
+endgroup
+startgroup
+set_property package_pin L7 [get_ports {RX_B1_LNA_BYPASS[1]}]
+endgroup
+startgroup
+set_property package_pin J6 [get_ports {RX_B1_LNA_BYPASS[0]}]
+endgroup
+startgroup
+set_property package_pin A9 [get_ports {RX_B2_DSA[5]}]
+endgroup
+startgroup
+set_property package_pin A5 [get_ports {RX_B2_DSA[4]}]
+endgroup
+startgroup
+set_property package_pin B5 [get_ports {RX_B2_DSA[3]}]
+endgroup
+startgroup
+set_property package_pin B3 [get_ports {RX_B2_DSA[2]}]
+endgroup
+startgroup
+set_property package_pin A10 [get_ports {RX_B2_DSA[1]}]
+endgroup
+startgroup
+set_property package_pin B10 [get_ports {RX_B2_DSA[0]}]
+endgroup
+save_constraints

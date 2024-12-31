@@ -1,0 +1,1287 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.15 secs
+ 
+--> Reading design: top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "top"
+Output Format                      : NGC
+Target Device                      : xc6slx45-3-csg324
+
+---- Source Options
+Top Module Name                    : top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\TRX_switch.v" into library work
+Parsing module <TRX_switch>.
+Analyzing Verilog file "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\SPI_Slave.v" into library work
+Parsing module <SPI_Slave>.
+Analyzing Verilog file "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\SPI_master.v" into library work
+Parsing module <spi_master>.
+Analyzing Verilog file "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\SPI_Listener.v" into library work
+Parsing module <spi_listener>.
+Analyzing Verilog file "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\rst.v" into library work
+Parsing module <rst>.
+Analyzing Verilog file "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" into library work
+Parsing module <process>.
+Analyzing Verilog file "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\Top.v" into library work
+Parsing module <top>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+WARNING:HDLCompiler:1016 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\Top.v" Line 111: Port i_TX_DV is not connected to this instance
+
+Elaborating module <top>.
+
+Elaborating module <SPI_Slave(SPI_MODE=0)>.
+WARNING:HDLCompiler:1127 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\SPI_Slave.v" Line 60: Assignment to w_CPOL ignored, since the identifier is never used
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\SPI_Slave.v" Line 84: Result of 4-bit expression is truncated to fit in 3-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\SPI_Slave.v" Line 163: Result of 32-bit expression is truncated to fit in 3-bit target.
+WARNING:HDLCompiler:1127 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\SPI_Slave.v" Line 192: Assignment to w_SPI_MISO_Mux ignored, since the identifier is never used
+
+Elaborating module <spi_listener(first_byte=8'b0100000)>.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\SPI_Listener.v" Line 63: Result of 17-bit expression is truncated to fit in 16-bit target.
+
+Elaborating module <TRX_switch>.
+
+Elaborating module <process(spi_max_data_len=48)>.
+Reading initialization file \"./mem/init_reg_00.txt\".
+Reading initialization file \"./mem/init_reg_01.txt\".
+Reading initialization file \"./mem/init_reg_02.txt\".
+Reading initialization file \"./mem/init_reg_03.txt\".
+Reading initialization file \"./mem/init_reg_04.txt\".
+Reading initialization file \"./mem/init_reg_05.txt\".
+Reading initialization file \"./mem/init_reg_06.txt\".
+Reading initialization file \"./mem/init_reg_07.txt\".
+Reading initialization file \"./mem/init_reg_08.txt\".
+Reading initialization file \"./mem/init_reg_09.txt\".
+Reading initialization file \"./mem/init_reg_10.txt\".
+Reading initialization file \"./mem/init_reg_11.txt\".
+Reading initialization file \"./mem/init_reg_12.txt\".
+Reading initialization file \"./mem/init_reg_13.txt\".
+Reading initialization file \"./mem/init_reg_14.txt\".
+Reading initialization file \"./mem/init_reg_15.txt\".
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 352: Result of 11-bit expression is truncated to fit in 10-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 367: Result of 11-bit expression is truncated to fit in 10-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 381: Result of 11-bit expression is truncated to fit in 10-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 395: Result of 11-bit expression is truncated to fit in 10-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 409: Result of 11-bit expression is truncated to fit in 10-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 423: Result of 11-bit expression is truncated to fit in 10-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 437: Result of 11-bit expression is truncated to fit in 10-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 451: Result of 11-bit expression is truncated to fit in 10-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 465: Result of 11-bit expression is truncated to fit in 10-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 479: Result of 11-bit expression is truncated to fit in 10-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 493: Result of 11-bit expression is truncated to fit in 10-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 507: Result of 11-bit expression is truncated to fit in 10-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 521: Result of 11-bit expression is truncated to fit in 10-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 535: Result of 11-bit expression is truncated to fit in 10-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 549: Result of 11-bit expression is truncated to fit in 10-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 563: Result of 11-bit expression is truncated to fit in 10-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 572: Result of 15-bit expression is truncated to fit in 14-bit target.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v" Line 629: Result of 15-bit expression is truncated to fit in 14-bit target.
+
+Elaborating module <spi_master(clk_div=2,spi_max_data_len=48)>.
+WARNING:HDLCompiler:1127 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\Top.v" Line 201: Assignment to spi_data_rx ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\Top.v" Line 203: Assignment to spi_finish ignored, since the identifier is never used
+
+Elaborating module <rst(delay_cnt=10)>.
+WARNING:HDLCompiler:413 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\rst.v" Line 39: Result of 9-bit expression is truncated to fit in 8-bit target.
+
+Elaborating module <IBUFDS(IOSTANDARD="LVDS_33",DIFF_TERM="TRUE")>.
+WARNING:HDLCompiler:552 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\Top.v" Line 114: Input port i_TX_DV is not connected on this instance
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <top>.
+    Related source file is "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\Top.v".
+        clk_frq = 100000000
+        spi_clk_div = 2
+        spi_max_data_len = 48
+        spi_bits_cnt_width = 6
+        SPI_MODE = 0
+        first_byte = 8'b00100000
+        delay_cnt = 10
+WARNING:Xst:2898 - Port 'i_TX_Byte', unconnected in block instance 'SPI_Slave_test', is tied to GND.
+WARNING:Xst:2898 - Port 'i_TX_DV', unconnected in block instance 'SPI_Slave_test', is tied to GND.
+INFO:Xst:3210 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\Top.v" line 114: Output port <o_SPI_MISO> of the instance <SPI_Slave_test> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\Top.v" line 181: Output port <spi_data_rx> of the instance <SPI_Master_test> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\Top.v" line 181: Output port <spi_finish> of the instance <SPI_Master_test> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <top> synthesized.
+
+Synthesizing Unit <SPI_Slave>.
+    Related source file is "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\SPI_Slave.v".
+        SPI_MODE = 0
+WARNING:Xst:647 - Input <i_TX_Byte> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <i_TX_DV> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:653 - Signal <o_SPI_MISO> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 1-bit register for signal <r2_RX_Done>.
+    Found 1-bit register for signal <r3_RX_Done>.
+    Found 1-bit register for signal <o_RX_DV>.
+    Found 1-bit register for signal <r_RX_Done>.
+    Found 8-bit register for signal <o_RX_Byte>.
+    Found 3-bit register for signal <r_RX_Bit_Count>.
+    Found 8-bit register for signal <r_Temp_RX_Byte>.
+    Found 8-bit register for signal <r_RX_Byte>.
+    Found 3-bit adder for signal <r_RX_Bit_Count[2]_GND_2_o_add_0_OUT> created at line 84.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  31 D-type flip-flop(s).
+Unit <SPI_Slave> synthesized.
+
+Synthesizing Unit <spi_listener>.
+    Related source file is "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\SPI_Listener.v".
+        first_byte = 8'b00100000
+        listener_timeout = 400
+    Found 1-bit register for signal <spi_listener_interrupt>.
+    Found 2-bit register for signal <spi_byte_cnt>.
+    Found 16-bit register for signal <n0040[15:0]>.
+    Found 1-bit register for signal <timeout>.
+    Found 16-bit register for signal <timeout_cnt>.
+    Found 24-bit register for signal <spi_data>.
+    Found finite state machine <FSM_0> for signal <spi_byte_cnt>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 9                                              |
+    | Inputs             | 3                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Power Up State     | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 16-bit adder for signal <timeout_cnt[15]_GND_4_o_add_18_OUT> created at line 63.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  58 D-type flip-flop(s).
+	inferred   9 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <spi_listener> synthesized.
+
+Synthesizing Unit <TRX_switch>.
+    Related source file is "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\TRX_switch.v".
+WARNING:Xst:737 - Found 1-bit latch for signal <o_Fast_TR<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Summary:
+	inferred   1 Latch(s).
+	inferred   2 Multiplexer(s).
+Unit <TRX_switch> synthesized.
+
+Synthesizing Unit <process>.
+    Related source file is "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\process.v".
+        spi_max_data_len = 48
+        spi_bits_cnt_width = 6
+WARNING:Xst:647 - Input <spi_data<15:14>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <spi_data<23:21>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:2999 - Signal 'MSTR111_init_reg_00', unconnected in block 'process', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'MSTR111_init_reg_01', unconnected in block 'process', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'MSTR111_init_reg_02', unconnected in block 'process', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'MSTR111_init_reg_03', unconnected in block 'process', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'MSTR111_init_reg_04', unconnected in block 'process', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'MSTR111_init_reg_05', unconnected in block 'process', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'MSTR111_init_reg_06', unconnected in block 'process', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'MSTR111_init_reg_07', unconnected in block 'process', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'MSTR111_init_reg_08', unconnected in block 'process', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'MSTR111_init_reg_09', unconnected in block 'process', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'MSTR111_init_reg_10', unconnected in block 'process', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'MSTR111_init_reg_11', unconnected in block 'process', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'MSTR111_init_reg_12', unconnected in block 'process', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'MSTR111_init_reg_13', unconnected in block 'process', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'MSTR111_init_reg_14', unconnected in block 'process', is tied to its initial value.
+WARNING:Xst:2999 - Signal 'MSTR111_init_reg_15', unconnected in block 'process', is tied to its initial value.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <MSTR111_init_reg_00>, simulation mismatch.
+    Found 262x48-bit single-port Read Only RAM <Mram_MSTR111_init_reg_00> for signal <MSTR111_init_reg_00>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <MSTR111_init_reg_01>, simulation mismatch.
+    Found 262x48-bit single-port Read Only RAM <Mram_MSTR111_init_reg_01> for signal <MSTR111_init_reg_01>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <MSTR111_init_reg_02>, simulation mismatch.
+    Found 262x48-bit single-port Read Only RAM <Mram_MSTR111_init_reg_02> for signal <MSTR111_init_reg_02>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <MSTR111_init_reg_03>, simulation mismatch.
+    Found 262x48-bit single-port Read Only RAM <Mram_MSTR111_init_reg_03> for signal <MSTR111_init_reg_03>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <MSTR111_init_reg_04>, simulation mismatch.
+    Found 262x48-bit single-port Read Only RAM <Mram_MSTR111_init_reg_04> for signal <MSTR111_init_reg_04>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <MSTR111_init_reg_05>, simulation mismatch.
+    Found 262x48-bit single-port Read Only RAM <Mram_MSTR111_init_reg_05> for signal <MSTR111_init_reg_05>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <MSTR111_init_reg_06>, simulation mismatch.
+    Found 262x48-bit single-port Read Only RAM <Mram_MSTR111_init_reg_06> for signal <MSTR111_init_reg_06>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <MSTR111_init_reg_07>, simulation mismatch.
+    Found 262x48-bit single-port Read Only RAM <Mram_MSTR111_init_reg_07> for signal <MSTR111_init_reg_07>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <MSTR111_init_reg_08>, simulation mismatch.
+    Found 262x48-bit single-port Read Only RAM <Mram_MSTR111_init_reg_08> for signal <MSTR111_init_reg_08>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <MSTR111_init_reg_09>, simulation mismatch.
+    Found 262x48-bit single-port Read Only RAM <Mram_MSTR111_init_reg_09> for signal <MSTR111_init_reg_09>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <MSTR111_init_reg_10>, simulation mismatch.
+    Found 262x48-bit single-port Read Only RAM <Mram_MSTR111_init_reg_10> for signal <MSTR111_init_reg_10>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <MSTR111_init_reg_11>, simulation mismatch.
+    Found 262x48-bit single-port Read Only RAM <Mram_MSTR111_init_reg_11> for signal <MSTR111_init_reg_11>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <MSTR111_init_reg_12>, simulation mismatch.
+    Found 262x48-bit single-port Read Only RAM <Mram_MSTR111_init_reg_12> for signal <MSTR111_init_reg_12>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <MSTR111_init_reg_13>, simulation mismatch.
+    Found 262x48-bit single-port Read Only RAM <Mram_MSTR111_init_reg_13> for signal <MSTR111_init_reg_13>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <MSTR111_init_reg_14>, simulation mismatch.
+    Found 262x48-bit single-port Read Only RAM <Mram_MSTR111_init_reg_14> for signal <MSTR111_init_reg_14>.
+WARNING:Xst:3035 - Index value(s) does not match array range for signal <MSTR111_init_reg_15>, simulation mismatch.
+    Found 262x48-bit single-port Read Only RAM <Mram_MSTR111_init_reg_15> for signal <MSTR111_init_reg_15>.
+    Found 4-bit register for signal <o_Fast_SetR>.
+    Found 4-bit register for signal <o_chip_id>.
+    Found 48-bit register for signal <o_SPI_data>.
+    Found 1-bit register for signal <o_SPI_start>.
+    Found 6-bit register for signal <o_spi_data_depth>.
+    Found 1-bit register for signal <spi_all>.
+    Found 10-bit register for signal <init_reg_addr>.
+    Found 14-bit register for signal <delay_cnt>.
+    Found 5-bit register for signal <proc_state>.
+    Found 4-bit register for signal <spi_state>.
+    Found 4-bit register for signal <FastSetTR_state>.
+    Found 128-bit register for signal <n0437[127:0]>.
+    Found 128-bit register for signal <n0438[127:0]>.
+    Found 128-bit register for signal <n0439[127:0]>.
+    Found 128-bit register for signal <n0440[127:0]>.
+    Found 128-bit register for signal <n0441[127:0]>.
+    Found 128-bit register for signal <n0442[127:0]>.
+    Found 128-bit register for signal <n0443[127:0]>.
+    Found 128-bit register for signal <n0444[127:0]>.
+    Found 4-bit register for signal <o_Fast_SetT>.
+    Found finite state machine <FSM_1> for signal <proc_state>.
+    -----------------------------------------------------------------------
+    | States             | 19                                             |
+    | Transitions        | 97                                             |
+    | Inputs             | 17                                             |
+    | Outputs            | 9                                              |
+    | Clock              | clk_100M (rising_edge)                         |
+    | Reset              | rst_n (negative)                               |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00001                                          |
+    | Power Up State     | 00000                                          |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found finite state machine <FSM_3> for signal <FastSetTR_state>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 57                                             |
+    | Inputs             | 18                                             |
+    | Outputs            | 2                                              |
+    | Clock              | clk_100M (rising_edge)                         |
+    | Reset              | rst_n (negative)                               |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0001                                           |
+    | Power Up State     | 0000                                           |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found finite state machine <FSM_2> for signal <spi_state>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 67                                             |
+    | Inputs             | 18                                             |
+    | Outputs            | 5                                              |
+    | Clock              | clk_100M (rising_edge)                         |
+    | Reset              | rst_n (negative)                               |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 0001                                           |
+    | Power Up State     | 0000                                           |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 10-bit adder for signal <init_reg_addr[9]_GND_10_o_add_168_OUT> created at line 563.
+    Found 14-bit adder for signal <delay_cnt[13]_GND_10_o_add_202_OUT> created at line 629.
+    Found 8-bit 16-to-1 multiplexer for signal <o_chip_id[3]_phase4[15][7]_wide_mux_316_OUT> created at line 695.
+    Found 8-bit 16-to-1 multiplexer for signal <o_chip_id[3]_phase3[15][7]_wide_mux_317_OUT> created at line 695.
+    Found 8-bit 16-to-1 multiplexer for signal <o_chip_id[3]_phase2[15][7]_wide_mux_318_OUT> created at line 695.
+    Found 8-bit 16-to-1 multiplexer for signal <o_chip_id[3]_phase1[15][7]_wide_mux_319_OUT> created at line 695.
+    Found 8-bit 16-to-1 multiplexer for signal <o_chip_id[3]_amp4[15][7]_wide_mux_431_OUT> created at line 748.
+    Found 8-bit 16-to-1 multiplexer for signal <o_chip_id[3]_amp3[15][7]_wide_mux_432_OUT> created at line 748.
+    Found 8-bit 16-to-1 multiplexer for signal <o_chip_id[3]_amp2[15][7]_wide_mux_433_OUT> created at line 748.
+    Found 8-bit 16-to-1 multiplexer for signal <o_chip_id[3]_amp1[15][7]_wide_mux_434_OUT> created at line 748.
+    Summary:
+	inferred  16 RAM(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred 1116 D-type flip-flop(s).
+	inferred 195 Multiplexer(s).
+	inferred   3 Finite State Machine(s).
+Unit <process> synthesized.
+
+Synthesizing Unit <spi_master>.
+    Related source file is "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\SPI_master.v".
+        clk_div = 2
+        spi_max_data_len = 48
+        rx_head_depth = 16
+        spi_bits_cnt_width = 6
+    Found 4-bit register for signal <spi_sclk>.
+    Found 4-bit register for signal <spi_mosi>.
+    Found 3-bit register for signal <spi_state>.
+    Found 1-bit register for signal <spi_ready>.
+    Found 1-bit register for signal <spi_finish>.
+    Found 6-bit register for signal <spi_bit_cnt>.
+    Found 1-bit register for signal <spi_dir_reg>.
+    Found 48-bit register for signal <spi_data_tx_reg>.
+    Found 16-bit register for signal <clk_div_cnt>.
+    Found 1-bit register for signal <spi_data_rx<47>>.
+    Found 1-bit register for signal <spi_data_rx<46>>.
+    Found 1-bit register for signal <spi_data_rx<45>>.
+    Found 1-bit register for signal <spi_data_rx<44>>.
+    Found 1-bit register for signal <spi_data_rx<43>>.
+    Found 1-bit register for signal <spi_data_rx<42>>.
+    Found 1-bit register for signal <spi_data_rx<41>>.
+    Found 1-bit register for signal <spi_data_rx<40>>.
+    Found 1-bit register for signal <spi_data_rx<39>>.
+    Found 1-bit register for signal <spi_data_rx<38>>.
+    Found 1-bit register for signal <spi_data_rx<37>>.
+    Found 1-bit register for signal <spi_data_rx<36>>.
+    Found 1-bit register for signal <spi_data_rx<35>>.
+    Found 1-bit register for signal <spi_data_rx<34>>.
+    Found 1-bit register for signal <spi_data_rx<33>>.
+    Found 1-bit register for signal <spi_data_rx<32>>.
+    Found 1-bit register for signal <spi_data_rx<31>>.
+    Found 1-bit register for signal <spi_data_rx<30>>.
+    Found 1-bit register for signal <spi_data_rx<29>>.
+    Found 1-bit register for signal <spi_data_rx<28>>.
+    Found 1-bit register for signal <spi_data_rx<27>>.
+    Found 1-bit register for signal <spi_data_rx<26>>.
+    Found 1-bit register for signal <spi_data_rx<25>>.
+    Found 1-bit register for signal <spi_data_rx<24>>.
+    Found 1-bit register for signal <spi_data_rx<23>>.
+    Found 1-bit register for signal <spi_data_rx<22>>.
+    Found 1-bit register for signal <spi_data_rx<21>>.
+    Found 1-bit register for signal <spi_data_rx<20>>.
+    Found 1-bit register for signal <spi_data_rx<19>>.
+    Found 1-bit register for signal <spi_data_rx<18>>.
+    Found 1-bit register for signal <spi_data_rx<17>>.
+    Found 1-bit register for signal <spi_data_rx<16>>.
+    Found 1-bit register for signal <spi_data_rx<15>>.
+    Found 1-bit register for signal <spi_data_rx<14>>.
+    Found 1-bit register for signal <spi_data_rx<13>>.
+    Found 1-bit register for signal <spi_data_rx<12>>.
+    Found 1-bit register for signal <spi_data_rx<11>>.
+    Found 1-bit register for signal <spi_data_rx<10>>.
+    Found 1-bit register for signal <spi_data_rx<9>>.
+    Found 1-bit register for signal <spi_data_rx<8>>.
+    Found 1-bit register for signal <spi_data_rx<7>>.
+    Found 1-bit register for signal <spi_data_rx<6>>.
+    Found 1-bit register for signal <spi_data_rx<5>>.
+    Found 1-bit register for signal <spi_data_rx<4>>.
+    Found 1-bit register for signal <spi_data_rx<3>>.
+    Found 1-bit register for signal <spi_data_rx<2>>.
+    Found 1-bit register for signal <spi_data_rx<1>>.
+    Found 1-bit register for signal <spi_data_rx<0>>.
+    Found 16-bit register for signal <spi_le>.
+    Found finite state machine <FSM_4> for signal <spi_state>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 22                                             |
+    | Inputs             | 6                                              |
+    | Outputs            | 7                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | rst_n_INV_47_o (positive)                      |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000                                            |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 7-bit subtractor for signal <GND_11_o_GND_11_o_sub_42_OUT> created at line 256.
+    Found 32-bit subtractor for signal <GND_11_o_GND_11_o_sub_43_OUT> created at line 256.
+    Found 7-bit subtractor for signal <GND_11_o_GND_11_o_sub_49_OUT> created at line 259.
+    Found 16-bit adder for signal <clk_div_cnt[15]_GND_11_o_add_8_OUT> created at line 193.
+    Found 6-bit adder for signal <spi_bit_cnt[5]_GND_11_o_add_28_OUT> created at line 244.
+    Found 1-bit 48-to-1 multiplexer for signal <GND_11_o_X_10_o_Mux_20_o> created at line 214.
+    Found 32-bit comparator lessequal for signal <n0181> created at line 256
+    Found 32-bit comparator equal for signal <GND_11_o_GND_11_o_equal_50_o> created at line 259
+    Summary:
+	inferred   5 Adder/Subtractor(s).
+	inferred 145 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred  31 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <spi_master> synthesized.
+
+Synthesizing Unit <rst>.
+    Related source file is "D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\rst.v".
+        delay_cnt = 10
+    Found 4-bit register for signal <resetB>.
+    Found 8-bit register for signal <clk_cnt>.
+    Found 1-bit register for signal <rst_n>.
+    Found 8-bit adder for signal <clk_cnt[7]_GND_12_o_add_2_OUT> created at line 39.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  13 D-type flip-flop(s).
+Unit <rst> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 16
+ 262x48-bit single-port Read Only RAM                  : 16
+# Adders/Subtractors                                   : 10
+ 10-bit adder                                          : 1
+ 14-bit adder                                          : 1
+ 16-bit adder                                          : 2
+ 3-bit adder                                           : 1
+ 32-bit subtractor                                     : 1
+ 6-bit adder                                           : 1
+ 7-bit subtractor                                      : 2
+ 8-bit adder                                           : 1
+# Registers                                            : 90
+ 1-bit register                                        : 60
+ 10-bit register                                       : 1
+ 128-bit register                                      : 8
+ 14-bit register                                       : 1
+ 16-bit register                                       : 4
+ 24-bit register                                       : 1
+ 3-bit register                                        : 1
+ 4-bit register                                        : 6
+ 48-bit register                                       : 2
+ 6-bit register                                        : 2
+ 8-bit register                                        : 4
+# Latches                                              : 1
+ 1-bit latch                                           : 1
+# Comparators                                          : 2
+ 32-bit comparator equal                               : 1
+ 32-bit comparator lessequal                           : 1
+# Multiplexers                                         : 237
+ 1-bit 2-to-1 multiplexer                              : 51
+ 1-bit 48-to-1 multiplexer                             : 1
+ 10-bit 2-to-1 multiplexer                             : 1
+ 128-bit 2-to-1 multiplexer                            : 1
+ 14-bit 2-to-1 multiplexer                             : 3
+ 16-bit 2-to-1 multiplexer                             : 2
+ 4-bit 2-to-1 multiplexer                              : 10
+ 48-bit 2-to-1 multiplexer                             : 25
+ 6-bit 2-to-1 multiplexer                              : 7
+ 8-bit 16-to-1 multiplexer                             : 8
+ 8-bit 2-to-1 multiplexer                              : 128
+# FSMs                                                 : 5
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+INFO:Xst:2261 - The FF/Latch <resetB_0> in Unit <rst_test> is equivalent to the following 3 FFs/Latches, which will be removed : <resetB_1> <resetB_2> <resetB_3> 
+WARNING:Xst:1710 - FF/Latch <spi_dir_reg> (without init value) has a constant value of 0 in block <SPI_Master_test>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <r_Temp_RX_Byte_7> of sequential type is unconnected in block <SPI_Slave_test>.
+WARNING:Xst:2677 - Node <spi_data_14> of sequential type is unconnected in block <SPI_Listener_test>.
+WARNING:Xst:2677 - Node <spi_data_15> of sequential type is unconnected in block <SPI_Listener_test>.
+WARNING:Xst:2677 - Node <spi_data_21> of sequential type is unconnected in block <SPI_Listener_test>.
+WARNING:Xst:2677 - Node <spi_data_22> of sequential type is unconnected in block <SPI_Listener_test>.
+WARNING:Xst:2677 - Node <spi_data_23> of sequential type is unconnected in block <SPI_Listener_test>.
+
+Synthesizing (advanced) Unit <SPI_Slave>.
+The following registers are absorbed into counter <r_RX_Bit_Count>: 1 register on signal <r_RX_Bit_Count>.
+Unit <SPI_Slave> synthesized (advanced).
+
+Synthesizing (advanced) Unit <process>.
+The following registers are absorbed into counter <init_reg_addr>: 1 register on signal <init_reg_addr>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_MSTR111_init_reg_00> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 262-word x 48-bit                   |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <init_reg_addr<8:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_MSTR111_init_reg_01> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 262-word x 48-bit                   |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <init_reg_addr<8:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_MSTR111_init_reg_02> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 262-word x 48-bit                   |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <init_reg_addr<8:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_MSTR111_init_reg_03> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 262-word x 48-bit                   |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <init_reg_addr<8:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_MSTR111_init_reg_04> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 262-word x 48-bit                   |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <init_reg_addr<8:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_MSTR111_init_reg_05> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 262-word x 48-bit                   |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <init_reg_addr<8:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_MSTR111_init_reg_06> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 262-word x 48-bit                   |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <init_reg_addr<8:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_MSTR111_init_reg_07> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 262-word x 48-bit                   |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <init_reg_addr<8:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_MSTR111_init_reg_08> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 262-word x 48-bit                   |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <init_reg_addr<8:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_MSTR111_init_reg_09> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 262-word x 48-bit                   |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <init_reg_addr<8:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_MSTR111_init_reg_10> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 262-word x 48-bit                   |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <init_reg_addr<8:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_MSTR111_init_reg_11> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 262-word x 48-bit                   |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <init_reg_addr<8:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_MSTR111_init_reg_12> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 262-word x 48-bit                   |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <init_reg_addr<8:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_MSTR111_init_reg_13> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 262-word x 48-bit                   |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <init_reg_addr<8:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_MSTR111_init_reg_14> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 262-word x 48-bit                   |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <init_reg_addr<8:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_MSTR111_init_reg_15> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 262-word x 48-bit                   |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <init_reg_addr<8:0>> |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <process> synthesized (advanced).
+
+Synthesizing (advanced) Unit <rst>.
+The following registers are absorbed into counter <clk_cnt>: 1 register on signal <clk_cnt>.
+Unit <rst> synthesized (advanced).
+
+Synthesizing (advanced) Unit <spi_listener>.
+The following registers are absorbed into counter <timeout_cnt>: 1 register on signal <timeout_cnt>.
+Unit <spi_listener> synthesized (advanced).
+
+Synthesizing (advanced) Unit <spi_master>.
+The following registers are absorbed into counter <clk_div_cnt>: 1 register on signal <clk_div_cnt>.
+Unit <spi_master> synthesized (advanced).
+WARNING:Xst:2677 - Node <r_Temp_RX_Byte_7> of sequential type is unconnected in block <SPI_Slave>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 16
+ 262x48-bit single-port distributed Read Only RAM      : 16
+# Adders/Subtractors                                   : 5
+ 14-bit adder                                          : 1
+ 32-bit subtractor                                     : 1
+ 6-bit adder                                           : 1
+ 7-bit subtractor                                      : 2
+# Counters                                             : 5
+ 10-bit up counter                                     : 1
+ 16-bit up counter                                     : 2
+ 3-bit up counter                                      : 1
+ 8-bit up counter                                      : 1
+# Registers                                            : 1309
+ Flip-Flops                                            : 1309
+# Comparators                                          : 2
+ 32-bit comparator equal                               : 1
+ 32-bit comparator lessequal                           : 1
+# Multiplexers                                         : 1196
+ 1-bit 16-to-1 multiplexer                             : 64
+ 1-bit 2-to-1 multiplexer                              : 1083
+ 1-bit 48-to-1 multiplexer                             : 1
+ 128-bit 2-to-1 multiplexer                            : 1
+ 14-bit 2-to-1 multiplexer                             : 3
+ 16-bit 2-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 10
+ 48-bit 2-to-1 multiplexer                             : 25
+ 6-bit 2-to-1 multiplexer                              : 7
+ 8-bit 2-to-1 multiplexer                              : 1
+# FSMs                                                 : 5
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <spi_dir_reg> (without init value) has a constant value of 0 in block <spi_master>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <resetB_0> in Unit <rst> is equivalent to the following 3 FFs/Latches, which will be removed : <resetB_1> <resetB_2> <resetB_3> 
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <SPI_Master_test/FSM_4> on signal <spi_state[1:3]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 000
+ 010   | 010
+ 001   | 001
+ 011   | 011
+ 100   | 100
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <SPI_Listener_test/FSM_0> on signal <spi_byte_cnt[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 10
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <process_test/FSM_2> on signal <spi_state[1:3]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 0000  | 000
+ 0100  | 001
+ 0101  | 010
+ 0001  | 011
+ 0010  | 100
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <process_test/FSM_3> on signal <FastSetTR_state[1:2]> with sequential encoding.
+-------------------
+ State | Encoding
+-------------------
+ 0000  | 00
+ 0001  | 01
+ 0010  | 10
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <process_test/FSM_1> on signal <proc_state[1:5]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00000 | 00000
+ 10010 | 10010
+ 00010 | 00010
+ 00011 | 00011
+ 00100 | 00100
+ 00101 | 00101
+ 00110 | 00110
+ 00111 | 00111
+ 01000 | 01000
+ 01001 | 01001
+ 01010 | 01010
+ 01011 | 01011
+ 01100 | 01100
+ 01101 | 01101
+ 01110 | 01110
+ 01111 | 01111
+ 10000 | 10000
+ 10001 | 10001
+ 00001 | 00001
+-------------------
+WARNING:Xst:1710 - FF/Latch <o_spi_data_depth_2> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_depth_4> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <spi_mosi_0> in Unit <spi_master> is equivalent to the following 3 FFs/Latches, which will be removed : <spi_mosi_1> <spi_mosi_2> <spi_mosi_3> 
+INFO:Xst:2261 - The FF/Latch <spi_sclk_0> in Unit <spi_master> is equivalent to the following 3 FFs/Latches, which will be removed : <spi_sclk_1> <spi_sclk_2> <spi_sclk_3> 
+INFO:Xst:2261 - The FF/Latch <o_spi_data_depth_0> in Unit <process> is equivalent to the following 2 FFs/Latches, which will be removed : <o_spi_data_depth_1> <o_spi_data_depth_3> 
+WARNING:Xst:1710 - FF/Latch <o_SPI_data_40> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_SPI_data_41> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_SPI_data_42> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_SPI_data_43> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_SPI_data_45> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_SPI_data_46> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_SPI_data_47> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:3002 - This design contains one or more registers/latches that are directly
+   incompatible with the Spartan6 architecture. The two primary causes of this is
+   either a register or latch described with both an asynchronous set and
+   asynchronous reset, or a register or latch described with an asynchronous
+   set or reset which however has an initialization value of the opposite 
+   polarity (i.e. asynchronous reset with an initialization value of 1).
+    While this circuit can be built, it creates a sub-optimal implementation
+   in terms of area, power and performance. For a more optimal implementation
+   Xilinx highly recommends one of the following:
+
+          1) Remove either the set or reset from all registers and latches
+             if not needed for required functionality
+          2) Modify the code in order to produce a synchronous set
+             and/or reset (both is preferred)
+          3) Ensure all registers have the same initialization value as the
+             described asynchronous set or reset polarity
+          4) Use the -async_to_sync option to transform the asynchronous
+             set/reset to synchronous operation
+             (timing simulation highly recommended when using this option)
+
+  Please refer to http://www.xilinx.com search string "Spartan6 asynchronous set/reset" for more details.
+
+  List of register instances with asynchronous set and reset:
+    o_Fast_TR_3 in unit <TRX_switch>
+
+
+Optimizing unit <top> ...
+
+Optimizing unit <spi_master> ...
+
+Optimizing unit <SPI_Slave> ...
+
+Optimizing unit <spi_listener> ...
+
+Optimizing unit <process> ...
+
+Optimizing unit <TRX_switch> ...
+WARNING:Xst:1710 - FF/Latch <SPI_Master_test/spi_data_tx_reg_47> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/spi_data_tx_reg_46> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/spi_data_tx_reg_45> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/spi_data_tx_reg_43> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/spi_data_tx_reg_42> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/spi_data_tx_reg_41> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/spi_data_tx_reg_40> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_finish> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_12> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_11> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_16> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_18> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_19> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_17> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_21> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_22> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_20> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_24> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_25> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_23> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_27> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_28> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_26> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_30> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_31> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_29> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_33> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_34> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_32> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_36> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_37> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_35> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_39> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_40> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_38> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_42> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_43> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_41> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_45> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_46> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_44> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Master_test/spi_data_rx_47> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_23> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_22> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_21> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_1_15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_1_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_1_13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_1_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_1_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:1710 - FF/Latch <SPI_Master_test/clk_div_cnt_1> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/clk_div_cnt_2> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/clk_div_cnt_3> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/clk_div_cnt_4> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/clk_div_cnt_5> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/clk_div_cnt_6> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/clk_div_cnt_7> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/clk_div_cnt_8> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/clk_div_cnt_9> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/clk_div_cnt_10> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/clk_div_cnt_11> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/clk_div_cnt_12> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/clk_div_cnt_13> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/clk_div_cnt_14> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <SPI_Master_test/clk_div_cnt_15> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <rst_test/clk_cnt_7> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <rst_test/clk_cnt_6> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <rst_test/clk_cnt_5> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <rst_test/clk_cnt_4> has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <process_test/o_Fast_SetR_3> in Unit <top> is equivalent to the following 3 FFs/Latches, which will be removed : <process_test/o_Fast_SetR_2> <process_test/o_Fast_SetR_1> <process_test/o_Fast_SetR_0> 
+INFO:Xst:2261 - The FF/Latch <rst_test/resetB_0> in Unit <top> is equivalent to the following FF/Latch, which will be removed : <rst_test/rst_n> 
+INFO:Xst:2261 - The FF/Latch <process_test/o_Fast_SetT_3> in Unit <top> is equivalent to the following 3 FFs/Latches, which will be removed : <process_test/o_Fast_SetT_2> <process_test/o_Fast_SetT_1> <process_test/o_Fast_SetT_0> 
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 15.
+Latch TRX_switch/o_Fast_TR_3 has been replicated 3 time(s) to handle iob=true attribute.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 1264
+ Flip-Flops                                            : 1264
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : top.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 3943
+#      GND                         : 1
+#      INV                         : 10
+#      LUT1                        : 32
+#      LUT2                        : 78
+#      LUT3                        : 98
+#      LUT4                        : 332
+#      LUT5                        : 368
+#      LUT6                        : 2653
+#      MUXCY                       : 45
+#      MUXF7                       : 210
+#      MUXF8                       : 64
+#      VCC                         : 1
+#      XORCY                       : 51
+# FlipFlops/Latches                : 1268
+#      FD                          : 6
+#      FDC                         : 6
+#      FDCE                        : 9
+#      FDE                         : 220
+#      FDR                         : 29
+#      FDRE                        : 994
+#      LD                          : 4
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 45
+#      IBUF                        : 3
+#      IBUFDS                      : 2
+#      OBUF                        : 40
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx45csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:            1264  out of  54576     2%  
+ Number of Slice LUTs:                 3571  out of  27288    13%  
+    Number used as Logic:              3571  out of  27288    13%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:   3641
+   Number with an unused Flip Flop:    2377  out of   3641    65%  
+   Number with an unused LUT:            70  out of   3641     1%  
+   Number of fully used LUT-FF pairs:  1194  out of   3641    32%  
+   Number of unique control sets:        40
+
+IO Utilization: 
+ Number of IOs:                          52
+ Number of bonded IOBs:                  48  out of    218    22%  
+    IOB Flip Flops/Latches:               4
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+-----------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)       | Load  |
+-----------------------------------+-----------------------------+-------+
+clk_in                             | BUFGP                       | 1245  |
+Module_clk_P                       | IBUFDS                      | 19    |
+N0                                 | NONE(TRX_switch/o_Fast_TR_3)| 4     |
+-----------------------------------+-----------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 8.273ns (Maximum Frequency: 120.868MHz)
+   Minimum input arrival time before clock: 7.235ns
+   Maximum output required time after clock: 5.044ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk_in'
+  Clock period: 8.273ns (frequency: 120.868MHz)
+  Total number of paths / destination ports: 44659 / 3476
+-------------------------------------------------------------------------
+Delay:               8.273ns (Levels of Logic = 6)
+  Source:            process_test/init_reg_addr_3 (FF)
+  Destination:       process_test/o_SPI_data_44 (FF)
+  Source Clock:      clk_in rising
+  Destination Clock: clk_in rising
+
+  Data Path: process_test/init_reg_addr_3 to process_test/o_SPI_data_44
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q           869   0.447   2.520  process_test/init_reg_addr_3 (process_test/init_reg_addr_3)
+     LUT5:I0->O           17   0.203   1.028  process_test_Mram_MSTR111_init_reg_001051_1 (process_test_Mram_MSTR111_init_reg_001051)
+     LUT5:I4->O           16   0.205   1.109  process_test_N461 (process_test/_n0834<44>)
+     LUT5:I3->O            1   0.203   0.580  process_test/Mmux_proc_state[4]_o_SPI_data[47]_wide_mux_535_OUT1431 (process_test/Mmux_proc_state[4]_o_SPI_data[47]_wide_mux_535_OUT143)
+     LUT6:I5->O            1   0.205   0.684  process_test/Mmux_proc_state[4]_o_SPI_data[47]_wide_mux_535_OUT1432 (process_test/Mmux_proc_state[4]_o_SPI_data[47]_wide_mux_535_OUT1431)
+     LUT6:I4->O            1   0.203   0.580  process_test/Mmux_proc_state[4]_o_SPI_data[47]_wide_mux_535_OUT1434 (process_test/Mmux_proc_state[4]_o_SPI_data[47]_wide_mux_535_OUT1433)
+     LUT6:I5->O            1   0.205   0.000  process_test/Mmux_proc_state[4]_o_SPI_data[47]_wide_mux_535_OUT1439 (process_test/proc_state[4]_o_SPI_data[47]_wide_mux_535_OUT<44>)
+     FDRE:D                    0.102          process_test/o_SPI_data_44
+    ----------------------------------------
+    Total                      8.273ns (1.773ns logic, 6.500ns route)
+                                       (21.4% logic, 78.6% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Module_clk_P'
+  Clock period: 2.687ns (frequency: 372.148MHz)
+  Total number of paths / destination ports: 49 / 26
+-------------------------------------------------------------------------
+Delay:               2.687ns (Levels of Logic = 1)
+  Source:            SPI_Slave_test/r_RX_Bit_Count_2 (FF)
+  Destination:       SPI_Slave_test/r_RX_Byte_7 (FF)
+  Source Clock:      Module_clk_P rising
+  Destination Clock: Module_clk_P rising
+
+  Data Path: SPI_Slave_test/r_RX_Bit_Count_2 to SPI_Slave_test/r_RX_Byte_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              4   0.447   0.912  SPI_Slave_test/r_RX_Bit_Count_2 (SPI_Slave_test/r_RX_Bit_Count_2)
+     LUT4:I1->O            8   0.205   0.802  SPI_Slave_test/_n0049_inv1 (SPI_Slave_test/_n0049_inv)
+     FDE:CE                    0.322          SPI_Slave_test/r_RX_Byte_0
+    ----------------------------------------
+    Total                      2.687ns (0.974ns logic, 1.713ns route)
+                                       (36.2% logic, 63.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Module_clk_P'
+  Total number of paths / destination ports: 23 / 21
+-------------------------------------------------------------------------
+Offset:              3.540ns (Levels of Logic = 2)
+  Source:            Module_EN (PAD)
+  Destination:       SPI_Slave_test/r_RX_Byte_7 (FF)
+  Destination Clock: Module_clk_P rising
+
+  Data Path: Module_EN to SPI_Slave_test/r_RX_Byte_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             6   1.222   0.992  Module_EN_IBUF (Module_EN_IBUF)
+     LUT4:I0->O            8   0.203   0.802  SPI_Slave_test/_n0049_inv1 (SPI_Slave_test/_n0049_inv)
+     FDE:CE                    0.322          SPI_Slave_test/r_RX_Byte_0
+    ----------------------------------------
+    Total                      3.540ns (1.747ns logic, 1.793ns route)
+                                       (49.3% logic, 50.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_in'
+  Total number of paths / destination ports: 142 / 65
+-------------------------------------------------------------------------
+Offset:              7.235ns (Levels of Logic = 5)
+  Source:            Module_TX (PAD)
+  Destination:       process_test/o_SPI_data_44 (FF)
+  Destination Clock: clk_in rising
+
+  Data Path: Module_TX to process_test/o_SPI_data_44
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            15   1.222   1.086  Module_TX_IBUF (Module_TX_IBUF)
+     LUT2:I0->O            6   0.203   1.109  process_test/FastSetTR_state_FSM_FFd1-In2111 (process_test/FastSetTR_state_FSM_FFd1-In211)
+     LUT6:I0->O            1   0.203   0.580  process_test/_n1611_inv1 (process_test/_n1611_inv1)
+     LUT5:I4->O            1   0.205   0.684  process_test/_n1611_inv2 (process_test/_n1611_inv2)
+     LUT4:I2->O           41   0.203   1.419  process_test/_n1611_inv3 (process_test/_n1611_inv)
+     FDRE:CE                   0.322          process_test/o_SPI_data_0
+    ----------------------------------------
+    Total                      7.235ns (2.358ns logic, 4.877ns route)
+                                       (32.6% logic, 67.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_in'
+  Total number of paths / destination ports: 36 / 36
+-------------------------------------------------------------------------
+Offset:              5.044ns (Levels of Logic = 1)
+  Source:            rst_test/resetB_0 (FF)
+  Destination:       RsetB<3> (PAD)
+  Source Clock:      clk_in rising
+
+  Data Path: rst_test/resetB_0 to RsetB<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q            170   0.447   2.026  rst_test/resetB_0 (rst_test/resetB_0)
+     OBUF:I->O                 2.571          RsetB_3_OBUF (RsetB<3>)
+    ----------------------------------------
+    Total                      5.044ns (3.018ns logic, 2.026ns route)
+                                       (59.8% logic, 40.2% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock Module_clk_P
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+Module_clk_P   |    2.687|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock clk_in
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+Module_clk_P   |    1.128|         |         |         |
+clk_in         |    8.273|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 54.00 secs
+Total CPU time to Xst completion: 54.01 secs
+ 
+--> 
+
+Total memory usage is 4756580 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  172 (   0 filtered)
+Number of infos    :   28 (   0 filtered)
+

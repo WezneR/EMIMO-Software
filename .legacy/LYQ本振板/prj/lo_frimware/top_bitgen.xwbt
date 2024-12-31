@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\aspha\Desktop\ise_workspace\lo_firmware\prj\lo_frimware\top.ncd
+OUTFILE=C:\Users\aspha\Desktop\ise_workspace\lo_firmware\prj\lo_frimware\top.bit
+FAMILY=Spartan3A and Spartan3AN
+PART=xc3s200an-4ftg256
+WORKINGDIR=C:\Users\aspha\Desktop\ise_workspace\lo_firmware\prj\lo_frimware
+LICENSE=WebPack
+USER_INFO=__0_0_0

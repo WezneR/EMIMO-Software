@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "F:/ISE/UE_CTRL/spi_process.xst" -ofn "F:/ISE/UE_CTRL/spi_process.syr" 

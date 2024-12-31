@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<Compat Version="1" Minor="4">
+	<CompatParts>
+	</CompatParts>
+	<ConfigModes>
+		<Mode Id="JTAG"/>
+	</ConfigModes>
+	<PortProps>
+		<Port Name="PE44951_CS[7]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_CS[6]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_CS[5]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_CS[4]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_CS[3]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_CS[2]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_CS[1]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_CS[0]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_SCLK[1]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_SCLK[0]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_MOSI[7]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_MOSI[6]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_MOSI[5]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_MOSI[4]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_MOSI[3]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_MOSI[2]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_MOSI[1]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_MOSI[0]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_LP[1]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_LP[0]" OffChipTerm="NONE"/>
+		<Port Name="FEM_TX_ON[7]" OffChipTerm="NONE"/>
+		<Port Name="FEM_TX_ON[6]" OffChipTerm="NONE"/>
+		<Port Name="FEM_TX_ON[5]" OffChipTerm="NONE"/>
+		<Port Name="FEM_TX_ON[4]" OffChipTerm="NONE"/>
+		<Port Name="FEM_TX_ON[3]" OffChipTerm="NONE"/>
+		<Port Name="FEM_TX_ON[2]" OffChipTerm="NONE"/>
+		<Port Name="FEM_TX_ON[1]" OffChipTerm="NONE"/>
+		<Port Name="FEM_TX_ON[0]" OffChipTerm="NONE"/>
+		<Port Name="FEM_RX_ON[7]" OffChipTerm="NONE"/>
+		<Port Name="FEM_RX_ON[6]" OffChipTerm="NONE"/>
+		<Port Name="FEM_RX_ON[5]" OffChipTerm="NONE"/>
+		<Port Name="FEM_RX_ON[4]" OffChipTerm="NONE"/>
+		<Port Name="FEM_RX_ON[3]" OffChipTerm="NONE"/>
+		<Port Name="FEM_RX_ON[2]" OffChipTerm="NONE"/>
+		<Port Name="FEM_RX_ON[1]" OffChipTerm="NONE"/>
+		<Port Name="FEM_RX_ON[0]" OffChipTerm="NONE"/>
+		<Port Name="IF_DSA_LE[1]" OffChipTerm="NONE"/>
+		<Port Name="IF_DSA_LE[0]" OffChipTerm="NONE"/>
+		<Port Name="IF_DSA_DIN[11]" OffChipTerm="NONE"/>
+		<Port Name="IF_DSA_DIN[10]" OffChipTerm="NONE"/>
+		<Port Name="IF_DSA_DIN[9]" OffChipTerm="NONE"/>
+		<Port Name="IF_DSA_DIN[8]" OffChipTerm="NONE"/>
+		<Port Name="IF_DSA_DIN[7]" OffChipTerm="NONE"/>
+		<Port Name="IF_DSA_DIN[6]" OffChipTerm="NONE"/>
+		<Port Name="IF_DSA_DIN[5]" OffChipTerm="NONE"/>
+		<Port Name="IF_DSA_DIN[4]" OffChipTerm="NONE"/>
+		<Port Name="IF_DSA_DIN[3]" OffChipTerm="NONE"/>
+		<Port Name="IF_DSA_DIN[2]" OffChipTerm="NONE"/>
+		<Port Name="IF_DSA_DIN[1]" OffChipTerm="NONE"/>
+		<Port Name="IF_DSA_DIN[0]" OffChipTerm="NONE"/>
+		<Port Name="PE44951_Rset" OffChipTerm="NONE"/>
+		<Port Name="FEM_LNA_BYPASS" OffChipTerm="NONE"/>
+		<Port Name="IF_TX_ON" OffChipTerm="NONE"/>
+		<Port Name="IF_RX_ON" OffChipTerm="NONE"/>
+	</PortProps>
+</Compat>
+

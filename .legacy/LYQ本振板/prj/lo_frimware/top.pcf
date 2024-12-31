@@ -1,0 +1,56 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Tue Aug 20 14:16:19 2024
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "trx4_spi_clk_p" LOCATE = SITE "B15" LEVEL 1;
+COMP "clk" LOCATE = SITE "P9" LEVEL 1;
+COMP "trx4_spi_mosi_p" LOCATE = SITE "D13" LEVEL 1;
+COMP "ce_4002" LOCATE = SITE "H16" LEVEL 1;
+COMP "ce_2594" LOCATE = SITE "C15" LEVEL 1;
+COMP "spi_clk_4002" LOCATE = SITE "F16" LEVEL 1;
+COMP "fpga_rx" LOCATE = SITE "R3" LEVEL 1;
+COMP "fpga_tx" LOCATE = SITE "T2" LEVEL 1;
+COMP "spi_clk_2594" LOCATE = SITE "D15" LEVEL 1;
+COMP "debug_mode" LOCATE = SITE "N8" LEVEL 1;
+COMP "trx1_rx" LOCATE = SITE "A3" LEVEL 1;
+COMP "trx1_tx" LOCATE = SITE "B3" LEVEL 1;
+COMP "trx2_rx" LOCATE = SITE "A8" LEVEL 1;
+COMP "trx2_tx" LOCATE = SITE "B8" LEVEL 1;
+COMP "trx3_rx" LOCATE = SITE "E3" LEVEL 1;
+COMP "trx3_tx" LOCATE = SITE "G1" LEVEL 1;
+COMP "trx4_rx" LOCATE = SITE "K1" LEVEL 1;
+COMP "trx4_tx" LOCATE = SITE "J2" LEVEL 1;
+COMP "fpga_spi_cs_p" LOCATE = SITE "R7" LEVEL 1;
+COMP "spi_sdo_4002" LOCATE = SITE "F15" LEVEL 1;
+COMP "spi_sdo_2594" LOCATE = SITE "D16" LEVEL 1;
+COMP "trx1_spi_mosi_p" LOCATE = SITE "A5" LEVEL 1;
+COMP "mout_4002" LOCATE = SITE "G16" LEVEL 1;
+COMP "mout_2594" LOCATE = SITE "D14" LEVEL 1;
+COMP "led<0>" LOCATE = SITE "F3" LEVEL 1;
+COMP "led<1>" LOCATE = SITE "F1" LEVEL 1;
+COMP "spi_le_4002" LOCATE = SITE "E16" LEVEL 1;
+COMP "spi_le_2594" LOCATE = SITE "C16" LEVEL 1;
+COMP "amp_en" LOCATE = SITE "P16" LEVEL 1;
+COMP "fpga_rad" LOCATE = SITE "P6" LEVEL 1;
+COMP "trx1_en_n" LOCATE = SITE "A4" LEVEL 1;
+COMP "trx2_en_n" LOCATE = SITE "C9" LEVEL 1;
+COMP "trx3_en_n" LOCATE = SITE "E1" LEVEL 1;
+COMP "trx4_en_n" LOCATE = SITE "J3" LEVEL 1;
+COMP "trx2_spi_mosi_p" LOCATE = SITE "B10" LEVEL 1;
+COMP "trx1_spi_cs" LOCATE = SITE "C4" LEVEL 1;
+COMP "trx2_spi_cs" LOCATE = SITE "C10" LEVEL 1;
+COMP "trx1_spi_clk_p" LOCATE = SITE "A6" LEVEL 1;
+COMP "trx3_spi_cs" LOCATE = SITE "E2" LEVEL 1;
+COMP "trx4_spi_cs" LOCATE = SITE "J1" LEVEL 1;
+COMP "fpga_spi_mosi_p" LOCATE = SITE "T5" LEVEL 1;
+COMP "trx2_spi_clk_p" LOCATE = SITE "C11" LEVEL 1;
+COMP "trx1_rad" LOCATE = SITE "B4" LEVEL 1;
+COMP "trx2_rad" LOCATE = SITE "A9" LEVEL 1;
+COMP "fpga_spi_clk_p" LOCATE = SITE "T4" LEVEL 1;
+COMP "trx3_spi_mosi_p" LOCATE = SITE "A14" LEVEL 1;
+COMP "trx3_spi_clk_p" LOCATE = SITE "C12" LEVEL 1;
+COMP "FPGA_RX" LOCATE = SITE "L1" LEVEL 1;
+COMP "FPGA_TX" LOCATE = SITE "L2" LEVEL 1;
+SCHEMATIC END;
+

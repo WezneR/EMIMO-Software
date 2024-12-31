@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Tue Nov 12 21:54:28 2024
+# Process ID: 14540
+# Log file: F:/ISE/eMIMO_SubArray/planAhead_run_4/planAhead.log
+# Journal file: F:/ISE/eMIMO_SubArray/planAhead_run_4/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source F:/ISE/eMIMO_SubArray/pa.fromNetlist.tcl
+set_property offchip_term NONE [get_ports [list {FEM_RX_ON[7]} {FEM_RX_ON[6]} {FEM_RX_ON[5]} {FEM_RX_ON[4]} {FEM_RX_ON[3]} {FEM_RX_ON[2]} {FEM_RX_ON[1]} {FEM_RX_ON[0]}]]
+set_property offchip_term NONE [get_ports [list {FEM_TX_ON[7]} {FEM_TX_ON[6]} {FEM_TX_ON[5]} {FEM_TX_ON[4]} {FEM_TX_ON[3]} {FEM_TX_ON[2]} {FEM_TX_ON[1]} {FEM_TX_ON[0]}]]
+set_property offchip_term NONE [get_ports [list {IF_DSA_LE[1]} {IF_DSA_LE[0]}]]
+set_property offchip_term NONE [get_ports [list {PE44951_CS[7]} {PE44951_CS[6]} {PE44951_CS[5]} {PE44951_CS[4]} {PE44951_CS[3]} {PE44951_CS[2]} {PE44951_CS[1]} {PE44951_CS[0]}]]
+set_property offchip_term NONE [get_ports [list {IF_DSA_DIN[11]} {IF_DSA_DIN[10]} {IF_DSA_DIN[9]} {IF_DSA_DIN[8]} {IF_DSA_DIN[7]} {IF_DSA_DIN[6]} {IF_DSA_DIN[5]} {IF_DSA_DIN[4]} {IF_DSA_DIN[3]} {IF_DSA_DIN[2]} {IF_DSA_DIN[1]} {IF_DSA_DIN[0]}]]
+set_property offchip_term NONE [get_ports [list {PE44951_LP[1]} {PE44951_LP[0]}]]
+set_property offchip_term NONE [get_ports [list {PE44951_MOSI[7]} {PE44951_MOSI[6]} {PE44951_MOSI[5]} {PE44951_MOSI[4]} {PE44951_MOSI[3]} {PE44951_MOSI[2]} {PE44951_MOSI[1]} {PE44951_MOSI[0]}]]
+set_property offchip_term NONE [get_ports [list {PE44951_SCLK[1]} {PE44951_SCLK[0]}]]
+set_property offchip_term NONE [get_ports [list FEM_LNA_BYPASS]]
+set_property offchip_term NONE [get_ports [list IF_RX_ON]]
+set_property offchip_term NONE [get_ports [list IF_TX_ON]]
+set_property offchip_term NONE [get_ports [list PE44951_Rset]]
+save_constraints
+write_ucf F:/ISE/eMIMO_SubArray/planAhead_run_4/design_1.ucf -mode port

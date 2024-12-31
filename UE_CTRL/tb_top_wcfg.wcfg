@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="F:/ISE/UE_CTRL/top_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="top_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="63" />
+   <wvobject fp_name="/top_tb/uut/process_test/rst_n" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst_n</obj_property>
+      <obj_property name="ObjectShortName">rst_n</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/RXD_MCU" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RXD_MCU</obj_property>
+      <obj_property name="ObjectShortName">RXD_MCU</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/RXD_HOST" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RXD_HOST</obj_property>
+      <obj_property name="ObjectShortName">RXD_HOST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/TX_ON_B1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">TX_ON_B1</obj_property>
+      <obj_property name="ObjectShortName">TX_ON_B1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/RX_ON_B1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RX_ON_B1</obj_property>
+      <obj_property name="ObjectShortName">RX_ON_B1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/TX_ON_B2" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">TX_ON_B2</obj_property>
+      <obj_property name="ObjectShortName">TX_ON_B2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/RX_ON_B2" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RX_ON_B2</obj_property>
+      <obj_property name="ObjectShortName">RX_ON_B2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/TX_B1_DSA" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">TX_B1_DSA[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_B1_DSA[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/RX_B1_DSA" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RX_B1_DSA[5:0]</obj_property>
+      <obj_property name="ObjectShortName">RX_B1_DSA[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/TX_B2_DSA" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">TX_B2_DSA[5:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_B2_DSA[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/RX_B2_DSA" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RX_B2_DSA[5:0]</obj_property>
+      <obj_property name="ObjectShortName">RX_B2_DSA[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/TX_B1_LE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">TX_B1_LE[7:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_B1_LE[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/RX_B1_LE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RX_B1_LE[7:0]</obj_property>
+      <obj_property name="ObjectShortName">RX_B1_LE[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/TX_B2_LE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">TX_B2_LE[7:0]</obj_property>
+      <obj_property name="ObjectShortName">TX_B2_LE[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/RX_B2_LE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RX_B2_LE[7:0]</obj_property>
+      <obj_property name="ObjectShortName">RX_B2_LE[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/RX_B1_LNA_BYPASS" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RX_B1_LNA_BYPASS[7:0]</obj_property>
+      <obj_property name="ObjectShortName">RX_B1_LNA_BYPASS[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/RX_B2_LNA_BYPASS" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RX_B2_LNA_BYPASS[7:0]</obj_property>
+      <obj_property name="ObjectShortName">RX_B2_LNA_BYPASS[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/CLK_SYS" type="logic" db_ref_id="1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">CLK_SYS</obj_property>
+      <obj_property name="ObjectShortName">CLK_SYS</obj_property>
+      <obj_property name="label">CLK_SYS</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/SPI_DATA" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">SPI_DATA</obj_property>
+      <obj_property name="ObjectShortName">SPI_DATA</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/SPI_CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">SPI_CLK</obj_property>
+      <obj_property name="ObjectShortName">SPI_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/SPI_LE" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">SPI_LE</obj_property>
+      <obj_property name="ObjectShortName">SPI_LE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/UPDATE" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">UPDATE</obj_property>
+      <obj_property name="ObjectShortName">UPDATE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/TX_ON" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">TX_ON</obj_property>
+      <obj_property name="ObjectShortName">TX_ON</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/RX_ON" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RX_ON</obj_property>
+      <obj_property name="ObjectShortName">RX_ON</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/MODE" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">MODE</obj_property>
+      <obj_property name="ObjectShortName">MODE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/REV" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">REV</obj_property>
+      <obj_property name="ObjectShortName">REV</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/TXD_HOST" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">TXD_HOST</obj_property>
+      <obj_property name="ObjectShortName">TXD_HOST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/TXD_MCU" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">TXD_MCU</obj_property>
+      <obj_property name="ObjectShortName">TXD_MCU</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/SPI_DATA_MCU" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">SPI_DATA_MCU</obj_property>
+      <obj_property name="ObjectShortName">SPI_DATA_MCU</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/SPI_CLK_MCU" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">SPI_CLK_MCU</obj_property>
+      <obj_property name="ObjectShortName">SPI_CLK_MCU</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/SPI_LE_MCU" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">SPI_LE_MCU</obj_property>
+      <obj_property name="ObjectShortName">SPI_LE_MCU</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/UPDATE_MCU" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">UPDATE_MCU</obj_property>
+      <obj_property name="ObjectShortName">UPDATE_MCU</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/TX_ON_MCU" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">TX_ON_MCU</obj_property>
+      <obj_property name="ObjectShortName">TX_ON_MCU</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/RX_ON_MCU" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RX_ON_MCU</obj_property>
+      <obj_property name="ObjectShortName">RX_ON_MCU</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/MODE_MCU" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">MODE_MCU</obj_property>
+      <obj_property name="ObjectShortName">MODE_MCU</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/REV1_MCU" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">REV1_MCU</obj_property>
+      <obj_property name="ObjectShortName">REV1_MCU</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/REV2_MCU" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">REV2_MCU</obj_property>
+      <obj_property name="ObjectShortName">REV2_MCU</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/PLUG_IN" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">PLUG_IN</obj_property>
+      <obj_property name="ObjectShortName">PLUG_IN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/clock_" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">clock_[31:0]</obj_property>
+      <obj_property name="ObjectShortName">clock_[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider135" type="divider">
+      <obj_property name="label">Top Intermidiate</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/RX_interrupt_clear" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RX_interrupt_clear</obj_property>
+      <obj_property name="ObjectShortName">RX_interrupt_clear</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider73" type="divider">
+      <obj_property name="label">UART_RX</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/UART_RX_inst/RX_interrupt_" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RX_interrupt_</obj_property>
+      <obj_property name="ObjectShortName">RX_interrupt_</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/UART_RX_inst/RX_state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RX_state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">RX_state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/UART_RX_inst/receive_data_" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">receive_data_[79:0]</obj_property>
+      <obj_property name="ObjectShortName">receive_data_[79:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/UART_RX_inst/receive_data_bytes" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">receive_data_bytes[5:0]</obj_property>
+      <obj_property name="ObjectShortName">receive_data_bytes[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider78" type="divider">
+      <obj_property name="label">process</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/process_test/i_RX_interrupt" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">i_RX_interrupt</obj_property>
+      <obj_property name="ObjectShortName">i_RX_interrupt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/process_test/o_RX_interrupt_clear" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">o_RX_interrupt_clear</obj_property>
+      <obj_property name="ObjectShortName">o_RX_interrupt_clear</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/process_test/UART_Head" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">UART_Head[15:0]</obj_property>
+      <obj_property name="ObjectShortName">UART_Head[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/process_test/host_board_id" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">host_board_id[3:0]</obj_property>
+      <obj_property name="ObjectShortName">host_board_id[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/process_test/host_bank_id" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">host_bank_id[1:0]</obj_property>
+      <obj_property name="ObjectShortName">host_bank_id[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/process_test/host_dsa_id" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">host_dsa_id[3:0]</obj_property>
+      <obj_property name="ObjectShortName">host_dsa_id[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/process_test/cmd_addr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">cmd_addr[3:0]</obj_property>
+      <obj_property name="ObjectShortName">cmd_addr[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/process_test/host_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">host_data[15:0]</obj_property>
+      <obj_property name="ObjectShortName">host_data[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/process_test/o_RX_interrupt_clear" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">o_RX_interrupt_clear</obj_property>
+      <obj_property name="ObjectShortName">o_RX_interrupt_clear</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/process_test/dsa_att" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dsa_att[5:0]</obj_property>
+      <obj_property name="ObjectShortName">dsa_att[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/process_test/Bank_ID" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Bank_ID[1:0]</obj_property>
+      <obj_property name="ObjectShortName">Bank_ID[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/process_test/DSA_ID" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">DSA_ID[3:0]</obj_property>
+      <obj_property name="ObjectShortName">DSA_ID[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/process_test/ALL_DSA" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ALL_DSA</obj_property>
+      <obj_property name="ObjectShortName">ALL_DSA</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/process_test/write_dsa_state" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">write_dsa_state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">write_dsa_state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_tb/uut/process_test/write_dsa_cnt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">write_dsa_cnt[3:0]</obj_property>
+      <obj_property name="ObjectShortName">write_dsa_cnt[3:0]</obj_property>
+   </wvobject>
+</wave_config>

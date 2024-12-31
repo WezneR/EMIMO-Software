@@ -1,0 +1,24 @@
+ISim log file
+Running: D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper_FBS\tb_top_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper_FBS/tb_top_isim_beh.wdb 
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run all
+Stopped at time : 40011920 ns :  in File "D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper_FBS/tb_Top.v" Line 126 
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run all
+Stopped at time : 40011920 ns :  in File "D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper_FBS/tb_Top.v" Line 126 

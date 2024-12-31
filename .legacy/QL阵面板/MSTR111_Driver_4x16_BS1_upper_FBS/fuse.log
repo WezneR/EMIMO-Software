@@ -1,0 +1,33 @@
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper_FBS/tb_top_isim_beh.exe" -prj "D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper_FBS/tb_top_beh.prj" "work.tb_top" "work.glbl" 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Analyzing Verilog file "D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper_FBS/TRX_switch.v" into library work
+Analyzing Verilog file "D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper_FBS/SPI_Slave.v" into library work
+Analyzing Verilog file "D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper_FBS/SPI_master.v" into library work
+Analyzing Verilog file "D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper_FBS/SPI_Listener.v" into library work
+Analyzing Verilog file "D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper_FBS/rst.v" into library work
+Analyzing Verilog file "D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper_FBS/process.v" into library work
+Analyzing Verilog file "D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper_FBS/Top.v" into library work
+Analyzing Verilog file "D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper_FBS/tb_Top.v" into library work
+Analyzing Verilog file "D:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:1016 - "D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper_FBS/Top.v" Line 111: Port i_TX_DV is not connected to this instance
+Completed static elaboration
+Compiling module SPI_Slave(SPI_MODE=0)
+Compiling module spi_listener(first_byte=8'b01000...
+Compiling module TRX_switch
+Compiling module process(spi_max_data_len=48)
+Compiling module spi_master(clk_div=2,spi_max_dat...
+Compiling module rst(delay_cnt=10)
+Compiling module IBUFDS(DIFF_TERM="TRUE",IOSTANDA...
+Compiling module top_default
+Compiling module tb_top
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 10 Verilog Units
+Built simulation executable D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper_FBS/tb_top_isim_beh.exe
+Fuse Memory Usage: 31868 KB
+Fuse CPU Usage: 515 ms

@@ -1,0 +1,26 @@
+Release 14.7 - par P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Wed Dec 18 15:45:26 2024
+
+All signals are completely routed.
+
+WARNING:ParHelpers:361 - There are 14 loadless signals in this design. This design will cause Bitgen to issue DRC
+   warnings.
+
+   MCU_FCLK_IBUF
+   MCU_INIT_IBUF
+   PE44951_MISO<0>_IBUF
+   PE44951_MISO<1>_IBUF
+   PE44951_MISO<2>_IBUF
+   PE44951_MISO<3>_IBUF
+   PE44951_MISO<4>_IBUF
+   PE44951_MISO<5>_IBUF
+   PE44951_MISO<6>_IBUF
+   PE44951_MISO<7>_IBUF
+   REV1_IBUF
+   REV2_IBUF
+   process_test/Mram_atten_reg_init11_RAMD_D1_O
+   process_test/Mram_atten_reg_init2_RAMD_D1_O
+
+

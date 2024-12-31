@@ -1,0 +1,6 @@
+verilog work "srcs/UART_TX.v"
+verilog work "srcs/UART_RX.v"
+verilog work "srcs/rst.v"
+verilog work "srcs/process.v"
+verilog work "srcs/FEM_TR_switch.v"
+verilog work "srcs/CTRL_TOP.v"

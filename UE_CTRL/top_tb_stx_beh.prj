@@ -1,0 +1,8 @@
+verilog isim_temp "srcs/UART_TX.v"
+verilog isim_temp "srcs/UART_RX.v"
+verilog isim_temp "srcs/rst.v"
+verilog isim_temp "srcs/process.v"
+verilog isim_temp "srcs/FEM_TR_switch.v"
+verilog isim_temp "srcs/CTRL_TOP.v"
+verilog isim_temp "srcs/tb_Top.v"
+verilog isim_temp "E:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

@@ -1,0 +1,92 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Tue Nov 12 21:54:28 2024
+# Process ID: 14540
+# Log file: F:/ISE/eMIMO_SubArray/planAhead_run_4/planAhead.log
+# Journal file: F:/ISE/eMIMO_SubArray/planAhead_run_4/planAhead.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Device 21-36] Loading parts and site information from E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source F:/ISE/eMIMO_SubArray/pa.fromNetlist.tcl
+# create_project -name eMIMO_SubArray -dir "F:/ISE/eMIMO_SubArray/planAhead_run_4" -part xc6slx25ftg256-2
+# set_property design_mode GateLvl [get_property srcset [current_run -impl]]
+# set_property edif_top_file "F:/ISE/eMIMO_SubArray/top.ngc" [ get_property srcset [ current_run ] ]
+# add_files -norecurse { {F:/ISE/eMIMO_SubArray} }
+# set_param project.pinAheadLayout  yes
+# set_property target_constrs_file "top.ucf" [current_fileset -constrset]
+Adding file 'F:/ISE/eMIMO_SubArray/top.ucf' to fileset 'constrs_1'
+# add_files [list {top.ucf}] -fileset [get_property constrset [current_run]]
+# link_design
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+Design is defaulting to project part: xc6slx25ftg256-2
+Release 14.7 - ngc2edif P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design top.ngc ...
+WARNING:NetListWriters:298 - No output is written to top.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:306 - Signal bus process_test/_n1803<17 : 7> on block top
+   is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus process_test/write_onece_spi_data<18 :
+   0> on block top is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus SPI_Listener_test/timeout_cnt<10 : 0> on
+   block top is not reconstructed, because there are some missing bus signals.
+  finished :Prep
+Writing EDIF netlist file top.edif ...
+ngc2edif: Total memory usage is 4342300 kilobytes
+
+Parsing EDIF File [./planAhead_run_4/eMIMO_SubArray.data/cache/top_ngc_zx.edif]
+Finished Parsing EDIF File [./planAhead_run_4/eMIMO_SubArray.data/cache/top_ngc_zx.edif]
+INFO: [Netlist 29-17] Analyzing 947 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-43] Netlist 'top' is not ideal for floorplanning, since the cellview 'top' defined in file 'top.ngc' contains large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+Loading clock regions from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx25/ClockRegion.xml
+Loading clock buffers from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx25/ClockBuffers.xml
+Loading package pin functions from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx25/ftg256/Package.xml
+Loading io standards from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : E:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/drc.xml
+Parsing UCF File [F:/ISE/eMIMO_SubArray/top.ucf]
+Finished Parsing UCF File [F:/ISE/eMIMO_SubArray/top.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 947 instances were transformed.
+  BUFGP => BUFGP (IBUF, BUFG): 1 instances
+  RAM128X1D => RAM128X1D (RAMD64E, RAMD64E, RAMD64E, RAMD64E, MUXF7, MUXF7): 942 instances
+  RAM16X1D => RAM16X1D (RAMD32, RAMD32, GND): 2 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 2 instances
+
+Phase 0 | Netlist Checksum: 868ee989
+link_design: Time (s): elapsed = 00:00:14 . Memory (MB): peak = 698.898 ; gain = 202.094
+set_property offchip_term NONE [get_ports [list {FEM_RX_ON[7]} {FEM_RX_ON[6]} {FEM_RX_ON[5]} {FEM_RX_ON[4]} {FEM_RX_ON[3]} {FEM_RX_ON[2]} {FEM_RX_ON[1]} {FEM_RX_ON[0]}]]
+set_property offchip_term NONE [get_ports [list {FEM_TX_ON[7]} {FEM_TX_ON[6]} {FEM_TX_ON[5]} {FEM_TX_ON[4]} {FEM_TX_ON[3]} {FEM_TX_ON[2]} {FEM_TX_ON[1]} {FEM_TX_ON[0]}]]
+set_property offchip_term NONE [get_ports [list {IF_DSA_LE[1]} {IF_DSA_LE[0]}]]
+set_property offchip_term NONE [get_ports [list {PE44951_CS[7]} {PE44951_CS[6]} {PE44951_CS[5]} {PE44951_CS[4]} {PE44951_CS[3]} {PE44951_CS[2]} {PE44951_CS[1]} {PE44951_CS[0]}]]
+set_property offchip_term NONE [get_ports [list {IF_DSA_DIN[11]} {IF_DSA_DIN[10]} {IF_DSA_DIN[9]} {IF_DSA_DIN[8]} {IF_DSA_DIN[7]} {IF_DSA_DIN[6]} {IF_DSA_DIN[5]} {IF_DSA_DIN[4]} {IF_DSA_DIN[3]} {IF_DSA_DIN[2]} {IF_DSA_DIN[1]} {IF_DSA_DIN[0]}]]
+set_property offchip_term NONE [get_ports [list {PE44951_LP[1]} {PE44951_LP[0]}]]
+set_property offchip_term NONE [get_ports [list {PE44951_MOSI[7]} {PE44951_MOSI[6]} {PE44951_MOSI[5]} {PE44951_MOSI[4]} {PE44951_MOSI[3]} {PE44951_MOSI[2]} {PE44951_MOSI[1]} {PE44951_MOSI[0]}]]
+set_property offchip_term NONE [get_ports [list {PE44951_SCLK[1]} {PE44951_SCLK[0]}]]
+set_property offchip_term NONE [get_ports [list FEM_LNA_BYPASS]]
+set_property offchip_term NONE [get_ports [list IF_RX_ON]]
+set_property offchip_term NONE [get_ports [list IF_TX_ON]]
+set_property offchip_term NONE [get_ports [list PE44951_Rset]]
+save_constraints
+write_ucf F:/ISE/eMIMO_SubArray/planAhead_run_4/design_1.ucf -mode port
+exit
+ERROR: [PlanAhead 12-106] *** Exception: ui.h.b: Found deleted key in HTclEventBroker. Verify if the classes listed here call cleanup()
+HTclEvent: SIGNAL_BUS_MODIFY   Classes: ui.views.aR 
+HTclEvent: DEBUG_PORT_CONFIG_CHANGE   Classes: ui.views.aR 
+HTclEvent: SIGNAL_MODIFY   Classes: ui.views.aR 
+HTclEvent: DEBUG_CORE_CONFIG_CHANGE   Classes: ui.views.aR 
+ (See F:/ISE/eMIMO_SubArray\planAhead_pid14540.debug)
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Tue Nov 12 21:57:39 2024...
+INFO: [Common 17-83] Releasing license: PlanAhead

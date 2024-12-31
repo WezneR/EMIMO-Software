@@ -1,0 +1,302 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7
+# Build 321239 by xbuild on Fri Sep 27 19:31:35 MDT 2013
+# Start of session at: Sun Oct 27 11:21:07 2024
+# Process ID: 27720
+# Log file: E:/work/AcAnt/01-design/09-eMIMO_Array/05-code/FPGA/UE_CTRL/V1/UE_CTRL/planAhead_run_2/planAhead.log
+# Journal file: E:/work/AcAnt/01-design/09-eMIMO_Array/05-code/FPGA/UE_CTRL/V1/UE_CTRL/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Device 21-36] Loading parts and site information from D:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [D:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [D:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source E:/work/AcAnt/01-design/09-eMIMO_Array/05-code/FPGA/UE_CTRL/V1/UE_CTRL/pa.fromHdl.tcl
+# create_project -name UE_CTRL -dir "E:/work/AcAnt/01-design/09-eMIMO_Array/05-code/FPGA/UE_CTRL/V1/UE_CTRL/planAhead_run_2" -part xc6slx25ftg256-2
+# set_param project.pinAheadLayout yes
+# set srcset [get_property srcset [current_run -impl]]
+# set_property target_constrs_file "CTRL_TOP.ucf" [current_fileset -constrset]
+Adding file 'E:/work/AcAnt/01-design/09-eMIMO_Array/05-code/FPGA/UE_CTRL/V1/UE_CTRL/CTRL_TOP.ucf' to fileset 'constrs_1'
+# set hdlfile [add_files [list {CTRL_TOP.v}]]
+# set_property file_type Verilog $hdlfile
+# set_property library work $hdlfile
+# set_property top CTRL_TOP $srcset
+# add_files [list {CTRL_TOP.ucf}] -fileset [get_property constrset [current_run]]
+# open_rtl_design -part xc6slx25ftg256-2
+Using Verific elaboration
+Parsing VHDL file "D:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Analyzing Verilog file "E:/work/AcAnt/01-design/09-eMIMO_Array/05-code/FPGA/UE_CTRL/V1/UE_CTRL/CTRL_TOP.v" into library work
+Loading clock regions from D:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx25/ClockRegion.xml
+Loading clock buffers from D:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx25/ClockBuffers.xml
+Loading package pin functions from D:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from D:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx25/ftg256/Package.xml
+Loading io standards from D:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from D:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : D:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/drc.xml
+Parsing UCF File [E:/work/AcAnt/01-design/09-eMIMO_Array/05-code/FPGA/UE_CTRL/V1/UE_CTRL/CTRL_TOP.ucf]
+Finished Parsing UCF File [E:/work/AcAnt/01-design/09-eMIMO_Array/05-code/FPGA/UE_CTRL/V1/UE_CTRL/CTRL_TOP.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Phase 0 | Netlist Checksum: 41148cd6
+open_rtl_design: Time (s): elapsed = 00:00:05 . Memory (MB): peak = 580.383 ; gain = 111.117
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin A11 [get_ports {RX_B2_LE[7]}]
+endgroup
+startgroup
+set_property package_pin C11 [get_ports {RX_B2_LE[6]}]
+endgroup
+startgroup
+set_property package_pin A12 [get_ports {RX_B2_LE[5]}]
+endgroup
+startgroup
+set_property package_pin B12 [get_ports {RX_B2_LE[4]}]
+endgroup
+startgroup
+set_property package_pin C5 [get_ports {RX_B2_LE[3]}]
+endgroup
+startgroup
+set_property package_pin A6 [get_ports {RX_B2_LE[2]}]
+endgroup
+startgroup
+set_property package_pin B6 [get_ports {RX_B2_LE[1]}]
+endgroup
+startgroup
+set_property package_pin E7 [get_ports {RX_B2_LE[0]}]
+endgroup
+startgroup
+set_property package_pin E2 [get_ports {RX_B2_LNA_BYPASS[7]}]
+endgroup
+startgroup
+set_property package_pin E1 [get_ports {RX_B2_LNA_BYPASS[6]}]
+endgroup
+startgroup
+set_property package_pin F3 [get_ports {RX_B2_LNA_BYPASS[5]}]
+endgroup
+startgroup
+set_property package_pin D5 [get_ports {RX_B2_LNA_BYPASS[4]}]
+endgroup
+startgroup
+set_property package_pin C3 [get_ports {RX_B2_LNA_BYPASS[3]}]
+endgroup
+startgroup
+set_property package_pin E3 [get_ports {RX_B2_LNA_BYPASS[2]}]
+endgroup
+startgroup
+set_property package_pin E4 [get_ports {RX_B2_LNA_BYPASS[1]}]
+endgroup
+startgroup
+set_property package_pin F4 [get_ports {RX_B2_LNA_BYPASS[0]}]
+endgroup
+startgroup
+set_property package_pin H2 [get_ports {TX_B1_DSA[5]}]
+endgroup
+startgroup
+set_property package_pin H1 [get_ports {TX_B1_DSA[4]}]
+endgroup
+startgroup
+set_property package_pin J4 [get_ports {TX_B1_DSA[3]}]
+endgroup
+startgroup
+set_property package_pin K3 [get_ports {TX_B1_DSA[2]}]
+endgroup
+startgroup
+set_property package_pin J3 [get_ports {TX_B1_DSA[1]}]
+endgroup
+startgroup
+set_property package_pin J1 [get_ports {TX_B1_DSA[0]}]
+endgroup
+startgroup
+set_property package_pin K2 [get_ports {TX_B1_LE[7]}]
+endgroup
+startgroup
+set_property package_pin K1 [get_ports {TX_B1_LE[6]}]
+endgroup
+startgroup
+set_property package_pin L3 [get_ports {TX_B1_LE[5]}]
+endgroup
+startgroup
+set_property package_pin L1 [get_ports {TX_B1_LE[4]}]
+endgroup
+startgroup
+set_property package_pin L4 [get_ports {TX_B1_LE[3]}]
+endgroup
+startgroup
+set_property package_pin L5 [get_ports {TX_B1_LE[2]}]
+endgroup
+startgroup
+set_property package_pin M5 [get_ports {TX_B1_LE[1]}]
+endgroup
+startgroup
+set_property package_pin P6 [get_ports {TX_B1_LE[0]}]
+endgroup
+startgroup
+set_property package_pin D3 [get_ports {TX_B2_DSA[5]}]
+endgroup
+startgroup
+set_property package_pin C1 [get_ports {TX_B2_DSA[4]}]
+endgroup
+startgroup
+set_property package_pin B1 [get_ports {TX_B2_DSA[3]}]
+endgroup
+startgroup
+set_property package_pin C2 [get_ports {TX_B2_DSA[2]}]
+endgroup
+startgroup
+set_property package_pin C6 [get_ports {TX_B2_DSA[1]}]
+endgroup
+startgroup
+set_property package_pin A7 [get_ports {TX_B2_DSA[0]}]
+endgroup
+startgroup
+set_property package_pin B8 [get_ports {TX_B2_LE[7]}]
+endgroup
+startgroup
+set_property package_pin A8 [get_ports {TX_B2_LE[6]}]
+endgroup
+startgroup
+set_property package_pin C8 [get_ports {TX_B2_LE[5]}]
+endgroup
+startgroup
+set_property package_pin D8 [get_ports {TX_B2_LE[4]}]
+endgroup
+startgroup
+set_property package_pin A2 [get_ports {TX_B2_LE[3]}]
+endgroup
+startgroup
+set_property package_pin B2 [get_ports {TX_B2_LE[2]}]
+endgroup
+startgroup
+set_property package_pin A3 [get_ports {TX_B2_LE[1]}]
+endgroup
+startgroup
+set_property package_pin E6 [get_ports {TX_B2_LE[0]}]
+endgroup
+startgroup
+set_property package_pin P8 [get_ports CLK_SYS]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list CLK_SYS]]
+startgroup
+set_property package_pin P8 [get_ports CLK_SYS]
+endgroup
+startgroup
+set_property package_pin K16 [get_ports MODE]
+endgroup
+set_property package_pin "" [get_ports [list  MODE_MCU]]
+set_property iostandard LVCMOS33 [get_ports [list MODE]]
+startgroup
+set_property package_pin E16 [get_ports MODE_MCU]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list MODE_MCU]]
+startgroup
+set_property package_pin T13 [get_ports PLUG_IN]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list PLUG_IN]]
+startgroup
+set_property package_pin N16 [get_ports REV]
+endgroup
+startgroup
+set_property package_pin E15 [get_ports REV1_MCU]
+endgroup
+startgroup
+set_property package_pin D16 [get_ports REV2_MCU]
+endgroup
+startgroup
+set_property package_pin M16 [get_ports RX_ON]
+endgroup
+startgroup
+set_property package_pin G1 [get_ports RX_ON_B1]
+endgroup
+startgroup
+set_property package_pin D1 [get_ports RX_ON_B2]
+endgroup
+startgroup
+set_property package_pin B15 [get_ports RX_ON_MCU]
+endgroup
+startgroup
+set_property package_pin T14 [get_ports RXD_HOST]
+endgroup
+startgroup
+set_property package_pin B16 [get_ports RXD_MCU]
+endgroup
+set_property package_pin "" [get_ports [list  SPI_CLK]]
+set_property package_pin "" [get_ports [list  SPI_DATA_MCU]]
+startgroup
+set_property package_pin H16 [get_ports SPI_CLK]
+endgroup
+startgroup
+set_property package_pin G16 [get_ports SPI_CLK_MCU]
+endgroup
+startgroup
+set_property package_pin J16 [get_ports SPI_DATA]
+endgroup
+startgroup
+set_property package_pin H15 [get_ports SPI_DATA_MCU]
+endgroup
+startgroup
+set_property package_pin P16 [get_ports SPI_LE]
+endgroup
+startgroup
+set_property package_pin F16 [get_ports SPI_LE_MCU]
+endgroup
+set_property package_pin "" [get_ports [list  TX_ON]]
+startgroup
+set_property package_pin L16 [get_ports TX_ON]
+endgroup
+startgroup
+set_property package_pin H5 [get_ports TX_ON_B1]
+endgroup
+startgroup
+set_property package_pin D6 [get_ports TX_ON_B2]
+endgroup
+startgroup
+set_property package_pin C15 [get_ports TX_ON_MCU]
+endgroup
+startgroup
+set_property package_pin T15 [get_ports TXD_HOST]
+endgroup
+startgroup
+set_property package_pin C16 [get_ports TXD_MCU]
+endgroup
+startgroup
+set_property package_pin R16 [get_ports UPDATE]
+endgroup
+startgroup
+set_property package_pin F15 [get_ports UPDATE_MCU]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list REV]]
+set_property iostandard LVCMOS33 [get_ports [list REV1_MCU]]
+set_property iostandard LVCMOS33 [get_ports [list REV2_MCU]]
+set_property iostandard LVCMOS33 [get_ports [list RX_ON]]
+set_property iostandard LVCMOS33 [get_ports [list RX_ON_B1]]
+set_property iostandard LVCMOS33 [get_ports [list RX_ON_B2]]
+set_property iostandard LVCMOS33 [get_ports [list RX_ON_MCU]]
+set_property iostandard LVCMOS33 [get_ports [list RXD_HOST]]
+set_property iostandard LVCMOS33 [get_ports [list RXD_MCU]]
+set_property iostandard LVCMOS33 [get_ports [list SPI_CLK]]
+set_property iostandard LVCMOS33 [get_ports [list SPI_CLK_MCU]]
+set_property iostandard LVCMOS33 [get_ports [list SPI_DATA]]
+set_property iostandard LVCMOS33 [get_ports [list SPI_DATA_MCU]]
+set_property iostandard LVCMOS33 [get_ports [list SPI_LE]]
+set_property iostandard LVCMOS33 [get_ports [list SPI_LE_MCU]]
+set_property iostandard LVCMOS33 [get_ports [list TX_ON]]
+set_property iostandard LVCMOS33 [get_ports [list TX_ON_B1]]
+set_property iostandard LVCMOS33 [get_ports [list TX_ON_B2]]
+set_property iostandard LVCMOS33 [get_ports [list TX_ON_MCU]]
+set_property iostandard LVCMOS33 [get_ports [list TXD_HOST]]
+set_property iostandard LVCMOS33 [get_ports [list TXD_MCU]]
+set_property iostandard LVCMOS33 [get_ports [list UPDATE]]
+set_property iostandard LVCMOS33 [get_ports [list UPDATE_MCU]]
+save_constraints
+exit
+ERROR: [PlanAhead 12-106] *** Exception: ui.h.b: Found deleted key in HTclEventBroker. Verify if the classes listed here call cleanup()
+HTclEvent: DEBUG_CORE_CONFIG_CHANGE   Classes: ui.views.aR 
+HTclEvent: SIGNAL_MODIFY   Classes: ui.views.aR 
+HTclEvent: DEBUG_PORT_CONFIG_CHANGE   Classes: ui.views.aR 
+HTclEvent: SIGNAL_BUS_MODIFY   Classes: ui.views.aR 
+ (See E:/work/AcAnt/01-design/09-eMIMO_Array/05-code/FPGA/UE_CTRL/V1/UE_CTRL\planAhead_pid27720.debug)
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Sun Oct 27 11:55:10 2024...
+INFO: [Common 17-83] Releasing license: PlanAhead

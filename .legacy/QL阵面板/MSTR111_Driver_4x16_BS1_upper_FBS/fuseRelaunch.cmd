@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper_FBS/tb_top_isim_beh.exe" -prj "D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper_FBS/tb_top_beh.prj" "work.tb_top" "work.glbl" 

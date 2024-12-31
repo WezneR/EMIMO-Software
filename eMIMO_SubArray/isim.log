@@ -1,0 +1,169 @@
+ISim log file
+Running: F:\ISE\eMIMO_SubArray\top_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb F:/ISE/eMIMO_SubArray/top_tb_isim_beh.wdb 
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 114.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_TX_ON_soft is not equal to width 1 of actual signal IF_TX_on_spi.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 115.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_RX_ON_soft is not equal to width 1 of actual signal IF_RX_on_spi.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run all
+Stopped at time : 38900 ns :  in File "F:/ISE/eMIMO_SubArray/srcs/tb_Top.v" Line 269 
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 114.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_TX_ON_soft is not equal to width 1 of actual signal IF_TX_on_spi.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 115.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_RX_ON_soft is not equal to width 1 of actual signal IF_RX_on_spi.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run all
+Stopped at time : 101620 ns :  in File "F:/ISE/eMIMO_SubArray/srcs/tb_Top.v" Line 271 
+# run 10us
+# run 10us
+# run 10us
+# run 10us
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 114.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_TX_ON_soft is not equal to width 1 of actual signal IF_TX_on_spi.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 115.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_RX_ON_soft is not equal to width 1 of actual signal IF_RX_on_spi.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run all
+Stopped at time : 101620 ns :  in File "F:/ISE/eMIMO_SubArray/srcs/tb_Top.v" Line 271 
+# run 10us
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 114.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_TX_ON_soft is not equal to width 1 of actual signal IF_TX_on_spi.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 115.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_RX_ON_soft is not equal to width 1 of actual signal IF_RX_on_spi.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run all
+Stopped at time : 45620 ns :  in File "F:/ISE/eMIMO_SubArray/srcs/tb_Top.v" Line 273 
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 114.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_TX_ON_soft is not equal to width 1 of actual signal IF_TX_on_spi.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 115.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_RX_ON_soft is not equal to width 1 of actual signal IF_RX_on_spi.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run all
+Stopped at time : 101620 ns :  in File "F:/ISE/eMIMO_SubArray/srcs/tb_Top.v" Line 273 
+# run 10us
+# run 10us
+# run 10us
+# run 10us
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 114.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_TX_ON_soft is not equal to width 1 of actual signal IF_TX_on_spi.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 115.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_RX_ON_soft is not equal to width 1 of actual signal IF_RX_on_spi.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run all
+Stopped at time : 53620 ns :  in File "F:/ISE/eMIMO_SubArray/srcs/tb_Top.v" Line 275 
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 114.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_TX_ON_soft is not equal to width 1 of actual signal IF_TX_on_spi.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 115.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_RX_ON_soft is not equal to width 1 of actual signal IF_RX_on_spi.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run all
+Stopped at time : 60400 ns :  in File "F:/ISE/eMIMO_SubArray/srcs/tb_Top.v" Line 277 
+# run 10us
+# run 10us
+# run 10us
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 114.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_TX_ON_soft is not equal to width 1 of actual signal IF_TX_on_spi.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 115.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_RX_ON_soft is not equal to width 1 of actual signal IF_RX_on_spi.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run all
+Stopped at time : 101600 ns :  in File "F:/ISE/eMIMO_SubArray/srcs/tb_Top.v" Line 277 
+# run 10us
+# run 10us
+# run 10us
+# run 10us
+# run 10us
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 114.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_TX_ON_soft is not equal to width 1 of actual signal IF_TX_on_spi.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 115.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_RX_ON_soft is not equal to width 1 of actual signal IF_RX_on_spi.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run all
+Stopped at time : 101600 ns :  in File "F:/ISE/eMIMO_SubArray/srcs/tb_Top.v" Line 278 
+# run 10us
+# run 10us
+# run 10us
+# run 10us
+# run 10us
+# run 10us
+# run 10us
+# run 10us
+# run 10us
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 114.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_TX_ON_soft is not equal to width 1 of actual signal IF_TX_on_spi.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 115.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_RX_ON_soft is not equal to width 1 of actual signal IF_RX_on_spi.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run all
+Stopped at time : 53600 ns :  in File "F:/ISE/eMIMO_SubArray/srcs/tb_Top.v" Line 278 
+# run 10us
+# run 10us
+# run 10us
+# run 10us
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 114.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_TX_ON_soft is not equal to width 1 of actual signal IF_TX_on_spi.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 115.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_RX_ON_soft is not equal to width 1 of actual signal IF_RX_on_spi.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run all
+Stopped at time : 53600 ns :  in File "F:/ISE/eMIMO_SubArray/srcs/tb_Top.v" Line 278 
+# run 10us
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 114.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_TX_ON_soft is not equal to width 1 of actual signal IF_TX_on_spi.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 115.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_RX_ON_soft is not equal to width 1 of actual signal IF_RX_on_spi.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run all
+Stopped at time : 60400 ns :  in File "F:/ISE/eMIMO_SubArray/srcs/tb_Top.v" Line 278 
+# run 10us
+# run 10us
+# run 10us
+# run 10us
+# run 10us
+# run 10us
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 114.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_TX_ON_soft is not equal to width 1 of actual signal IF_TX_on_spi.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 115.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_RX_ON_soft is not equal to width 1 of actual signal IF_RX_on_spi.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run all
+Stopped at time : 60400 ns :  in File "F:/ISE/eMIMO_SubArray/srcs/tb_Top.v" Line 278 
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 114.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_TX_ON_soft is not equal to width 1 of actual signal IF_TX_on_spi.
+WARNING: File "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 115.  For instance uut/FEM_TR_switch_inst/, width 8 of formal port i_IF_RX_ON_soft is not equal to width 1 of actual signal IF_RX_on_spi.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run all
+Stopped at time : 60400 ns :  in File "F:/ISE/eMIMO_SubArray/srcs/tb_Top.v" Line 278 
+# run 10us

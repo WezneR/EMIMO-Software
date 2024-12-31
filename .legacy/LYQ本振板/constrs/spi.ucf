@@ -1,0 +1,74 @@
+NET "fpga_spi_clk_p" LOC=T4;
+NET "fpga_spi_mosi_p" LOC=T5;
+NET "fpga_spi_cs_p" LOC=R7;
+
+NET "fpga_spi_clk_p" IOSTANDARD = LVDS_33;
+NET "fpga_spi_mosi_p" IOSTANDARD = LVDS_33;
+NET "fpga_spi_cs_p" IOSTANDARD = LVDS_33;
+
+NET "fpga_tx" LOC=T2;
+NET "fpga_rx" LOC=R3;
+
+NET "fpga_tx" IOSTANDARD = LVCMOS33;
+NET "fpga_rx" IOSTANDARD = LVCMOS33;
+
+NET "trx1_spi_clk_p" LOC = A6;
+NET "trx1_spi_mosi_p" LOC = A5;
+NET "trx1_spi_cs" LOC = C4;
+NET "trx1_en_n" LOC = A4;
+NET "trx1_tx" LOC=B3;
+NET "trx1_rx" LOC=A3;
+NET "trx1_rad" LOC=B4;
+
+NET "trx1_spi_cs" IOSTANDARD = LVCMOS33;
+NET "trx1_spi_clk_p" IOSTANDARD = LVDS_33;
+NET "trx1_spi_mosi_p" IOSTANDARD = LVDS_33;
+NET "trx1_en_n" IOSTANDARD = LVCMOS33;
+NET "trx1_tx" IOSTANDARD = LVCMOS33;
+NET "trx1_rx" IOSTANDARD = LVCMOS33;
+NET "trx1_rad" IOSTANDARD = LVCMOS33;
+
+
+NET "trx2_spi_clk_p" LOC = C11;
+NET "trx2_spi_mosi_p" LOC = B10;
+NET "trx2_spi_cs" LOC = C10;
+NET "trx2_en_n" LOC = C9;
+NET "trx2_tx" LOC=B8;
+NET "trx2_rx" LOC=A8;
+NET "trx2_rad" LOC=A9;
+
+NET "trx2_spi_cs" IOSTANDARD = LVCMOS33;
+NET "trx2_spi_clk_p" IOSTANDARD = LVDS_33;
+NET "trx2_spi_mosi_p" IOSTANDARD = LVDS_33;
+NET "trx2_en_n" IOSTANDARD = LVCMOS33;
+NET "trx2_tx" IOSTANDARD = LVCMOS33;
+NET "trx2_rx" IOSTANDARD = LVCMOS33;
+NET "trx2_rad" IOSTANDARD = LVCMOS33;
+
+NET "trx3_spi_clk_p" LOC = C12;
+NET "trx3_spi_mosi_p" LOC = A14;
+NET "trx3_spi_cs" LOC = E2;
+NET "trx3_en_n" LOC = E1;
+NET "trx3_tx" LOC=G1;
+NET "trx3_rx" LOC=E3;
+
+NET "trx3_spi_cs" IOSTANDARD = LVCMOS33;
+NET "trx3_spi_clk_p" IOSTANDARD = LVDS_33;
+NET "trx3_spi_mosi_p" IOSTANDARD = LVDS_33;
+NET "trx3_en_n" IOSTANDARD = LVCMOS33;
+NET "trx3_tx" IOSTANDARD = LVCMOS33;
+NET "trx3_rx" IOSTANDARD = LVCMOS33;
+
+NET "trx4_spi_clk_p" LOC = B15;
+NET "trx4_spi_mosi_p" LOC = D13;
+NET "trx4_spi_cs" LOC = J1;
+NET "trx4_en_n" LOC = J3;
+NET "trx4_tx" LOC=J2;
+NET "trx4_rx" LOC=K1;
+
+NET "trx4_spi_cs" IOSTANDARD = LVCMOS33;
+NET "trx4_spi_clk_p" IOSTANDARD = LVDS_33;
+NET "trx4_spi_mosi_p" IOSTANDARD = LVDS_33;
+NET "trx4_en_n" IOSTANDARD = LVCMOS33;
+NET "trx4_tx" IOSTANDARD = LVCMOS33;
+NET "trx4_rx" IOSTANDARD = LVCMOS33;

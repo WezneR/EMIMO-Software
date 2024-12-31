@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/tb_spi_listener_isim_beh.exe" -prj "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/tb_spi_listener_beh.prj" "work.tb_spi_listener" "work.glbl" 

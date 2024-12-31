@@ -1,0 +1,17 @@
+PROMGEN: Xilinx Prom Generator P.20131013
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+promgen -w -p mcs -c FF -o D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper//MSTR111_Driver_4x16_BS1_upper -s 16384 -u 0000 D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper/top.bit -spi 
+
+PROM D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper\MSTR111_Driver_4x16_BS1_upper.prm map: Sun Aug 18 21:17:06 2024
+
+Calculating PROM checksum with fill value ff
+
+Format        Mcs86 (32-bit)
+Size          16384K
+PROM start    0000:0000
+PROM end      00ff:ffff
+PROM checksum e8baa84a
+
+        Addr1        Addr2                     Date File(s)
+    0000:0000    0016:a673     Aug 18 21:13:48 2024 D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper/top.bit

@@ -1,0 +1,9 @@
+MO spi_mux NULL ../../rtl/spi_mux.v vlg5D/spi__mux.bin 1724134553
+MO spi_master NULL ../../rtl/spi_master.v vlg63/spi__master.bin 1724134553
+MO rst NULL ../../rtl/rst.v vlg55/rst.bin 1724134553
+MO spi_listener NULL ../../rtl/spi_listener.v vlg4D/spi__listener.bin 1724134553
+MO process NULL ../../rtl/process.v vlg6F/process.bin 1724134553
+MO SPI_Slave NULL ../../rtl/spi_slave.v vlg4A/_s_p_i___slave.bin 1724134553
+MO top NULL ../../rtl/top.v vlg6F/top.bin 1724134553
+MO UART_RX NULL ../../rtl/RX.v vlg61/_u_a_r_t___r_x.bin 1724134553
+MO UART_TX NULL ../../rtl/TX.v vlg6B/_u_a_r_t___t_x.bin 1724134553

@@ -1,0 +1,11 @@
+# PROMGEN: Xilinx Prom Generator P.20131013
+# Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+SOFTWARE_VERSION P.20131013
+DATE            08/20/2024 - 15:55
+SOURCE          D:\FPGA_project\MSTR111_Driver_4x16_BS1_upper\MSTR111_Driver_4x16_BS1_upper_2.mcs
+DEVICE          16384K
+DATA_WIDTH      1
+FILL_DATA       0xFF
+SIGNATURE       0xE8BB58AF
+START_ADDRESS   0x00000000 END_ADDRESS 0x0016A673 DIRECTION_UP   "D:/FPGA_project/MSTR111_Driver_4x16_BS1_upper/top.bit" 6slx45csg324

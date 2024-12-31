@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=C:\Users\aspha\Desktop\ise_workspace\lo_firmware\prj\lo_frimware\impact.xsl
+OUTFILE=C:\Users\aspha\Desktop\ise_workspace\lo_firmware\prj\lo_frimware\impact.xsl
+FAMILY=Single
+PART=Single
+WORKINGDIR=C:\Users\aspha\Desktop\ise_workspace\lo_firmware\prj\lo_frimware
+LICENSE=iMPACT
+USER_INFO=iMPACT

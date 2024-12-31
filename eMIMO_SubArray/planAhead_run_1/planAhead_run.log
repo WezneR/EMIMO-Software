@@ -1,0 +1,80 @@
+
+****** PlanAhead v14.7 (64-bit)
+  **** Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+    ** Copyright 1986-1999, 2001-2013 Xilinx, Inc. All Rights Reserved.
+
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Device 21-36] Loading parts and site information from E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source F:/ISE/eMIMO_SubArray/pa.fromNetlist.tcl
+# create_project -name eMIMO_SubArray -dir "F:/ISE/eMIMO_SubArray/planAhead_run_1" -part xc6slx25ftg256-2
+# set_property design_mode GateLvl [get_property srcset [current_run -impl]]
+# set_property edif_top_file "F:/ISE/eMIMO_SubArray/top.ngc" [ get_property srcset [ current_run ] ]
+# add_files -norecurse { {F:/ISE/eMIMO_SubArray} }
+# set_param project.pinAheadLayout  yes
+# set_property target_constrs_file "F:/ISE/eMIMO_SubArray/planAhead_run_4/design_1.ucf" [current_fileset -constrset]
+Adding file 'F:/ISE/eMIMO_SubArray/planAhead_run_4/design_1.ucf' to fileset 'constrs_1'
+# add_files [list {F:/ISE/eMIMO_SubArray/planAhead_run_4/design_1.ucf}] -fileset [get_property constrset [current_run]]
+# link_design
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+Design is defaulting to project part: xc6slx25ftg256-2
+Release 14.7 - ngc2edif P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design top.ngc ...
+WARNING:NetListWriters:298 - No output is written to top.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:306 - Signal bus process_test/_n1815<19 : 0> on block top
+   is not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus process_test/write_onece_spi_data<19 :
+   0> on block top is not reconstructed, because there are some missing bus
+   signals.
+  finished :Prep
+Writing EDIF netlist file top.edif ...
+ngc2edif: Total memory usage is 4342892 kilobytes
+
+Parsing EDIF File [./planAhead_run_1/eMIMO_SubArray.data/cache/top_ngc_zx.edif]
+Finished Parsing EDIF File [./planAhead_run_1/eMIMO_SubArray.data/cache/top_ngc_zx.edif]
+INFO: [Netlist 29-17] Analyzing 947 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-43] Netlist 'top' is not ideal for floorplanning, since the cellview 'top' defined in file 'top.ngc' contains large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+Loading clock regions from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx25/ClockRegion.xml
+Loading clock buffers from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx25/ClockBuffers.xml
+Loading package pin functions from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx25/ftg256/Package.xml
+Loading io standards from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : E:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/drc.xml
+Parsing UCF File [F:/ISE/eMIMO_SubArray/planAhead_run_4/design_1.ucf]
+Finished Parsing UCF File [F:/ISE/eMIMO_SubArray/planAhead_run_4/design_1.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 947 instances were transformed.
+  BUFGP => BUFGP (IBUF, BUFG): 1 instances
+  RAM128X1D => RAM128X1D (RAMD64E, RAMD64E, RAMD64E, RAMD64E, MUXF7, MUXF7): 942 instances
+  RAM16X1D => RAM16X1D (RAMD32, RAMD32, GND): 2 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 2 instances
+
+Phase 0 | Netlist Checksum: c6bd7103
+link_design: Time (s): elapsed = 00:00:17 . Memory (MB): peak = 698.902 ; gain = 187.527
+startgroup
+set_property package_pin H3 [get_ports TX_ON_LED]
+endgroup
+set_property iostandard LVCMOS25 [get_ports [list TX_ON_LED]]
+set_property iostandard LVCMOS33 [get_ports [list TX_ON_LED]]
+set_property iostandard LVCMOS33 [get_ports [list RX_ON_LED]]
+startgroup
+set_property package_pin F2 [get_ports RX_ON_LED]
+endgroup
+set_property offchip_term NONE [get_ports [list RX_ON_LED]]
+set_property offchip_term NONE [get_ports [list TX_ON_LED]]
+set_property offchip_term NONE [get_ports [list PE44951_Rset]]
+save_constraints
+exit
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Fri Nov 22 15:42:14 2024...
+INFO: [Common 17-83] Releasing license: PlanAhead

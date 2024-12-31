@@ -1,0 +1,48 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Mon Jul 03 16:12:17 2023
+# Process ID: 10328
+# Log file: C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/planAhead_run_2/planAhead.log
+# Journal file: C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+set_property iostandard LVCMOS33 [get_ports [list clk]]
+startgroup
+set_property package_pin P9 [get_ports clk]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list FPGA_RX]]
+startgroup
+set_property package_pin L2 [get_ports FPGA_RX]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list FPGA_TX]]
+startgroup
+set_property package_pin L1 [get_ports FPGA_TX]
+endgroup
+startgroup
+set_property package_pin D15 [get_ports spi_clk_2594]
+endgroup
+startgroup
+set_property package_pin F16 [get_ports spi_clk_4002]
+endgroup
+startgroup
+set_property package_pin C15 [get_ports spi_le_2594]
+endgroup
+startgroup
+set_property package_pin E16 [get_ports spi_le_4002]
+endgroup
+startgroup
+set_property package_pin D16 [get_ports spi_sdo_2594]
+endgroup
+startgroup
+set_property package_pin F15 [get_ports spi_sdo_4002]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list spi_clk_2594]]
+set_property iostandard LVCMOS33 [get_ports [list spi_clk_4002]]
+set_property iostandard LVCMOS33 [get_ports [list spi_le_2594]]
+set_property iostandard LVCMOS25 [get_ports [list spi_le_4002]]
+set_property iostandard LVCMOS33 [get_ports [list spi_sdo_2594]]
+set_property iostandard LVCMOS33 [get_ports [list spi_le_4002]]
+save_constraints

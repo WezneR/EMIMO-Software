@@ -1,0 +1,1636 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.12 secs
+ 
+--> Reading design: top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "top"
+Output Format                      : NGC
+Target Device                      : xc3s200an-4-ftg256
+
+---- Source Options
+Top Module Name                    : top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../../rtl/TX.v" in library work
+Compiling verilog file "../../rtl/spi_slave.v" in library work
+Module <UART_TX> compiled
+Compiling verilog file "../../rtl/spi_mux.v" in library work
+Module <SPI_Slave> compiled
+Compiling verilog file "../../rtl/spi_master.v" in library work
+Module <spi_mux> compiled
+Compiling verilog file "../../rtl/spi_listener.v" in library work
+Module <spi_master> compiled
+Compiling verilog file "../../rtl/RX.v" in library work
+Module <spi_listener> compiled
+Compiling verilog file "../../rtl/rst.v" in library work
+Module <UART_RX> compiled
+Compiling verilog file "../../rtl/process.v" in library work
+Module <rst> compiled
+Compiling verilog file "../../rtl/top.v" in library work
+Module <process> compiled
+Module <top> compiled
+No errors in compilation
+Analysis of file <"top.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+WARNING:Xst:2616 - "../../rtl/top.v" line 16: Name conflict. (<fpga_tx> and <FPGA_TX>, renaming fpga_tx as fpga_tx_rnm0).
+WARNING:Xst:2616 - "../../rtl/top.v" line 17: Name conflict. (<fpga_rx> and <FPGA_RX>, renaming fpga_rx as fpga_rx_rnm0).
+Analyzing hierarchy for module <top> in library <work> with parameters.
+	Baud_rate = "00000000000000011100001000000000"
+	SPI_MODE = "00000000000000000000000000000000"
+	clk_frq = "00000101111101011110000100000000"
+	data_bits = "00000000000000000000000000001000"
+	data_depth = "00000000000000000000000000001100"
+	first_byte = "00000000"
+	parity = "00"
+	spi_clk_div = "00000000000000000000000000000101"
+	spi_clk_div_internal = "00000000000000000000000000001010"
+	spi_data_depth_max = "00000000000000000000000000110110"
+	stop_bits = "00"
+
+Analyzing hierarchy for module <rst> in library <work> with parameters.
+	delay_cnt_1 = "00000000000000000000000000001010"
+	delay_cnt_2 = "111111111111111111111111"
+
+Analyzing hierarchy for module <spi_mux> in library <work>.
+
+Analyzing hierarchy for module <spi_master> in library <work> with parameters.
+	SPI_IDLE = "00000000000000000000000000000000"
+	SPI_READ_CLOCK_HIGH = "00000000000000000000000000000100"
+	SPI_READ_CLOCK_LOW = "00000000000000000000000000000011"
+	SPI_WRITE_CLOCK_HIGH = "00000000000000000000000000000010"
+	SPI_WRITE_CLOCK_LOW = "00000000000000000000000000000001"
+	clk_div = "00000000000000000000000000000101"
+	data_depth = "00000000000000000000000000110110"
+	rx_head_depth = "00000000000000000000000000000110"
+
+Analyzing hierarchy for module <spi_master> in library <work> with parameters.
+	SPI_IDLE = "00000000000000000000000000000000"
+	SPI_READ_CLOCK_HIGH = "00000000000000000000000000000100"
+	SPI_READ_CLOCK_LOW = "00000000000000000000000000000011"
+	SPI_WRITE_CLOCK_HIGH = "00000000000000000000000000000010"
+	SPI_WRITE_CLOCK_LOW = "00000000000000000000000000000001"
+	clk_div = "00000000000000000000000000001010"
+	data_depth = "00000000000000000000000000110110"
+	rx_head_depth = "00000000000000000000000000000110"
+
+Analyzing hierarchy for module <UART_TX> in library <work> with parameters.
+	Baud_rate = "00000000000000011100001000000000"
+	Baud_rate_division_factor = "00000000000000000000001101100100"
+	Baud_rate_division_factor_2 = "00000000000000000000000110110010"
+	SEND_DATA_BITS = "00000000000000000000000000000010"
+	SEND_IDLE = "00000000000000000000000000000000"
+	SEND_PARITY_BIT = "00000000000000000000000000000011"
+	SEND_START_BIT = "00000000000000000000000000000001"
+	SEND_STOP_BIT = "00000000000000000000000000000100"
+	clk_frq = "00000101111101011110000100000000"
+	data_depth = "00000000000000000000000000001100"
+
+Analyzing hierarchy for module <UART_RX> in library <work> with parameters.
+	Baud_rate = "00000000000000011100001000000000"
+	Baud_rate_division_factor = "00000000000000000000001101100100"
+	Baud_rate_division_factor_2 = "00000000000000000000000110110010"
+	RX_DATA_BITS = "00000000000000000000000000000011"
+	RX_IDLE = "00000000000000000000000000000000"
+	RX_PARITY_BIT = "00000000000000000000000000000100"
+	RX_START_BIT = "00000000000000000000000000000010"
+	RX_START_BIT_DETECTED = "00000000000000000000000000000001"
+	RX_STOP_BIT = "00000000000000000000000000000101"
+	RX_complete = "00000000000000000000000000000011"
+	clk_frq = "00000101111101011110000100000000"
+	data_depth = "00000000000000000000000000001100"
+
+Analyzing hierarchy for module <SPI_Slave> in library <work> with parameters.
+	SPI_MODE = "00000000000000000000000000000000"
+
+Analyzing hierarchy for module <spi_listener> in library <work> with parameters.
+	first_byte = "00000000"
+	listener_timeout = "00000000000000000000000110010000"
+
+Analyzing hierarchy for module <process> in library <work> with parameters.
+	ADF4002_INIT = "00000000000000000000000000000001"
+	LMX2594_INIT = "00000000000000000000000000000010"
+	NORMAL_OPERATION = "00000000000000000000000000000100"
+	PROCESS_RESET = "00000000000000000000000000000000"
+	UART_DEBUG = "00000000000000000000000000000011"
+	uart_data_depth = "00000000000000000000000000001100"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <top>.
+WARNING:Xst:863 - "../../rtl/top.v" line 7: Name conflict (<fpga_rx> and <FPGA_RX>, renaming fpga_rx as fpga_rx_rnm0).
+WARNING:Xst:863 - "../../rtl/top.v" line 8: Name conflict (<fpga_tx> and <FPGA_TX>, renaming fpga_tx as fpga_tx_rnm0).
+	Baud_rate = 32'sb00000000000000011100001000000000
+	SPI_MODE = 32'sb00000000000000000000000000000000
+	clk_frq = 32'sb00000101111101011110000100000000
+	data_bits = 32'sb00000000000000000000000000001000
+	data_depth = 32'sb00000000000000000000000000001100
+	first_byte = 8'b00000000
+	parity = 2'b00
+	spi_clk_div = 32'sb00000000000000000000000000000101
+	spi_clk_div_internal = 32'sb00000000000000000000000000001010
+	spi_data_depth_max = 32'sb00000000000000000000000000110110
+	stop_bits = 2'b00
+WARNING:Xst:852 - "../../rtl/top.v" line 177: Unconnected input port 'spi_miso' of instance 'adf4002_spi' is tied to GND.
+WARNING:Xst:852 - "../../rtl/top.v" line 194: Unconnected input port 'spi_miso' of instance 'lmx2594_spi' is tied to GND.
+WARNING:Xst:852 - "../../rtl/top.v" line 213: Unconnected input port 'spi_miso' of instance 'internal_spi' is tied to GND.
+WARNING:Xst:852 - "../../rtl/top.v" line 296: Unconnected input port 'i_TX_DV' of instance 'spi_slave' is tied to GND.
+WARNING:Xst:852 - "../../rtl/top.v" line 296: Unconnected input port 'i_TX_Byte' of instance 'spi_slave' is tied to GND.
+Module <top> is correct for synthesis.
+ 
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <fpga_spi_clk_ibufds> in unit <top>.
+    Set user-defined property "DIFF_TERM =  FALSE" for instance <fpga_spi_clk_ibufds> in unit <top>.
+    Set user-defined property "DQS_BIAS =  FALSE" for instance <fpga_spi_clk_ibufds> in unit <top>.
+    Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <fpga_spi_clk_ibufds> in unit <top>.
+    Set user-defined property "IBUF_LOW_PWR =  TRUE" for instance <fpga_spi_clk_ibufds> in unit <top>.
+    Set user-defined property "IFD_DELAY_VALUE =  AUTO" for instance <fpga_spi_clk_ibufds> in unit <top>.
+    Set user-defined property "IOSTANDARD =  LVDS_33" for instance <fpga_spi_clk_ibufds> in unit <top>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <fpga_spi_mosi_ibufds> in unit <top>.
+    Set user-defined property "DIFF_TERM =  FALSE" for instance <fpga_spi_mosi_ibufds> in unit <top>.
+    Set user-defined property "DQS_BIAS =  FALSE" for instance <fpga_spi_mosi_ibufds> in unit <top>.
+    Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <fpga_spi_mosi_ibufds> in unit <top>.
+    Set user-defined property "IBUF_LOW_PWR =  TRUE" for instance <fpga_spi_mosi_ibufds> in unit <top>.
+    Set user-defined property "IFD_DELAY_VALUE =  AUTO" for instance <fpga_spi_mosi_ibufds> in unit <top>.
+    Set user-defined property "IOSTANDARD =  LVDS_33" for instance <fpga_spi_mosi_ibufds> in unit <top>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <fpga_spi_cs_ibufds> in unit <top>.
+    Set user-defined property "DIFF_TERM =  FALSE" for instance <fpga_spi_cs_ibufds> in unit <top>.
+    Set user-defined property "DQS_BIAS =  FALSE" for instance <fpga_spi_cs_ibufds> in unit <top>.
+    Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <fpga_spi_cs_ibufds> in unit <top>.
+    Set user-defined property "IBUF_LOW_PWR =  TRUE" for instance <fpga_spi_cs_ibufds> in unit <top>.
+    Set user-defined property "IFD_DELAY_VALUE =  AUTO" for instance <fpga_spi_cs_ibufds> in unit <top>.
+    Set user-defined property "IOSTANDARD =  LVDS_33" for instance <fpga_spi_cs_ibufds> in unit <top>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <trx1_clk_obufds> in unit <top>.
+    Set user-defined property "IOSTANDARD =  LVDS_33" for instance <trx1_clk_obufds> in unit <top>.
+    Set user-defined property "SLEW =  SLOW" for instance <trx1_clk_obufds> in unit <top>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <trx1_mosi_obufds> in unit <top>.
+    Set user-defined property "IOSTANDARD =  LVDS_33" for instance <trx1_mosi_obufds> in unit <top>.
+    Set user-defined property "SLEW =  SLOW" for instance <trx1_mosi_obufds> in unit <top>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <trx2_clk_obufds> in unit <top>.
+    Set user-defined property "IOSTANDARD =  LVDS_33" for instance <trx2_clk_obufds> in unit <top>.
+    Set user-defined property "SLEW =  SLOW" for instance <trx2_clk_obufds> in unit <top>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <trx2_mosi_obufds> in unit <top>.
+    Set user-defined property "IOSTANDARD =  LVDS_33" for instance <trx2_mosi_obufds> in unit <top>.
+    Set user-defined property "SLEW =  SLOW" for instance <trx2_mosi_obufds> in unit <top>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <trx3_clk_obufds> in unit <top>.
+    Set user-defined property "IOSTANDARD =  LVDS_33" for instance <trx3_clk_obufds> in unit <top>.
+    Set user-defined property "SLEW =  SLOW" for instance <trx3_clk_obufds> in unit <top>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <trx3_mosi_obufds> in unit <top>.
+    Set user-defined property "IOSTANDARD =  LVDS_33" for instance <trx3_mosi_obufds> in unit <top>.
+    Set user-defined property "SLEW =  SLOW" for instance <trx3_mosi_obufds> in unit <top>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <trx4_clk_obufds> in unit <top>.
+    Set user-defined property "IOSTANDARD =  LVDS_33" for instance <trx4_clk_obufds> in unit <top>.
+    Set user-defined property "SLEW =  SLOW" for instance <trx4_clk_obufds> in unit <top>.
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <trx4_mosi_obufds> in unit <top>.
+    Set user-defined property "IOSTANDARD =  LVDS_33" for instance <trx4_mosi_obufds> in unit <top>.
+    Set user-defined property "SLEW =  SLOW" for instance <trx4_mosi_obufds> in unit <top>.
+Analyzing module <rst> in library <work>.
+	delay_cnt_1 = 32'sb00000000000000000000000000001010
+	delay_cnt_2 = 24'b111111111111111111111111
+Module <rst> is correct for synthesis.
+ 
+Analyzing module <spi_mux> in library <work>.
+Module <spi_mux> is correct for synthesis.
+ 
+Analyzing module <spi_master.1> in library <work>.
+	SPI_IDLE = 32'sb00000000000000000000000000000000
+	SPI_READ_CLOCK_HIGH = 32'sb00000000000000000000000000000100
+	SPI_READ_CLOCK_LOW = 32'sb00000000000000000000000000000011
+	SPI_WRITE_CLOCK_HIGH = 32'sb00000000000000000000000000000010
+	SPI_WRITE_CLOCK_LOW = 32'sb00000000000000000000000000000001
+	clk_div = 32'sb00000000000000000000000000000101
+	data_depth = 32'sb00000000000000000000000000110110
+	rx_head_depth = 32'sb00000000000000000000000000000110
+INFO:Xst:1432 - Contents of array <spi_data_tx_reg> may be accessed with a negative index, causing simulation mismatch.
+INFO:Xst:1433 - Contents of array <spi_data_tx_reg> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
+Module <spi_master.1> is correct for synthesis.
+ 
+Analyzing module <spi_master.2> in library <work>.
+	SPI_IDLE = 32'sb00000000000000000000000000000000
+	SPI_READ_CLOCK_HIGH = 32'sb00000000000000000000000000000100
+	SPI_READ_CLOCK_LOW = 32'sb00000000000000000000000000000011
+	SPI_WRITE_CLOCK_HIGH = 32'sb00000000000000000000000000000010
+	SPI_WRITE_CLOCK_LOW = 32'sb00000000000000000000000000000001
+	clk_div = 32'sb00000000000000000000000000001010
+	data_depth = 32'sb00000000000000000000000000110110
+	rx_head_depth = 32'sb00000000000000000000000000000110
+INFO:Xst:1432 - Contents of array <spi_data_tx_reg> may be accessed with a negative index, causing simulation mismatch.
+INFO:Xst:1433 - Contents of array <spi_data_tx_reg> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
+Module <spi_master.2> is correct for synthesis.
+ 
+Analyzing module <UART_TX> in library <work>.
+	Baud_rate = 32'sb00000000000000011100001000000000
+	Baud_rate_division_factor = 32'sb00000000000000000000001101100100
+	Baud_rate_division_factor_2 = 32'sb00000000000000000000000110110010
+	SEND_DATA_BITS = 32'sb00000000000000000000000000000010
+	SEND_IDLE = 32'sb00000000000000000000000000000000
+	SEND_PARITY_BIT = 32'sb00000000000000000000000000000011
+	SEND_START_BIT = 32'sb00000000000000000000000000000001
+	SEND_STOP_BIT = 32'sb00000000000000000000000000000100
+	clk_frq = 32'sb00000101111101011110000100000000
+	data_depth = 32'sb00000000000000000000000000001100
+Module <UART_TX> is correct for synthesis.
+ 
+Analyzing module <UART_RX> in library <work>.
+	Baud_rate = 32'sb00000000000000011100001000000000
+	Baud_rate_division_factor = 32'sb00000000000000000000001101100100
+	Baud_rate_division_factor_2 = 32'sb00000000000000000000000110110010
+	RX_DATA_BITS = 32'sb00000000000000000000000000000011
+	RX_IDLE = 32'sb00000000000000000000000000000000
+	RX_PARITY_BIT = 32'sb00000000000000000000000000000100
+	RX_START_BIT = 32'sb00000000000000000000000000000010
+	RX_START_BIT_DETECTED = 32'sb00000000000000000000000000000001
+	RX_STOP_BIT = 32'sb00000000000000000000000000000101
+	RX_complete = 32'sb00000000000000000000000000000011
+	clk_frq = 32'sb00000101111101011110000100000000
+	data_depth = 32'sb00000000000000000000000000001100
+Module <UART_RX> is correct for synthesis.
+ 
+Analyzing module <SPI_Slave> in library <work>.
+	SPI_MODE = 32'sb00000000000000000000000000000000
+Module <SPI_Slave> is correct for synthesis.
+ 
+Analyzing module <spi_listener> in library <work>.
+	first_byte = 8'b00000000
+	listener_timeout = 32'sb00000000000000000000000110010000
+Module <spi_listener> is correct for synthesis.
+ 
+Analyzing module <process> in library <work>.
+	ADF4002_INIT = 32'sb00000000000000000000000000000001
+	LMX2594_INIT = 32'sb00000000000000000000000000000010
+	NORMAL_OPERATION = 32'sb00000000000000000000000000000100
+	PROCESS_RESET = 32'sb00000000000000000000000000000000
+	UART_DEBUG = 32'sb00000000000000000000000000000011
+	uart_data_depth = 32'sb00000000000000000000000000001100
+INFO:Xst:2546 - "../../rtl/process.v" line 66: reading initialization file "../mem/adf4002_reg.list".
+INFO:Xst:2546 - "../../rtl/process.v" line 71: reading initialization file "../mem/lmx2594_reg.list".
+INFO:Xst:1433 - Contents of array <adf4002_reg> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
+INFO:Xst:1433 - Contents of array <lmx2594_reg> may be accessed with an index that exceeds the array size. This could cause simulation mismatch.
+Module <process> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <receive_data_bytes> in unit <process> has a constant value of 0010 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <spi_wait> in unit <process> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <spi_dir> in unit <process> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <spi_data_depth> in unit <process> has a constant value of 00011000 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <rst>.
+    Related source file is "../../rtl/rst.v".
+    Register <ce_4002> equivalent to <ce_2594> has been removed
+    Found 1-bit register for signal <rst_n>.
+    Found 1-bit register for signal <ce_2594>.
+    Found 32-bit comparator lessequal for signal <ce_2594$cmp_le0000> created at line 24.
+    Found 32-bit up counter for signal <clk_cnt>.
+    Found 32-bit comparator lessequal for signal <rst_n$cmp_le0000> created at line 17.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   2 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+Unit <rst> synthesized.
+
+
+Synthesizing Unit <spi_mux>.
+    Related source file is "../../rtl/spi_mux.v".
+Unit <spi_mux> synthesized.
+
+
+Synthesizing Unit <spi_master_1>.
+    Related source file is "../../rtl/spi_master.v".
+    Register <spi_ready> equivalent to <spi_le> has been removed
+    Found 54-bit register for signal <spi_data_rx>.
+    Found 1-bit register for signal <spi_read_finish>.
+    Found 1-bit register for signal <spi_mosi>.
+    Found 1-bit register for signal <spi_le>.
+    Found 1-bit register for signal <spi_sclk>.
+    Found 10-bit subtractor for signal <$sub0000> created at line 94.
+    Found 1-bit 54-to-1 multiplexer for signal <$varindex0000> created at line 79.
+    Found 16-bit up counter for signal <clk_div_cnt>.
+    Found 8-bit register for signal <spi_bit_cnt>.
+    Found 8-bit adder for signal <spi_bit_cnt$addsub0000>.
+    Found 54-bit register for signal <spi_data_tx_reg>.
+    Found 1-bit register for signal <spi_dir_reg>.
+    Found 10-bit subtractor for signal <spi_mosi$sub0000> created at line 79.
+    Found 3-bit register for signal <spi_state>.
+    Found 10-bit comparator equal for signal <spi_state$cmp_eq0004> created at line 94.
+    Summary:
+	inferred   1 Counter(s).
+	inferred 124 D-type flip-flop(s).
+	inferred   5 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <spi_master_1> synthesized.
+
+
+Synthesizing Unit <spi_master_2>.
+    Related source file is "../../rtl/spi_master.v".
+    Register <spi_ready> equivalent to <spi_le> has been removed
+    Found 54-bit register for signal <spi_data_rx>.
+    Found 1-bit register for signal <spi_read_finish>.
+    Found 1-bit register for signal <spi_mosi>.
+    Found 1-bit register for signal <spi_le>.
+    Found 1-bit register for signal <spi_sclk>.
+    Found 10-bit subtractor for signal <$sub0000> created at line 94.
+    Found 1-bit 54-to-1 multiplexer for signal <$varindex0000> created at line 79.
+    Found 16-bit up counter for signal <clk_div_cnt>.
+    Found 8-bit register for signal <spi_bit_cnt>.
+    Found 8-bit adder for signal <spi_bit_cnt$addsub0000>.
+    Found 54-bit register for signal <spi_data_tx_reg>.
+    Found 1-bit register for signal <spi_dir_reg>.
+    Found 10-bit subtractor for signal <spi_mosi$sub0000> created at line 79.
+    Found 3-bit register for signal <spi_state>.
+    Found 10-bit comparator equal for signal <spi_state$cmp_eq0004> created at line 94.
+    Summary:
+	inferred   1 Counter(s).
+	inferred 124 D-type flip-flop(s).
+	inferred   5 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <spi_master_2> synthesized.
+
+
+Synthesizing Unit <UART_TX>.
+    Related source file is "../../rtl/TX.v".
+    Found 8-bit subtractor for signal <$sub0001> created at line 120.
+    Found 1-bit adder for signal <check_bit>.
+    Found 1-bit adder for signal <check_bit$addsub0000> created at line 201.
+    Found 1-bit adder for signal <check_bit$addsub0001> created at line 201.
+    Found 1-bit adder for signal <check_bit$addsub0002> created at line 201.
+    Found 1-bit adder for signal <check_bit$addsub0003> created at line 201.
+    Found 1-bit adder for signal <check_bit$addsub0004> created at line 201.
+    Found 1-bit adder for signal <check_bit$addsub0005> created at line 201.
+    Found 16-bit register for signal <counter>.
+    Found 16-bit adder for signal <counter$addsub0000> created at line 81.
+    Found 4-bit register for signal <send_data_bits_counter>.
+    Found 4-bit adder for signal <send_data_bits_counter$addsub0000> created at line 107.
+    Found 6-bit register for signal <send_data_bytes_counter>.
+    Found 6-bit adder for signal <send_data_bytes_counter$addsub0000> created at line 128.
+    Found 8-bit comparator equal for signal <send_data_bytes_counter$cmp_eq0000> created at line 120.
+    Found 8-bit subtractor for signal <send_start_once_addr$sub0000> created at line 188.
+    Found 8-bit subtractor for signal <send_start_once_addr$sub0001> created at line 188.
+    Found 3-bit register for signal <send_state>.
+    Found 1-bit register for signal <send_stop_bits_counter>.
+    Found 1-bit register for signal <TX_busy>.
+    Found 8-bit comparator not equal for signal <TX_busy$cmp_ne0000> created at line 120.
+    Summary:
+	inferred  31 D-type flip-flop(s).
+	inferred  14 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+	inferred   9 Multiplexer(s).
+Unit <UART_TX> synthesized.
+
+
+Synthesizing Unit <UART_RX>.
+    Related source file is "../../rtl/RX.v".
+WARNING:Xst:647 - Input <stop_bits> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 1-bit register for signal <receive_data_check_all>.
+    Found 6-bit register for signal <receive_data_bytes>.
+    Found 96-bit register for signal <receive_data_>.
+    Found 96-bit register for signal <receive_data>.
+    Found 12-bit register for signal <receive_data_check>.
+    Found 1-bit register for signal <RX_interrupt>.
+    Found 1-bit adder for signal <check_bit>.
+    Found 1-bit adder for signal <check_bit$addsub0000> created at line 98.
+    Found 1-bit adder for signal <check_bit$addsub0001> created at line 98.
+    Found 1-bit adder for signal <check_bit$addsub0002> created at line 98.
+    Found 1-bit adder for signal <check_bit$addsub0003> created at line 98.
+    Found 1-bit adder for signal <check_bit$addsub0004> created at line 98.
+    Found 1-bit adder for signal <check_bit$addsub0005> created at line 98.
+    Found 16-bit register for signal <counter>.
+    Found 16-bit adder for signal <counter$share0000>.
+    Found 96-bit shifter logical left for signal <receive_data_$shift0001> created at line 167.
+    Found 7-bit adder for signal <receive_data_$sub0000> created at line 167.
+    Found 1-bit register for signal <RX_busy>.
+    Found 4-bit register for signal <RX_data_bits_counter>.
+    Found 4-bit adder for signal <RX_data_bits_counter$addsub0000> created at line 151.
+    Found 6-bit register for signal <RX_data_bytes_counter>.
+    Found 6-bit adder for signal <RX_data_bytes_counter$addsub0000> created at line 133.
+    Found 1-bit register for signal <RX_interrupt_>.
+    Found 8-bit register for signal <RX_once_data>.
+    Found 1-bit register for signal <RX_once_parity_bit>.
+    Found 3-bit comparator greatequal for signal <RX_signal$cmp_ge0000> created at line 74.
+    Found 3-bit register for signal <RX_state>.
+    Found 4-bit register for signal <RX_stop_bits_counter>.
+    Found 4-bit adder for signal <RX_stop_bits_counter$addsub0000> created at line 162.
+    Found 7-bit register for signal <sig_maoci>.
+    Found 3-bit adder for signal <sig_maoci_sum>.
+    Found 2-bit adder for signal <sig_maoci_sum$addsub0001> created at line 69.
+    Found 3-bit adder for signal <sig_maoci_sum$addsub0003> created at line 69.
+    Found 3-bit adder for signal <sig_maoci_sum$addsub0004> created at line 69.
+    Found 1-bit adder carry out for signal <sig_maoci_sum$addsub0005> created at line 69.
+    Found 2-bit adder carry out for signal <sig_maoci_sum$addsub0006> created at line 69.
+    Found 4-bit register for signal <sig_rx>.
+    Summary:
+	inferred 267 D-type flip-flop(s).
+	inferred  18 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+	inferred   1 Combinational logic shifter(s).
+Unit <UART_RX> synthesized.
+
+
+Synthesizing Unit <SPI_Slave>.
+    Related source file is "../../rtl/spi_slave.v".
+WARNING:Xst:1305 - Output <o_SPI_MISO> is never assigned. Tied to value 0.
+WARNING:Xst:646 - Signal <w_SPI_MISO_Mux> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <w_CPOL> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <r_Temp_RX_Byte<7>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 8-bit register for signal <o_RX_Byte>.
+    Found 1-bit register for signal <o_RX_DV>.
+    Found 1-bit register for signal <r2_RX_Done>.
+    Found 1-bit register for signal <r3_RX_Done>.
+    Found 3-bit up counter for signal <r_RX_Bit_Count>.
+    Found 8-bit register for signal <r_RX_Byte>.
+    Found 1-bit register for signal <r_RX_Done>.
+    Found 8-bit register for signal <r_Temp_RX_Byte>.
+    Found 3-bit down counter for signal <r_TX_Bit_Count>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred  28 D-type flip-flop(s).
+Unit <SPI_Slave> synthesized.
+
+
+Synthesizing Unit <spi_listener>.
+    Related source file is "../../rtl/spi_listener.v".
+    Found finite state machine <FSM_0> for signal <spi_byte_cnt>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 9                                              |
+    | Inputs             | 3                                              |
+    | Outputs            | 5                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | spi_byte_cnt$and0000      (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Power Up State     | 00                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 24-bit register for signal <spi_data>.
+    Found 1-bit register for signal <spi_listener_interrupt>.
+    Found 16-bit register for signal <spi_slave_bytes>.
+    Found 1-bit register for signal <timeout>.
+    Found 16-bit up counter for signal <timeout_cnt>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred  42 D-type flip-flop(s).
+Unit <spi_listener> synthesized.
+
+
+Synthesizing Unit <process>.
+    Related source file is "../../rtl/process.v".
+WARNING:Xst:647 - Input <tx_ready> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <fpga_spi_data> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <spi_listener_interrupt> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <rx_byte<11>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <rx_byte<4:2>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1781 - Signal <lmx2594_reg> is used but never assigned. Tied to default value.
+WARNING:Xst:1781 - Signal <adf4002_reg> is used but never assigned. Tied to default value.
+    Found finite state machine <FSM_1> for signal <process_state>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 6                                              |
+    | Outputs            | 6                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Power Up State     | 00000000                                       |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 113x24-bit ROM for signal <$varindex0001> created at line 113.
+    Found 4x24-bit ROM for signal <$varindex0000> created at line 96.
+    Found 1-bit register for signal <RX_interrupt_clear>.
+    Found 96-bit register for signal <send_data>.
+    Found 1-bit register for signal <amp_en>.
+    Found 1-bit register for signal <internal_rx>.
+    Found 1-bit register for signal <internal_tx>.
+    Found 1-bit register for signal <internal_rad>.
+    Found 24-bit register for signal <spi_data_tx>.
+    Found 1-bit register for signal <start_tx>.
+    Found 3-bit register for signal <spi_start>.
+    Found 6-bit register for signal <send_data_bytes>.
+    Found 8-bit register for signal <init_reg_addr>.
+    Found 8-bit adder for signal <init_reg_addr$share0000> created at line 75.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   2 ROM(s).
+	inferred 143 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <process> synthesized.
+
+
+Synthesizing Unit <top>.
+    Related source file is "../../rtl/top.v".
+WARNING:Xst:646 - Signal <receive_data_check_all> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <receive_data_check> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <receive_data_bytes> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <receive_data_> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <parity_bit> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:1780 - Signal <TX_busy> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+Unit <top> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 2
+ 113x24-bit ROM                                        : 1
+ 4x24-bit ROM                                          : 1
+# Adders/Subtractors                                   : 41
+ 1-bit adder                                           : 7
+ 1-bit adder carry out                                 : 1
+ 10-bit adder                                          : 1
+ 10-bit subtractor                                     : 9
+ 16-bit adder                                          : 2
+ 2-bit adder                                           : 1
+ 2-bit adder carry out                                 : 1
+ 3-bit adder                                           : 3
+ 4-bit adder                                           : 3
+ 6-bit adder                                           : 2
+ 7-bit adder                                           : 1
+ 8-bit adder                                           : 4
+ 8-bit subtractor                                      : 3
+ 9-bit subtractor                                      : 3
+# Counters                                             : 6
+ 16-bit up counter                                     : 4
+ 3-bit up counter                                      : 1
+ 32-bit up counter                                     : 1
+# Registers                                            : 241
+ 1-bit register                                        : 207
+ 12-bit register                                       : 1
+ 16-bit register                                       : 2
+ 24-bit register                                       : 2
+ 3-bit register                                        : 5
+ 4-bit register                                        : 4
+ 54-bit register                                       : 3
+ 6-bit register                                        : 4
+ 7-bit register                                        : 1
+ 8-bit register                                        : 9
+ 96-bit register                                       : 3
+# Comparators                                          : 8
+ 10-bit comparator equal                               : 3
+ 3-bit comparator greatequal                           : 1
+ 32-bit comparator lessequal                           : 2
+ 8-bit comparator equal                                : 1
+ 8-bit comparator not equal                            : 1
+# Multiplexers                                         : 12
+ 1-bit 54-to-1 multiplexer                             : 3
+ 1-bit 89-to-1 multiplexer                             : 1
+ 1-bit 90-to-1 multiplexer                             : 1
+ 1-bit 91-to-1 multiplexer                             : 1
+ 1-bit 92-to-1 multiplexer                             : 1
+ 1-bit 93-to-1 multiplexer                             : 1
+ 1-bit 94-to-1 multiplexer                             : 1
+ 1-bit 95-to-1 multiplexer                             : 1
+ 1-bit 96-to-1 multiplexer                             : 2
+# Logic shifters                                       : 1
+ 96-bit shifter logical left                           : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <process/process_state/FSM> on signal <process_state[1:3]> with gray encoding.
+----------------------
+ State    | Encoding
+----------------------
+ 00000000 | 000
+ 00000001 | 001
+ 00000010 | 011
+ 00000011 | 010
+ 00000100 | 110
+----------------------
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <spi_listener/spi_byte_cnt/FSM> on signal <spi_byte_cnt[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 10
+-------------------
+WARNING:Xst:1290 - Hierarchical block <spi_slave> is unconnected in block <top>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <spi_listener> is unconnected in block <top>.
+   It will be removed from the design.
+INFO:Xst:2261 - The FF/Latch <send_data_0> in Unit <process> is equivalent to the following 61 FFs/Latches, which will be removed : <send_data_2> <send_data_4> <send_data_5> <send_data_6> <send_data_7> <send_data_9> <send_data_12> <send_data_13> <send_data_14> <send_data_15> <send_data_17> <send_data_18> <send_data_19> <send_data_20> <send_data_22> <send_data_23> <send_data_26> <send_data_31> <send_data_36> <send_data_39> <send_data_40> <send_data_42> <send_data_43> <send_data_47> <send_data_50> <send_data_51> <send_data_55> <send_data_59> <send_data_60> <send_data_63> <send_data_64> <send_data_65> <send_data_66> <send_data_67> <send_data_69> <send_data_71> <send_data_73> <send_data_75> <send_data_76> <send_data_77> <send_data_79> <send_data_80> <send_data_81> <send_data_82> <send_data_83> <send_data_84> <send_data_85> <send_data_86> <send_data_87> <send_data_88> <send_data_89> <send_data_90> <send_data_91> <send_data_92> <send_data_93> <send_data_94> <send_data_95> <send_data_bytes_0> <send_data_bytes_2>
+   <send_data_bytes_4> <send_data_bytes_5> 
+INFO:Xst:2261 - The FF/Latch <send_data_1> in Unit <process> is equivalent to the following 19 FFs/Latches, which will be removed : <send_data_3> <send_data_8> <send_data_10> <send_data_11> <send_data_16> <send_data_21> <send_data_25> <send_data_30> <send_data_32> <send_data_33> <send_data_34> <send_data_35> <send_data_38> <send_data_45> <send_data_54> <send_data_56> <send_data_58> <send_data_62> <send_data_bytes_3> 
+INFO:Xst:2261 - The FF/Latch <send_data_24> in Unit <process> is equivalent to the following 9 FFs/Latches, which will be removed : <send_data_27> <send_data_48> <send_data_57> <send_data_68> <send_data_70> <send_data_72> <send_data_74> <send_data_78> <send_data_bytes_1> 
+INFO:Xst:2261 - The FF/Latch <send_data_28> in Unit <process> is equivalent to the following 9 FFs/Latches, which will be removed : <send_data_29> <send_data_37> <send_data_41> <send_data_44> <send_data_46> <send_data_49> <send_data_52> <send_data_53> <send_data_61> 
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_32> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_31> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_30> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_29> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_28> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_27> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_26> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_25> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_24> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_dir_reg> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_53> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_52> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_51> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_50> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_49> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_48> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_47> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_46> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_45> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_44> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_43> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_42> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_41> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <send_data_1> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <send_data_0> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_dir_reg> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_53> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_52> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_51> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_50> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_49> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_48> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_47> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_46> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_45> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_44> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_43> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_42> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_41> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_40> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_39> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_38> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_37> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_36> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_35> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_34> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_33> (without init value) has a constant value of 0 in block <internal_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_47> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_46> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_45> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_44> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_43> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_42> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_41> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_40> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_39> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_38> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_37> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_36> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_35> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_34> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_33> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_32> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_31> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_30> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_29> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_28> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_27> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_26> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_25> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_24> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_40> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_39> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_38> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_37> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_36> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_35> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_34> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_33> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_32> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_31> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_30> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_29> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_28> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_27> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_26> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_25> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_24> (without init value) has a constant value of 0 in block <lmx2594_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_dir_reg> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_53> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_52> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_51> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_50> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_49> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_48> (without init value) has a constant value of 0 in block <adf4002_spi>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <receive_data_88> of sequential type is unconnected in block <RX>.
+WARNING:Xst:2677 - Node <receive_data_89> of sequential type is unconnected in block <RX>.
+WARNING:Xst:2677 - Node <receive_data_90> of sequential type is unconnected in block <RX>.
+WARNING:Xst:2677 - Node <receive_data_91> of sequential type is unconnected in block <RX>.
+WARNING:Xst:2677 - Node <receive_data_92> of sequential type is unconnected in block <RX>.
+WARNING:Xst:2677 - Node <receive_data_93> of sequential type is unconnected in block <RX>.
+WARNING:Xst:2677 - Node <receive_data_94> of sequential type is unconnected in block <RX>.
+WARNING:Xst:2677 - Node <receive_data_95> of sequential type is unconnected in block <RX>.
+WARNING:Xst:2404 -  FFs/Latches <send_data<95:79>> (without init value) have a constant value of 0 in block <process>.
+WARNING:Xst:2404 -  FFs/Latches <send_data_bytes<5:4>> (without init value) have a constant value of 0 in block <process>.
+
+Synthesizing (advanced) Unit <process>.
+INFO:Xst:3044 - The ROM <Mrom__varindex0001> will be implemented as a read-only BLOCK RAM, absorbing the register: <init_reg_addr>.
+INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom__varindex0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
+INFO:Xst:3225 - The RAM <Mrom__varindex0001> will be implemented as BLOCK RAM
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 113-word x 24-bit                   |          |
+    |     mode           | write-first                         |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to internal node          |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <process> synthesized (advanced).
+WARNING:Xst:2677 - Node <r_Temp_RX_Byte_7> of sequential type is unconnected in block <SPI_Slave>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 2
+# RAMs                                                 : 1
+ 113x24-bit single-port block RAM                      : 1
+# ROMs                                                 : 1
+ 4x24-bit ROM                                          : 1
+# Adders/Subtractors                                   : 34
+ 1-bit adder                                           : 1
+ 1-bit adder carry in                                  : 3
+ 1-bit adder carry out                                 : 1
+ 10-bit subtractor                                     : 3
+ 16-bit adder                                          : 2
+ 2-bit adder                                           : 1
+ 2-bit adder carry out                                 : 1
+ 3-bit adder                                           : 3
+ 4-bit adder                                           : 3
+ 4-bit subtractor borrow in                            : 1
+ 6-bit adder                                           : 2
+ 6-bit subtractor                                      : 3
+ 6-bit subtractor borrow in                            : 3
+ 7-bit adder                                           : 2
+ 8-bit adder                                           : 4
+ 8-bit subtractor                                      : 1
+# Counters                                             : 6
+ 16-bit up counter                                     : 4
+ 3-bit up counter                                      : 1
+ 32-bit up counter                                     : 1
+# Registers                                            : 863
+ Flip-Flops                                            : 863
+# Comparators                                          : 8
+ 10-bit comparator equal                               : 3
+ 3-bit comparator greatequal                           : 1
+ 32-bit comparator lessequal                           : 2
+ 8-bit comparator equal                                : 1
+ 8-bit comparator not equal                            : 1
+# Multiplexers                                         : 12
+ 1-bit 54-to-1 multiplexer                             : 3
+ 1-bit 89-to-1 multiplexer                             : 1
+ 1-bit 90-to-1 multiplexer                             : 1
+ 1-bit 91-to-1 multiplexer                             : 1
+ 1-bit 92-to-1 multiplexer                             : 1
+ 1-bit 93-to-1 multiplexer                             : 1
+ 1-bit 94-to-1 multiplexer                             : 1
+ 1-bit 95-to-1 multiplexer                             : 1
+ 1-bit 96-to-1 multiplexer                             : 2
+# Logic shifters                                       : 1
+ 96-bit shifter logical left                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <spi_data_rx_26> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_27> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_29> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_30> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_31> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_32> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_33> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_34> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_35> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_36> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_37> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_38> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_39> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_40> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_41> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_42> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_45> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_43> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_44> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_46> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_47> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_48> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_49> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_50> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_51> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_52> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_53> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_2> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_0> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_1> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_3> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_4> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_5> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_6> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_7> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_8> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_11> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_9> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_10> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_12> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_13> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_14> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_15> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_16> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_17> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_18> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_19> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_20> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_21> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_22> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_23> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_24> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_25> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <spi_data_rx_28> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <send_data_36> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_38> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_39> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_40> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_42> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_43> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_45> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_47> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_50> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_51> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_54> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_55> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_56> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_58> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_59> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_60> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_62> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_63> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_64> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_65> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_66> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_67> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_69> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_71> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_73> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_75> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_76> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_77> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_bytes_0> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_bytes_2> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_bytes_3> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_0> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_1> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_2> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_3> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_4> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_5> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_6> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_7> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_8> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_9> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_10> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_11> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_12> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_13> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_14> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_15> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_16> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_17> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_18> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_19> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_20> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_21> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_22> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_23> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_25> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_26> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_30> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_31> (without init value) has a constant value of 0 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_32> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_33> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_34> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_35> (without init value) has a constant value of 1 in block <process>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <send_data_24> in Unit <process> is equivalent to the following 9 FFs/Latches, which will be removed : <send_data_27> <send_data_48> <send_data_57> <send_data_68> <send_data_70> <send_data_72> <send_data_74> <send_data_78> <send_data_bytes_1> 
+INFO:Xst:2261 - The FF/Latch <send_data_28> in Unit <process> is equivalent to the following 9 FFs/Latches, which will be removed : <send_data_29> <send_data_37> <send_data_41> <send_data_44> <send_data_46> <send_data_49> <send_data_52> <send_data_53> <send_data_61> 
+INFO:Xst:2261 - The FF/Latch <adf4002_spi/spi_data_tx_reg_53> in Unit <top> is equivalent to the following 29 FFs/Latches, which will be removed : <adf4002_spi/spi_data_tx_reg_52> <adf4002_spi/spi_data_tx_reg_51> <adf4002_spi/spi_data_tx_reg_50> <adf4002_spi/spi_data_tx_reg_49> <adf4002_spi/spi_data_tx_reg_48> <adf4002_spi/spi_data_tx_reg_47> <adf4002_spi/spi_data_tx_reg_46> <adf4002_spi/spi_data_tx_reg_45> <adf4002_spi/spi_data_tx_reg_44> <adf4002_spi/spi_data_tx_reg_43> <adf4002_spi/spi_data_tx_reg_42> <adf4002_spi/spi_data_tx_reg_41> <adf4002_spi/spi_data_tx_reg_40> <adf4002_spi/spi_data_tx_reg_39> <adf4002_spi/spi_data_tx_reg_38> <adf4002_spi/spi_data_tx_reg_37> <adf4002_spi/spi_data_tx_reg_36> <adf4002_spi/spi_data_tx_reg_35> <adf4002_spi/spi_data_tx_reg_34> <adf4002_spi/spi_data_tx_reg_33> <adf4002_spi/spi_data_tx_reg_32> <adf4002_spi/spi_data_tx_reg_31> <adf4002_spi/spi_data_tx_reg_30> <adf4002_spi/spi_data_tx_reg_29> <adf4002_spi/spi_data_tx_reg_28> <adf4002_spi/spi_data_tx_reg_27>
+   <adf4002_spi/spi_data_tx_reg_26> <adf4002_spi/spi_data_tx_reg_25> <adf4002_spi/spi_data_tx_reg_24> 
+INFO:Xst:2261 - The FF/Latch <lmx2594_spi/spi_data_tx_reg_53> in Unit <top> is equivalent to the following 29 FFs/Latches, which will be removed : <lmx2594_spi/spi_data_tx_reg_52> <lmx2594_spi/spi_data_tx_reg_51> <lmx2594_spi/spi_data_tx_reg_50> <lmx2594_spi/spi_data_tx_reg_49> <lmx2594_spi/spi_data_tx_reg_48> <lmx2594_spi/spi_data_tx_reg_47> <lmx2594_spi/spi_data_tx_reg_46> <lmx2594_spi/spi_data_tx_reg_45> <lmx2594_spi/spi_data_tx_reg_44> <lmx2594_spi/spi_data_tx_reg_43> <lmx2594_spi/spi_data_tx_reg_42> <lmx2594_spi/spi_data_tx_reg_41> <lmx2594_spi/spi_data_tx_reg_40> <lmx2594_spi/spi_data_tx_reg_39> <lmx2594_spi/spi_data_tx_reg_38> <lmx2594_spi/spi_data_tx_reg_37> <lmx2594_spi/spi_data_tx_reg_36> <lmx2594_spi/spi_data_tx_reg_35> <lmx2594_spi/spi_data_tx_reg_34> <lmx2594_spi/spi_data_tx_reg_33> <lmx2594_spi/spi_data_tx_reg_32> <lmx2594_spi/spi_data_tx_reg_31> <lmx2594_spi/spi_data_tx_reg_30> <lmx2594_spi/spi_data_tx_reg_29> <lmx2594_spi/spi_data_tx_reg_28> <lmx2594_spi/spi_data_tx_reg_27>
+   <lmx2594_spi/spi_data_tx_reg_26> <lmx2594_spi/spi_data_tx_reg_25> <lmx2594_spi/spi_data_tx_reg_24> 
+INFO:Xst:2261 - The FF/Latch <spi_data_tx_reg_24> in Unit <spi_master_2> is equivalent to the following 29 FFs/Latches, which will be removed : <spi_data_tx_reg_25> <spi_data_tx_reg_26> <spi_data_tx_reg_27> <spi_data_tx_reg_28> <spi_data_tx_reg_29> <spi_data_tx_reg_30> <spi_data_tx_reg_31> <spi_data_tx_reg_32> <spi_data_tx_reg_33> <spi_data_tx_reg_34> <spi_data_tx_reg_35> <spi_data_tx_reg_36> <spi_data_tx_reg_37> <spi_data_tx_reg_38> <spi_data_tx_reg_39> <spi_data_tx_reg_40> <spi_data_tx_reg_41> <spi_data_tx_reg_42> <spi_data_tx_reg_43> <spi_data_tx_reg_44> <spi_data_tx_reg_45> <spi_data_tx_reg_46> <spi_data_tx_reg_47> <spi_data_tx_reg_48> <spi_data_tx_reg_49> <spi_data_tx_reg_50> <spi_data_tx_reg_51> <spi_data_tx_reg_52> <spi_data_tx_reg_53> 
+WARNING:Xst:1710 - FF/Latch <spi_data_tx_reg_24> (without init value) has a constant value of 0 in block <spi_master_2>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <lmx2594_spi/spi_data_tx_reg_53> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <adf4002_spi/spi_data_tx_reg_53> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_53> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_52> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_51> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_50> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_49> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_48> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_47> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_46> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_44> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_43> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_45> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_42> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_41> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_40> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_39> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_38> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_37> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_36> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_35> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_34> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_33> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_32> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_31> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_30> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_29> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_27> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_26> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_28> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_25> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_24> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_23> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_22> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_21> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_20> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_19> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_18> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_17> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_16> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_12> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_11> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_data_rx_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <lmx2594_spi/spi_read_finish> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_53> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_52> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_51> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_50> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_49> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_48> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_47> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_46> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_44> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_43> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_45> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_42> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_41> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_40> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_39> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_38> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_37> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_36> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_35> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_34> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_33> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_32> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_31> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_30> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_29> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_27> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_26> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_28> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_25> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_24> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_23> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_22> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_21> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_20> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_19> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_18> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_17> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_16> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_12> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_11> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_data_rx_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <adf4002_spi/spi_read_finish> of sequential type is unconnected in block <top>.
+
+Optimizing unit <top> ...
+
+Optimizing unit <rst> ...
+
+Optimizing unit <spi_master_2> ...
+
+Optimizing unit <UART_TX> ...
+WARNING:Xst:1710 - FF/Latch <send_data_bits_counter_3> (without init value) has a constant value of 0 in block <UART_TX>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <send_data_bits_counter_3> (without init value) has a constant value of 0 in block <UART_TX>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <UART_RX> ...
+WARNING:Xst:1710 - FF/Latch <receive_data_check_all> (without init value) has a constant value of 1 in block <UART_RX>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <SPI_Slave> ...
+
+Optimizing unit <spi_listener> ...
+
+Optimizing unit <process> ...
+WARNING:Xst:1710 - FF/Latch <lmx2594_spi/spi_dir_reg> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <adf4002_spi/spi_dir_reg> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <internal_spi/spi_dir_reg> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <internal_spi/spi_read_finish> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_check_11> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_check_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_check_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_check_8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_check_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_check_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_check_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_check_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_check_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_check_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_check_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_check_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_bytes_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_bytes_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_bytes_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_bytes_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_bytes_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_bytes_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__95> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__94> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__93> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__92> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__91> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__90> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__89> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__88> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__87> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__86> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__85> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__84> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__83> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__82> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__81> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__80> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__79> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__78> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__77> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__76> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__75> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__74> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__73> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__72> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__71> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__70> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__69> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__68> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__67> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__66> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__65> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__64> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__63> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__62> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__61> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__60> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__59> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__58> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__57> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__56> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__55> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__54> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__53> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__52> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__51> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__50> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__49> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__48> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__47> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__46> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__45> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__44> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__43> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__42> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__41> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__40> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__39> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__38> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__37> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__36> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__35> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__34> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__33> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__32> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__31> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__30> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__29> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__28> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__27> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__26> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__25> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__24> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__23> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__22> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__21> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__20> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__19> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__18> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__17> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__16> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__12> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__11> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data__0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_95> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_94> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_93> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_92> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_91> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_90> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_89> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/receive_data_88> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/RX_data_bytes_counter_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/RX_data_bytes_counter_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/RX_data_bytes_counter_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/RX_data_bytes_counter_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/RX_data_bytes_counter_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <RX/RX_data_bytes_counter_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_RX_Bit_Count_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_RX_Bit_Count_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_RX_Bit_Count_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/o_RX_Byte_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/o_RX_Byte_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/o_RX_Byte_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/o_RX_Byte_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/o_RX_Byte_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/o_RX_Byte_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/o_RX_Byte_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/o_RX_Byte_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r3_RX_Done> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r2_RX_Done> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_RX_Byte_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_RX_Byte_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_RX_Byte_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_RX_Byte_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_RX_Byte_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_RX_Byte_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_RX_Byte_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_RX_Byte_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/o_RX_DV> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_Temp_RX_Byte_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_Temp_RX_Byte_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_Temp_RX_Byte_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_Temp_RX_Byte_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_Temp_RX_Byte_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_Temp_RX_Byte_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_Temp_RX_Byte_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_slave/r_RX_Done> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_byte_cnt_FSM_FFd2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_byte_cnt_FSM_FFd1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/timeout_cnt_15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/timeout_cnt_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/timeout_cnt_13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/timeout_cnt_12> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/timeout_cnt_11> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/timeout_cnt_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/timeout_cnt_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/timeout_cnt_8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/timeout_cnt_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/timeout_cnt_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/timeout_cnt_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/timeout_cnt_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/timeout_cnt_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/timeout_cnt_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/timeout_cnt_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/timeout_cnt_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_listener_interrupt> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_23> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_22> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_21> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_20> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_19> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_18> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_17> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_16> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_12> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_11> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_data_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/timeout> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_slave_bytes_1_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_slave_bytes_1_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_slave_bytes_1_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_slave_bytes_1_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_slave_bytes_1_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_slave_bytes_1_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_slave_bytes_1_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_slave_bytes_1_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_slave_bytes_0_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_slave_bytes_0_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_slave_bytes_0_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_slave_bytes_0_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_slave_bytes_0_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_slave_bytes_0_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_slave_bytes_0_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <spi_listener/spi_slave_bytes_0_0> of sequential type is unconnected in block <top>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 26.
+
+Final Macro Processing ...
+
+Processing Unit <top> :
+	Found 5-bit shift register for signal <RX/sig_maoci_0>.
+Unit <top> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 403
+ Flip-Flops                                            : 403
+# Shift Registers                                      : 1
+ 5-bit shift register                                  : 1
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : top.ngr
+Top Level Output File Name         : top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 60
+
+Cell Usage :
+# BELS                             : 1268
+#      GND                         : 1
+#      INV                         : 31
+#      LUT1                        : 116
+#      LUT2                        : 169
+#      LUT2_D                      : 8
+#      LUT2_L                      : 14
+#      LUT3                        : 170
+#      LUT3_D                      : 4
+#      LUT3_L                      : 7
+#      LUT4                        : 286
+#      LUT4_D                      : 22
+#      LUT4_L                      : 26
+#      MUXCY                       : 160
+#      MUXF5                       : 92
+#      MUXF6                       : 23
+#      MUXF7                       : 5
+#      MUXF8                       : 3
+#      VCC                         : 1
+#      XORCY                       : 130
+# FlipFlops/Latches                : 409
+#      FD                          : 11
+#      FDE                         : 115
+#      FDRE                        : 236
+#      FDS                         : 44
+#      FDSE                        : 3
+# RAMS                             : 1
+#      RAMB16BWE                   : 1
+# Shift Registers                  : 1
+#      SRL16                       : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 48
+#      IBUF                        : 7
+#      IBUFDS                      : 3
+#      OBUF                        : 30
+#      OBUFDS                      : 8
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s200anftg256-4 
+
+ Number of Slices:                      458  out of   1792    25%  
+ Number of Slice Flip Flops:            409  out of   3584    11%  
+ Number of 4 input LUTs:                854  out of   3584    23%  
+    Number used as logic:               853
+    Number used as Shift registers:       1
+ Number of IOs:                          60
+ Number of bonded IOBs:                  60  out of    195    30%  
+ Number of BRAMs:                         1  out of     16     6%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 411   |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 7.830ns (Maximum Frequency: 127.710MHz)
+   Minimum input arrival time before clock: 4.560ns
+   Maximum output required time after clock: 13.490ns
+   Maximum combinational path delay: 7.334ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 7.830ns (frequency: 127.710MHz)
+  Total number of paths / destination ports: 17165 / 1050
+-------------------------------------------------------------------------
+Delay:               7.830ns (Levels of Logic = 5)
+  Source:            RX/sig_maoci_2 (FF)
+  Destination:       RX/receive_data_63 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: RX/sig_maoci_2 to RX/receive_data_63
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDS:C->Q              5   0.591   0.776  RX/sig_maoci_2 (RX/sig_maoci_2)
+     LUT3_L:I0->LO         1   0.648   0.103  RX/Madd_sig_maoci_sum_addsub0004_Madd_cy<0>11_SW0 (N297)
+     LUT4:I3->O            1   0.648   0.423  RX/Madd_sig_maoci_sum_addsub0004_Madd_cy<0>11 (RX/Madd_sig_maoci_sum_addsub0004_Madd_cy<0>)
+     LUT4_D:I3->LO         1   0.648   0.103  RX/Madd_sig_maoci_sum_xor<2>11 (N447)
+     LUT4:I3->O           15   0.648   1.020  RX/RX_interrupt__not0001125 (RX/N249)
+     LUT4:I3->O           32   0.648   1.262  RX/receive_data_not0001_1 (RX/receive_data_not00011)
+     FDRE:CE                   0.312          RX/receive_data_32
+    ----------------------------------------
+    Total                      7.830ns (4.143ns logic, 3.687ns route)
+                                       (52.9% logic, 47.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 5 / 5
+-------------------------------------------------------------------------
+Offset:              4.560ns (Levels of Logic = 3)
+  Source:            fpga_rad (PAD)
+  Destination:       process/internal_rad (FF)
+  Destination Clock: clk rising
+
+  Data Path: fpga_rad to process/internal_rad
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   0.849   0.563  fpga_rad_IBUF (fpga_rad_IBUF)
+     LUT2:I0->O            1   0.648   0.563  process/internal_rad_mux00000 (process/internal_rad_mux00000)
+     LUT4:I0->O            1   0.648   0.420  process/internal_rad_mux00009 (process/internal_rad_mux00009)
+     FDS:S                     0.869          process/internal_rad
+    ----------------------------------------
+    Total                      4.560ns (3.014ns logic, 1.546ns route)
+                                       (66.1% logic, 33.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 332 / 40
+-------------------------------------------------------------------------
+Offset:              13.490ns (Levels of Logic = 9)
+  Source:            process/send_data_24 (FF)
+  Destination:       FPGA_TX (PAD)
+  Source Clock:      clk rising
+
+  Data Path: process/send_data_24 to FPGA_TX
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q             51   0.591   1.411  process/send_data_24 (process/send_data_24)
+     LUT2:I0->O            9   0.648   0.820  TX/Msub_send_start_once_addr_sub0001_Madd_Madd_Madd_lut<1>1 (TX/Madd__COND_33_Madd_lut<4>)
+     MUXF6:S->O            2   0.771   0.590  TX/Mmux__COND_28_5_f6 (TX/Mmux__COND_28_5_f6)
+     LUT4:I0->O            1   0.648   0.000  TX/TX83_SW21 (TX/TX83_SW2)
+     MUXF5:I1->O           1   0.276   0.452  TX/TX83_SW2_f5 (N375)
+     LUT3:I2->O            1   0.648   0.000  TX/TX83_F (N419)
+     MUXF5:I0->O           1   0.276   0.500  TX/TX83 (TX/TX83)
+     LUT4:I1->O            1   0.643   0.000  TX/TX1001 (TX/TX100)
+     MUXF5:I1->O           1   0.276   0.420  TX/TX100_f5 (FPGA_TX_OBUF)
+     OBUF:I->O                 4.520          FPGA_TX_OBUF (FPGA_TX)
+    ----------------------------------------
+    Total                     13.490ns (9.297ns logic, 4.193ns route)
+                                       (68.9% logic, 31.1% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 62 / 22
+-------------------------------------------------------------------------
+Delay:               7.334ns (Levels of Logic = 3)
+  Source:            debug_mode (PAD)
+  Destination:       trx1_spi_mosi_n (PAD)
+
+  Data Path: debug_mode to trx1_spi_mosi_n
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   0.849   0.730  debug_mode_IBUF (debug_mode_IBUF)
+     LUT3:I0->O            4   0.648   0.587  spi_mux/int_cs1 (trx3_spi_cs_OBUF)
+     OBUF:I->O                 4.520          trx2_spi_cs_OBUF (trx2_spi_cs)
+    ----------------------------------------
+    Total                      7.334ns (6.017ns logic, 1.317ns route)
+                                       (82.0% logic, 18.0% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 17.00 secs
+Total CPU time to Xst completion: 16.98 secs
+ 
+--> 
+
+Total memory usage is 4550736 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :  595 (   0 filtered)
+Number of infos    :   25 (   0 filtered)
+

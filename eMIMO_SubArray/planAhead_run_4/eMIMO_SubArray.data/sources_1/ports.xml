@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<Interface Version="1" Minor="1">
+	<Ifc Id="ROOT" Top="1">
+		<Bus Id="PE44951_MISO">
+			<Port Id="7" Dir="IN"/>
+			<Port Id="6" Dir="IN"/>
+			<Port Id="5" Dir="IN"/>
+			<Port Id="4" Dir="IN"/>
+			<Port Id="3" Dir="IN"/>
+			<Port Id="2" Dir="IN"/>
+			<Port Id="1" Dir="IN"/>
+			<Port Id="0" Dir="IN"/>
+		</Bus>
+		<Bus Id="PE44951_CS">
+			<Port Id="7" Dir="OUT"/>
+			<Port Id="6" Dir="OUT"/>
+			<Port Id="5" Dir="OUT"/>
+			<Port Id="4" Dir="OUT"/>
+			<Port Id="3" Dir="OUT"/>
+			<Port Id="2" Dir="OUT"/>
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Bus Id="PE44951_SCLK">
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Bus Id="PE44951_MOSI">
+			<Port Id="7" Dir="OUT"/>
+			<Port Id="6" Dir="OUT"/>
+			<Port Id="5" Dir="OUT"/>
+			<Port Id="4" Dir="OUT"/>
+			<Port Id="3" Dir="OUT"/>
+			<Port Id="2" Dir="OUT"/>
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Bus Id="PE44951_LP">
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Bus Id="FEM_TX_ON">
+			<Port Id="7" Dir="OUT"/>
+			<Port Id="6" Dir="OUT"/>
+			<Port Id="5" Dir="OUT"/>
+			<Port Id="4" Dir="OUT"/>
+			<Port Id="3" Dir="OUT"/>
+			<Port Id="2" Dir="OUT"/>
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Bus Id="FEM_RX_ON">
+			<Port Id="7" Dir="OUT"/>
+			<Port Id="6" Dir="OUT"/>
+			<Port Id="5" Dir="OUT"/>
+			<Port Id="4" Dir="OUT"/>
+			<Port Id="3" Dir="OUT"/>
+			<Port Id="2" Dir="OUT"/>
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Bus Id="IF_DSA_LE">
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Bus Id="IF_DSA_DIN">
+			<Port Id="11" Dir="OUT"/>
+			<Port Id="10" Dir="OUT"/>
+			<Port Id="9" Dir="OUT"/>
+			<Port Id="8" Dir="OUT"/>
+			<Port Id="7" Dir="OUT"/>
+			<Port Id="6" Dir="OUT"/>
+			<Port Id="5" Dir="OUT"/>
+			<Port Id="4" Dir="OUT"/>
+			<Port Id="3" Dir="OUT"/>
+			<Port Id="2" Dir="OUT"/>
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Port Id="HOST_SCLK" Dir="IN"/>
+		<Port Id="HOST_SDI" Dir="IN"/>
+		<Port Id="HOST_LE" Dir="IN"/>
+		<Port Id="UPDATE" Dir="IN"/>
+		<Port Id="TX_ON" Dir="IN"/>
+		<Port Id="RX_ON" Dir="IN"/>
+		<Port Id="REV1" Dir="IN"/>
+		<Port Id="REV2" Dir="IN"/>
+		<Port Id="MCU_FCLK" Dir="IN"/>
+		<Port Id="MCU_DCLK" Dir="IN"/>
+		<Port Id="MCU_PLUG" Dir="IN"/>
+		<Port Id="MCU_DATA" Dir="IN"/>
+		<Port Id="MCU_INIT" Dir="IN"/>
+		<Port Id="MCU_LE" Dir="IN"/>
+		<Port Id="clk_in" Dir="IN"/>
+		<Port Id="DEV_MODE" Dir="IN"/>
+		<Port Id="PE44951_Rset" Dir="OUT"/>
+		<Port Id="FEM_LNA_BYPASS" Dir="OUT"/>
+		<Port Id="IF_TX_ON" Dir="OUT"/>
+		<Port Id="IF_RX_ON" Dir="OUT"/>
+	</Ifc>
+</Interface>
+

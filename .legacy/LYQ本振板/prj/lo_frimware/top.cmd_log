@@ -1,0 +1,107 @@
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+par -w -intstyle ise -ol high -t 1 top_map.ncd top.ncd top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf 
+bitgen -intstyle ise -f top.ut top.ncd 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+par -w -intstyle ise -ol high -t 1 top_map.ncd top.ncd top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf 
+bitgen -intstyle ise -f top.ut top.ncd 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+par -w -intstyle ise -ol high -t 1 top_map.ncd top.ncd top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf 
+bitgen -intstyle ise -f top.ut top.ncd 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+par -w -intstyle ise -ol high -t 1 top_map.ncd top.ncd top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf 
+bitgen -intstyle ise -f top.ut top.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+par -w -intstyle ise -ol high -t 1 top_map.ncd top.ncd top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf 
+bitgen -intstyle ise -f top.ut top.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+par -w -intstyle ise -ol high -t 1 top_map.ncd top.ncd top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf 
+bitgen -intstyle ise -f top.ut top.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+par -w -intstyle ise -ol high -t 1 top_map.ncd top.ncd top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf 
+bitgen -intstyle ise -f top.ut top.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+par -w -intstyle ise -ol high -t 1 top_map.ncd top.ncd top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf 
+bitgen -intstyle ise -f top.ut top.ncd 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+par -w -intstyle ise -ol high -t 1 top_map.ncd top.ncd top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf 
+bitgen -intstyle ise -f top.ut top.ncd 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+par -w -intstyle ise -ol high -t 1 top_map.ncd top.ncd top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf 
+bitgen -intstyle ise -f top.ut top.ncd 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+par -w -intstyle ise -ol high -t 1 top_map.ncd top.ncd top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf 
+bitgen -intstyle ise -f top.ut top.ncd 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+par -w -intstyle ise -ol high -t 1 top_map.ncd top.ncd top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf 
+bitgen -intstyle ise -f top.ut top.ncd 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+par -w -intstyle ise -ol high -t 1 top_map.ncd top.ncd top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf 
+bitgen -intstyle ise -f top.ut top.ncd 
+xst -intstyle ise -ifn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.xst" -ofn "C:/Users/aspha/Desktop/ise_workspace/lo_firmware/prj/lo_frimware/top.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/rf_chip.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/spi.ucf -uc C:/Users/aspha/Desktop/ise_workspace/lo_firmware/constrs/top.ucf -p xc3s200an-ftg256-4 top.ngc top.ngd  
+map -intstyle ise -p xc3s200an-ftg256-4 -cm area -ir off -pr off -c 100 -o top_map.ncd top.ngd top.pcf 
+par -w -intstyle ise -ol high -t 1 top_map.ncd top.ncd top.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf 
+bitgen -intstyle ise -f top.ut top.ncd 

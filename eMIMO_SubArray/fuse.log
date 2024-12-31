@@ -1,0 +1,39 @@
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "F:/ISE/eMIMO_SubArray/top_tb_isim_beh.exe" -prj "F:/ISE/eMIMO_SubArray/top_tb_beh.prj" "work.top_tb" "work.glbl" 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Analyzing Verilog file "F:/ISE/eMIMO_SubArray/srcs/PhaseArrayCal.v" into library work
+Analyzing Verilog file "F:/ISE/eMIMO_SubArray/srcs/SPI_Slave.v" into library work
+Analyzing Verilog file "F:/ISE/eMIMO_SubArray/srcs/SPI_Master_PE44951.v" into library work
+Analyzing Verilog file "F:/ISE/eMIMO_SubArray/srcs/SPI_Listener.v" into library work
+Analyzing Verilog file "F:/ISE/eMIMO_SubArray/srcs/rst.v" into library work
+Analyzing Verilog file "F:/ISE/eMIMO_SubArray/srcs/process.v" into library work
+Analyzing Verilog file "F:/ISE/eMIMO_SubArray/srcs/host_spi_mux.v" into library work
+Analyzing Verilog file "F:/ISE/eMIMO_SubArray/srcs/FEM_TR_switch.v" into library work
+Analyzing Verilog file "F:/ISE/eMIMO_SubArray/srcs/Top.v" into library work
+Analyzing Verilog file "F:/ISE/eMIMO_SubArray/srcs/tb_Top.v" into library work
+Analyzing Verilog file "E:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:1016 - "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 119: Port i_TX_DV is not connected to this instance
+WARNING:HDLCompiler:1016 - "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 223: Port i_IF_TX_ON is not connected to this instance
+WARNING:HDLCompiler:189 - "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 229: Size mismatch in connection of port <i_IF_TX_ON_soft>. Formal port size is 8-bit while actual signal size is 1-bit.
+WARNING:HDLCompiler:189 - "F:/ISE/eMIMO_SubArray/srcs/Top.v" Line 230: Size mismatch in connection of port <i_IF_RX_ON_soft>. Formal port size is 8-bit while actual signal size is 1-bit.
+Completed static elaboration
+Compiling module SPI_Slave(SPI_MODE=0)
+Compiling module spi_listener
+Compiling module phase_shift_calculator
+Compiling module spi_process(spi_master_data_len=...
+Compiling module SPI_Master_PE44951(spi_max_data_...
+Compiling module host_spi_mux
+Compiling module FEM_TR_switch
+Compiling module rst(delay_cnt=10)
+Compiling module top_default
+Compiling module top_tb
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 11 Verilog Units
+Built simulation executable F:/ISE/eMIMO_SubArray/top_tb_isim_beh.exe
+Fuse Memory Usage: 30816 KB
+Fuse CPU Usage: 452 ms
