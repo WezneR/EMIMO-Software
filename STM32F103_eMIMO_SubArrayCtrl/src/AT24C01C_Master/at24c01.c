@@ -150,10 +150,9 @@ void EEPROM_ReadSequenBytes(uint8_t MemAddress, uint8_t *ByteArray, uint8_t n_By
     // 当前接收的就是最后一个字节，所以要做出NACK
     I2C_AcknowledgeConfig(EEPROM_I2Cx, DISABLE);
 
-
     // 等待数据接收
     while (!I2C_CheckEvent(EEPROM_I2Cx, I2C_EVENT_MASTER_BYTE_RECEIVED));
-    ByteArray[n_Bytes] = I2C_ReceiveData(EEPROM_I2Cx);
+    ByteArray[n_Bytes - 1] = I2C_ReceiveData(EEPROM_I2Cx);
 
     // 生成STOP条件
     I2C_GenerateSTOP(EEPROM_I2Cx, ENABLE);

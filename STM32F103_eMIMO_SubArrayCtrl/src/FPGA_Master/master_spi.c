@@ -31,7 +31,7 @@ void FPGA_SPI_Init(void)
     SPI_InitStruct.SPI_CPOL = SPI_CPOL_Low; //时钟极性为低电平
     SPI_InitStruct.SPI_CPHA = SPI_CPHA_1Edge; //时钟相位为第一个时钟沿
     SPI_InitStruct.SPI_NSS = SPI_NSS_Soft;  //软件控制片选信号
-    SPI_InitStruct.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_4;
+    SPI_InitStruct.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_16;
     SPI_InitStruct.SPI_FirstBit = SPI_FirstBit_MSB; //最高有效位先传输
     SPI_InitStruct.SPI_CRCPolynomial = 7; //设置CRC多项式
     SPI_Init(FPGA_SPIx,&SPI_InitStruct); //SPI初始化

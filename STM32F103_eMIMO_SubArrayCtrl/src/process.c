@@ -1,6 +1,6 @@
 #include "process.h"
 
-uint8_t general_BID;
+uint8_t general_BID = 8;
 uint8_t init_phase[16] = {0};
 uint8_t init_atten[16] = {0};
 
@@ -17,6 +17,9 @@ static void Delay_us(uint32_t us)
  */
 void GPIO_init(void)
 {
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB | RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO, ENABLE);
+    GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE);
+
     GPIO_InitTypeDef GPIO_InitStruct;
     // DEV_MODE：PB1
     GPIO_InitStruct.GPIO_Pin = GPIO_Pin_1;
@@ -73,10 +76,11 @@ void SubArray_init_info_transmitt(void)
         MCU_PLUG_SET();
         FPGA_Master_Send(SPI_BORADCAST_DF32A|(Chip_ID<<4)|CMD_RECV_PHASE_INIT);
         FPGA_Master_Send((Channel_ID<<8)|init_phase[i]);
-        // while (SPI_I2S_GetFlagStatus(FPGA_SPIx, SPI_I2S_FLAG_BSY) == SET);
-        // FPGA_CSEL_SET();
+        while (SPI_I2S_GetFlagStatus(FPGA_SPIx, SPI_I2S_FLAG_BSY) == SET);
+        FPGA_CSEL_SET();
+        Delay_us(2);
 
-        // FPGA_CSEL_CLR();
+        FPGA_CSEL_CLR();
         FPGA_Master_Send(SPI_BORADCAST_DF32A|(Chip_ID<<4)|CMD_RECV_ATTEN_INIT);
         FPGA_Master_Send((Channel_ID<<8)|init_atten[i]);
         while (SPI_I2S_GetFlagStatus(FPGA_SPIx, SPI_I2S_FLAG_BSY) == SET);
@@ -88,50 +92,60 @@ void SubArray_init_info_transmitt(void)
 
 void process(uint8_t uart_data[8], uint8_t * ptr_process_once)
 {
-    // 需要转发给FPGA的指令
-    if (uart_data[6] == UART_Tail0 && uart_data[7] == UART_Tail1)
-    {
-        FPGA_CSEL_CLR();
-        MCU_PLUG_SET();
-        FPGA_Master_Send(((uint16_t)uart_data[2]<<8)|uart_data[3]);
-        FPGA_Master_Send(((uint16_t)uart_data[4]<<8)|uart_data[5]);
-        while (SPI_I2S_GetFlagStatus(FPGA_SPIx, SPI_I2S_FLAG_BSY) == SET);
-        FPGA_CSEL_SET();
-        MCU_PLUG_CLR();
-    }
-    // 需要自己处理的指令
-    else if (uart_data[6] == UART_Tail1 && uart_data[7] == UART_Tail0)
-    {
-        uint8_t cmd_addr = uart_data[3] & 0x0F;
-
-        switch (cmd_addr)
+    if (uart_data[2] == general_BID || (uart_data[2]&0x0F) == BORADCAST_BID )
+    {    
+        // 需要转发给FPGA的指令
+        if (uart_data[6] == UART_Tail0 && uart_data[7] == UART_Tail1)
         {
-        case 0x0:
-            if (uart_data[5]& 0x01)
+            FPGA_CSEL_CLR();
+            MCU_PLUG_SET();
+            FPGA_Master_Send(((uint16_t)uart_data[2]<<8)|uart_data[3]);
+            FPGA_Master_Send(((uint16_t)uart_data[4]<<8)|uart_data[5]);
+            while (SPI_I2S_GetFlagStatus(FPGA_SPIx, SPI_I2S_FLAG_BSY) == SET);
+            FPGA_CSEL_SET();
+            MCU_PLUG_CLR();
+        }
+        // 需要自己处理的指令
+        else if (uart_data[6] == UART_Tail1 && uart_data[7] == UART_Tail0)
+        {
+            uint8_t cmd_addr = uart_data[3] & 0x0F;
+            switch (cmd_addr)
             {
-                DEV_MODE_SET();
+            case 0x0:
+                if (uart_data[5]& 0x01)
+                {
+                    DEV_MODE_SET();
+                }
+                else
+                {
+                    DEV_MODE_CLR();
+                }
+                break;
+            case 0x1:
+                SubArray_init_info_transmitt();
+                break;
+            case 0x7:
+                EEPROM_WriteByte(MEM_BID, uart_data[5]);
+                break;
+            case 0x8:
+                EEPROM_WriteByte(MEM_PHA | ((uart_data[3]&0xF0)>>3) | (uart_data[4]&0x01), uart_data[5]);
+                break;
+            case 0x9:
+                EEPROM_WriteByte(MEM_ATT | ((uart_data[3]&0xF0)>>3) | (uart_data[4]&0x01), uart_data[5]);
+                break;
+            default:
+                break;
             }
-            else
-            {
-                DEV_MODE_CLR();
-            }
-            break;
-        case 0x1:
-            SubArray_init_info_transmitt();
-            break;
-        case 0x7:
-            EEPROM_WriteByte(MEM_BID, uart_data[5]);
-            break;
-        case 0x8:
-            EEPROM_WriteByte(MEM_PHA | (uart_data[3]&0xF0>>3) | (uart_data[4]&0x01), uart_data[5]);
-            break;
-        case 0x9:
-            EEPROM_WriteByte(MEM_ATT | (uart_data[3]&0xF0>>3) | (uart_data[4]&0x01), uart_data[5]);
-            break;
-        default:
-            break;
+        }
+        if (uart_data[2] == general_BID)
+        {
+            printf("Done. -- #%x\r\n", general_BID);
+        }
+        else
+        {
+            if (general_BID == 0)
+                printf("Done. -- All\r\n");
         }
     }
     *ptr_process_once = 1;
-    printf("Done.\r\n");
 }

@@ -23,6 +23,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
+#include "delay.h" // 引入延时函数头文件
 
 /** @addtogroup STM32F10x_StdPeriph_Examples
   * @{
@@ -138,6 +139,8 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
+    // 调用延时的递减计数函数
+    delay_decrement();
 }
 
 /******************************************************************************/

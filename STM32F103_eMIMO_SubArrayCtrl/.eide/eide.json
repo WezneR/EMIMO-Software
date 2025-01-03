@@ -28,7 +28,6 @@
         "hal/STM32F10x_StdPeriph_Driver/src/stm32f10x_dac.c",
         "hal/STM32F10x_StdPeriph_Driver/src/stm32f10x_dbgmcu.c",
         "hal/STM32F10x_StdPeriph_Driver/src/stm32f10x_dma.c",
-        "hal/STM32F10x_StdPeriph_Driver/src/stm32f10x_flash.c",
         "hal/STM32F10x_StdPeriph_Driver/src/stm32f10x_fsmc.c",
         "hal/STM32F10x_StdPeriph_Driver/src/stm32f10x_iwdg.c",
         "hal/STM32F10x_StdPeriph_Driver/src/stm32f10x_pwr.c",
@@ -126,7 +125,7 @@
           "c/cpp-compiler": {
             "language-c": "c11",
             "language-cpp": "c++11",
-            "optimization": "level-0",
+            "optimization": "level-debug",
             "warnings": "all-warnings",
             "one-elf-section-per-function": true,
             "one-elf-section-per-data": true
