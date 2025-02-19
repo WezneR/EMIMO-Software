@@ -17,15 +17,15 @@ for j = 1:length(portA)
 end
 
 %%
-Cal_Set='211215_23p5_26p5_-10';%校准数据集名
+Cal_Set='2p7-3p2-201-2';%校准数据集名
 
 % Number of points in measurement
 numPoints=201;  
 
-VNA_IF_BW=1000;%Hz
-VNA_Power=-10;%dBm
-frequencyRange = [22.5e9 26.5e9];
-CalSet_En = 0; %Control whether the calset will be written
+VNA_IF_BW=100000;%Hz
+VNA_Power=-15;%dBm
+frequencyRange = [2.7e9 3.2e9];
+CalSet_En = 1; %Control whether the calset will be written
 
 %%
 
@@ -122,4 +122,6 @@ fprintf(instrObj,sprintf('SENSe1:BANDwidth %s',num2str(VNA_IF_BW)));
 
 fprintf(instrObj,sprintf('SOURce:POWer:LEVel %s',num2str(VNA_Power)));
 
-
+% VNA_Single_Sweep_Fast_loopIndicator 用于在循环中使用 fast sweep 采集数据时，指示循环变量的值
+% VNA_Single_Sweep_Fast_loopIndicator结构体 在每个矢网的初始化脚本中被创建，在快速数据采集脚本VNA_Single_Sweep_xxxxx_Fast.m中被输出
+VNA_Single_Sweep_Fast_loopIndicator = struct('i',0,'j',0,'k',0);

@@ -1,10 +1,11 @@
-function [amp_init, phase_init] = func_OTAmeasure_channel(COM, Module_ID, isTX)
+function [amp_init, phase_init] = func_OTAmeasure_channel(COM, Module_ID, isTX, varargin)
 %FUNC_OTAMEASURE_CHANNEL 此处显示有关此函数的摘要
 %       测量单个模组64通道的空口增益和各通道相位。
 %   Input
 %       - COM:OpenSerial返回的串口类型，表示设备端口。
 %       - Module_ID:整数，表示模组ID。从0计数，范围0至15。
 %       - isTX:整数，1表示TX，0表示RX。
+%       - varargin: 可选参数，包括 'vna_use'。
 %   Output
 %       void
 
@@ -14,7 +15,19 @@ function [amp_init, phase_init] = func_OTAmeasure_channel(COM, Module_ID, isTX)
 %     ...
 %    #7
 
-VNA_Init_3672E; %校准文件、频率范围、频点数在这里修改
+% 如果沒有指定VNA_USE，默認使用VNA_USE='P5005A'
+VNA_USE = 'P5005A';
+% 解析可选参数
+for i = 1:2:length(varargin)
+    switch varargin{i}
+        case 'vna_use'
+            VNA_USE = varargin{i+1};
+        otherwise
+            error('Unknown optional parameter: %s', varargin{i});
+    end
+end
+
+VNA_Init; %校准文件、频率范围、频点数在这里修改
 numPoints=201; 
 frequencyRange = [2.7e9 3.2e9];
 freq_MK_range = 41:1:161;
@@ -26,7 +39,7 @@ loop = 1; % VNA连续测量的次数
 phase_init = zeros(8,8,4);
 amp_init = zeros(8,8,4);
 
-VNA_Single_Sweep_3672E;%必须先运行这个，才可以运行fast
+VNA_Single_Sweep;%必须先运行这个，才可以运行fast
 pause(0.1);
 
 
@@ -50,10 +63,10 @@ for bi = 0:7 % from board 1 to board 8
         func_channel_switch(COM, Module_ID, bi, i, isTX, 0);
         pause(0.02);
 
-        VNA_Single_Sweep_3672E_Fast_loopIndicator.j=bi;
-        VNA_Single_Sweep_3672E_Fast_loopIndicator.k=i;
+        VNA_Single_Sweep_Fast_loopIndicator.j=bi;
+        VNA_Single_Sweep_Fast_loopIndicator.k=i;
         for j = 1:loop
-            VNA_Single_Sweep_3672E_Fast;
+            VNA_Single_Sweep_Fast;
             a1(j) = 20*log10(mean(sparamMag(freq_MK_range,sp)));
             a2(j) = 20*log10(mean(sparamMag(freq_MK_center,sp)));
             a3(j) = 20*log10(mean(sparamMag(freq_MK_lower,sp)));

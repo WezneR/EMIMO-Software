@@ -1,12 +1,34 @@
-function [phase_delta, phase_init] = func_calibration_phase(COM, Module_ID, isTX, cal_times)
-%FUNC_CALIBRATION_PHASE 校准相位
-%   此处显示详细说明
+function [phase_delta, phase_init] = func_calibration_phase(COM, Module_ID, isTX, cal_times, varargin)
+%FUNC_CALIBRATION_PHASE 设备相位校准函数
+%   本函数用于执行设备通道的相位校准流程，支持多次迭代校准并记录校准历史数据
+%   Input
+%       - COM:OpenSerial返回的串口类型，表示设备端口。
+%       - Module_ID:整数，表示模组ID。从0计数，范围0至15。
+%       - isTX:整数，1表示TX，0表示RX。
+%       - cal_times:整数，表示连续校准的次数。
+%       - varargin:可选参数对，支持'vna_use'参数指定矢量网络分析仪型号
+%           - 'vna_use' : 字符串，指定VNA型号（默认'P5005A'）
+%   Output
+%       - phase_delta : 三维数组，各次校准得到的相位差值矩阵
+%       - phase_init  : 三维数组，各次校准前后的初始相位测量值
 
+
+% 如果沒有指定VNA_USE，默認使用VNA_USE='P5005A'
+VNA_USE = 'P5005A';
+% 解析可选参数
+for i = 1:2:length(varargin)
+    switch varargin{i}
+        case 'vna_use'
+            VNA_USE = varargin{i+1};
+        otherwise
+            error('Unknown optional parameter: %s', varargin{i});
+    end
+end
 
 UART.Head = hex2dec(['55';'5D']);  
 UART.End = hex2dec(['0D';'0A']);
 
-VNA_Init_3672E; %校准文件、频率范围、频点数在这里修改
+VNA_Init; %校准文件、频率范围、频点数在这里修改
 
 Freq_MK_point = 101; %取2.95GHz处的值
 
@@ -14,7 +36,7 @@ loop = 1;%选择每次测量读取的次数,取平均值
 
 history_delta = struct();
 
-% S12, S21 在 rawData 中的列索引，请在 VNA_Single_Sweep_3672E 中检查。
+% S12, S21 在 rawData 中的列索引，请在 VNA_Single_Sweep 中检查。
 S12_index = 3;
 S21_index = 2;
 % 转台上的设备接矢网端口1，因此当 isTX = True 时，S21表示增益。否则 S12表示增益。
@@ -24,7 +46,7 @@ else
     Sp_index = S12_index;
 end
 
-VNA_Single_Sweep_3672E;%必须先运行一次这个，才可以运行fast
+VNA_Single_Sweep;%必须先运行一次这个，才可以运行fast
 
 phase_init = zeros(8,8, cal_times + 1);
 
@@ -35,12 +57,12 @@ for t = 1:cal_times
             % 打开该通道
             func_channel_switch(COM, Module_ID, bi, i, isTX, 0);
             pause(0.02);
-            VNA_Single_Sweep_3672E_Fast_loopIndicator.i=t;
-            VNA_Single_Sweep_3672E_Fast_loopIndicator.j=bi;
-            VNA_Single_Sweep_3672E_Fast_loopIndicator.k=i;
+            VNA_Single_Sweep_Fast_loopIndicator.i=t;
+            VNA_Single_Sweep_Fast_loopIndicator.j=bi;
+            VNA_Single_Sweep_Fast_loopIndicator.k=i;
             % 多次采集取平均
             for j = 1:loop
-                VNA_Single_Sweep_3672E_Fast;
+                VNA_Single_Sweep_Fast;
                 p(j) = sparamPhase(Freq_MK_point, Sp_index)/pi*180;
             end
     
@@ -100,12 +122,12 @@ for bi = 0:7 % from board 1 to board 8
         % 打开该通道
         func_channel_switch(COM, Module_ID, bi, i, isTX, 0);
         pause(0.1);
-        VNA_Single_Sweep_3672E_Fast_loopIndicator.i= cal_times + 1;
-        VNA_Single_Sweep_3672E_Fast_loopIndicator.j=bi;
-        VNA_Single_Sweep_3672E_Fast_loopIndicator.k=i;
+        VNA_Single_Sweep_Fast_loopIndicator.i= cal_times + 1;
+        VNA_Single_Sweep_Fast_loopIndicator.j=bi;
+        VNA_Single_Sweep_Fast_loopIndicator.k=i;
         % 多次采集取平均
         for j = 1:loop
-            VNA_Single_Sweep_3672E_Fast;
+            VNA_Single_Sweep_Fast;
             p(j) = sparamPhase(Freq_MK_point, Sp_index)/pi*180;
         end
 

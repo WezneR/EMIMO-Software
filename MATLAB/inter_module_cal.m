@@ -12,6 +12,9 @@ addpath(genpath('mat'));
 CloseSerial;
 clear COM;
 
+% Choose the connected VNA 
+VNA_USE = 'P5005A';
+
 %% 识别串口号
 baudrate = 115200;
 
@@ -229,8 +232,8 @@ end
 
 VNA_Pause = 0.1;
 
-% 运行 VNA_Init_3672E 前，VNA窗口不得新建任何轨迹
-VNA_Init_3672E; %校准文件、频率范围、频点数在这里修改
+% 运行 VNA_Init 前，VNA窗口不得新建任何轨迹
+VNA_Init; %校准文件、频率范围、频点数在这里修改
 
 
 %% 开转
@@ -241,14 +244,14 @@ Far_dB = zeros(numPoints,length(Angle));
 % Far_Deg = zeros(numPoints,length(Angle));
 
 
-VNA_Single_Sweep_3672E;
+VNA_Single_Sweep;
 
 for ii=1:length(Angle)
 
     classObj.MoCtrCard_MCrlAxisAbsMove(1, Angle(ii), 2, 0.1);
     pause(0.02);
     index = ii;
-    VNA_Single_Sweep_3672E_Fast;
+    VNA_Single_Sweep_Fast;
     Far_Mag(:,ii) = sparamMag(:,Sp_index);
     Far_Rad(:,ii) = sparamPhase(:,Sp_index);
     Far_dB(:,ii)  = 20 * log10(abs(Far_Mag(:,ii)));

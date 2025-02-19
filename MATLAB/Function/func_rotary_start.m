@@ -8,14 +8,17 @@ function Far_dB = func_rotary_start(classObj, Angle, isTX, varargin)
 %       - classObj:SPLibClass类型，由SerialPortLibrary.SPLibClass()返回，用于转台控制。
 %       - Angle:整数行向量。需要扫描的角度数构成的行向量。例如，当需要转台从-90°转到90°、以1°为步进测量时，Angle = -90:90。
 %       - isTX:整数，1表示TX，0表示RX。
-%       - varargin: 可选参数，包括 'loop_indicator_j' 和 'loop_indicator_k'
+%       - varargin: 可选参数，包括 'loop_indicator_j', 'loop_indicator_k', 'vna_use'。
 %   Output
 %       - Far_dB: 空口增益，即矢网读数的dB值。该变量的行表示不同的频点，列表示转台不同的角度。因此行数等于
-%       VNA_Init_3672E 初始化时使用的校准集的扫描点数，列数等于 Angle 的长度 。
+%        VNA_Init 初始化时使用的校准集的扫描点数，列数等于 Angle 的长度 。
 
 % 初始化可选参数
 loop_indicator_j = [];
 loop_indicator_k = [];
+% 如果沒有指定VNA_USE，默認使用VNA_USE='P5005A'
+VNA_USE = 'P5005A';
+
 % 解析可选参数
 for i = 1:2:length(varargin)
     switch varargin{i}
@@ -23,21 +26,23 @@ for i = 1:2:length(varargin)
             loop_indicator_j = varargin{i+1};
         case 'loop_indicator_k'
             loop_indicator_k = varargin{i+1};
+        case 'vna_use'
+            VNA_USE = varargin{i+1};
         otherwise
             error('Unknown optional parameter: %s', varargin{i});
     end
 end
 % 如果外部指定了循环变量，则在测量时显示它。如果没有指定，则默认值是0。
 if ~isempty(loop_indicator_j)
-    VNA_Single_Sweep_3672E_Fast_loopIndicator.j = loop_indicator_j;
+    VNA_Single_Sweep_Fast_loopIndicator.j = loop_indicator_j;
 end
 if ~isempty(loop_indicator_k)
-    VNA_Single_Sweep_3672E_Fast_loopIndicator.k = loop_indicator_k;
+    VNA_Single_Sweep_Fast_loopIndicator.k = loop_indicator_k;
 end
 
 
 % 初始化矢网
-VNA_Init_3672E;
+VNA_Init;
 % 行表示频点，列表示角度
 Far_Mag = zeros(numPoints,length(Angle));
 Far_Rad = zeros(numPoints,length(Angle));
@@ -56,14 +61,14 @@ else
 end
 
 
-VNA_Single_Sweep_3672E;
+VNA_Single_Sweep;
 
 for ii=1:length(Angle)
     
     classObj.MoCtrCard_MCrlAxisAbsMove(1, Angle(ii), 2, 0.1);
     pause(0.2);
-    VNA_Single_Sweep_3672E_Fast_loopIndicator.i = ii;
-    VNA_Single_Sweep_3672E_Fast;
+    VNA_Single_Sweep_Fast_loopIndicator.i = ii;
+    VNA_Single_Sweep_Fast;
     Far_Mag(:,ii) = sparamMag(:,Sp_index);
     Far_Rad(:,ii) = sparamPhase(:,Sp_index);
     Far_dB(:,ii)  = 20 * log10(abs(Far_Mag(:,ii)));

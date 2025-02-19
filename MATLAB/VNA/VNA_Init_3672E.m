@@ -128,4 +128,6 @@ fprintf(instrObj,sprintf('SENSe1:BANDwidth %s',num2str(VNA_IF_BW)));
 
 fprintf(instrObj,sprintf('SOURce:POWer:LEVel %s',num2str(VNA_Power)));
 
-VNA_Single_Sweep_3672E_Fast_loopIndicator = struct('i',0,'j',0,'k',0);
+% VNA_Single_Sweep_Fast_loopIndicator 用于在循环中使用 fast sweep 采集数据时，指示循环变量的值
+% VNA_Single_Sweep_Fast_loopIndicator结构体 在每个矢网的初始化脚本中被创建，在快速数据采集脚本VNA_Single_Sweep_xxxxx_Fast.m中被输出
+VNA_Single_Sweep_Fast_loopIndicator = struct('i',0,'j',0,'k',0);

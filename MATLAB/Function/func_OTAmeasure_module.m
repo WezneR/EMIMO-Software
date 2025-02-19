@@ -1,4 +1,4 @@
-function [amp_init, phase_init] = func_OTAmeasure_module(isTX)
+function [amp_init, phase_init] = func_OTAmeasure_module(isTX, varargin)
 %FUNC_OTAMEASURE_MODULE 
 % 使用VNA采集一次空口增益和相位。返回的幅度和相位是 numPoints x 1 列向量，包含所有频点上的值。
 %   在调用此函数前：
@@ -7,6 +7,7 @@ function [amp_init, phase_init] = func_OTAmeasure_module(isTX)
 %   此处显示详细说明
 %   Input
 %       - isTX:整数，1表示TX，0表示RX。
+%       - varargin: 可选参数，包括 'vna_use'。
 %   Output
 %       - amp_init: numPoints x 1 列向量，表示各个频点上的S参数幅值
 %       - phase_init: numPoints x 1 列向量，表示各个频点上的S参数相位
@@ -20,8 +21,19 @@ function [amp_init, phase_init] = func_OTAmeasure_module(isTX)
 
 % modlue12      modlue13      module14      module15
 
+% 如果沒有指定VNA_USE，默認使用VNA_USE='P5005A'
+VNA_USE = 'P5005A';
+% 解析可选参数
+for i = 1:2:length(varargin)
+    switch varargin{i}
+        case 'vna_use'
+            VNA_USE = varargin{i+1};
+        otherwise
+            error('Unknown optional parameter: %s', varargin{i});
+    end
+end
 
-VNA_Init_3672E; %校准文件、频率范围、频点数在这里修改
+VNA_Init; %校准文件、频率范围、频点数在这里修改
 numPoints=201; 
 % frequencyRange = [2.7e9 3.2e9];
 % freq_MK_range = 41:1:161;
@@ -31,7 +43,7 @@ numPoints=201;
 
 loop = 1; % VNA连续测量的次数
 
-VNA_Single_Sweep_3672E;%必须先运行这个，才可以运行fast
+VNA_Single_Sweep;%必须先运行这个，才可以运行fast
 pause(0.1);
 
 
@@ -45,7 +57,7 @@ a = zeros(numPoints, loop);
 p = zeros(numPoints, loop);
 
 for j = 1:loop
-    VNA_Single_Sweep_3672E_Fast;
+    VNA_Single_Sweep_Fast;
     a(:, j) = 20*log10(sparamMag(:, sp));
     p(:, j) = sparamPhase(:, sp)./pi*180;
 end

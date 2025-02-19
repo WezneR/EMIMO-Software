@@ -21,7 +21,7 @@ fread(instrObj,1);
 % Reshape measurement data to [frequency, real, imag] array
 rawDataDB = reshape(rawDataDB, numPoints, 9);
 
-fprintf('#%d...\n',index);
+fprintf('#%d,%d,%d...\n',VNA_Single_Sweep_Fast_loopIndicator.i,VNA_Single_Sweep_Fast_loopIndicator.j,VNA_Single_Sweep_Fast_loopIndicator.k);
 
 % Store frequency range of the measurements
 freqRange = rawDataDB(:,1);

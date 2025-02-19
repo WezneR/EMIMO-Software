@@ -12,6 +12,10 @@ addpath(genpath('mat'));
 %%
 CloseSerial;
 clear COM;
+
+% Choose the connected VNA 
+VNA_USE = 'P5005A';
+
 %% 识别串口号
 baudrate = 115200;
 tic
@@ -149,7 +153,8 @@ fprintf('已更新相位。')
 %     ...
 %    #7
 
-VNA_Init_3672E; %校准文件、频率范围、频点数在这里修改
+
+VNA_Init; %校准文件、频率范围、频点数在这里修改
 
 numPoints=201; 
 frequencyRange = [2.7e9 3.2e9];
@@ -164,7 +169,7 @@ amp_init = zeros(8,8);
 
 Module_ID = 1;
 isTX = 0;%发射或者接收模式 
-VNA_Single_Sweep_3672E;%必须先运行这个，才可以运行fast
+VNA_Single_Sweep;%必须先运行这个，才可以运行fast
 pause(0.1);
 
 for bi = 0:7 % from board 1 to board 8
@@ -186,10 +191,10 @@ for bi = 0:7 % from board 1 to board 8
         Frame = [UART.Head; Parket; UART.End];
         fwrite(COM,Frame);
         pause(0.02);
-        VNA_Single_Sweep_3672E_Fast_loopIndicator.j=bi;
-        VNA_Single_Sweep_3672E_Fast_loopIndicator.k=i;
+        VNA_Single_Sweep_Fast_loopIndicator.j=bi;
+        VNA_Single_Sweep_Fast_loopIndicator.k=i;
         for j = 1:loop
-            VNA_Single_Sweep_3672E_Fast;
+            VNA_Single_Sweep_Fast;
             a(j) = 20*log10(mean(sparamMag(Freq_MK2_point,sp)));
             p(j) = sparamPhase(Freq_MK_point,sp)/pi*180;
         end
@@ -221,7 +226,7 @@ Frame = [UART.Head; Parket; UART.End];
 fwrite(COM,Frame);
 pause(0.5);
 
-VNA_Single_Sweep_3672E_Fast;
+VNA_Single_Sweep_Fast;
 amp = 20*log10(sparamMag(Freq_MK_point,sp));
 pha = sparamPhase(Freq_MK_point,sp)/pi*180;
 pause(0.5);
