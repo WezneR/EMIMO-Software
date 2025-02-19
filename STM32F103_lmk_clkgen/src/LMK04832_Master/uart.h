@@ -14,7 +14,6 @@
 #define UART_GPIO GPIOA
 
 void UART_Init(void);
-void UART_SendByte(uint8_t byte);
 void USART2_IRQHandler(void);
 
 #endif // __UART_H

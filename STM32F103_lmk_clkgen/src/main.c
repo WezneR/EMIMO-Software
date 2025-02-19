@@ -1,60 +1,83 @@
+#include "delay.h"
+#include "uart.h"
+#include "LMK04832_Drv.h"
 
-#include "master_spi.h"
-
+extern uint8_t init_regmap[];
 
 int main()
 {
-    FPGA_SPI_Init();
-    FPGA_CSEL_SET();
 
-    __NOP();
-    FPGA_CSEL_CLR();
-    FPGA_Master_Send(0xaa);
-    FPGA_Master_Send(0xbb);
-    FPGA_Master_Send(0x0f);
-    //等待SPI发送结束
-    while (SPI_I2S_GetFlagStatus(FPGA_SPIx, SPI_I2S_FLAG_BSY) == SET);
-    FPGA_CSEL_SET();
-}
+    SystemInit();
+    LMK_Master_Init();
+    UART_Init();
+    SysTick_Init();
+    GPIO_init();
 
-// #include "master_spi.h"
-// #include "stm32f10x.h"  // 包含STM32库
+    LMK_regmap_init(init_regmap);
 
-// void delay(uint32_t count) {
-//     while(count--) {
-//         __NOP();
-//     }
-// }
+    uint8_t combined_key_encode = 0;
 
-// int main()
-// {
-//     // 初始化PC13引脚
-//     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);  // 使能GPIOC时钟
-//     GPIO_InitTypeDef GPIO_InitStructure;
-//     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;
-//     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
-//     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;       // 配置为推挽输出模式
-//     GPIO_Init(GPIOC, &GPIO_InitStructure);
-
-//     // 初始化SPI
-//     FPGA_SPI_Init();
-//     FPGA_CSEL_SET();
-
-//     // SPI通信测试
-//     __NOP();
-//     FPGA_CSEL_CLR();
-//     FPGA_Master_Send(0xaa);
-//     FPGA_Master_Send(0xbb);
-//     FPGA_Master_Send(0x0f);
+    while (1)
+    {
+        if (GPIO_ReadInputDataBit(USRKEY_GPIOx, USRKEY1_Pin) == 0)
+        {
+            // Key1处于按下状态时，轮询Key2
+            while (GPIO_ReadInputDataBit(USRKEY_GPIOx, USRKEY1_Pin) == 0)
+            {
+                // 如果Key2也被按下
+                if (GPIO_ReadInputDataBit(USRKEY_GPIOx, USRKEY3_Pin) == 0)
+                {
+                    combined_key_encode = 1; // Key1 + Key2
+                }
+                else
+                {
+                    combined_key_encode = 2; // Key1
+                }
+            }
+            
+        }
+        else if (GPIO_ReadInputDataBit(USRKEY_GPIOx, USRKEY3_Pin) == 0)
+        {
+            // Key2处于按下状态时，轮询Key1
+            while (GPIO_ReadInputDataBit(USRKEY_GPIOx, USRKEY3_Pin) == 0)
+            {
+                // 如果Key1也被按下
+                if (GPIO_ReadInputDataBit(USRKEY_GPIOx, USRKEY1_Pin) == 0)
+                {
+                    combined_key_encode = 3; // Key2 + Key1
+                }
+                else
+                {
+                    combined_key_encode = 4; // Key2
+                }
+            }
+        }
+        else
+        {
+            combined_key_encode = 0;
+        }
+        
+        switch (combined_key_encode)
+        {
+        case 1:
+            __NOP();
+            break;
+        
+        case 2:
+            LMK_PLL1_PD();
+            break;
+        
+        case 3:
+            __NOP();
+            break;
+        
+        case 4:
+            LMK_PLL2_PD();
+            break;
+        
+        default:
+            break;
+        }
+    }
     
-//     // 等待SPI发送结束
-//     while (SPI_I2S_GetFlagStatus(FPGA_SPIx, SPI_I2S_FLAG_BSY) == SET);
-//     FPGA_CSEL_SET();
-
-//     // 进入主循环，控制LED闪烁
-//     while (1) {
-//         // 切换PC13的状态
-//         GPIOC->ODR ^= GPIO_Pin_13;  // 使用按位异或切换PC13的状态
-//         delay(1000000);             // 简单延时
-//     }
-// }
+}

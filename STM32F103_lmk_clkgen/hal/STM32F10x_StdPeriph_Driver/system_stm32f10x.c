@@ -211,61 +211,34 @@ static void SetSysClock(void);
   */
 void SystemInit (void)
 {
-  /* Reset the RCC clock configuration to the default reset state(for debug purpose) */
-  /* Set HSION bit */
-  RCC->CR |= (uint32_t)0x00000001;
-
-  /* Reset SW, HPRE, PPRE1, PPRE2, ADCPRE and MCO bits */
-#ifndef STM32F10X_CL
-  RCC->CFGR &= (uint32_t)0xF8FF0000;
-#else
-  RCC->CFGR &= (uint32_t)0xF0FF0000;
-#endif /* STM32F10X_CL */   
-  
-  /* Reset HSEON, CSSON and PLLON bits */
-  RCC->CR &= (uint32_t)0xFEF6FFFF;
-
-  /* Reset HSEBYP bit */
-  RCC->CR &= (uint32_t)0xFFFBFFFF;
-
-  /* Reset PLLSRC, PLLXTPRE, PLLMUL and USBPRE/OTGFSPRE bits */
-  RCC->CFGR &= (uint32_t)0xFF80FFFF;
-
-#ifdef STM32F10X_CL
-  /* Reset PLL2ON and PLL3ON bits */
-  RCC->CR &= (uint32_t)0xEBFFFFFF;
-
-  /* Disable all interrupts and clear pending bits  */
-  RCC->CIR = 0x00FF0000;
-
-  /* Reset CFGR2 register */
-  RCC->CFGR2 = 0x00000000;
-#elif defined (STM32F10X_LD_VL) || defined (STM32F10X_MD_VL) || (defined STM32F10X_HD_VL)
-  /* Disable all interrupts and clear pending bits  */
-  RCC->CIR = 0x009F0000;
-
-  /* Reset CFGR2 register */
-  RCC->CFGR2 = 0x00000000;      
-#else
-  /* Disable all interrupts and clear pending bits  */
-  RCC->CIR = 0x009F0000;
-#endif /* STM32F10X_CL */
-    
-#if defined (STM32F10X_HD) || (defined STM32F10X_XL) || (defined STM32F10X_HD_VL)
-  #ifdef DATA_IN_ExtSRAM
-    SystemInit_ExtMemCtl(); 
-  #endif /* DATA_IN_ExtSRAM */
-#endif 
-
-  /* Configure the System clock frequency, HCLK, PCLK2 and PCLK1 prescalers */
-  /* Configure the Flash Latency cycles and enable prefetch buffer */
-  SetSysClock();
-
-#ifdef VECT_TAB_SRAM
-  SCB->VTOR = SRAM_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM. */
-#else
-  SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH. */
-#endif 
+  RCC_DeInit(); // 重置RCC外设为默认值
+  // 启用内部高速时钟（HSI）
+  RCC_HSICmd(ENABLE);
+  // 等待HSI稳定
+  while (RCC_GetFlagStatus(RCC_FLAG_HSIRDY) == RESET);
+  // 设置FLASH预取指令缓存和等待状态
+  FLASH_PrefetchBufferCmd(FLASH_PrefetchBuffer_Enable);
+  FLASH_SetLatency(FLASH_Latency_2);
+  // 配置系统时钟为HSI
+  RCC_SYSCLKConfig(RCC_SYSCLKSource_HSI);
+  // 配置HCLK、PCLK1和PCLK2为SYSCLK分频系数为1
+  RCC_HCLKConfig(RCC_SYSCLK_Div1);
+  RCC_PCLK1Config(RCC_HCLK_Div2);//APB1最大36mhz
+  RCC_PCLK2Config(RCC_HCLK_Div1);
+  // 配置PLL,HSI=8MHZ  8/2*16=64MHZ
+  //如果需要在应用中使用USB接口，PLL必须被设置为输出48或72MHZ时钟，用于提供48MHz的USBCLK时钟。
+  RCC_PLLConfig(RCC_PLLSource_HSI_Div2, RCC_PLLMul_16);
+  // 启用PLL
+  RCC_PLLCmd(ENABLE);
+  // 等待PLL稳定
+  while (RCC_GetFlagStatus(RCC_FLAG_PLLRDY) == RESET);
+  // 选择PLL作为系统时钟源
+  RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);
+  // 等待系统时钟切换完成
+  while (RCC_GetSYSCLKSource() != 0x08);
+    // 更新系统时钟频率SystemCoreClock
+    //有使用systick定时器的话必须要该函数
+  SystemCoreClockUpdate();
 }
 
 /**
