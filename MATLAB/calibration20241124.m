@@ -1,7 +1,6 @@
 clear ;
 close all;
 clc;
-cd 'F:\MATLAB\EMIMO' %设置当前文件夹路径
 addpath(genpath('UART'));%生成指定的文件夹及其子文件的路径，并添加到matlab的搜索路径中。
 addpath(genpath('VNA'));
 addpath(genpath('Script'));
