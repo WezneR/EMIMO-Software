@@ -19,32 +19,27 @@
 //
 //
 // 2024年10月24日13:46:46
-// Revision v4（当前版本）：
+// Revision v4 （已弃用：不支持HDMI输入的控制信号）
 //      
 //
-//
-//
-//
-//
-//
+// 2025-02-25 14:53:16
+// Revision v5 （当前版本）
+//  - 加入了来自HDMI接口的外部SPI控制信号，需要和原来的USB接口的UART信号进行选路，选路信号为PLUG_IN。
+//    为了使两种控制信号兼容同一个process模块，需要删除原来process模块中有关receive_data_bytes和interrupt_clear的部分。
+//    只留下相同的部分：32位的输入数据 和 一个中断信号。
 //
 //
 //
 //
 //
 //////////////////////////////////////////////////////////////////////////////////
-module spi_process #(
-    //一次UART通信的最大数据字节数
-    parameter uart_max_byte_len = 36
-)(
+module ctrl_process (
     input               clk_100M,              // 时钟信号
     input               rst_n,                 // 复位信号
 
-    // 数据输入与应答
-    input wire [uart_max_byte_len*8-1:0] i_receive_data_,
-    input i_RX_interrupt,
-    input wire [5:0] i_receive_data_bytes,
-    output reg o_RX_interrupt_clear = 0,
+    // 控制信号输入
+    input wire [31:0] ctrl_data,
+    input wire ctrl_interrupt,
 
     // 和DSA数据和控制有关的信号
     output reg [5:0] TX_B1_DSA,
@@ -73,14 +68,11 @@ module spi_process #(
     reg [3:0] Board_ID = BOARD_ID_ALL;     // FPGA本地存储的Board_ID
 
     // 提取主机数据的字段
-    wire [15:0] UART_Head = i_receive_data_ [uart_max_byte_len*8-1-:16];
-    wire [31:0] UART_Data = i_receive_data_ [(uart_max_byte_len-2)*8-1-:32];     
-
-    wire [3:0] host_board_id= UART_Data[31:28];
-    wire [1:0] host_bank_id = UART_Data[25:24];
-    wire [3:0] host_dsa_id = UART_Data[23:20];
-    wire [3:0] cmd_addr = UART_Data[19:16];     
-    wire [15:0] host_data = UART_Data[15:0];
+    wire [3:0] host_board_id= ctrl_data[31:28];
+    wire [1:0] host_bank_id = ctrl_data[25:24];
+    wire [3:0] host_dsa_id = ctrl_data[23:20];
+    wire [3:0] cmd_addr = ctrl_data[19:16];
+    wire [15:0] host_data = ctrl_data[15:0];
 
 
     // 保存DSA的衰减码字和片选信息
@@ -115,86 +107,69 @@ module spi_process #(
             RX_B2_LE <=0;
         end 
         else begin
-            if (i_RX_interrupt) begin
-                if (i_receive_data_bytes == 6) begin
-                    // 比较主机的Board_ID与本地存储的Board_ID
-                    if (host_board_id == Board_ID || host_board_id == BOARD_ID_ALL) begin
-                        // 处理不同的命令地址
-                        case (cmd_addr)
-                            CMD_SWITCH_TXRX: begin
-                                // 通过指令切换TX或RX状态
-                                // 如果TX和RX同时为1或同时为0，则视作“既不打开TX也不打开RX”
-                                if (host_data[9] != host_data[8]) begin
-                                    case (host_bank_id)
-                                        2'd0, 2'd1: begin
-                                            o_TX_ON[host_bank_id] <= host_data[9];
-                                            o_RX_ON[host_bank_id] <= host_data[8];                                                
-                                        end
-                                        2'd2: begin
-                                            o_TX_ON <= {2{host_data[9]}};
-                                            o_RX_ON <= {2{host_data[8]}};
-                                        end
-                                        default: begin
-                                            o_TX_ON <= o_TX_ON;
-                                            o_RX_ON <= o_RX_ON;
-                                        end
-                                    endcase
-                                end
-                                else begin
-                                    case (host_bank_id)
-                                        2'd0, 2'd1: begin
-                                            o_TX_ON[host_bank_id] <= 0;
-                                            o_RX_ON[host_bank_id] <= 0;                                                
-                                        end
-                                        2'd2: begin
-                                            o_TX_ON <= 0;
-                                            o_RX_ON <= 0;
-                                        end
-                                        default: begin
-                                            o_TX_ON <= o_TX_ON;
-                                            o_RX_ON <= o_RX_ON;
-                                        end
-                                    endcase
-                                end
-                                o_RX_interrupt_clear <= 1;
+            if (ctrl_interrupt) begin
+                // 比较主机的Board_ID与本地存储的Board_ID
+                if (host_board_id == Board_ID || host_board_id == BOARD_ID_ALL) begin
+                    // 处理不同的命令地址
+                    case (cmd_addr)
+                        CMD_SWITCH_TXRX: begin
+                            // 通过指令切换TX或RX状态
+                            if (host_data[9] != host_data[8]) begin
+                                case (host_bank_id)
+                                    2'd0, 2'd1: begin
+                                        o_TX_ON[host_bank_id] <= host_data[9];
+                                        o_RX_ON[host_bank_id] <= host_data[8];                                                
+                                    end
+                                    2'd2: begin
+                                        o_TX_ON <= {2{host_data[9]}};
+                                        o_RX_ON <= {2{host_data[8]}};
+                                    end
+                                    default: begin
+                                        o_TX_ON <= o_TX_ON;
+                                        o_RX_ON <= o_RX_ON;
+                                    end
+                                endcase
                             end
-                            CMD_POWER_DOWN: begin
-                                // 关闭所有通道
-                                o_TX_ON <= 0;
-                                o_RX_ON <= 0;
-                                // o_LNA_BYPASS <= 1;
-                                o_RX_interrupt_clear <= 1;
+                            else begin
+                                case (host_bank_id)
+                                    2'd0, 2'd1: begin
+                                        o_TX_ON[host_bank_id] <= 0;
+                                        o_RX_ON[host_bank_id] <= 0;                                                
+                                    end
+                                    2'd2: begin
+                                        o_TX_ON <= 0;
+                                        o_RX_ON <= 0;
+                                    end
+                                    default: begin
+                                        o_TX_ON <= o_TX_ON;
+                                        o_RX_ON <= o_RX_ON;
+                                    end
+                                endcase
                             end
-                            CMD_RECV_BOARD_ID: begin
-                                // 修改Board_ID
-                                Board_ID <= host_data[3:0];
-                                o_RX_interrupt_clear <= 1;
-                            end
-                            CMD_WRITE_DSA: begin
-                                // 保存DSA衰减值
-                                dsa_att <= host_data[5:0];
-                                ALL_DSA <= host_data[8];
-                                Bank_ID <= host_bank_id;
-                                DSA_ID <= host_dsa_id;
-                                write_dsa_state <= S_WDSA_DATA_START;
-                                o_RX_interrupt_clear <= 1;
-                            end
-                            default: begin
-                                // 其他未定义的命令处理
-                                o_RX_interrupt_clear <= 1;
-                            end
-                        endcase
-                    end
+                        end
+                        CMD_POWER_DOWN: begin
+                            // 关闭所有通道
+                            o_TX_ON <= 0;
+                            o_RX_ON <= 0;
+                            // o_LNA_BYPASS <= 1;
+                        end
+                        CMD_RECV_BOARD_ID: begin
+                            // 修改Board_ID
+                            Board_ID <= host_data[3:0];
+                        end
+                        CMD_WRITE_DSA: begin
+                            // 保存DSA衰减值
+                            dsa_att <= host_data[5:0];
+                            ALL_DSA <= host_data[8];
+                            Bank_ID <= host_bank_id;
+                            DSA_ID <= host_dsa_id;
+                            write_dsa_state <= S_WDSA_DATA_START;
+                        end
+                        default: begin
+                            // 其他未定义的命令处理
+                        end
+                    endcase
                 end
-                else begin
-                    // 收到的UART数据长度不是6字节，因此其格式必定不正确，直接清除本次接收
-                    o_RX_interrupt_clear <= 1;
-                end
-            end
-
-            // 负责将 o_RX_interrupt_clear 维持一个clk的高电平后置0的模块
-            if (o_RX_interrupt_clear == 1) begin
-                o_RX_interrupt_clear <= 0;
             end
 
             // 负责更新DSA数据总线的模块
@@ -326,7 +301,5 @@ module spi_process #(
 
         end
     end
-
-
 
 endmodule

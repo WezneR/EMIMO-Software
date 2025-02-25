@@ -19,7 +19,8 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module CTRL_TOP(CLK_SYS,SPI_DATA,SPI_CLK,SPI_LE,UPDATE,TX_ON,RX_ON,MODE,REV,TXD_HOST,RXD_HOST,
-						SPI_DATA_MCU,SPI_CLK_MCU,SPI_LE_MCU,UPDATE_MCU,TX_ON_MCU,RX_ON_MCU,MODE_MCU,REV1_MCU,REV2_MCU,PLUG_IN,TXD_MCU ,
+						SPI_DATA_MCU,SPI_CLK_MCU,SPI_LE_MCU,UPDATE_MCU,TX_ON_MCU,RX_ON_MCU,
+                                    MODE_MCU,REV1_MCU,REV2_MCU,PLUG_IN,TXD_MCU,
 						TX_ON_B1,RX_ON_B1,TX_B1_DSA,TX_B1_LE,RX_B1_DSA,RX_B1_LE,RX_B1_LNA_BYPASS,
 						TX_ON_B2,RX_ON_B2,TX_B2_DSA,TX_B2_LE,RX_B2_DSA,RX_B2_LE,RX_B2_LNA_BYPASS
     );
@@ -82,9 +83,37 @@ BUFG BUFG_inst (
       .I(CLK_B1)      // Clock buffer input
 );
 
+// 主机的SPI状态和数据
+wire spi_slave_data_valid;
+wire [7:0] spi_slave_byte;
+wire [31:0] spi_listener_data;
+wire spi_listener_interrupt;
+// ============================== spi_slave ==============================
+parameter SPI_MODE = 0; // CPOL = 0, CPHA = 0
+SPI_Slave #(
+      .SPI_MODE(SPI_MODE)
+)
+SPI_Slave_test    
+(
+      .i_Rst_L(rst_n),
+      .i_Clk(clk),
+      .o_RX_DV(spi_slave_data_valid), 
+      .o_RX_Byte(spi_slave_byte),
+      .i_SPI_Clk(SPI_CLK),
+      .i_SPI_MOSI(SPI_DATA),
+      .i_SPI_CS_n(SPI_LE)
+);
+// ============================== spi_listener ==============================
+spi_listener SPI_Listener_test
+(
+      .clk(clk),
+      .spi_slave_data_valid(spi_slave_data_valid),
+      .spi_slave_byte(spi_slave_byte),
+      .spi_data(spi_listener_data),
+      .spi_listener_interrupt(spi_listener_interrupt)
+);
 
 // ============================== RX模块 ==============================
-
 // UART RX/TX模块输入时钟的频率 
 parameter clk_frq = 100000000;
 // 默认数据深度为36，单次支持最大data_depth的接收和发送 建议最大不超过63，如果超过63，请改变下面的 send_data_bytes和receive_data_bytes
@@ -188,23 +217,47 @@ UART_TX_inst (
       .TX(RXD_HOST)
 );
 
+// =============================== uart listener ==============================
+wire [31:0] uart_data;
+wire uart_interrupt;
 
-// ============================== 数据处理模块 ==============================
+UART_Listener #(
+      .uart_max_byte_len(uart_max_byte_len)
+)
+uart_listener_inst (
+    .clk(clk),
+    .rst_n(rst_n),
+    .i_RX_interrupt(RX_interrupt),
+    .i_receive_data_bytes(receive_data_bytes),
+    .i_receive_data_(receive_data_),
+    .o_RX_interrupt_clear(RX_interrupt_clear), // 连接至UART_RX的输出
+    .o_uart_interrupt(uart_interrupt),
+    .o_uart_data(uart_data)
+);
+
+// ============================== ctrl switch ==============================
+wire [31:0] ctrl_data;
+wire ctrl_interrupt;
+CTRL_switch CTRL_switch_inst (
+    .i_SEL(PLUG_IN), // 根据PLUG_IN选择控制源
+    .i_spi_data(spi_listener_data), // 从SPI.Listener获取数据
+    .i_spi_interrupt(spi_listener_interrupt),
+    .i_uart_data(uart_data),
+    .i_uart_interrupt(uart_interrupt),
+    .o_ctrl_data(ctrl_data),
+    .o_ctrl_interrupt(ctrl_interrupt)
+);
+
+// ============================== process ==============================
 wire [1:0] TX_on_soft;
 wire [1:0] RX_on_soft;
 
-spi_process #(
-      .uart_max_byte_len(uart_max_byte_len)
-)
-process_test (
+ctrl_process process_inst (
       .clk_100M(clk),
       .rst_n(rst_n),
 
-      // UART_RX仅数据部分，有效位从高位开始
-      .i_receive_data_(receive_data_),
-      .i_RX_interrupt(RX_interrupt),
-      .i_receive_data_bytes(receive_data_bytes),
-      .o_RX_interrupt_clear(RX_interrupt_clear),
+      .ctrl_data(ctrl_data),
+      .ctrl_interrupt(ctrl_interrupt),
 
       // TR切换
       .o_TX_ON(TX_on_soft),
