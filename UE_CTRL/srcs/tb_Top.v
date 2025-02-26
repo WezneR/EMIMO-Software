@@ -223,6 +223,17 @@ module top_tb;
         send_spi_data(16'h00_28, 2);
         #100000;
 
+        // 开启 RF_Bank2 编号0的 LNA 的 Bypass
+        send_spi_data(32'h01_0B_00_01, 4);
+        #100000;
+
+        // 开启 RF_Bank1和2 所有 LNA 的 Bypass
+        send_spi_data(32'h02_0B_01_01, 4);
+        #100000;
+        
+        // 关闭 RF_Bank1和2 所有 LNA 的 Bypass
+        send_spi_data(32'h02_0B_01_00, 4);
+        #100000;
 
         // 停止模拟 
         #5000;

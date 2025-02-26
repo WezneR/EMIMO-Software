@@ -54,14 +54,14 @@ output wire [5:0] TX_B1_DSA;
 output wire [7:0] TX_B1_LE;
 output wire [5:0] RX_B1_DSA;
 output wire [7:0] RX_B1_LE;
-output reg [7:0] RX_B1_LNA_BYPASS = 8'h00;
+output wire [7:0] RX_B1_LNA_BYPASS;
 output TX_ON_B2;
 output RX_ON_B2;
 output wire [5:0] TX_B2_DSA;
 output wire [7:0] TX_B2_LE;
 output wire [5:0] RX_B2_DSA;   
 output wire [7:0] RX_B2_LE;
-output reg [7:0] RX_B2_LNA_BYPASS = 8'h00;
+output wire [7:0] RX_B2_LNA_BYPASS;
 
 
 wire CLK_B1;
@@ -270,7 +270,10 @@ ctrl_process process_inst (
       .TX_B2_DSA(TX_B2_DSA),
       .TX_B2_LE(TX_B2_LE),
       .RX_B2_DSA(RX_B2_DSA),
-      .RX_B2_LE(RX_B2_LE)
+      .RX_B2_LE(RX_B2_LE),
+      // LNA bypass
+      .o_B1_LNA_BYPASS(RX_B1_LNA_BYPASS),
+      .o_B2_LNA_BYPASS(RX_B2_LNA_BYPASS)
 );
 
 // ============================== TR开关控制 ==============================

@@ -53,14 +53,18 @@ module ctrl_process (
 
     // 和前端射频开关和TR方向有关的信号
     output reg [1:0] o_TX_ON,
-    output reg [1:0] o_RX_ON
+    output reg [1:0] o_RX_ON,
+    // LNA_BYPASS
+    output reg [7:0] o_B1_LNA_BYPASS,
+    output reg [7:0] o_B2_LNA_BYPASS
 );
 
     // 定义命令地址常量
     localparam CMD_SWITCH_TXRX     = 4'h4;
     localparam CMD_POWER_DOWN      = 4'h6;
     localparam CMD_RECV_BOARD_ID   = 4'h7;
-    localparam CMD_WRITE_DSA     = 4'hA;
+    localparam CMD_WRITE_DSA       = 4'hA;
+    localparam CMD_LNA_BP          = 4'hB;
 
     localparam BOARD_ID_ALL = 4'h0;
 
@@ -105,6 +109,8 @@ module ctrl_process (
             TX_B2_LE <=0;
             RX_B2_DSA <=0;
             RX_B2_LE <=0;
+            o_B1_LNA_BYPASS <=0;
+            o_B2_LNA_BYPASS <=0;
         end 
         else begin
             if (ctrl_interrupt) begin
@@ -151,7 +157,6 @@ module ctrl_process (
                             // 关闭所有通道
                             o_TX_ON <= 0;
                             o_RX_ON <= 0;
-                            // o_LNA_BYPASS <= 1;
                         end
                         CMD_RECV_BOARD_ID: begin
                             // 修改Board_ID
@@ -164,6 +169,39 @@ module ctrl_process (
                             Bank_ID <= host_bank_id;
                             DSA_ID <= host_dsa_id;
                             write_dsa_state <= S_WDSA_DATA_START;
+                        end
+                        CMD_LNA_BP: begin
+                            case (host_bank_id)
+                                2'd0: begin
+                                    if (host_data[8]) begin // ALL_LNA
+                                        o_B1_LNA_BYPASS <= {8{host_data[0]}};
+                                    end
+                                    else begin
+                                        o_B1_LNA_BYPASS[host_dsa_id[2:0]] <= host_data[0];
+                                    end
+                                end
+                                2'd1: begin
+                                    if (host_data[8]) begin // ALL_LNA
+                                        o_B2_LNA_BYPASS <= {8{host_data[0]}};
+                                    end
+                                    else begin
+                                        o_B2_LNA_BYPASS[host_dsa_id[2:0]] <= host_data[0];
+                                    end
+                                end
+                                2'd2: begin
+                                    if (host_data[8]) begin // ALL_LNA
+                                        o_B1_LNA_BYPASS <= {8{host_data[0]}};
+                                        o_B2_LNA_BYPASS <= {8{host_data[0]}};
+                                    end
+                                    else begin
+                                        o_B1_LNA_BYPASS[host_dsa_id[2:0]] <= host_data[0];
+                                        o_B2_LNA_BYPASS[host_dsa_id[2:0]] <= host_data[0];
+                                    end
+                                end
+                                default: begin
+                                    
+                                end
+                            endcase
                         end
                         default: begin
                             // 其他未定义的命令处理
