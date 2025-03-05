@@ -45,7 +45,8 @@ module top_tb;
     wire [5:0] RX_B2_DSA;   
     wire [7:0] RX_B2_LE;
     wire [7:0] RX_B2_LNA_BYPASS;
-
+    wire TX_LED;
+    wire RX_LED;
 
     // Instantiate the Unit Under Test (UUT)
     CTRL_TOP uut (
@@ -84,7 +85,9 @@ module top_tb;
         .TX_B2_LE(TX_B2_LE),
         .RX_B2_DSA(RX_B2_DSA),
         .RX_B2_LE(RX_B2_LE),
-        .RX_B2_LNA_BYPASS(RX_B2_LNA_BYPASS)
+        .RX_B2_LNA_BYPASS(RX_B2_LNA_BYPASS),
+        .TX_LED(TX_LED),
+        .RX_LED(RX_LED)
     );
 
     initial begin
@@ -100,69 +103,6 @@ module top_tb;
 // 测试 USB插入时使用UART的控制流
 ////////////////////////////////////////////////////////////////////////////////
 
-    // // 初始化测试环境
-    // initial begin
-
-
-    //     // Reset applied
-    //     SPI_DATA = 0;
-    //     SPI_CLK = 0;
-    //     SPI_LE = 0;
-
-    //     SPI_DATA_MCU = 0;
-    //     SPI_CLK_MCU = 0;
-    //     SPI_LE_MCU = 0;
-
-    //     UPDATE = 0;
-    //     TX_ON = 0;
-    //     RX_ON = 0;
-
-    //     TXD_HOST = 1;
-    //     PLUG_IN = 1;
-
-
-    //     // 复位信号保持一段时间 
-
-    //     #500;
-
-    //     // // 打开 RF_Bank1 TX
-    //     // send_multiple_bytes(48'h555D_00_04_02_00, 6);
-    //     // #100000;
-
-    //     // 打开 RF_Bank2 RX
-    //     send_multiple_bytes(48'h555D_01_04_01_00, 6);
-    //     #100000;
-
-    //     // // 关闭所有 RF_Bank
-    //     // send_multiple_bytes(48'h555D_02_04_00_00, 6);
-    //     // #100000;
-
-    //     // // 打开所有 RF_Bank TX
-    //     // send_multiple_bytes(48'h555D_02_04_02_00, 6);
-    //     // #100000;
-
-    //     // 向所有 RF_Bank 的所有通道写入衰减码字 0x3A
-    //     send_multiple_bytes(48'h555D_02_0A_01_3A, 6);
-    //     #100000;
-
-    //     // 向 RF_Bank1 的通道8（TX的最后一个通道）写入衰减码字 0x3F
-    //     send_multiple_bytes(48'h555D_00_7A_00_3F, 6);
-    //     #100000;
-
-    //     // 向 RF_Bank2 的通道13（RX的第六个通道）写入衰减码字 0x28
-    //     send_multiple_bytes(48'h555D_01_DA_00_28, 6);
-    //     #100000;
-
-
-    //     // 停止模拟
-    //     #5000;
-    //     $stop;
-    // end
-
-
-////////////////////////////////////////////////////////////////////////////////
-// 测试 USB未插入时使用外部SPI的控制流
-////////////////////////////////////////////////////////////////////////////////
     // 初始化测试环境
     initial begin
 
@@ -181,64 +121,131 @@ module top_tb;
         RX_ON = 0;
 
         TXD_HOST = 1;
-        PLUG_IN = 0;
+        PLUG_IN = 1;
 
 
         // 复位信号保持一段时间 
+
         #500;
 
-        // // 打开 RF_Bank1 TX
-        // send_spi_data(32'h00_04_02_00, 4);
-        // #100000;
+        // 打开 RF_Bank1 TX
+        send_multiple_bytes(48'h555D_00_04_02_00, 6);
+        #100000;
+
+        // 关闭所有 RF_Bank
+        send_multiple_bytes(48'h555D_02_04_00_00, 6);
+        #100000;
 
         // 打开 RF_Bank2 RX
-        // send_spi_data(32'h01_04_01_00, 4);
-        send_spi_data(16'h01_04, 2);
-        send_spi_data(16'h01_00, 2);
+        send_multiple_bytes(48'h555D_01_04_01_00, 6);
         #100000;
 
         // // 关闭所有 RF_Bank
-        // send_spi_data(32'h02_04_00_00, 4);
+        // send_multiple_bytes(48'h555D_02_04_00_00, 6);
         // #100000;
 
         // // 打开所有 RF_Bank TX
-        // send_spi_data(32'h02_04_02_00, 4);
+        // send_multiple_bytes(48'h555D_02_04_02_00, 6);
         // #100000;
 
         // 向所有 RF_Bank 的所有通道写入衰减码字 0x3A
-        // send_spi_data(32'h02_0A_01_3A, 4);
-        send_spi_data(16'h02_0A, 2);
-        send_spi_data(16'h01_3A, 2);
+        send_multiple_bytes(48'h555D_02_0A_01_3A, 6);
         #100000;
 
         // 向 RF_Bank1 的通道8（TX的最后一个通道）写入衰减码字 0x3F
-        // send_spi_data(32'h00_7A_00_3F, 4);
-        send_spi_data(16'h00_7A, 2);
-        send_spi_data(16'h00_3F, 2);
+        send_multiple_bytes(48'h555D_00_7A_00_3F, 6);
         #100000;
 
         // 向 RF_Bank2 的通道13（RX的第六个通道）写入衰减码字 0x28
-        // send_spi_data(32'h01_DA_00_28, 4);
-        send_spi_data(16'h01_DA, 2);
-        send_spi_data(16'h00_28, 2);
+        send_multiple_bytes(48'h555D_01_DA_00_28, 6);
         #100000;
 
-        // 开启 RF_Bank2 编号0的 LNA 的 Bypass
-        send_spi_data(32'h01_0B_00_01, 4);
-        #100000;
 
-        // 开启 RF_Bank1和2 所有 LNA 的 Bypass
-        send_spi_data(32'h02_0B_01_01, 4);
-        #100000;
-        
-        // 关闭 RF_Bank1和2 所有 LNA 的 Bypass
-        send_spi_data(32'h02_0B_01_00, 4);
-        #100000;
-
-        // 停止模拟 
+        // 停止模拟
         #5000;
         $stop;
     end
+
+
+////////////////////////////////////////////////////////////////////////////////
+// 测试 USB未插入时使用外部SPI的控制流
+////////////////////////////////////////////////////////////////////////////////
+    // // 初始化测试环境
+    // initial begin
+
+
+    //     // Reset applied
+    //     SPI_DATA = 0;
+    //     SPI_CLK = 0;
+    //     SPI_LE = 0;
+
+    //     SPI_DATA_MCU = 0;
+    //     SPI_CLK_MCU = 0;
+    //     SPI_LE_MCU = 0;
+
+    //     UPDATE = 0;
+    //     TX_ON = 0;
+    //     RX_ON = 0;
+
+    //     TXD_HOST = 1;
+    //     PLUG_IN = 0;
+
+
+    //     // 复位信号保持一段时间 
+    //     #500;
+
+    //     // // 打开 RF_Bank1 TX
+    //     // send_spi_data(32'h00_04_02_00, 4);
+    //     // #100000;
+
+    //     // 打开 RF_Bank2 RX
+    //     // send_spi_data(32'h01_04_01_00, 4);
+    //     send_spi_data(16'h01_04, 2);
+    //     send_spi_data(16'h01_00, 2);
+    //     #100000;
+
+    //     // // 关闭所有 RF_Bank
+    //     // send_spi_data(32'h02_04_00_00, 4);
+    //     // #100000;
+
+    //     // // 打开所有 RF_Bank TX
+    //     // send_spi_data(32'h02_04_02_00, 4);
+    //     // #100000;
+
+    //     // 向所有 RF_Bank 的所有通道写入衰减码字 0x3A
+    //     // send_spi_data(32'h02_0A_01_3A, 4);
+    //     send_spi_data(16'h02_0A, 2);
+    //     send_spi_data(16'h01_3A, 2);
+    //     #100000;
+
+    //     // 向 RF_Bank1 的通道8（TX的最后一个通道）写入衰减码字 0x3F
+    //     // send_spi_data(32'h00_7A_00_3F, 4);
+    //     send_spi_data(16'h00_7A, 2);
+    //     send_spi_data(16'h00_3F, 2);
+    //     #100000;
+
+    //     // 向 RF_Bank2 的通道13（RX的第六个通道）写入衰减码字 0x28
+    //     // send_spi_data(32'h01_DA_00_28, 4);
+    //     send_spi_data(16'h01_DA, 2);
+    //     send_spi_data(16'h00_28, 2);
+    //     #100000;
+
+    //     // 开启 RF_Bank2 编号0的 LNA 的 Bypass
+    //     send_spi_data(32'h01_0B_00_01, 4);
+    //     #100000;
+
+    //     // 开启 RF_Bank1和2 所有 LNA 的 Bypass
+    //     send_spi_data(32'h02_0B_01_01, 4);
+    //     #100000;
+        
+    //     // 关闭 RF_Bank1和2 所有 LNA 的 Bypass
+    //     send_spi_data(32'h02_0B_01_00, 4);
+    //     #100000;
+
+    //     // 停止模拟 
+    //     #5000;
+    //     $stop;
+    // end
 
 
 // Task to send a byte via UART

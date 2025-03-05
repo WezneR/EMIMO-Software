@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module CTRL_TOP(CLK_SYS,SPI_DATA,SPI_CLK,SPI_LE,UPDATE,TX_ON,RX_ON,MODE,REV,TXD_HOST,RXD_HOST,
 						SPI_DATA_MCU,SPI_CLK_MCU,SPI_LE_MCU,UPDATE_MCU,TX_ON_MCU,RX_ON_MCU,
-                                    MODE_MCU,REV1_MCU,REV2_MCU,PLUG_IN,TXD_MCU,
+                                    MODE_MCU,REV1_MCU,REV2_MCU,PLUG_IN,TXD_MCU,TX_LED,RX_LED,
 						TX_ON_B1,RX_ON_B1,TX_B1_DSA,TX_B1_LE,RX_B1_DSA,RX_B1_LE,RX_B1_LNA_BYPASS,
 						TX_ON_B2,RX_ON_B2,TX_B2_DSA,TX_B2_LE,RX_B2_DSA,RX_B2_LE,RX_B2_LNA_BYPASS
     );
@@ -62,7 +62,8 @@ output wire [7:0] TX_B2_LE;
 output wire [5:0] RX_B2_DSA;   
 output wire [7:0] RX_B2_LE;
 output wire [7:0] RX_B2_LNA_BYPASS;
-
+output TX_LED;
+output RX_LED;
 
 wire CLK_B1;
 wire clk;
@@ -287,6 +288,16 @@ FEM_TR_switch FEM_TR_switch_inst (
       .o_TX_ON_B2(TX_ON_B2),
       .o_RX_ON_B1(RX_ON_B1),
       .o_RX_ON_B2(RX_ON_B2)
+);
+
+// ============================== LED控制模块 ==============================
+LED_control LED_control_inst (
+    .TX_ON_B1(TX_ON_B1),
+    .TX_ON_B2(TX_ON_B2),
+    .RX_ON_B1(RX_ON_B1),
+    .RX_ON_B2(RX_ON_B2),
+    .TX_LED(TX_LED),
+    .RX_LED(RX_LED)
 );
 
 // ============================== rst模块 ==============================
