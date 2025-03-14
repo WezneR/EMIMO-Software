@@ -1,16 +1,16 @@
-Release 14.7 - xst P.20131013 (nt)
+Release 14.7 - xst P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.07 secs
+Total CPU time to Xst completion: 0.34 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.07 secs
+Total CPU time to Xst completion: 0.34 secs
  
 --> Reading design: CTRL_TOP.prj
 
@@ -109,18 +109,29 @@ Analyzing Verilog file "F:\ISE\UE_CTRL\srcs\UART_TX.v" into library work
 Parsing module <UART_TX>.
 Analyzing Verilog file "F:\ISE\UE_CTRL\srcs\UART_RX.v" into library work
 Parsing module <UART_RX>.
+Analyzing Verilog file "F:\ISE\UE_CTRL\srcs\UART_Listener.v" into library work
+Parsing module <UART_Listener>.
+Analyzing Verilog file "F:\ISE\UE_CTRL\srcs\SPI_Slave.v" into library work
+Parsing module <SPI_Slave>.
+Analyzing Verilog file "F:\ISE\UE_CTRL\srcs\SPI_Listener.v" into library work
+Parsing module <spi_listener>.
 Analyzing Verilog file "F:\ISE\UE_CTRL\srcs\rst.v" into library work
 Parsing module <rst>.
 Analyzing Verilog file "F:\ISE\UE_CTRL\srcs\process.v" into library work
-Parsing module <spi_process>.
+Parsing module <ctrl_process>.
+Analyzing Verilog file "F:\ISE\UE_CTRL\srcs\LED_control.v" into library work
+Parsing module <LED_control>.
 Analyzing Verilog file "F:\ISE\UE_CTRL\srcs\FEM_TR_switch.v" into library work
 Parsing module <FEM_TR_switch>.
+Analyzing Verilog file "F:\ISE\UE_CTRL\srcs\CTRL_switch.v" into library work
+Parsing module <CTRL_switch>.
 Analyzing Verilog file "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" into library work
 Parsing module <CTRL_TOP>.
 
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
+WARNING:HDLCompiler:1016 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 94: Port i_TX_DV is not connected to this instance
 
 Elaborating module <CTRL_TOP>.
 
@@ -128,14 +139,23 @@ Elaborating module <IBUFG(IBUF_DELAY_VALUE="0",IOSTANDARD="DEFAULT")>.
 
 Elaborating module <BUFG>.
 
+Elaborating module <SPI_Slave(SPI_MODE=0)>.
+WARNING:HDLCompiler:1127 - "F:\ISE\UE_CTRL\srcs\SPI_Slave.v" Line 60: Assignment to w_CPOL ignored, since the identifier is never used
+WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL\srcs\SPI_Slave.v" Line 84: Result of 4-bit expression is truncated to fit in 3-bit target.
+WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL\srcs\SPI_Slave.v" Line 163: Result of 32-bit expression is truncated to fit in 3-bit target.
+WARNING:HDLCompiler:1127 - "F:\ISE\UE_CTRL\srcs\SPI_Slave.v" Line 192: Assignment to w_SPI_MISO_Mux ignored, since the identifier is never used
+
+Elaborating module <spi_listener>.
+WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL\srcs\SPI_Listener.v" Line 90: Result of 17-bit expression is truncated to fit in 16-bit target.
+
 Elaborating module <UART_RX(Baud_rate=115200,clk_frq=100000000,uart_max_byte_len=10)>.
 WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL\srcs\UART_RX.v" Line 152: Result of 17-bit expression is truncated to fit in 16-bit target.
 WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL\srcs\UART_RX.v" Line 161: Result of 7-bit expression is truncated to fit in 6-bit target.
 WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL\srcs\UART_RX.v" Line 179: Result of 5-bit expression is truncated to fit in 4-bit target.
 WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL\srcs\UART_RX.v" Line 190: Result of 5-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:1127 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 132: Assignment to receive_data ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 138: Assignment to receive_data_check ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 140: Assignment to receive_data_check_all ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 162: Assignment to receive_data ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 168: Assignment to receive_data_check ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 170: Assignment to receive_data_check_all ignored, since the identifier is never used
 
 Elaborating module <UART_TX(Baud_rate=115200,clk_frq=100000000,uart_max_byte_len=10)>.
 WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL\srcs\UART_TX.v" Line 79: Result of 17-bit expression is truncated to fit in 16-bit target.
@@ -146,18 +166,25 @@ WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL\srcs\UART_TX.v" Line 146: Result of 7-
 WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL\srcs\UART_TX.v" Line 151: Result of 5-bit expression is truncated to fit in 4-bit target.
 WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL\srcs\UART_TX.v" Line 167: Result of 7-bit expression is truncated to fit in 6-bit target.
 WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL\srcs\UART_TX.v" Line 186: Result of 35-bit expression is truncated to fit in 10-bit target.
-WARNING:HDLCompiler:1127 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 183: Assignment to TX_ready ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 213: Assignment to TX_ready ignored, since the identifier is never used
 
-Elaborating module <spi_process(uart_max_byte_len=10)>.
-WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL\srcs\process.v" Line 315: Result of 5-bit expression is truncated to fit in 4-bit target.
+Elaborating module <UART_Listener(uart_max_byte_len=10)>.
+
+Elaborating module <CTRL_switch>.
+
+Elaborating module <ctrl_process>.
+WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL\srcs\process.v" Line 328: Result of 5-bit expression is truncated to fit in 4-bit target.
 
 Elaborating module <FEM_TR_switch>.
 
+Elaborating module <LED_control>.
+
 Elaborating module <rst(delay_cnt=10)>.
 WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL\srcs\rst.v" Line 37: Result of 9-bit expression is truncated to fit in 8-bit target.
-WARNING:HDLCompiler:634 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 151: Net <send_data[79]> does not have a driver.
-WARNING:HDLCompiler:634 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 152: Net <send_data_bytes[5]> does not have a driver.
-WARNING:HDLCompiler:634 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 154: Net <start_TX> does not have a driver.
+WARNING:HDLCompiler:634 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 181: Net <send_data[79]> does not have a driver.
+WARNING:HDLCompiler:634 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 182: Net <send_data_bytes[5]> does not have a driver.
+WARNING:HDLCompiler:634 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 184: Net <start_TX> does not have a driver.
+WARNING:HDLCompiler:552 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 97: Input port i_TX_DV is not connected on this instance
 
 =========================================================================
 *                           HDL Synthesis                               *
@@ -165,6 +192,7 @@ WARNING:HDLCompiler:634 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 154: Net <start_
 
 Synthesizing Unit <CTRL_TOP>.
     Related source file is "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v".
+        SPI_MODE = 0
         clk_frq = 100000000
         uart_max_byte_len = 10
         Baud_rate = 115200
@@ -172,9 +200,8 @@ Synthesizing Unit <CTRL_TOP>.
         stop_bits = 2'b00
         parity = 2'b00
         delay_cnt = 10
-WARNING:Xst:647 - Input <SPI_DATA> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <SPI_CLK> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <SPI_LE> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:2898 - Port 'i_TX_Byte', unconnected in block instance 'SPI_Slave_test', is tied to GND.
+WARNING:Xst:2898 - Port 'i_TX_DV', unconnected in block instance 'SPI_Slave_test', is tied to GND.
 WARNING:Xst:647 - Input <UPDATE> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <MODE> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <REV> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -188,18 +215,65 @@ WARNING:Xst:647 - Input <MODE_MCU> is never used. This port will be preserved an
 WARNING:Xst:647 - Input <REV1_MCU> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <REV2_MCU> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <TXD_MCU> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" line 118: Output port <receive_data> of the instance <UART_RX_inst> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" line 118: Output port <receive_data_check> of the instance <UART_RX_inst> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" line 118: Output port <receive_data_check_all> of the instance <UART_RX_inst> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" line 164: Output port <TX_ready> of the instance <UART_TX_inst> is unconnected or connected to loadless signal.
-WARNING:Xst:2935 - Signal 'RX_B1_LNA_BYPASS', unconnected in block 'CTRL_TOP', is tied to its initial value (00000000).
-WARNING:Xst:2935 - Signal 'RX_B2_LNA_BYPASS', unconnected in block 'CTRL_TOP', is tied to its initial value (00000000).
+INFO:Xst:3210 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" line 97: Output port <o_SPI_MISO> of the instance <SPI_Slave_test> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" line 148: Output port <receive_data> of the instance <UART_RX_inst> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" line 148: Output port <receive_data_check> of the instance <UART_RX_inst> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" line 148: Output port <receive_data_check_all> of the instance <UART_RX_inst> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" line 194: Output port <TX_ready> of the instance <UART_TX_inst> is unconnected or connected to loadless signal.
 WARNING:Xst:653 - Signal <send_data> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <send_data_bytes> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <start_TX> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Summary:
 	no macro.
 Unit <CTRL_TOP> synthesized.
+
+Synthesizing Unit <SPI_Slave>.
+    Related source file is "F:\ISE\UE_CTRL\srcs\SPI_Slave.v".
+        SPI_MODE = 0
+WARNING:Xst:647 - Input <i_TX_Byte> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <i_TX_DV> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:653 - Signal <o_SPI_MISO> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 1-bit register for signal <r2_RX_Done>.
+    Found 1-bit register for signal <r3_RX_Done>.
+    Found 1-bit register for signal <o_RX_DV>.
+    Found 1-bit register for signal <r_RX_Done>.
+    Found 8-bit register for signal <o_RX_Byte>.
+    Found 3-bit register for signal <r_RX_Bit_Count>.
+    Found 8-bit register for signal <r_Temp_RX_Byte>.
+    Found 8-bit register for signal <r_RX_Byte>.
+    Found 3-bit adder for signal <r_RX_Bit_Count[2]_GND_4_o_add_0_OUT> created at line 84.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  31 D-type flip-flop(s).
+Unit <SPI_Slave> synthesized.
+
+Synthesizing Unit <spi_listener>.
+    Related source file is "F:\ISE\UE_CTRL\srcs\SPI_Listener.v".
+        listener_timeout = 2000
+    Found 1-bit register for signal <spi_listener_interrupt>.
+    Found 2-bit register for signal <spi_byte_cnt>.
+    Found 24-bit register for signal <n0028[23:0]>.
+    Found 1-bit register for signal <timeout>.
+    Found 16-bit register for signal <timeout_cnt>.
+    Found 32-bit register for signal <spi_data>.
+    Found finite state machine <FSM_0> for signal <spi_byte_cnt>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 2                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Power Up State     | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 16-bit adder for signal <timeout_cnt[15]_GND_6_o_add_15_OUT> created at line 90.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  74 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <spi_listener> synthesized.
 
 Synthesizing Unit <UART_RX>.
     Related source file is "F:\ISE\UE_CTRL\srcs\UART_RX.v".
@@ -222,38 +296,38 @@ WARNING:Xst:647 - Input <stop_bits> is never used. This port will be preserved a
     Found 1-bit register for signal <RX_interrupt_>.
     Found 8-bit register for signal <RX_once_data>.
     Found 4-bit register for signal <sig_rx>.
-    Found finite state machine <FSM_0> for signal <RX_state>.
+    Found finite state machine <FSM_1> for signal <RX_state>.
     -----------------------------------------------------------------------
     | States             | 5                                              |
     | Transitions        | 18                                             |
     | Inputs             | 5                                              |
     | Outputs            | 6                                              |
     | Clock              | clk (rising_edge)                              |
-    | Reset              | rst_INV_3_o (positive)                         |
+    | Reset              | rst_INV_18_o (positive)                        |
     | Reset type         | synchronous                                    |
     | Reset State        | 000                                            |
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 7-bit subtractor for signal <GND_4_o_GND_4_o_sub_44_OUT> created at line 195.
+    Found 7-bit subtractor for signal <GND_7_o_GND_7_o_sub_44_OUT> created at line 195.
     Found 2-bit adder for signal <n0369[1:0]> created at line 91.
-    Found 16-bit adder for signal <counter[15]_GND_4_o_add_22_OUT> created at line 152.
-    Found 6-bit adder for signal <RX_data_bytes_counter[5]_GND_4_o_add_27_OUT> created at line 161.
-    Found 4-bit adder for signal <RX_data_bits_counter[3]_GND_4_o_add_35_OUT> created at line 179.
-    Found 4-bit adder for signal <RX_stop_bits_counter[3]_GND_4_o_add_41_OUT> created at line 190.
+    Found 16-bit adder for signal <counter[15]_GND_7_o_add_22_OUT> created at line 152.
+    Found 6-bit adder for signal <RX_data_bytes_counter[5]_GND_7_o_add_27_OUT> created at line 161.
+    Found 4-bit adder for signal <RX_data_bits_counter[3]_GND_7_o_add_35_OUT> created at line 179.
+    Found 4-bit adder for signal <RX_stop_bits_counter[3]_GND_7_o_add_41_OUT> created at line 190.
     Found 3-bit adder for signal <_n0449> created at line 90.
     Found 3-bit adder for signal <_n0450> created at line 90.
     Found 3-bit adder for signal <_n0451> created at line 90.
     Found 3-bit adder for signal <_n0452> created at line 90.
     Found 3-bit adder for signal <sig_maoci_sum> created at line 90.
-    Found 80-bit shifter logical left for signal <receive_data[79]_GND_4_o_shift_left_44_OUT> created at line 195
-    Found 3-bit comparator greater for signal <RX_signal_GND_4_o_equal_110_o> created at line 96
+    Found 80-bit shifter logical left for signal <receive_data[79]_GND_7_o_shift_left_44_OUT> created at line 195
+    Found 3-bit comparator greater for signal <RX_signal_GND_7_o_equal_110_o> created at line 96
     Found 4-bit comparator lessequal for signal <n0076> created at line 204
     Summary:
 	inferred  11 Adder/Subtractor(s).
 	inferred 228 D-type flip-flop(s).
 	inferred   2 Comparator(s).
-	inferred  18 Multiplexer(s).
+	inferred  23 Multiplexer(s).
 	inferred   1 Combinational logic shifter(s).
 	inferred   1 Finite State Machine(s).
 Unit <UART_RX> synthesized.
@@ -268,22 +342,22 @@ Synthesizing Unit <UART_TX>.
     Found 3-bit register for signal <send_state>.
     Found 1-bit register for signal <TX_busy>.
     Found 16-bit register for signal <counter>.
-    Found finite state machine <FSM_1> for signal <send_state>.
+    Found finite state machine <FSM_2> for signal <send_state>.
     -----------------------------------------------------------------------
     | States             | 4                                              |
     | Transitions        | 14                                             |
     | Inputs             | 4                                              |
     | Outputs            | 4                                              |
     | Clock              | clk (rising_edge)                              |
-    | Reset              | rst_INV_24_o (positive)                        |
+    | Reset              | rst_INV_37_o (positive)                        |
     | Reset type         | synchronous                                    |
     | Reset State        | 000                                            |
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 16-bit adder for signal <counter[15]_GND_6_o_add_2_OUT> created at line 79.
-    Found 4-bit adder for signal <send_data_bits_counter[3]_GND_6_o_add_14_OUT> created at line 105.
-    Found 6-bit adder for signal <send_data_bytes_counter[5]_GND_6_o_add_71_OUT> created at line 167.
+    Found 16-bit adder for signal <counter[15]_GND_9_o_add_2_OUT> created at line 79.
+    Found 4-bit adder for signal <send_data_bits_counter[3]_GND_9_o_add_14_OUT> created at line 105.
+    Found 6-bit adder for signal <send_data_bytes_counter[5]_GND_9_o_add_71_OUT> created at line 167.
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred  21 D-type flip-flop(s).
@@ -291,11 +365,28 @@ Synthesizing Unit <UART_TX>.
 	inferred   1 Finite State Machine(s).
 Unit <UART_TX> synthesized.
 
-Synthesizing Unit <spi_process>.
-    Related source file is "F:\ISE\UE_CTRL\srcs\process.v".
+Synthesizing Unit <UART_Listener>.
+    Related source file is "F:\ISE\UE_CTRL\srcs\UART_Listener.v".
         uart_max_byte_len = 10
 WARNING:Xst:647 - Input <i_receive_data_<31:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <i_receive_data_<79:64>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 32-bit register for signal <o_uart_data>.
+    Found 1-bit register for signal <o_uart_interrupt>.
+    Found 1-bit register for signal <rx_int_pulsed>.
+    Found 1-bit register for signal <uart_int_pulsed>.
+    Found 1-bit register for signal <o_RX_interrupt_clear>.
+    Summary:
+	inferred  36 D-type flip-flop(s).
+Unit <UART_Listener> synthesized.
+
+Synthesizing Unit <CTRL_switch>.
+    Related source file is "F:\ISE\UE_CTRL\srcs\CTRL_switch.v".
+    Summary:
+	inferred   2 Multiplexer(s).
+Unit <CTRL_switch> synthesized.
+
+Synthesizing Unit <ctrl_process>.
+    Related source file is "F:\ISE\UE_CTRL\srcs\process.v".
+WARNING:Xst:647 - Input <ctrl_data<27:26>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
     Found 2-bit register for signal <o_TX_ON>.
     Found 2-bit register for signal <o_RX_ON>.
     Found 2-bit register for signal <write_dsa_state>.
@@ -307,18 +398,19 @@ WARNING:Xst:647 - Input <i_receive_data_<79:64>> is never used. This port will b
     Found 8-bit register for signal <RX_B1_LE>.
     Found 8-bit register for signal <TX_B2_LE>.
     Found 8-bit register for signal <RX_B2_LE>.
-    Found 1-bit register for signal <o_RX_interrupt_clear>.
+    Found 8-bit register for signal <o_B1_LNA_BYPASS>.
+    Found 8-bit register for signal <o_B2_LNA_BYPASS>.
     Found 4-bit register for signal <Board_ID>.
     Found 6-bit register for signal <dsa_att>.
     Found 1-bit register for signal <ALL_DSA>.
     Found 2-bit register for signal <Bank_ID>.
     Found 4-bit register for signal <DSA_ID>.
     Found 4-bit register for signal <write_dsa_cnt>.
-    Found finite state machine <FSM_2> for signal <write_dsa_state>.
+    Found finite state machine <FSM_3> for signal <write_dsa_state>.
     -----------------------------------------------------------------------
     | States             | 4                                              |
-    | Transitions        | 13                                             |
-    | Inputs             | 5                                              |
+    | Transitions        | 11                                             |
+    | Inputs             | 4                                              |
     | Outputs            | 3                                              |
     | Clock              | clk_100M (rising_edge)                         |
     | Reset              | rst_n (negative)                               |
@@ -327,23 +419,23 @@ WARNING:Xst:647 - Input <i_receive_data_<79:64>> is never used. This port will b
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 4-bit adder for signal <write_dsa_cnt[3]_GND_7_o_add_195_OUT> created at line 315.
-    Found 2-bit 3-to-1 multiplexer for signal <host_bank_id[1]_o_TX_ON[1]_wide_mux_15_OUT> created at line 128.
-    Found 2-bit 3-to-1 multiplexer for signal <host_bank_id[1]_o_RX_ON[1]_wide_mux_16_OUT> created at line 128.
-    Found 2-bit 3-to-1 multiplexer for signal <host_bank_id[1]_o_TX_ON[1]_wide_mux_25_OUT> created at line 144.
-    Found 2-bit 3-to-1 multiplexer for signal <host_bank_id[1]_o_RX_ON[1]_wide_mux_26_OUT> created at line 144.
-    Found 4-bit comparator equal for signal <host_board_id[3]_Board_ID[3]_equal_9_o> created at line 121
-    Found 1-bit comparator not equal for signal <n0011> created at line 127
-    Found 2-bit comparator lessequal for signal <n0019> created at line 146
-    Found 4-bit comparator greater for signal <DSA_ID[3]_PWR_10_o_LessThan_76_o> created at line 239
-    Found 4-bit comparator greater for signal <GND_7_o_write_dsa_cnt[3]_LessThan_197_o> created at line 316
+    Found 4-bit adder for signal <write_dsa_cnt[3]_GND_12_o_add_201_OUT> created at line 328.
+    Found 2-bit 3-to-1 multiplexer for signal <host_bank_id[1]_o_TX_ON[1]_wide_mux_12_OUT> created at line 124.
+    Found 2-bit 3-to-1 multiplexer for signal <host_bank_id[1]_o_RX_ON[1]_wide_mux_13_OUT> created at line 124.
+    Found 2-bit 3-to-1 multiplexer for signal <host_bank_id[1]_o_TX_ON[1]_wide_mux_22_OUT> created at line 140.
+    Found 2-bit 3-to-1 multiplexer for signal <host_bank_id[1]_o_RX_ON[1]_wide_mux_23_OUT> created at line 140.
+    Found 4-bit comparator equal for signal <host_board_id[3]_Board_ID[3]_equal_6_o> created at line 118
+    Found 1-bit comparator not equal for signal <n0009> created at line 123
+    Found 2-bit comparator lessequal for signal <n0017> created at line 142
+    Found 4-bit comparator greater for signal <DSA_ID[3]_PWR_15_o_LessThan_82_o> created at line 252
+    Found 4-bit comparator greater for signal <GND_12_o_write_dsa_cnt[3]_LessThan_203_o> created at line 329
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  82 D-type flip-flop(s).
+	inferred  97 D-type flip-flop(s).
 	inferred   5 Comparator(s).
-	inferred  78 Multiplexer(s).
+	inferred  96 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
-Unit <spi_process> synthesized.
+Unit <ctrl_process> synthesized.
 
 Synthesizing Unit <FEM_TR_switch>.
     Related source file is "F:\ISE\UE_CTRL\srcs\FEM_TR_switch.v".
@@ -353,12 +445,18 @@ Synthesizing Unit <FEM_TR_switch>.
 	inferred   6 Multiplexer(s).
 Unit <FEM_TR_switch> synthesized.
 
+Synthesizing Unit <LED_control>.
+    Related source file is "F:\ISE\UE_CTRL\srcs\LED_control.v".
+    Summary:
+	no macro.
+Unit <LED_control> synthesized.
+
 Synthesizing Unit <rst>.
     Related source file is "F:\ISE\UE_CTRL\srcs\rst.v".
         delay_cnt = 10
     Found 8-bit register for signal <clk_cnt>.
     Found 1-bit register for signal <rst_n>.
-    Found 8-bit adder for signal <clk_cnt[7]_GND_9_o_add_2_OUT> created at line 37.
+    Found 8-bit adder for signal <clk_cnt[7]_GND_15_o_add_2_OUT> created at line 37.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred   9 D-type flip-flop(s).
@@ -368,23 +466,26 @@ Unit <rst> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 15
- 16-bit adder                                          : 2
+# Adders/Subtractors                                   : 17
+ 16-bit adder                                          : 3
  2-bit adder                                           : 1
- 3-bit adder                                           : 5
+ 3-bit adder                                           : 6
  4-bit adder                                           : 4
  6-bit adder                                           : 1
  7-bit subtractor                                      : 1
  8-bit adder                                           : 1
-# Registers                                            : 36
- 1-bit register                                        : 7
+# Registers                                            : 55
+ 1-bit register                                        : 16
  10-bit register                                       : 1
- 16-bit register                                       : 2
+ 16-bit register                                       : 3
  2-bit register                                        : 3
+ 24-bit register                                       : 1
+ 3-bit register                                        : 1
+ 32-bit register                                       : 2
  4-bit register                                        : 7
  6-bit register                                        : 7
  7-bit register                                        : 1
- 8-bit register                                        : 6
+ 8-bit register                                        : 11
  80-bit register                                       : 2
 # Comparators                                          : 8
  1-bit comparator not equal                            : 2
@@ -393,20 +494,21 @@ Macro Statistics
  4-bit comparator equal                                : 1
  4-bit comparator greater                              : 2
  4-bit comparator lessequal                            : 1
-# Multiplexers                                         : 109
- 1-bit 2-to-1 multiplexer                              : 22
+# Multiplexers                                         : 136
+ 1-bit 2-to-1 multiplexer                              : 39
  10-bit 2-to-1 multiplexer                             : 1
- 16-bit 2-to-1 multiplexer                             : 2
+ 16-bit 2-to-1 multiplexer                             : 5
  2-bit 2-to-1 multiplexer                              : 2
  2-bit 3-to-1 multiplexer                              : 4
- 32-bit 2-to-1 multiplexer                             : 36
- 4-bit 2-to-1 multiplexer                              : 6
- 6-bit 2-to-1 multiplexer                              : 1
- 8-bit 2-to-1 multiplexer                              : 32
+ 24-bit 2-to-1 multiplexer                             : 2
+ 32-bit 2-to-1 multiplexer                             : 37
+ 4-bit 2-to-1 multiplexer                              : 7
+ 6-bit 2-to-1 multiplexer                              : 2
+ 8-bit 2-to-1 multiplexer                              : 34
  80-bit 2-to-1 multiplexer                             : 3
 # Logic shifters                                       : 1
  80-bit shifter logical left                           : 1
-# FSMs                                                 : 3
+# FSMs                                                 : 4
 
 =========================================================================
 
@@ -414,6 +516,7 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+WARNING:Xst:2677 - Node <r_Temp_RX_Byte_7> of sequential type is unconnected in block <SPI_Slave_test>.
 WARNING:Xst:2677 - Node <receive_data__0> of sequential type is unconnected in block <UART_RX_inst>.
 WARNING:Xst:2677 - Node <receive_data__1> of sequential type is unconnected in block <UART_RX_inst>.
 WARNING:Xst:2677 - Node <receive_data__2> of sequential type is unconnected in block <UART_RX_inst>.
@@ -446,35 +549,12 @@ WARNING:Xst:2677 - Node <receive_data__28> of sequential type is unconnected in 
 WARNING:Xst:2677 - Node <receive_data__29> of sequential type is unconnected in block <UART_RX_inst>.
 WARNING:Xst:2677 - Node <receive_data__30> of sequential type is unconnected in block <UART_RX_inst>.
 WARNING:Xst:2677 - Node <receive_data__31> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__38> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__39> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__42> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__43> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__44> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__45> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__46> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__47> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__58> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__59> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__64> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__65> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__66> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__67> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__68> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__69> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__70> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__71> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__72> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__73> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__74> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__75> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__76> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__77> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__78> of sequential type is unconnected in block <UART_RX_inst>.
-WARNING:Xst:2677 - Node <receive_data__79> of sequential type is unconnected in block <UART_RX_inst>.
+
+Synthesizing (advanced) Unit <SPI_Slave>.
+The following registers are absorbed into counter <r_RX_Bit_Count>: 1 register on signal <r_RX_Bit_Count>.
+Unit <SPI_Slave> synthesized (advanced).
 
 Synthesizing (advanced) Unit <UART_RX>.
-The following registers are absorbed into counter <counter>: 1 register on signal <counter>.
 The following registers are absorbed into counter <RX_data_bytes_counter>: 1 register on signal <RX_data_bytes_counter>.
 	The following adders/subtractors are grouped into adder tree <Madd_sig_maoci_sum_Madd1> :
  	<Madd__n0449> in block <UART_RX>, 	<Madd__n0450> in block <UART_RX>, 	<Madd__n0452_Madd> in block <UART_RX>, 	<Madd_sig_maoci_sum_Madd> in block <UART_RX>.
@@ -484,30 +564,37 @@ Synthesizing (advanced) Unit <UART_TX>.
 The following registers are absorbed into counter <counter>: 1 register on signal <counter>.
 Unit <UART_TX> synthesized (advanced).
 
+Synthesizing (advanced) Unit <ctrl_process>.
+The following registers are absorbed into counter <write_dsa_cnt>: 1 register on signal <write_dsa_cnt>.
+Unit <ctrl_process> synthesized (advanced).
+
 Synthesizing (advanced) Unit <rst>.
 The following registers are absorbed into counter <clk_cnt>: 1 register on signal <clk_cnt>.
 Unit <rst> synthesized (advanced).
 
-Synthesizing (advanced) Unit <spi_process>.
-The following registers are absorbed into counter <write_dsa_cnt>: 1 register on signal <write_dsa_cnt>.
-Unit <spi_process> synthesized (advanced).
+Synthesizing (advanced) Unit <spi_listener>.
+The following registers are absorbed into counter <timeout_cnt>: 1 register on signal <timeout_cnt>.
+Unit <spi_listener> synthesized (advanced).
+WARNING:Xst:2677 - Node <r_Temp_RX_Byte_7> of sequential type is unconnected in block <SPI_Slave>.
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 4
+# Adders/Subtractors                                   : 5
+ 16-bit adder                                          : 1
  4-bit adder                                           : 3
  7-bit subtractor                                      : 1
 # Adder Trees                                          : 1
  3-bit / 5-inputs adder tree                           : 1
-# Counters                                             : 5
+# Counters                                             : 6
  16-bit up counter                                     : 2
+ 3-bit up counter                                      : 1
  4-bit up counter                                      : 1
  6-bit up counter                                      : 1
  8-bit up counter                                      : 1
-# Registers                                            : 290
- Flip-Flops                                            : 290
+# Registers                                            : 442
+ Flip-Flops                                            : 442
 # Comparators                                          : 8
  1-bit comparator not equal                            : 2
  2-bit comparator lessequal                            : 1
@@ -515,19 +602,21 @@ Macro Statistics
  4-bit comparator equal                                : 1
  4-bit comparator greater                              : 2
  4-bit comparator lessequal                            : 1
-# Multiplexers                                         : 106
- 1-bit 2-to-1 multiplexer                              : 21
+# Multiplexers                                         : 133
+ 1-bit 2-to-1 multiplexer                              : 38
  10-bit 2-to-1 multiplexer                             : 1
+ 16-bit 2-to-1 multiplexer                             : 4
  2-bit 2-to-1 multiplexer                              : 2
  2-bit 3-to-1 multiplexer                              : 4
- 32-bit 2-to-1 multiplexer                             : 36
- 4-bit 2-to-1 multiplexer                              : 6
+ 24-bit 2-to-1 multiplexer                             : 2
+ 32-bit 2-to-1 multiplexer                             : 37
+ 4-bit 2-to-1 multiplexer                              : 7
  6-bit 2-to-1 multiplexer                              : 1
- 8-bit 2-to-1 multiplexer                              : 32
+ 8-bit 2-to-1 multiplexer                              : 34
  80-bit 2-to-1 multiplexer                             : 3
 # Logic shifters                                       : 1
  80-bit shifter logical left                           : 1
-# FSMs                                                 : 3
+# FSMs                                                 : 4
 
 =========================================================================
 
@@ -540,7 +629,7 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_bits_coun
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_bits_counter_2> (without init value) has a constant value of 0 in block <UART_TX>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_data_bits_counter_3> (without init value) has a constant value of 0 in block <UART_TX>. This FF/Latch will be trimmed during the optimization process.
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <UART_RX_inst/FSM_0> on signal <RX_state[1:3]> with user encoding.
+Optimizing FSM <UART_RX_inst/FSM_1> on signal <RX_state[1:3]> with user encoding.
 -------------------
  State | Encoding
 -------------------
@@ -551,7 +640,17 @@ Optimizing FSM <UART_RX_inst/FSM_0> on signal <RX_state[1:3]> with user encoding
  011   | 011
 -------------------
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <process_test/FSM_2> on signal <write_dsa_state[1:2]> with sequential encoding.
+Optimizing FSM <SPI_Listener_test/FSM_0> on signal <spi_byte_cnt[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 10
+ 11    | 11
+-------------------
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <process_inst/FSM_3> on signal <write_dsa_state[1:2]> with sequential encoding.
 -------------------
  State | Encoding
 -------------------
@@ -561,7 +660,7 @@ Optimizing FSM <process_test/FSM_2> on signal <write_dsa_state[1:2]> with sequen
  10    | 11
 -------------------
 Analyzing FSM <MFsm> for best encoding.
-Optimizing FSM <UART_TX_inst/FSM_1> on signal <send_state[1:2]> with gray encoding.
+Optimizing FSM <UART_TX_inst/FSM_2> on signal <send_state[1:2]> with gray encoding.
 -------------------
  State | Encoding
 -------------------
@@ -575,27 +674,16 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <send_state_FSM_FFd1
 
 Optimizing unit <CTRL_TOP> ...
 
+Optimizing unit <SPI_Slave> ...
+
 Optimizing unit <UART_RX> ...
 WARNING:Xst:1710 - FF/Latch <RX_data_bits_counter_3> (without init value) has a constant value of 0 in block <UART_RX>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <RX_data_bits_counter_3> (without init value) has a constant value of 0 in block <UART_RX>. This FF/Latch will be trimmed during the optimization process.
 
-Optimizing unit <spi_process> ...
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__79> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__78> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__77> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__76> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__75> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__74> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__73> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__72> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__71> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__70> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__69> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__68> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__67> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__66> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__65> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__64> of sequential type is unconnected in block <CTRL_TOP>.
+Optimizing unit <spi_listener> ...
+
+Optimizing unit <UART_Listener> ...
+
+Optimizing unit <ctrl_process> ...
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__59> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__58> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__47> of sequential type is unconnected in block <CTRL_TOP>.
@@ -638,24 +726,6 @@ WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__3> of sequential type is unc
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__2> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__1> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__0> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_79> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_78> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_77> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_76> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_75> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_74> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_73> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_72> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_71> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_70> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_69> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_68> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_67> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_66> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_65> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_64> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_59> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_58> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_check_9> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_check_8> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_check_7> of sequential type is unconnected in block <CTRL_TOP>.
@@ -666,19 +736,50 @@ WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_check_3> of sequential type i
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_check_2> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_check_1> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data_check_0> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_27> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_26> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_15> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_14> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_13> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_12> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_11> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_10> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_7> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_6> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_2_19> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_2_18> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_2_7> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_2_6> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_2_5> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_2_4> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_2_3> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_2_2> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_27> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_26> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_15> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_14> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_13> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_12> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_11> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_10> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_7> of sequential type is unconnected in block <CTRL_TOP>.
+WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_6> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:1293 - FF/Latch <rst_test/clk_cnt_4> has a constant value of 0 in block <CTRL_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <rst_test/clk_cnt_5> has a constant value of 0 in block <CTRL_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <rst_test/clk_cnt_6> has a constant value of 0 in block <CTRL_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <rst_test/clk_cnt_7> has a constant value of 0 in block <CTRL_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <UART_RX_inst/RX_stop_bits_counter_3> (without init value) has a constant value of 0 in block <CTRL_TOP>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <process_test/write_dsa_cnt_3> has a constant value of 0 in block <CTRL_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <SPI_Listener_test/timeout_cnt_15> has a constant value of 0 in block <CTRL_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <SPI_Listener_test/timeout_cnt_14> has a constant value of 0 in block <CTRL_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <SPI_Listener_test/timeout_cnt_13> has a constant value of 0 in block <CTRL_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <SPI_Listener_test/timeout_cnt_12> has a constant value of 0 in block <CTRL_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <SPI_Listener_test/timeout_cnt_11> has a constant value of 0 in block <CTRL_TOP>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <process_inst/write_dsa_cnt_3> has a constant value of 0 in block <CTRL_TOP>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block CTRL_TOP, actual ratio is 2.
-FlipFlop UART_RX_inst/RX_busy has been replicated 2 time(s)
-FlipFlop UART_RX_inst/RX_state_FSM_FFd2 has been replicated 1 time(s)
-FlipFlop UART_RX_inst/RX_state_FSM_FFd3 has been replicated 1 time(s)
+Found area constraint ratio of 100 (+ 5) on block CTRL_TOP, actual ratio is 4.
+FlipFlop UART_RX_inst/RX_busy has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -690,8 +791,8 @@ Unit <CTRL_TOP> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 235
- Flip-Flops                                            : 235
+# Registers                                            : 390
+ Flip-Flops                                            : 390
 
 =========================================================================
 
@@ -714,33 +815,34 @@ Top Level Output File Name         : CTRL_TOP.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 422
+# BELS                             : 660
 #      GND                         : 1
-#      INV                         : 6
-#      LUT1                        : 18
-#      LUT2                        : 12
-#      LUT3                        : 37
-#      LUT4                        : 95
-#      LUT5                        : 47
-#      LUT6                        : 156
-#      MUXCY                       : 18
-#      MUXF7                       : 11
+#      INV                         : 8
+#      LUT1                        : 28
+#      LUT2                        : 112
+#      LUT3                        : 94
+#      LUT4                        : 42
+#      LUT5                        : 105
+#      LUT6                        : 198
+#      MUXCY                       : 28
+#      MUXF7                       : 12
 #      VCC                         : 1
-#      XORCY                       : 20
-# FlipFlops/Latches                : 235
-#      FD                          : 18
-#      FDC                         : 2
-#      FDCE                        : 60
-#      FDE                         : 21
-#      FDR                         : 81
-#      FDRE                        : 42
+#      XORCY                       : 31
+# FlipFlops/Latches                : 390
+#      FD                          : 5
+#      FDC                         : 13
+#      FDCE                        : 106
+#      FDE                         : 74
+#      FDR                         : 10
+#      FDRE                        : 171
 #      FDS                         : 11
-# Clock Buffers                    : 1
+# Clock Buffers                    : 2
 #      BUFG                        : 1
-# IO Buffers                       : 82
-#      IBUF                        : 4
+#      BUFGP                       : 1
+# IO Buffers                       : 86
+#      IBUF                        : 6
 #      IBUFG                       : 1
-#      OBUF                        : 77
+#      OBUF                        : 79
 
 Device utilization summary:
 ---------------------------
@@ -749,23 +851,23 @@ Selected Device : 6slx25ftg256-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             235  out of  30064     0%  
- Number of Slice LUTs:                  371  out of  15032     2%  
-    Number used as Logic:               371  out of  15032     2%  
+ Number of Slice Registers:             390  out of  30064     1%  
+ Number of Slice LUTs:                  587  out of  15032     3%  
+    Number used as Logic:               587  out of  15032     3%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    402
-   Number with an unused Flip Flop:     167  out of    402    41%  
-   Number with an unused LUT:            31  out of    402     7%  
-   Number of fully used LUT-FF pairs:   204  out of    402    50%  
-   Number of unique control sets:        21
+ Number of LUT Flip Flop pairs used:    679
+   Number with an unused Flip Flop:     289  out of    679    42%  
+   Number with an unused LUT:            92  out of    679    13%  
+   Number of fully used LUT-FF pairs:   298  out of    679    43%  
+   Number of unique control sets:        34
 
 IO Utilization: 
- Number of IOs:                          98
- Number of bonded IOBs:                  82  out of    186    44%  
+ Number of IOs:                         100
+ Number of bonded IOBs:                  87  out of    186    46%  
 
 Specific Feature Utilization:
- Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
 
 ---------------------------
 Partition Resource Summary:
@@ -788,7 +890,8 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-CLK_SYS                            | IBUFG+BUFG             | 235   |
+CLK_SYS                            | IBUFG+BUFG             | 371   |
+SPI_CLK                            | BUFGP                  | 19    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -799,10 +902,10 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 6.025ns (Maximum Frequency: 165.975MHz)
-   Minimum input arrival time before clock: 2.083ns
-   Maximum output required time after clock: 5.307ns
-   Maximum combinational path delay: 6.255ns
+   Minimum period: 6.185ns (Maximum Frequency: 161.672MHz)
+   Minimum input arrival time before clock: 7.483ns
+   Maximum output required time after clock: 5.414ns
+   Maximum combinational path delay: 7.359ns
 
 Timing Details:
 ---------------
@@ -810,86 +913,131 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK_SYS'
-  Clock period: 6.025ns (frequency: 165.975MHz)
-  Total number of paths / destination ports: 7970 / 553
+  Clock period: 6.185ns (frequency: 161.672MHz)
+  Total number of paths / destination ports: 10987 / 1004
 -------------------------------------------------------------------------
-Delay:               6.025ns (Levels of Logic = 4)
+Delay:               6.185ns (Levels of Logic = 3)
   Source:            UART_RX_inst/counter_11 (FF)
-  Destination:       UART_RX_inst/receive_data_63 (FF)
+  Destination:       UART_RX_inst/receive_data_bytes_5 (FF)
   Source Clock:      CLK_SYS rising
   Destination Clock: CLK_SYS rising
 
-  Data Path: UART_RX_inst/counter_11 to UART_RX_inst/receive_data_63
+  Data Path: UART_RX_inst/counter_11 to UART_RX_inst/receive_data_bytes_5
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               3   0.525   1.196  UART_RX_inst/counter_11 (UART_RX_inst/counter_11)
-     LUT5:I0->O            7   0.254   0.910  UART_RX_inst/Reset_OR_DriverANDClockEnable12_SW0 (N11)
-     LUT6:I5->O           12   0.254   1.069  UART_RX_inst/GND_4_o_GND_4_o_equal_25_o<15>11 (UART_RX_inst/GND_4_o_GND_4_o_equal_25_o<15>1)
-     LUT6:I5->O           18   0.254   1.235  UART_RX_inst/_n0537_inv (UART_RX_inst/_n0537_inv)
-     LUT4:I3->O            1   0.254   0.000  UART_RX_inst/receive_data_63_rstpot (UART_RX_inst/receive_data_63_rstpot)
-     FDR:D                     0.074          UART_RX_inst/receive_data_63
+     FDRE:C->Q             2   0.525   1.156  UART_RX_inst/counter_11 (UART_RX_inst/counter_11)
+     LUT5:I0->O            6   0.254   0.984  UART_RX_inst/GND_7_o_GND_7_o_equal_22_o<15>1_SW0 (N26)
+     LUT6:I4->O            5   0.250   0.841  UART_RX_inst/GND_7_o_GND_7_o_equal_25_o<15>11 (UART_RX_inst/GND_7_o_GND_7_o_equal_25_o<15>1)
+     LUT6:I5->O           38   0.254   1.619  UART_RX_inst/_n0560_inv (UART_RX_inst/_n0560_inv)
+     FDRE:CE                   0.302          UART_RX_inst/receive_data_bytes_0
     ----------------------------------------
-    Total                      6.025ns (1.615ns logic, 4.410ns route)
-                                       (26.8% logic, 73.2% route)
+    Total                      6.185ns (1.585ns logic, 4.600ns route)
+                                       (25.6% logic, 74.4% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'SPI_CLK'
+  Clock period: 3.104ns (frequency: 322.165MHz)
+  Total number of paths / destination ports: 47 / 25
+-------------------------------------------------------------------------
+Delay:               3.104ns (Levels of Logic = 1)
+  Source:            SPI_Slave_test/r_RX_Bit_Count_1 (FF)
+  Destination:       SPI_Slave_test/r_RX_Byte_7 (FF)
+  Source Clock:      SPI_CLK rising
+  Destination Clock: SPI_CLK rising
+
+  Data Path: SPI_Slave_test/r_RX_Bit_Count_1 to SPI_Slave_test/r_RX_Byte_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              4   0.525   1.080  SPI_Slave_test/r_RX_Bit_Count_1 (SPI_Slave_test/r_RX_Bit_Count_1)
+     LUT4:I0->O            8   0.254   0.943  SPI_Slave_test/_n0049_inv1 (SPI_Slave_test/_n0049_inv)
+     FDE:CE                    0.302          SPI_Slave_test/r_RX_Byte_0
+    ----------------------------------------
+    Total                      3.104ns (1.081ns logic, 2.023ns route)
+                                       (34.8% logic, 65.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_CLK'
+  Total number of paths / destination ports: 21 / 21
+-------------------------------------------------------------------------
+Offset:              3.807ns (Levels of Logic = 2)
+  Source:            SPI_LE (PAD)
+  Destination:       SPI_Slave_test/r_RX_Byte_7 (FF)
+  Destination Clock: SPI_CLK rising
+
+  Data Path: SPI_LE to SPI_Slave_test/r_RX_Byte_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             6   1.328   0.984  SPI_LE_IBUF (SPI_LE_IBUF)
+     LUT4:I2->O            8   0.250   0.943  SPI_Slave_test/_n0049_inv1 (SPI_Slave_test/_n0049_inv)
+     FDE:CE                    0.302          SPI_Slave_test/r_RX_Byte_0
+    ----------------------------------------
+    Total                      3.807ns (1.880ns logic, 1.927ns route)
+                                       (49.4% logic, 50.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK_SYS'
-  Total number of paths / destination ports: 1 / 1
+  Total number of paths / destination ports: 679 / 77
 -------------------------------------------------------------------------
-Offset:              2.083ns (Levels of Logic = 1)
-  Source:            TXD_HOST (PAD)
-  Destination:       UART_RX_inst/sig_rx_0 (FF)
+Offset:              7.483ns (Levels of Logic = 5)
+  Source:            PLUG_IN (PAD)
+  Destination:       process_inst/o_B2_LNA_BYPASS_7 (FF)
   Destination Clock: CLK_SYS rising
 
-  Data Path: TXD_HOST to UART_RX_inst/sig_rx_0
+  Data Path: PLUG_IN to process_inst/o_B2_LNA_BYPASS_7
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             1   1.328   0.681  TXD_HOST_IBUF (TXD_HOST_IBUF)
-     FDS:D                     0.074          UART_RX_inst/sig_rx_0
+     IBUF:I->O            46   1.328   1.982  PLUG_IN_IBUF (PLUG_IN_IBUF)
+     LUT3:I0->O            3   0.235   0.994  CTRL_switch_inst/Mmux_o_ctrl_data241 (ctrl_data<30>)
+     LUT6:I3->O            5   0.235   0.949  process_inst/host_board_id[3]_host_board_id[3]_OR_119_o_SW6 (N47)
+     LUT5:I3->O           16   0.250   1.182  process_inst/host_board_id[3]_host_board_id[3]_OR_119_o (process_inst/host_board_id[3]_host_board_id[3]_OR_119_o)
+     LUT6:I5->O            1   0.254   0.000  process_inst/o_B2_LNA_BYPASS_0_dpot (process_inst/o_B2_LNA_BYPASS_0_dpot)
+     FDCE:D                    0.074          process_inst/o_B2_LNA_BYPASS_0
     ----------------------------------------
-    Total                      2.083ns (1.402ns logic, 0.681ns route)
-                                       (67.3% logic, 32.7% route)
+    Total                      7.483ns (2.376ns logic, 5.107ns route)
+                                       (31.8% logic, 68.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK_SYS'
-  Total number of paths / destination ports: 60 / 60
+  Total number of paths / destination ports: 80 / 78
 -------------------------------------------------------------------------
-Offset:              5.307ns (Levels of Logic = 2)
-  Source:            process_test/o_TX_ON_0 (FF)
-  Destination:       TX_ON_B1 (PAD)
+Offset:              5.414ns (Levels of Logic = 2)
+  Source:            process_inst/o_TX_ON_0 (FF)
+  Destination:       TX_LED (PAD)
   Source Clock:      CLK_SYS rising
 
-  Data Path: process_test/o_TX_ON_0 to TX_ON_B1
+  Data Path: process_inst/o_TX_ON_0 to TX_LED
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             2   0.525   0.954  process_test/o_TX_ON_0 (process_test/o_TX_ON_0)
-     LUT4:I1->O            1   0.235   0.681  FEM_TR_switch_inst/Mmux_o_TX_ON_B112 (TX_ON_B1_OBUF)
-     OBUF:I->O                 2.912          TX_ON_B1_OBUF (TX_ON_B1)
+     FDCE:C->Q             3   0.525   1.042  process_inst/o_TX_ON_0 (process_inst/o_TX_ON_0)
+     LUT5:I1->O            1   0.254   0.681  TX_LED1 (TX_LED_OBUF)
+     OBUF:I->O                 2.912          TX_LED_OBUF (TX_LED)
     ----------------------------------------
-    Total                      5.307ns (3.672ns logic, 1.635ns route)
-                                       (69.2% logic, 30.8% route)
+    Total                      5.414ns (3.691ns logic, 1.723ns route)
+                                       (68.2% logic, 31.8% route)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 12 / 4
+  Total number of paths / destination ports: 18 / 6
 -------------------------------------------------------------------------
-Delay:               6.255ns (Levels of Logic = 3)
+Delay:               7.359ns (Levels of Logic = 3)
   Source:            PLUG_IN (PAD)
-  Destination:       TX_ON_B1 (PAD)
+  Destination:       TX_LED (PAD)
 
-  Data Path: PLUG_IN to TX_ON_B1
+  Data Path: PLUG_IN to TX_LED
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             4   1.328   1.080  PLUG_IN_IBUF (PLUG_IN_IBUF)
-     LUT4:I0->O            1   0.254   0.681  FEM_TR_switch_inst/Mmux_o_RX_ON_B112 (RX_ON_B1_OBUF)
-     OBUF:I->O                 2.912          RX_ON_B1_OBUF (RX_ON_B1)
+     IBUF:I->O            46   1.328   2.184  PLUG_IN_IBUF (PLUG_IN_IBUF)
+     LUT5:I0->O            1   0.254   0.681  RX_LED1 (RX_LED_OBUF)
+     OBUF:I->O                 2.912          RX_LED_OBUF (RX_LED)
     ----------------------------------------
-    Total                      6.255ns (4.494ns logic, 1.761ns route)
-                                       (71.8% logic, 28.2% route)
+    Total                      7.359ns (4.494ns logic, 2.865ns route)
+                                       (61.1% logic, 38.9% route)
 
 =========================================================================
 
@@ -901,20 +1049,29 @@ Clock to Setup on destination clock CLK_SYS
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK_SYS        |    6.025|         |         |         |
+CLK_SYS        |    6.185|         |         |         |
+SPI_CLK        |    1.324|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_CLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+SPI_CLK        |    3.104|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 5.52 secs
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 10.69 secs
  
 --> 
 
-Total memory usage is 231608 kilobytes
+Total memory usage is 4503092 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  204 (   0 filtered)
-Number of infos    :    5 (   0 filtered)
+Number of warnings :  185 (   0 filtered)
+Number of infos    :    6 (   0 filtered)
 

@@ -5,5 +5,8 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"F:/ISE/UE_CTRL/srcs/CTRL_TOP.v" Line 94: Port <arg fmt="%s" index="1">i_TX_DV</arg> is not connected to this instance
+</msg>
+
 </messages>
 

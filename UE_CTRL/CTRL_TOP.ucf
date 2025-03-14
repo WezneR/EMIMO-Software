@@ -103,7 +103,6 @@ NET "RX_B2_DSA[2]" LOC = B3;
 NET "RX_B2_DSA[1]" LOC = A10;
 NET "RX_B2_DSA[0]" LOC = B10;
 
-# PlanAhead Generated physical constraints 
 
 NET "RX_B2_LE[7]" LOC = A11;
 NET "RX_B2_LE[6]" LOC = C11;
@@ -150,36 +149,28 @@ NET "TX_B2_LE[2]" LOC = B2;
 NET "TX_B2_LE[1]" LOC = A3;
 NET "TX_B2_LE[0]" LOC = E6;
 
-# PlanAhead Generated IO constraints 
 
 NET "CLK_SYS" IOSTANDARD = LVCMOS33;
 
-# PlanAhead Generated physical constraints 
 
 NET "CLK_SYS" LOC = P8;
 NET "MODE" LOC = K16;
 
-# PlanAhead Generated IO constraints 
 
 NET "MODE" IOSTANDARD = LVCMOS33;
 
-# PlanAhead Generated physical constraints 
 
 NET "MODE_MCU" LOC = E16;
 
-# PlanAhead Generated IO constraints 
 
 NET "MODE_MCU" IOSTANDARD = LVCMOS33;
 
-# PlanAhead Generated physical constraints 
 
 NET "PLUG_IN" LOC = T13;
 
-# PlanAhead Generated IO constraints 
 
 NET "PLUG_IN" IOSTANDARD = LVCMOS33;
 
-# PlanAhead Generated physical constraints 
 
 NET "REV" LOC = N16;
 NET "REV1_MCU" LOC = E15;
@@ -204,8 +195,9 @@ NET "TXD_HOST" LOC = T15;
 NET "TXD_MCU" LOC = C16;
 NET "UPDATE" LOC = R16;
 NET "UPDATE_MCU" LOC = F15;
+NET "TX_LED" LOC = T9;
+NET "RX_LED" LOC = T5;
 
-# PlanAhead Generated IO constraints 
 
 NET "REV" IOSTANDARD = LVCMOS33;
 NET "REV1_MCU" IOSTANDARD = LVCMOS33;
@@ -230,3 +222,7 @@ NET "TXD_HOST" IOSTANDARD = LVCMOS33;
 NET "TXD_MCU" IOSTANDARD = LVCMOS33;
 NET "UPDATE" IOSTANDARD = LVCMOS33;
 NET "UPDATE_MCU" IOSTANDARD = LVCMOS33;
+NET "TX_LED" IOSTANDARD = LVCMOS33;
+NET "RX_LED" IOSTANDARD = LVCMOS33;
+
+NET "SPI_CLK" CLOCK_DEDICATED_ROUTE = FALSE;

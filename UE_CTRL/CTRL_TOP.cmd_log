@@ -83,3 +83,45 @@ par -w -intstyle ise -ol high -mt off CTRL_TOP_map.ncd CTRL_TOP.ncd CTRL_TOP.pcf
 trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml CTRL_TOP.twx CTRL_TOP.ncd -o CTRL_TOP.twr CTRL_TOP.pcf 
 bitgen -intstyle ise -f CTRL_TOP.ut CTRL_TOP.ncd 
 netgen -intstyle ise -insert_glbl true -w -dir netgen/synthesis -ofmt verilog -sim CTRL_TOP.ngc spi_process_synthesis.v 
+xst -intstyle ise -ifn "F:/ISE/UE_CTRL/CTRL_TOP.xst" -ofn "F:/ISE/UE_CTRL/CTRL_TOP.syr" 
+xst -intstyle ise -ifn "F:/ISE/UE_CTRL/CTRL_TOP.xst" -ofn "F:/ISE/UE_CTRL/CTRL_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx25-ftg256-2 CTRL_TOP.ngc CTRL_TOP.ngd  
+map -intstyle ise -p xc6slx25-ftg256-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o CTRL_TOP_map.ncd CTRL_TOP.ngd CTRL_TOP.pcf 
+par -w -intstyle ise -ol high -mt off CTRL_TOP_map.ncd CTRL_TOP.ncd CTRL_TOP.pcf 
+bitgen -intstyle ise -f CTRL_TOP.ut CTRL_TOP.ncd 
+xst -intstyle ise -ifn "F:/ISE/UE_CTRL/CTRL_TOP.xst" -ofn "F:/ISE/UE_CTRL/CTRL_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx25-ftg256-2 CTRL_TOP.ngc CTRL_TOP.ngd  
+map -intstyle ise -p xc6slx25-ftg256-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o CTRL_TOP_map.ncd CTRL_TOP.ngd CTRL_TOP.pcf 
+par -w -intstyle ise -ol high -mt off CTRL_TOP_map.ncd CTRL_TOP.ncd CTRL_TOP.pcf 
+xst -intstyle ise -ifn "F:/ISE/UE_CTRL/CTRL_TOP.xst" -ofn "F:/ISE/UE_CTRL/CTRL_TOP.syr" 
+xst -intstyle ise -ifn "F:/ISE/UE_CTRL/CTRL_TOP.xst" -ofn "F:/ISE/UE_CTRL/CTRL_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx25-ftg256-2 CTRL_TOP.ngc CTRL_TOP.ngd  
+map -intstyle ise -p xc6slx25-ftg256-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o CTRL_TOP_map.ncd CTRL_TOP.ngd CTRL_TOP.pcf 
+par -w -intstyle ise -ol high -mt off CTRL_TOP_map.ncd CTRL_TOP.ncd CTRL_TOP.pcf 
+bitgen -intstyle ise -f CTRL_TOP.ut CTRL_TOP.ncd 
+xst -intstyle ise -ifn "F:/ISE/UE_CTRL/CTRL_TOP.xst" -ofn "F:/ISE/UE_CTRL/CTRL_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx25-ftg256-2 CTRL_TOP.ngc CTRL_TOP.ngd  
+map -intstyle ise -p xc6slx25-ftg256-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o CTRL_TOP_map.ncd CTRL_TOP.ngd CTRL_TOP.pcf 
+par -w -intstyle ise -ol high -mt off CTRL_TOP_map.ncd CTRL_TOP.ncd CTRL_TOP.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml CTRL_TOP.twx CTRL_TOP.ncd -o CTRL_TOP.twr CTRL_TOP.pcf 
+bitgen -intstyle ise -f CTRL_TOP.ut CTRL_TOP.ncd 
+xst -intstyle ise -ifn "F:/ISE/UE_CTRL/CTRL_TOP.xst" -ofn "F:/ISE/UE_CTRL/CTRL_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx25-ftg256-2 CTRL_TOP.ngc CTRL_TOP.ngd  
+map -intstyle ise -p xc6slx25-ftg256-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o CTRL_TOP_map.ncd CTRL_TOP.ngd CTRL_TOP.pcf 
+par -w -intstyle ise -ol high -mt off CTRL_TOP_map.ncd CTRL_TOP.ncd CTRL_TOP.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml CTRL_TOP.twx CTRL_TOP.ncd -o CTRL_TOP.twr CTRL_TOP.pcf 
+bitgen -intstyle ise -f CTRL_TOP.ut CTRL_TOP.ncd 
+xst -intstyle ise -ifn "F:/ISE/UE_CTRL/CTRL_TOP.xst" -ofn "F:/ISE/UE_CTRL/CTRL_TOP.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc6slx25-ftg256-2 CTRL_TOP.ngc CTRL_TOP.ngd  
+map -intstyle ise -p xc6slx25-ftg256-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o CTRL_TOP_map.ncd CTRL_TOP.ngd CTRL_TOP.pcf 
+par -w -intstyle ise -ol high -mt off CTRL_TOP_map.ncd CTRL_TOP.ncd CTRL_TOP.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml CTRL_TOP.twx CTRL_TOP.ncd -o CTRL_TOP.twr CTRL_TOP.pcf 
+bitgen -intstyle ise -f CTRL_TOP.ut CTRL_TOP.ncd 
+bitgen -intstyle ise -f CTRL_TOP.ut CTRL_TOP.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc CTRL_TOP.ucf -p xc6slx25-ftg256-2 CTRL_TOP.ngc CTRL_TOP.ngd  
+map -intstyle ise -p xc6slx25-ftg256-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o CTRL_TOP_map.ncd CTRL_TOP.ngd CTRL_TOP.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc CTRL_TOP.ucf -p xc6slx25-ftg256-2 CTRL_TOP.ngc CTRL_TOP.ngd  
+map -intstyle ise -p xc6slx25-ftg256-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o CTRL_TOP_map.ncd CTRL_TOP.ngd CTRL_TOP.pcf 
+par -w -intstyle ise -ol high -mt off CTRL_TOP_map.ncd CTRL_TOP.ncd CTRL_TOP.pcf 
+trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml CTRL_TOP.twx CTRL_TOP.ncd -o CTRL_TOP.twr CTRL_TOP.pcf -ucf CTRL_TOP.ucf 
+bitgen -intstyle ise -f CTRL_TOP.ut CTRL_TOP.ncd 

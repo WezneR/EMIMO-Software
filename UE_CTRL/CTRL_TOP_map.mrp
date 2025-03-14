@@ -1,4 +1,4 @@
-Release 14.7 Map P.20131013 (nt)
+Release 14.7 Map P.20131013 (nt64)
 Xilinx Mapping Report File for Design 'CTRL_TOP'
 
 Design Information
@@ -10,40 +10,40 @@ Target Device  : xc6slx25
 Target Package : ftg256
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Thu Nov 07 17:08:17 2024
+Mapped Date    : Thu Mar 06 16:05:27 2025
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    0
+Number of warnings:    1
 Slice Logic Utilization:
-  Number of Slice Registers:                   235 out of  30,064    1%
-    Number used as Flip Flops:                 235
+  Number of Slice Registers:                   390 out of  30,064    1%
+    Number used as Flip Flops:                 390
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        344 out of  15,032    2%
-    Number used as logic:                      335 out of  15,032    2%
-      Number using O6 output only:             283
-      Number using O5 output only:              16
-      Number using O5 and O6:                   36
+  Number of Slice LUTs:                        507 out of  15,032    3%
+    Number used as logic:                      499 out of  15,032    3%
+      Number using O6 output only:             386
+      Number using O5 output only:              25
+      Number using O5 and O6:                   88
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   3,664    0%
-    Number used exclusively as route-thrus:      9
-      Number with same-slice register load:      7
-      Number with same-slice carry load:         2
+    Number used exclusively as route-thrus:      8
+      Number with same-slice register load:      5
+      Number with same-slice carry load:         3
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   115 out of   3,758    3%
-  Number of MUXCYs used:                        20 out of   7,516    1%
-  Number of LUT Flip Flop pairs used:          366
-    Number with an unused Flip Flop:           149 out of     366   40%
-    Number with an unused LUT:                  22 out of     366    6%
-    Number of fully used LUT-FF pairs:         195 out of     366   53%
-    Number of unique control sets:              20
+  Number of occupied Slices:                   211 out of   3,758    5%
+  Number of MUXCYs used:                        32 out of   7,516    1%
+  Number of LUT Flip Flop pairs used:          582
+    Number with an unused Flip Flop:           252 out of     582   43%
+    Number with an unused LUT:                  75 out of     582   12%
+    Number of fully used LUT-FF pairs:         255 out of     582   43%
+    Number of unique control sets:              33
     Number of slice register sites lost
-      to control set restrictions:              53 out of  30,064    1%
+      to control set restrictions:              58 out of  30,064    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -52,15 +52,16 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        82 out of     186   44%
+  Number of bonded IOBs:                       100 out of     186   53%
+    Number of LOCed IOBs:                      100 out of     100  100%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      52    0%
   Number of RAMB8BWERs:                          0 out of     104    0%
   Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
   Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
-  Number of BUFG/BUFGMUXs:                       1 out of      16    6%
-    Number used as BUFGs:                        1
+  Number of BUFG/BUFGMUXs:                       2 out of      16   12%
+    Number used as BUFGs:                        2
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
   Number of ILOGIC2/ISERDES2s:                   0 out of     272    0%
@@ -79,11 +80,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                5.03
+Average Fanout of Non-Clock Nets:                4.43
 
-Peak Memory Usage:  306 MB
-Total REAL time to MAP completion:  12 secs 
-Total CPU time to MAP completion:   12 secs 
+Peak Memory Usage:  4549 MB
+Total REAL time to MAP completion:  11 secs 
+Total CPU time to MAP completion:   11 secs 
 
 Table of Contents
 -----------------
@@ -106,17 +107,29 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
+WARNING:Place:1109 - A clock IOB / BUFGMUX clock component pair have been found
+   that are not placed at an optimal clock IOB / BUFGMUX site pair. The clock
+   IOB component <SPI_CLK> is placed at site <H16>. The corresponding BUFG
+   component <SPI_CLK_BUFGP/BUFG> is placed at site <BUFGMUX_X2Y2>. There is
+   only a select set of IOBs that can use the fast path to the Clocker buffer,
+   and they are not being used. You may want to analyze why this problem exists
+   and correct it. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE
+   constraint was applied on COMP.PIN <SPI_CLK.PAD> allowing your design to
+   continue. This constraint disables all clock placer rules related to the
+   specified COMP.PIN. The use of this override is highly discouraged as it may
+   lead to very poor timing results. It is recommended that this error condition
+   be corrected in the design.
 
 Section 3 - Informational
 -------------------------
-INFO:LIT:243 - Logical network SPI_DATA has no load.
-INFO:LIT:395 - The above info message is repeated 15 more times for the
+INFO:LIT:243 - Logical network UPDATE_IBUF has no load.
+INFO:LIT:395 - The above info message is repeated 12 more times for the
    following (max. 5 shown):
-   SPI_CLK,
-   SPI_LE,
-   UPDATE,
-   MODE,
-   REV
+   MODE_IBUF,
+   REV_IBUF,
+   SPI_DATA_MCU_IBUF,
+   SPI_CLK_MCU_IBUF,
+   SPI_LE_MCU_IBUF
    To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:LIT:244 - All of the single ended outputs in this design are using slew
@@ -152,88 +165,106 @@ Section 6 - IOB Properties
 | IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
 |                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
-| CLK_SYS                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| PLUG_IN                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| RXD_HOST                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_DSA<0>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_DSA<1>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_DSA<2>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_DSA<3>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_DSA<4>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_DSA<5>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_LE<0>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_LE<1>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_LE<2>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_LE<3>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_LE<4>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_LE<5>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_LE<6>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_LE<7>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_LNA_BYPASS<0>                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_LNA_BYPASS<1>                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_LNA_BYPASS<2>                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_LNA_BYPASS<3>                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_LNA_BYPASS<4>                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_LNA_BYPASS<5>                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_LNA_BYPASS<6>                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B1_LNA_BYPASS<7>                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_DSA<0>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_DSA<1>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_DSA<2>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_DSA<3>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_DSA<4>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_DSA<5>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_LE<0>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_LE<1>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_LE<2>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_LE<3>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_LE<4>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_LE<5>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_LE<6>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_LE<7>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_LNA_BYPASS<0>                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_LNA_BYPASS<1>                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_LNA_BYPASS<2>                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_LNA_BYPASS<3>                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_LNA_BYPASS<4>                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_LNA_BYPASS<5>                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_LNA_BYPASS<6>                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_B2_LNA_BYPASS<7>                | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_ON                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| RX_ON_B1                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| RX_ON_B2                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TXD_HOST                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| TX_B1_DSA<0>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B1_DSA<1>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B1_DSA<2>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B1_DSA<3>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B1_DSA<4>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B1_DSA<5>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B1_LE<0>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B1_LE<1>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B1_LE<2>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B1_LE<3>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B1_LE<4>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B1_LE<5>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B1_LE<6>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B1_LE<7>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B2_DSA<0>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B2_DSA<1>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B2_DSA<2>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B2_DSA<3>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B2_DSA<4>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B2_DSA<5>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B2_LE<0>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B2_LE<1>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B2_LE<2>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B2_LE<3>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B2_LE<4>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B2_LE<5>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B2_LE<6>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_B2_LE<7>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_ON                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| TX_ON_B1                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| TX_ON_B2                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| CLK_SYS                            | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| MODE                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| MODE_MCU                           | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| PLUG_IN                            | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| REV                                | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| REV1_MCU                           | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| REV2_MCU                           | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| RXD_HOST                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_DSA<0>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_DSA<1>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_DSA<2>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_DSA<3>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_DSA<4>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_DSA<5>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_LE<0>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_LE<1>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_LE<2>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_LE<3>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_LE<4>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_LE<5>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_LE<6>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_LE<7>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_LNA_BYPASS<0>                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_LNA_BYPASS<1>                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_LNA_BYPASS<2>                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_LNA_BYPASS<3>                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_LNA_BYPASS<4>                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_LNA_BYPASS<5>                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_LNA_BYPASS<6>                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B1_LNA_BYPASS<7>                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_DSA<0>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_DSA<1>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_DSA<2>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_DSA<3>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_DSA<4>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_DSA<5>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_LE<0>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_LE<1>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_LE<2>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_LE<3>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_LE<4>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_LE<5>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_LE<6>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_LE<7>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_LNA_BYPASS<0>                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_LNA_BYPASS<1>                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_LNA_BYPASS<2>                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_LNA_BYPASS<3>                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_LNA_BYPASS<4>                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_LNA_BYPASS<5>                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_LNA_BYPASS<6>                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_B2_LNA_BYPASS<7>                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_LED                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_ON                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| RX_ON_B1                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_ON_B2                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| RX_ON_MCU                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| SPI_CLK                            | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| SPI_CLK_MCU                        | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| SPI_DATA                           | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| SPI_DATA_MCU                       | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| SPI_LE                             | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| SPI_LE_MCU                         | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| TXD_HOST                           | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| TXD_MCU                            | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| TX_B1_DSA<0>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B1_DSA<1>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B1_DSA<2>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B1_DSA<3>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B1_DSA<4>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B1_DSA<5>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B1_LE<0>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B1_LE<1>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B1_LE<2>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B1_LE<3>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B1_LE<4>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B1_LE<5>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B1_LE<6>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B1_LE<7>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B2_DSA<0>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B2_DSA<1>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B2_DSA<2>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B2_DSA<3>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B2_DSA<4>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B2_DSA<5>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B2_LE<0>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B2_LE<1>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B2_LE<2>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B2_LE<3>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B2_LE<4>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B2_LE<5>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B2_LE<6>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_B2_LE<7>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_LED                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_ON                              | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| TX_ON_B1                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_ON_B2                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| TX_ON_MCU                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| UPDATE                             | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| UPDATE_MCU                         | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Section 7 - RPMs

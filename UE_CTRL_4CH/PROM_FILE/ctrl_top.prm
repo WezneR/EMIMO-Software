@@ -1,0 +1,17 @@
+PROMGEN: Xilinx Prom Generator P.20131013
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+promgen -w -p mcs -c FF -o F:\ISE\UE_CTRL_4CH\PROM_FILE//ctrl_top -s 16384 -u 0000 F:/ISE/UE_CTRL_4CH/ctrl_top.bit -spi 
+
+PROM F:\ISE\UE_CTRL_4CH\PROM_FILE\ctrl_top.prm map: Fri Mar 14 13:54:01 2025
+
+Calculating PROM checksum with fill value ff
+
+Format        Mcs86 (32-bit)
+Size          16384K
+PROM start    0000:0000
+PROM end      00ff:ffff
+PROM checksum f2e2062c
+
+        Addr1        Addr2                     Date File(s)
+    0000:0000    000c:3af9     Mar 14 13:53:00 2025 F:/ISE/UE_CTRL_4CH/ctrl_top.bit
