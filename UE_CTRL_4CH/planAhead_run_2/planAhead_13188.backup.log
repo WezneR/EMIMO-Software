@@ -1,0 +1,96 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Fri Mar 14 15:31:26 2025
+# Process ID: 4452
+# Log file: F:/ISE/UE_CTRL_4CH/planAhead_run_2/planAhead.log
+# Journal file: F:/ISE/UE_CTRL_4CH/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Common 17-86] Your PlanAhead license expires in -42 day(s)
+INFO: [Device 21-36] Loading parts and site information from E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source F:/ISE/UE_CTRL_4CH/pa.fromNetlist.tcl
+# create_project -name UE_CTRL_4CH -dir "F:/ISE/UE_CTRL_4CH/planAhead_run_2" -part xc6slx25ftg256-2
+# set_property design_mode GateLvl [get_property srcset [current_run -impl]]
+# set_property edif_top_file "F:/ISE/UE_CTRL_4CH/CTRL_TOP.ngc" [ get_property srcset [ current_run ] ]
+# add_files -norecurse { {F:/ISE/UE_CTRL_4CH} }
+# set_param project.pinAheadLayout  yes
+# set_property target_constrs_file "CTRL_TOP.ucf" [current_fileset -constrset]
+Adding file 'F:/ISE/UE_CTRL_4CH/CTRL_TOP.ucf' to fileset 'constrs_1'
+# add_files [list {CTRL_TOP.ucf}] -fileset [get_property constrset [current_run]]
+# link_design
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+Design is defaulting to project part: xc6slx25ftg256-2
+Release 14.7 - ngc2edif P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design CTRL_TOP.ngc ...
+WARNING:NetListWriters:298 - No output is written to CTRL_TOP.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:306 - Signal bus UART_RX_inst/receive_data_<79 : 32> on
+   block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus ctrl_data<27 : 0> on block CTRL_TOP is
+   not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus SPI_Listener_test/spi_data<31 : 0> on
+   block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus uart_listener_inst/o_uart_data<31 : 0>
+   on block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus
+   UART_RX_inst/receive_data_[79]_receive_data_[79]_mux_126_OUT<71 : 32> on
+   block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus
+   SPI_Listener_test/spi_byte_cnt[1]_spi_slave_bytes[0][7]_wide_mux_4_OUT<23 :
+   0> on block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus SPI_Listener_test/spi_slave_bytes_2<23 :
+   0> on block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+  finished :Prep
+Writing EDIF netlist file CTRL_TOP.edif ...
+ngc2edif: Total memory usage is 4317940 kilobytes
+
+Parsing EDIF File [./planAhead_run_2/UE_CTRL_4CH.data/cache/CTRL_TOP_ngc_zx.edif]
+Finished Parsing EDIF File [./planAhead_run_2/UE_CTRL_4CH.data/cache/CTRL_TOP_ngc_zx.edif]
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Loading clock regions from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx25/ClockRegion.xml
+Loading clock buffers from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx25/ClockBuffers.xml
+Loading package pin functions from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx25/ftg256/Package.xml
+Loading io standards from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : E:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/drc.xml
+Parsing UCF File [F:/ISE/UE_CTRL_4CH/CTRL_TOP.ucf]
+Finished Parsing UCF File [F:/ISE/UE_CTRL_4CH/CTRL_TOP.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  BUFGP => BUFGP (IBUF, BUFG): 1 instances
+
+Phase 0 | Netlist Checksum: 5c2caa3d
+link_design: Time (s): elapsed = 00:00:09 . Memory (MB): peak = 668.809 ; gain = 159.371
+read_ucf F:/ISE/UE_CTRL_4CH/planAhead_run_1/design_1.ucf -quiet_diff_pairs
+Parsing UCF File [F:/ISE/UE_CTRL_4CH/planAhead_run_1/design_1.ucf]
+INFO: [Constraints 18-62] Unknown constraint 'IBUF_LOW_PWR' specified; No check will be performed on this constraint [F:/ISE/UE_CTRL_4CH/planAhead_run_1/design_1.ucf:124]
+Finished Parsing UCF File [F:/ISE/UE_CTRL_4CH/planAhead_run_1/design_1.ucf]
+set_property iostandard LVCMOS33 [get_ports [list {RX_B1_DSA[5]} {RX_B1_DSA[4]} {RX_B1_DSA[3]} {RX_B1_DSA[2]} {RX_B1_DSA[1]} {RX_B1_DSA[0]}]]
+save_constraints
+exit
+ERROR: [PlanAhead 12-106] *** Exception: ui.h.b: Found deleted key in HTclEventBroker. Verify if the classes listed here call cleanup()
+HTclEvent: DEBUG_CORE_CONFIG_CHANGE   Classes: ui.views.aR 
+HTclEvent: SIGNAL_MODIFY   Classes: ui.views.aR 
+HTclEvent: SIGNAL_BUS_MODIFY   Classes: ui.views.aR 
+HTclEvent: DEBUG_PORT_CONFIG_CHANGE   Classes: ui.views.aR 
+ (See F:/ISE/UE_CTRL_4CH\planAhead_pid4452.debug)
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Fri Mar 14 15:35:52 2025...
+INFO: [Common 17-83] Releasing license: PlanAhead

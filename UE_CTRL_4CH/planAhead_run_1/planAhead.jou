@@ -1,16 +1,11 @@
 #-----------------------------------------------------------
 # PlanAhead v14.7 (64-bit)
 # Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
-# Start of session at: Fri Mar 14 13:39:49 2025
-# Process ID: 16792
+# Start of session at: Fri Mar 14 15:23:44 2025
+# Process ID: 15880
 # Log file: F:/ISE/UE_CTRL_4CH/planAhead_run_1/planAhead.log
-# Journal file: F:/ISE/UE_CTRL_4CH/planAhead_run_1/planAhead.jou
+# Journal file: F:/ISE/UE_CTRL_4CH/planAhead_run_1\planAhead.jou
 #-----------------------------------------------------------
 start_gui
-source F:/ISE/UE_CTRL_4CH/pa.fromNetlist.tcl
-read_ucf F:/ISE/UE_CTRL/CTRL_TOP.ucf -quiet_diff_pairs
-startgroup
-set_property package_pin M3 [get_ports {RX_B1_DSA[5]}]
-endgroup
-save_constraints
-write_ucf F:/ISE/UE_CTRL_4CH/planAhead_run_1/design_1.ucf -mode port
+open_project {F:\ISE\UE_CTRL_4CH\planAhead_run_1\UE_CTRL_4CH.ppr}
+open_project F:/ISE/UE_CTRL_4CH/planAhead_run_1/UE_CTRL_4CH.ppr

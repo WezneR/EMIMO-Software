@@ -1,0 +1,95 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Fri Mar 14 15:37:52 2025
+# Process ID: 13188
+# Log file: F:/ISE/UE_CTRL_4CH/planAhead_run_2/planAhead.log
+# Journal file: F:/ISE/UE_CTRL_4CH/planAhead_run_2\planAhead.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Common 17-86] Your PlanAhead license expires in -42 day(s)
+INFO: [Device 21-36] Loading parts and site information from E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+open_project {F:\ISE\UE_CTRL_4CH\planAhead_run_2\UE_CTRL_4CH.ppr}
+Scanning sources...
+Finished scanning sources
+Qt: Untested Windows version 6.2 detected!
+link_design -name netlist_1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+Design is defaulting to project part: xc6slx25ftg256-2
+Parsing EDIF File [./UE_CTRL_4CH.data/cache/CTRL_TOP_ngc_zx.edif]
+Finished Parsing EDIF File [./UE_CTRL_4CH.data/cache/CTRL_TOP_ngc_zx.edif]
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Loading clock regions from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx25/ClockRegion.xml
+Loading clock buffers from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx25/ClockBuffers.xml
+Loading package pin functions from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/spartan6lx/xc6slx25/ftg256/Package.xml
+Loading io standards from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from E:/Xilinx/14.7/ISE_DS/PlanAhead/data\parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : E:/Xilinx/14.7/ISE_DS/PlanAhead/data\./parts/xilinx/spartan6/drc.xml
+Parsing UCF File [F:/ISE/UE_CTRL_4CH/CTRL_TOP.ucf]
+Finished Parsing UCF File [F:/ISE/UE_CTRL_4CH/CTRL_TOP.ucf]
+Parsing UCF File [F:/ISE/UE_CTRL_4CH/planAhead_run_1/design_1.ucf]
+INFO: [Constraints 18-62] Unknown constraint 'IBUF_LOW_PWR' specified; No check will be performed on this constraint [F:/ISE/UE_CTRL_4CH/planAhead_run_1/design_1.ucf:124]
+Finished Parsing UCF File [F:/ISE/UE_CTRL_4CH/planAhead_run_1/design_1.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 9 instances were transformed.
+  BUFGP => BUFGP (IBUF, BUFG): 1 instances
+  INV => LUT1: 8 instances
+
+Phase 0 | Netlist Checksum: aefc6634
+link_design: Time (s): elapsed = 00:00:09 . Memory (MB): peak = 681.879 ; gain = 114.730
+launch_runs impl_1
+Parsing EDIF File [./UE_CTRL_4CH.data/cache/CTRL_TOP_ngc_zx.edif]
+Finished Parsing EDIF File [./UE_CTRL_4CH.data/cache/CTRL_TOP_ngc_zx.edif]
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Parsing UCF File [F:/ISE/UE_CTRL_4CH/CTRL_TOP.ucf]
+Finished Parsing UCF File [F:/ISE/UE_CTRL_4CH/CTRL_TOP.ucf]
+Parsing UCF File [F:/ISE/UE_CTRL_4CH/planAhead_run_1/design_1.ucf]
+Finished Parsing UCF File [F:/ISE/UE_CTRL_4CH/planAhead_run_1/design_1.ucf]
+[Fri Mar 14 15:40:18 2025] Launched impl_1...
+Run output will be captured here: F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/runme.log
+close_design
+open_run impl_1
+Parsing EDIF File [./UE_CTRL_4CH.runs/impl_1/CTRL_TOP.edf]
+Finished Parsing EDIF File [./UE_CTRL_4CH.runs/impl_1/CTRL_TOP.edf]
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Parsing UCF File [F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/.constrs/CTRL_TOP.ucf]
+Finished Parsing UCF File [F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/.constrs/CTRL_TOP.ucf]
+Parsing UCF File [F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/.constrs/design_1.ucf]
+Finished Parsing UCF File [F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/.constrs/design_1.ucf]
+INFO: [Designutils 20-669] Parsing Placement File : F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/CTRL_TOP_routed.xdl
+WARNING: [Designutils 20-665] Net Name: REV. Found in file: F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/CTRL_TOP_routed.xdl. Not Recognizable in the Context
+WARNING: [Designutils 20-665] Net Name: TXD_MCU. Found in file: F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/CTRL_TOP_routed.xdl. Not Recognizable in the Context
+WARNING: [Designutils 20-665] Net Name: MODE. Found in file: F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/CTRL_TOP_routed.xdl. Not Recognizable in the Context
+WARNING: [Designutils 20-665] Net Name: SPI_DATA_MCU. Found in file: F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/CTRL_TOP_routed.xdl. Not Recognizable in the Context
+WARNING: [Designutils 20-665] Net Name: UPDATE_MCU. Found in file: F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/CTRL_TOP_routed.xdl. Not Recognizable in the Context
+WARNING: [Designutils 20-665] Net Name: SPI_LE_MCU. Found in file: F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/CTRL_TOP_routed.xdl. Not Recognizable in the Context
+WARNING: [Designutils 20-665] Net Name: RX_ON_MCU. Found in file: F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/CTRL_TOP_routed.xdl. Not Recognizable in the Context
+WARNING: [Designutils 20-665] Net Name: TX_ON_MCU. Found in file: F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/CTRL_TOP_routed.xdl. Not Recognizable in the Context
+WARNING: [Designutils 20-665] Net Name: UPDATE. Found in file: F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/CTRL_TOP_routed.xdl. Not Recognizable in the Context
+WARNING: [Designutils 20-665] Net Name: SPI_CLK_MCU. Found in file: F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/CTRL_TOP_routed.xdl. Not Recognizable in the Context
+WARNING: [Designutils 20-665] Net Name: MODE_MCU. Found in file: F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/CTRL_TOP_routed.xdl. Not Recognizable in the Context
+WARNING: [Designutils 20-665] Net Name: REV1_MCU. Found in file: F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/CTRL_TOP_routed.xdl. Not Recognizable in the Context
+WARNING: [Designutils 20-665] Net Name: REV2_MCU. Found in file: F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/CTRL_TOP_routed.xdl. Not Recognizable in the Context
+INFO: [Designutils 20-658] Finished Parsing Placement File : F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/CTRL_TOP_routed.xdl
+INFO: [Designutils 20-671] Placed 962 instances
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 9 instances were transformed.
+  BUFGP => BUFGP (IBUF, BUFG): 1 instances
+  INV => LUT1: 8 instances
+
+Phase 0 | Netlist Checksum: 3bd0cb5e
+launch_runs impl_1 -to_step Bitgen
+[Fri Mar 14 15:42:17 2025] Launched impl_1...
+Run output will be captured here: F:/ISE/UE_CTRL_4CH/planAhead_run_2/UE_CTRL_4CH.runs/impl_1/runme.log
+exit
+INFO: [Common 17-206] Exiting PlanAhead at Fri Mar 14 15:45:11 2025...
+INFO: [Common 17-83] Releasing license: PlanAhead

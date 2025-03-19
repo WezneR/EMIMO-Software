@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<Interface Version="1" Minor="1">
+	<Ifc Id="ROOT" Top="1">
+		<Bus Id="TX_B1_DSA">
+			<Port Id="5" Dir="OUT"/>
+			<Port Id="4" Dir="OUT"/>
+			<Port Id="3" Dir="OUT"/>
+			<Port Id="2" Dir="OUT"/>
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Bus Id="TX_B1_LE">
+			<Port Id="3" Dir="OUT"/>
+			<Port Id="2" Dir="OUT"/>
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Bus Id="RX_B1_DSA">
+			<Port Id="5" Dir="OUT"/>
+			<Port Id="4" Dir="OUT"/>
+			<Port Id="3" Dir="OUT"/>
+			<Port Id="2" Dir="OUT"/>
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Bus Id="RX_B1_LE">
+			<Port Id="3" Dir="OUT"/>
+			<Port Id="2" Dir="OUT"/>
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Bus Id="RX_B1_LNA_BYPASS">
+			<Port Id="3" Dir="OUT"/>
+			<Port Id="2" Dir="OUT"/>
+			<Port Id="1" Dir="OUT"/>
+			<Port Id="0" Dir="OUT"/>
+		</Bus>
+		<Port Id="CLK_SYS" Dir="IN"/>
+		<Port Id="SPI_DATA" Dir="IN"/>
+		<Port Id="SPI_CLK" Dir="IN"/>
+		<Port Id="SPI_LE" Dir="IN"/>
+		<Port Id="UPDATE" Dir="IN"/>
+		<Port Id="TX_ON" Dir="IN"/>
+		<Port Id="RX_ON" Dir="IN"/>
+		<Port Id="MODE" Dir="IN"/>
+		<Port Id="REV" Dir="IN"/>
+		<Port Id="TXD_HOST" Dir="IN"/>
+		<Port Id="SPI_DATA_MCU" Dir="IN"/>
+		<Port Id="SPI_CLK_MCU" Dir="IN"/>
+		<Port Id="SPI_LE_MCU" Dir="IN"/>
+		<Port Id="UPDATE_MCU" Dir="IN"/>
+		<Port Id="TX_ON_MCU" Dir="IN"/>
+		<Port Id="RX_ON_MCU" Dir="IN"/>
+		<Port Id="MODE_MCU" Dir="IN"/>
+		<Port Id="REV1_MCU" Dir="IN"/>
+		<Port Id="REV2_MCU" Dir="IN"/>
+		<Port Id="PLUG_IN" Dir="IN"/>
+		<Port Id="TXD_MCU" Dir="IN"/>
+		<Port Id="RXD_HOST" Dir="OUT"/>
+		<Port Id="TX_LED" Dir="OUT"/>
+		<Port Id="RX_LED" Dir="OUT"/>
+		<Port Id="TX_ON_B1" Dir="OUT"/>
+		<Port Id="RX_ON_B1" Dir="OUT"/>
+	</Ifc>
+</Interface>
+

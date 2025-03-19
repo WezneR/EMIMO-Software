@@ -27,8 +27,8 @@ module FEM_TR_switch(
     input wire i_TX_ON,
     input wire i_RX_ON,
 
-    input wire [1:0] i_TX_ON_soft,
-    input wire [1:0] i_RX_ON_soft,
+    input wire i_TX_ON_soft,
+    input wire i_RX_ON_soft,
 
     output reg  o_TX_ON_B1,
     output reg  o_RX_ON_B1
@@ -48,6 +48,8 @@ always @* begin
     end
     else begin
         // 仅由软件指令控制
+        o_TX_ON_B1 = i_TX_ON_soft;
+        o_RX_ON_B1 = i_RX_ON_soft;
     end
 end
 endmodule

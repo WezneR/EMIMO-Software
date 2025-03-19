@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.22 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.09 secs
+Total CPU time to Xst completion: 0.22 secs
  
 --> Reading design: CTRL_TOP.prj
 
@@ -174,8 +174,6 @@ Elaborating module <CTRL_switch>.
 
 Elaborating module <ctrl_process>.
 WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL_4CH\srcs\process.v" Line 193: Result of 5-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:189 - "F:\ISE\UE_CTRL_4CH\srcs\CTRL_TOP.v" Line 254: Size mismatch in connection of port <o_TX_ON>. Formal port size is 1-bit while actual signal size is 2-bit.
-WARNING:HDLCompiler:189 - "F:\ISE\UE_CTRL_4CH\srcs\CTRL_TOP.v" Line 255: Size mismatch in connection of port <o_RX_ON>. Formal port size is 1-bit while actual signal size is 2-bit.
 
 Elaborating module <FEM_TR_switch>.
 
@@ -430,15 +428,10 @@ Unit <ctrl_process> synthesized.
 
 Synthesizing Unit <FEM_TR_switch>.
     Related source file is "F:\ISE\UE_CTRL_4CH\srcs\FEM_TR_switch.v".
-WARNING:Xst:647 - Input <i_TX_ON_soft> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:647 - Input <i_RX_ON_soft> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:737 - Found 1-bit latch for signal <o_RX_ON_B1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <o_TX_ON_B1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     Found 1-bit comparator not equal for signal <n0001> created at line 41
     Summary:
-	inferred   2 Latch(s).
 	inferred   1 Comparator(s).
-	inferred   2 Multiplexer(s).
+	inferred   4 Multiplexer(s).
 Unit <FEM_TR_switch> synthesized.
 
 Synthesizing Unit <LED_control>.
@@ -452,7 +445,7 @@ Synthesizing Unit <rst>.
         delay_cnt = 10
     Found 8-bit register for signal <clk_cnt>.
     Found 1-bit register for signal <rst_n>.
-    Found 8-bit adder for signal <clk_cnt[7]_GND_19_o_add_2_OUT> created at line 37.
+    Found 8-bit adder for signal <clk_cnt[7]_GND_15_o_add_2_OUT> created at line 37.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred   9 D-type flip-flop(s).
@@ -482,16 +475,14 @@ Macro Statistics
  7-bit register                                        : 1
  8-bit register                                        : 6
  80-bit register                                       : 2
-# Latches                                              : 2
- 1-bit latch                                           : 2
 # Comparators                                          : 7
  1-bit comparator not equal                            : 2
  3-bit comparator greater                              : 2
  4-bit comparator greater                              : 1
  4-bit comparator lessequal                            : 1
  8-bit comparator equal                                : 1
-# Multiplexers                                         : 59
- 1-bit 2-to-1 multiplexer                              : 21
+# Multiplexers                                         : 61
+ 1-bit 2-to-1 multiplexer                              : 23
  10-bit 2-to-1 multiplexer                             : 1
  16-bit 2-to-1 multiplexer                             : 5
  24-bit 2-to-1 multiplexer                             : 2
@@ -596,8 +587,8 @@ Macro Statistics
  4-bit comparator greater                              : 1
  4-bit comparator lessequal                            : 1
  8-bit comparator equal                                : 1
-# Multiplexers                                         : 56
- 1-bit 2-to-1 multiplexer                              : 20
+# Multiplexers                                         : 58
+ 1-bit 2-to-1 multiplexer                              : 22
  10-bit 2-to-1 multiplexer                             : 1
  16-bit 2-to-1 multiplexer                             : 4
  24-bit 2-to-1 multiplexer                             : 2
@@ -686,7 +677,6 @@ WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__45> of sequential type is un
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__44> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__43> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__42> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__41> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__39> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__38> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <UART_RX_inst/receive_data__31> of sequential type is unconnected in block <CTRL_TOP>.
@@ -738,7 +728,6 @@ WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_13> of sequential type is un
 WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_12> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_11> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_10> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_9> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_7> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <SPI_Listener_test/spi_data_6> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_2_15> of sequential type is unconnected in block <CTRL_TOP>.
@@ -748,7 +737,6 @@ WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_2_5> of sequential ty
 WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_2_4> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_2_3> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_2_2> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <SPI_Listener_test/spi_slave_bytes_2_1> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_23> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_15> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_14> of sequential type is unconnected in block <CTRL_TOP>.
@@ -756,11 +744,8 @@ WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_13> of sequential type i
 WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_12> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_11> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_10> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_9> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_7> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:2677 - Node <uart_listener_inst/o_uart_data_6> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <process_inst/o_TX_ON> of sequential type is unconnected in block <CTRL_TOP>.
-WARNING:Xst:2677 - Node <process_inst/o_RX_ON> of sequential type is unconnected in block <CTRL_TOP>.
 WARNING:Xst:1293 - FF/Latch <rst_test/clk_cnt_4> has a constant value of 0 in block <CTRL_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <rst_test/clk_cnt_5> has a constant value of 0 in block <CTRL_TOP>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <rst_test/clk_cnt_6> has a constant value of 0 in block <CTRL_TOP>. This FF/Latch will be trimmed during the optimization process.
@@ -777,9 +762,6 @@ Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block CTRL_TOP, actual ratio is 4.
 FlipFlop UART_RX_inst/RX_busy has been replicated 1 time(s)
-FlipFlop UART_RX_inst/receive_data_bytes_0 has been replicated 2 time(s)
-Latch FEM_TR_switch_inst/o_TX_ON_B1 has been replicated 1 time(s) to handle iob=true attribute.
-Latch FEM_TR_switch_inst/o_RX_ON_B1 has been replicated 1 time(s) to handle iob=true attribute.
 
 Final Macro Processing ...
 
@@ -791,8 +773,8 @@ Unit <CTRL_TOP> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 337
- Flip-Flops                                            : 337
+# Registers                                            : 341
+ Flip-Flops                                            : 341
 
 =========================================================================
 
@@ -815,30 +797,29 @@ Top Level Output File Name         : CTRL_TOP.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 611
+# BELS                             : 607
 #      GND                         : 1
 #      INV                         : 8
 #      LUT1                        : 28
-#      LUT2                        : 113
-#      LUT3                        : 102
-#      LUT4                        : 39
-#      LUT5                        : 109
-#      LUT6                        : 139
+#      LUT2                        : 111
+#      LUT3                        : 107
+#      LUT4                        : 41
+#      LUT5                        : 105
+#      LUT6                        : 140
 #      MUXCY                       : 28
-#      MUXF7                       : 12
+#      MUXF7                       : 6
 #      VCC                         : 1
 #      XORCY                       : 31
 # FlipFlops/Latches                : 341
 #      FD                          : 5
 #      FDC                         : 13
-#      FDCE                        : 54
-#      FDE                         : 71
+#      FDCE                        : 57
+#      FDE                         : 73
 #      FDR                         : 10
-#      FDRE                        : 173
+#      FDRE                        : 172
 #      FDS                         : 11
-#      LD_1                        : 4
-# Clock Buffers                    : 3
-#      BUFG                        : 2
+# Clock Buffers                    : 2
+#      BUFG                        : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 36
 #      IBUF                        : 6
@@ -852,24 +833,23 @@ Selected Device : 6slx25ftg256-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             337  out of  30064     1%  
- Number of Slice LUTs:                  538  out of  15032     3%  
-    Number used as Logic:               538  out of  15032     3%  
+ Number of Slice Registers:             341  out of  30064     1%  
+ Number of Slice LUTs:                  540  out of  15032     3%  
+    Number used as Logic:               540  out of  15032     3%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    624
-   Number with an unused Flip Flop:     287  out of    624    45%  
-   Number with an unused LUT:            86  out of    624    13%  
-   Number of fully used LUT-FF pairs:   251  out of    624    40%  
-   Number of unique control sets:        28
+ Number of LUT Flip Flop pairs used:    627
+   Number with an unused Flip Flop:     286  out of    627    45%  
+   Number with an unused LUT:            87  out of    627    13%  
+   Number of fully used LUT-FF pairs:   254  out of    627    40%  
+   Number of unique control sets:        25
 
 IO Utilization: 
  Number of IOs:                          50
  Number of bonded IOBs:                  37  out of    186    19%  
-    IOB Flip Flops/Latches:               4
 
 Specific Feature Utilization:
- Number of BUFG/BUFGCTRLs:                3  out of     16    18%  
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
 
 ---------------------------
 Partition Resource Summary:
@@ -892,8 +872,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-PLUG_IN                            | IBUF+BUFG              | 4     |
-CLK_SYS                            | IBUFG+BUFG             | 318   |
+CLK_SYS                            | IBUFG+BUFG             | 322   |
 SPI_CLK                            | BUFGP                  | 19    |
 -----------------------------------+------------------------+-------+
 
@@ -905,10 +884,10 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 6.148ns (Maximum Frequency: 162.655MHz)
-   Minimum input arrival time before clock: 7.860ns
-   Maximum output required time after clock: 4.202ns
-   Maximum combinational path delay: No path found
+   Minimum period: 6.758ns (Maximum Frequency: 147.973MHz)
+   Minimum input arrival time before clock: 8.554ns
+   Maximum output required time after clock: 5.182ns
+   Maximum combinational path delay: 7.149ns
 
 Timing Details:
 ---------------
@@ -916,29 +895,29 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK_SYS'
-  Clock period: 6.148ns (frequency: 162.655MHz)
-  Total number of paths / destination ports: 10168 / 848
+  Clock period: 6.758ns (frequency: 147.973MHz)
+  Total number of paths / destination ports: 10300 / 858
 -------------------------------------------------------------------------
-Delay:               6.148ns (Levels of Logic = 5)
+Delay:               6.758ns (Levels of Logic = 5)
   Source:            SPI_Listener_test/spi_data_27 (FF)
-  Destination:       process_inst/o_B1_LNA_BYPASS_3 (FF)
+  Destination:       process_inst/Board_ID_3 (FF)
   Source Clock:      CLK_SYS rising
   Destination Clock: CLK_SYS rising
 
-  Data Path: SPI_Listener_test/spi_data_27 to process_inst/o_B1_LNA_BYPASS_3
+  Data Path: SPI_Listener_test/spi_data_27 to process_inst/Board_ID_3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDE:C->Q              3   0.525   0.874  SPI_Listener_test/spi_data_27 (SPI_Listener_test/spi_data_27)
      LUT3:I1->O            2   0.250   0.726  CTRL_switch_inst/Mmux_o_ctrl_data201 (ctrl_data<27>)
-     LUT6:I5->O            1   0.254   0.682  process_inst/host_board_id[7]_host_board_id[7]_OR_126_o7 (process_inst/host_board_id[7]_host_board_id[7]_OR_126_o7)
-     LUT5:I4->O            3   0.254   0.766  process_inst/host_board_id[7]_host_board_id[7]_OR_126_o8 (process_inst/host_board_id[7]_host_board_id[7]_OR_126_o8)
-     LUT5:I4->O           18   0.254   1.235  process_inst/host_board_id[7]_host_board_id[7]_OR_126_o10_rstpot (process_inst/host_board_id[7]_host_board_id[7]_OR_126_o10_rstpot)
-     LUT3:I2->O            1   0.254   0.000  process_inst/dsa_att_0_dpot (process_inst/dsa_att_0_dpot)
-     FDE:D                     0.074          process_inst/dsa_att_0
+     LUT6:I5->O            1   0.254   0.790  process_inst/host_board_id[7]_host_board_id[7]_OR_126_o7 (process_inst/host_board_id[7]_host_board_id[7]_OR_126_o7)
+     LUT5:I3->O            3   0.250   0.766  process_inst/host_board_id[7]_host_board_id[7]_OR_126_o8 (process_inst/host_board_id[7]_host_board_id[7]_OR_126_o8)
+     LUT5:I4->O           20   0.254   1.741  process_inst/host_board_id[7]_host_board_id[7]_OR_126_o10_rstpot (process_inst/host_board_id[7]_host_board_id[7]_OR_126_o10_rstpot)
+     LUT6:I0->O            1   0.254   0.000  process_inst/Board_ID_0_dpot1 (process_inst/Board_ID_0_dpot1)
+     FDE:D                     0.074          process_inst/Board_ID_0
     ----------------------------------------
-    Total                      6.148ns (1.865ns logic, 4.283ns route)
-                                       (30.3% logic, 69.7% route)
+    Total                      6.758ns (1.861ns logic, 4.897ns route)
+                                       (27.5% logic, 72.5% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'SPI_CLK'
@@ -963,26 +942,6 @@ Delay:               3.104ns (Levels of Logic = 1)
                                        (34.8% logic, 65.2% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'PLUG_IN'
-  Total number of paths / destination ports: 8 / 4
--------------------------------------------------------------------------
-Offset:              2.448ns (Levels of Logic = 2)
-  Source:            RX_ON (PAD)
-  Destination:       FEM_TR_switch_inst/o_TX_ON_B1 (LATCH)
-  Destination Clock: PLUG_IN rising
-
-  Data Path: RX_ON to FEM_TR_switch_inst/o_TX_ON_B1
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             2   1.328   0.834  RX_ON_IBUF (RX_ON_IBUF)
-     LUT2:I0->O            2   0.250   0.000  FEM_TR_switch_inst/Mmux_GND_15_o_i_TX_ON_MUX_1068_o11 (FEM_TR_switch_inst/GND_15_o_i_TX_ON_MUX_1068_o)
-     LD_1:D                    0.036          FEM_TR_switch_inst/o_TX_ON_B1
-    ----------------------------------------
-    Total                      2.448ns (1.614ns logic, 0.834ns route)
-                                       (65.9% logic, 34.1% route)
-
-=========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_CLK'
   Total number of paths / destination ports: 21 / 21
 -------------------------------------------------------------------------
@@ -1004,65 +963,66 @@ Offset:              3.807ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK_SYS'
-  Total number of paths / destination ports: 395 / 39
+  Total number of paths / destination ports: 439 / 43
 -------------------------------------------------------------------------
-Offset:              7.860ns (Levels of Logic = 6)
+Offset:              8.554ns (Levels of Logic = 6)
   Source:            PLUG_IN (PAD)
-  Destination:       process_inst/o_B1_LNA_BYPASS_3 (FF)
+  Destination:       process_inst/Board_ID_3 (FF)
   Destination Clock: CLK_SYS rising
 
-  Data Path: PLUG_IN to process_inst/o_B1_LNA_BYPASS_3
+  Data Path: PLUG_IN to process_inst/Board_ID_3
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            35   1.328   1.798  PLUG_IN_IBUF (PLUG_IN_IBUF)
+     IBUF:I->O            40   1.328   1.882  PLUG_IN_IBUF (PLUG_IN_IBUF)
      LUT3:I0->O            2   0.235   0.726  CTRL_switch_inst/Mmux_o_ctrl_data201 (ctrl_data<27>)
-     LUT6:I5->O            1   0.254   0.682  process_inst/host_board_id[7]_host_board_id[7]_OR_126_o7 (process_inst/host_board_id[7]_host_board_id[7]_OR_126_o7)
-     LUT5:I4->O            3   0.254   0.766  process_inst/host_board_id[7]_host_board_id[7]_OR_126_o8 (process_inst/host_board_id[7]_host_board_id[7]_OR_126_o8)
-     LUT5:I4->O           18   0.254   1.235  process_inst/host_board_id[7]_host_board_id[7]_OR_126_o10_rstpot (process_inst/host_board_id[7]_host_board_id[7]_OR_126_o10_rstpot)
-     LUT3:I2->O            1   0.254   0.000  process_inst/dsa_att_0_dpot (process_inst/dsa_att_0_dpot)
-     FDE:D                     0.074          process_inst/dsa_att_0
+     LUT6:I5->O            1   0.254   0.790  process_inst/host_board_id[7]_host_board_id[7]_OR_126_o7 (process_inst/host_board_id[7]_host_board_id[7]_OR_126_o7)
+     LUT5:I3->O            3   0.250   0.766  process_inst/host_board_id[7]_host_board_id[7]_OR_126_o8 (process_inst/host_board_id[7]_host_board_id[7]_OR_126_o8)
+     LUT5:I4->O           20   0.254   1.741  process_inst/host_board_id[7]_host_board_id[7]_OR_126_o10_rstpot (process_inst/host_board_id[7]_host_board_id[7]_OR_126_o10_rstpot)
+     LUT6:I0->O            1   0.254   0.000  process_inst/Board_ID_0_dpot1 (process_inst/Board_ID_0_dpot1)
+     FDE:D                     0.074          process_inst/Board_ID_0
     ----------------------------------------
-    Total                      7.860ns (2.653ns logic, 5.207ns route)
-                                       (33.8% logic, 66.2% route)
+    Total                      8.554ns (2.649ns logic, 5.905ns route)
+                                       (31.0% logic, 69.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK_SYS'
-  Total number of paths / destination ports: 24 / 24
+  Total number of paths / destination ports: 28 / 28
 -------------------------------------------------------------------------
-Offset:              4.202ns (Levels of Logic = 1)
-  Source:            process_inst/o_B1_LNA_BYPASS_3 (FF)
-  Destination:       RX_B1_LNA_BYPASS<3> (PAD)
+Offset:              5.182ns (Levels of Logic = 2)
+  Source:            process_inst/o_TX_ON (FF)
+  Destination:       TX_LED (PAD)
   Source Clock:      CLK_SYS rising
 
-  Data Path: process_inst/o_B1_LNA_BYPASS_3 to RX_B1_LNA_BYPASS<3>
+  Data Path: process_inst/o_TX_ON to TX_LED
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             3   0.525   0.765  process_inst/o_B1_LNA_BYPASS_3 (process_inst/o_B1_LNA_BYPASS_3)
-     OBUF:I->O                 2.912          RX_B1_LNA_BYPASS_3_OBUF (RX_B1_LNA_BYPASS<3>)
-    ----------------------------------------
-    Total                      4.202ns (3.437ns logic, 0.765ns route)
-                                       (81.8% logic, 18.2% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'PLUG_IN'
-  Total number of paths / destination ports: 4 / 4
--------------------------------------------------------------------------
-Offset:              4.174ns (Levels of Logic = 1)
-  Source:            FEM_TR_switch_inst/o_TX_ON_B1_1 (LATCH)
-  Destination:       TX_LED (PAD)
-  Source Clock:      PLUG_IN rising
-
-  Data Path: FEM_TR_switch_inst/o_TX_ON_B1_1 to TX_LED
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     LD_1:G->Q             1   0.581   0.681  FEM_TR_switch_inst/o_TX_ON_B1_1 (FEM_TR_switch_inst/o_TX_ON_B1_1)
+     FDCE:C->Q             3   0.525   0.766  process_inst/o_TX_ON (process_inst/o_TX_ON)
+     LUT4:I3->O            2   0.254   0.725  FEM_TR_switch_inst/Mmux_o_TX_ON_B111 (TX_ON_B1_OBUF)
      OBUF:I->O                 2.912          TX_LED_OBUF (TX_LED)
     ----------------------------------------
-    Total                      4.174ns (3.493ns logic, 0.681ns route)
-                                       (83.7% logic, 16.3% route)
+    Total                      5.182ns (3.691ns logic, 1.491ns route)
+                                       (71.2% logic, 28.8% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 12 / 4
+-------------------------------------------------------------------------
+Delay:               7.149ns (Levels of Logic = 3)
+  Source:            PLUG_IN (PAD)
+  Destination:       TX_LED (PAD)
+
+  Data Path: PLUG_IN to TX_LED
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            40   1.328   1.930  PLUG_IN_IBUF (PLUG_IN_IBUF)
+     LUT4:I0->O            2   0.254   0.725  FEM_TR_switch_inst/Mmux_o_RX_ON_B111 (RX_ON_B1_OBUF)
+     OBUF:I->O                 2.912          RX_LED_OBUF (RX_LED)
+    ----------------------------------------
+    Total                      7.149ns (4.494ns logic, 2.655ns route)
+                                       (62.9% logic, 37.1% route)
 
 =========================================================================
 
@@ -1074,7 +1034,7 @@ Clock to Setup on destination clock CLK_SYS
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK_SYS        |    6.148|         |         |         |
+CLK_SYS        |    6.758|         |         |         |
 SPI_CLK        |    1.324|         |         |         |
 ---------------+---------+---------+---------+---------+
 
@@ -1089,14 +1049,14 @@ SPI_CLK        |    3.104|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.27 secs
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 9.00 secs
  
 --> 
 
-Total memory usage is 4503092 kilobytes
+Total memory usage is 4503088 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  198 (   0 filtered)
+Number of warnings :  186 (   0 filtered)
 Number of infos    :    7 (   0 filtered)
 

@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Fri Mar 14 15:06:35 2025
+# Process ID: 11172
+# Log file: F:/ISE/UE_CTRL_4CH/planAhead_run_1/planAhead.log
+# Journal file: F:/ISE/UE_CTRL_4CH/planAhead_run_1\planAhead.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Common 17-86] Your PlanAhead license expires in -42 day(s)
+INFO: [Device 21-36] Loading parts and site information from E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [E:/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+open_project {F:\ISE\UE_CTRL_4CH\planAhead_run_1\UE_CTRL_4CH.ppr}
+CRITICAL WARNING: [Project 1-19] Could not find the file F:/ISE/UE_CTRL_4CH/CTRL_TOP.ucf.
+Scanning sources...
+Finished scanning sources
+Qt: Untested Windows version 6.2 detected!
+open_project: Time (s): elapsed = 00:00:05 . Memory (MB): peak = 483.230 ; gain = 58.004
+remove_files -fileset constrs_1 F:/ISE/UE_CTRL/CTRL_TOP.ucf
+remove_files -fileset constrs_1 F:/ISE/UE_CTRL_4CH/CTRL_TOP.ucf
+add_files -fileset constrs_1 -norecurse F:/ISE/UE_CTRL_4CH/planAhead_run_1/design_1.ucf
+import_files -fileset constrs_1 F:/ISE/UE_CTRL_4CH/planAhead_run_1/design_1.ucf
+set_property target_constrs_file F:/ISE/UE_CTRL_4CH/planAhead_run_1/UE_CTRL_4CH.srcs/constrs_1/imports/planAhead_run_1/design_1.ucf [current_fileset -constrset]
+exit
+INFO: [Common 17-206] Exiting PlanAhead at Fri Mar 14 15:18:22 2025...
+INFO: [Common 17-83] Releasing license: PlanAhead

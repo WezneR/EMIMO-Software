@@ -1,0 +1,8 @@
+INTSTYLE=pa
+INFILE=F:\ISE\UE_CTRL_4CH\planAhead_run_2\UE_CTRL_4CH.runs\impl_1\CTRL_TOP_routed.ncd
+OUTFILE=F:\ISE\UE_CTRL_4CH\planAhead_run_2\UE_CTRL_4CH.runs\impl_1\CTRL_TOP.bit
+FAMILY=Spartan6
+PART=xc6slx25-2ftg256
+WORKINGDIR=F:\ISE\UE_CTRL_4CH\planAhead_run_2\UE_CTRL_4CH.runs\impl_1
+LICENSE=WebPack
+USER_INFO=__0_0_0

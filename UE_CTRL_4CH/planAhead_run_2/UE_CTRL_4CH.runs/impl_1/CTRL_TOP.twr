@@ -1,0 +1,131 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+E:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -o
+CTRL_TOP.twr -v 30 -l 30 CTRL_TOP_routed.ncd CTRL_TOP.pcf
+
+Design file:              CTRL_TOP_routed.ncd
+Physical constraint file: CTRL_TOP.pcf
+Device,package,speed:     xc6slx25,ftg256,C,-2 (PRODUCTION 1.23 2013-10-13)
+Report level:             verbose report, limited to 30 items per constraint
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock CLK_SYS
+------------+------------+------------+------------+------------+------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
+------------+------------+------------+------------+------------+------------------+--------+
+TXD_HOST    |    2.559(R)|      SLOW  |   -0.873(R)|      FAST  |clk               |   0.000|
+------------+------------+------------+------------+------------+------------------+--------+
+
+Setup/Hold to clock PLUG_IN
+------------+------------+------------+------------+------------+------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
+------------+------------+------------+------------+------------+------------------+--------+
+RX_ON       |    1.734(R)|      SLOW  |    1.493(R)|      SLOW  |PLUG_IN_IBUF_BUFG |   0.000|
+TX_ON       |    1.392(R)|      SLOW  |    1.815(R)|      SLOW  |PLUG_IN_IBUF_BUFG |   0.000|
+------------+------------+------------+------------+------------+------------------+--------+
+
+Setup/Hold to clock SPI_CLK
+------------+------------+------------+------------+------------+------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
+------------+------------+------------+------------+------------+------------------+--------+
+SPI_DATA    |   -0.571(R)|      FAST  |    2.945(R)|      SLOW  |SPI_CLK_BUFGP     |   0.000|
+SPI_LE      |    0.082(R)|      FAST  |    3.192(R)|      SLOW  |SPI_CLK_BUFGP     |   0.000|
+------------+------------+------------+------------+------------+------------------+--------+
+
+Clock CLK_SYS to Pad
+-------------------+-----------------+------------+-----------------+------------+------------------+--------+
+                   |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
+Destination        |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
+-------------------+-----------------+------------+-----------------+------------+------------------+--------+
+RX_B1_DSA[0]       |         9.861(R)|      SLOW  |         4.383(R)|      FAST  |clk               |   0.000|
+RX_B1_DSA[1]       |         9.861(R)|      SLOW  |         4.383(R)|      FAST  |clk               |   0.000|
+RX_B1_DSA[2]       |        11.628(R)|      SLOW  |         5.473(R)|      FAST  |clk               |   0.000|
+RX_B1_DSA[3]       |        11.515(R)|      SLOW  |         5.298(R)|      FAST  |clk               |   0.000|
+RX_B1_DSA[4]       |        11.488(R)|      SLOW  |         5.286(R)|      FAST  |clk               |   0.000|
+RX_B1_DSA[5]       |        11.168(R)|      SLOW  |         5.081(R)|      FAST  |clk               |   0.000|
+RX_B1_LE[0]        |        10.888(R)|      SLOW  |         4.978(R)|      FAST  |clk               |   0.000|
+RX_B1_LE[1]        |        10.816(R)|      SLOW  |         4.923(R)|      FAST  |clk               |   0.000|
+RX_B1_LE[2]        |        10.138(R)|      SLOW  |         4.540(R)|      FAST  |clk               |   0.000|
+RX_B1_LE[3]        |        10.270(R)|      SLOW  |         4.613(R)|      FAST  |clk               |   0.000|
+RX_B1_LNA_BYPASS[0]|        12.151(R)|      SLOW  |         5.745(R)|      FAST  |clk               |   0.000|
+RX_B1_LNA_BYPASS[1]|        11.375(R)|      SLOW  |         5.266(R)|      FAST  |clk               |   0.000|
+RX_B1_LNA_BYPASS[2]|        11.338(R)|      SLOW  |         5.308(R)|      FAST  |clk               |   0.000|
+RX_B1_LNA_BYPASS[3]|        11.303(R)|      SLOW  |         5.199(R)|      FAST  |clk               |   0.000|
+TX_B1_DSA[0]       |         9.900(R)|      SLOW  |         4.411(R)|      FAST  |clk               |   0.000|
+TX_B1_DSA[1]       |         9.900(R)|      SLOW  |         4.411(R)|      FAST  |clk               |   0.000|
+TX_B1_DSA[2]       |        10.621(R)|      SLOW  |         4.836(R)|      FAST  |clk               |   0.000|
+TX_B1_DSA[3]       |        10.492(R)|      SLOW  |         4.722(R)|      FAST  |clk               |   0.000|
+TX_B1_DSA[4]       |        10.045(R)|      SLOW  |         4.489(R)|      FAST  |clk               |   0.000|
+TX_B1_DSA[5]       |        10.004(R)|      SLOW  |         4.472(R)|      FAST  |clk               |   0.000|
+TX_B1_LE[0]        |        11.589(R)|      SLOW  |         5.474(R)|      FAST  |clk               |   0.000|
+TX_B1_LE[1]        |        10.675(R)|      SLOW  |         4.856(R)|      FAST  |clk               |   0.000|
+TX_B1_LE[2]        |        11.273(R)|      SLOW  |         5.194(R)|      FAST  |clk               |   0.000|
+TX_B1_LE[3]        |        11.273(R)|      SLOW  |         5.194(R)|      FAST  |clk               |   0.000|
+-------------------+-----------------+------------+-----------------+------------+------------------+--------+
+
+Clock PLUG_IN to Pad
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+RX_LED      |        12.833(R)|      SLOW  |         6.245(R)|      FAST  |PLUG_IN_IBUF_BUFG |   0.000|
+RX_ON_B1    |        12.830(R)|      SLOW  |         6.242(R)|      FAST  |PLUG_IN_IBUF_BUFG |   0.000|
+TX_LED      |        12.761(R)|      SLOW  |         6.173(R)|      FAST  |PLUG_IN_IBUF_BUFG |   0.000|
+TX_ON_B1    |        12.836(R)|      SLOW  |         6.248(R)|      FAST  |PLUG_IN_IBUF_BUFG |   0.000|
+------------+-----------------+------------+-----------------+------------+------------------+--------+
+
+Clock to Setup on destination clock CLK_SYS
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK_SYS        |    6.234|         |         |         |
+PLUG_IN        |    7.563|    7.563|         |         |
+SPI_CLK        |    6.520|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_CLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+SPI_CLK        |    2.773|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Analysis completed Fri Mar 14 15:40:43 2025 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 4598 MB
+
+
+

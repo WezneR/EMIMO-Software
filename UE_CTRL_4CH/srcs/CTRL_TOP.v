@@ -240,8 +240,8 @@ CTRL_switch CTRL_switch_inst (
 );
 
 // ============================== process ==============================
-wire [1:0] TX_on_soft;
-wire [1:0] RX_on_soft;
+wire TX_on_soft;
+wire RX_on_soft;
 
 ctrl_process process_inst (
       .clk_100M(clk),

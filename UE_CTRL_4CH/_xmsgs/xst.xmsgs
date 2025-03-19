@@ -74,12 +74,6 @@
 <msg type="warning" file="HDLCompiler" num="413" delta="old" >"F:\ISE\UE_CTRL_4CH\srcs\process.v" Line 193: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="old" >"F:\ISE\UE_CTRL_4CH\srcs\CTRL_TOP.v" Line 254: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">o_TX_ON</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">2</arg>-bit.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="189" delta="old" >"F:\ISE\UE_CTRL_4CH\srcs\CTRL_TOP.v" Line 255: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">o_RX_ON</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">2</arg>-bit.
-</msg>
-
 <msg type="warning" file="HDLCompiler" num="413" delta="old" >"F:\ISE\UE_CTRL_4CH\srcs\rst.v" Line 37: Result of <arg fmt="%d" index="1">9</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">8</arg>-bit target.
 </msg>
 
@@ -180,18 +174,6 @@
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">ctrl_data&lt;23:23&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">i_TX_ON_soft</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">i_RX_ON_soft</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="737" delta="old" >Found <arg fmt="%d" index="1">1</arg>-bit latch for signal &lt;<arg fmt="%s" index="2">o_RX_ON_B1</arg>&gt;. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-</msg>
-
-<msg type="warning" file="Xst" num="737" delta="old" >Found <arg fmt="%d" index="1">1</arg>-bit latch for signal &lt;<arg fmt="%s" index="2">o_TX_ON_B1</arg>&gt;. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">Board_ID_4</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">process_inst</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">3 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;Board_ID_5&gt; &lt;Board_ID_6&gt; &lt;Board_ID_7&gt; </arg>
@@ -359,9 +341,6 @@
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">UART_RX_inst/receive_data__42</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">CTRL_TOP</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">UART_RX_inst/receive_data__41</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">CTRL_TOP</arg>&gt;.
-</msg>
-
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">UART_RX_inst/receive_data__39</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">CTRL_TOP</arg>&gt;.
 </msg>
 
@@ -515,9 +494,6 @@
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">SPI_Listener_test/spi_data_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">CTRL_TOP</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">SPI_Listener_test/spi_data_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">CTRL_TOP</arg>&gt;.
-</msg>
-
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">SPI_Listener_test/spi_data_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">CTRL_TOP</arg>&gt;.
 </msg>
 
@@ -545,9 +521,6 @@
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">SPI_Listener_test/spi_slave_bytes_2_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">CTRL_TOP</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">SPI_Listener_test/spi_slave_bytes_2_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">CTRL_TOP</arg>&gt;.
-</msg>
-
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart_listener_inst/o_uart_data_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">CTRL_TOP</arg>&gt;.
 </msg>
 
@@ -569,19 +542,10 @@
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart_listener_inst/o_uart_data_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">CTRL_TOP</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart_listener_inst/o_uart_data_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">CTRL_TOP</arg>&gt;.
-</msg>
-
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart_listener_inst/o_uart_data_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">CTRL_TOP</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">uart_listener_inst/o_uart_data_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">CTRL_TOP</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">process_inst/o_TX_ON</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">CTRL_TOP</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">process_inst/o_RX_ON</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">CTRL_TOP</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="1293" delta="old" >FF/Latch &lt;<arg fmt="%s" index="1">rst_test/clk_cnt_4</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">CTRL_TOP</arg>&gt;. This FF/Latch will be trimmed during the optimization process.

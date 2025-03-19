@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:29:51 MDT 2013
+# Start of session at: Fri Mar 14 15:50:46 2025
+# Process ID: 8960
+# Log file: F:/ISE/UE_CTRL_4CH/planAhead_run_3/planAhead.log
+# Journal file: F:/ISE/UE_CTRL_4CH/planAhead_run_3\planAhead.jou
+#-----------------------------------------------------------
+start_gui
+open_project {F:\ISE\UE_CTRL_4CH\planAhead_run_3\UE_CTRL_4CH.ppr}
+link_design -name netlist_1
+launch_runs impl_1
+wait_on_run impl_1
+launch_runs impl_1 -to_step Bitgen
+wait_on_run impl_1
