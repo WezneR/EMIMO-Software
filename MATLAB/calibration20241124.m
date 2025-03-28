@@ -27,12 +27,14 @@ UART.Pause_Sec = 0.1; %Between each frame
 UART.End = hex2dec(['0D';'0A']);
 UART.End_mcu = hex2dec(['0A';'0D']);
 
-%% 打开开发者模式
 Parket = hex2dec(['08';'00';'00';'01';'0A';'0D']);
 Frame = [UART.Head; Parket];
 fwrite(COM,Frame);
 fprintf('已打开开发者模式。')
 
+%% 设备
+Module_ID = 12;
+isTX = 1;
 %% Open
 func_channel_switch(COM, Module_ID, 8, 8, isTX, 0);
 %% Close all
@@ -40,11 +42,6 @@ func_channel_switch(COM, Module_ID, 8, 8, isTX, 1);
 %% 阵面波束初始化
 func_phase_array_beam_init(COM);
 pause(0.1);
-
-%% 设备
-Module_ID = 0;
-
-isTX = 0;
 
 %% 设置中频增益
 
