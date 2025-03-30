@@ -1,0 +1,45 @@
+Running: E:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o F:/ISE/UE_CTRL_4CH/top_tb_isim_beh.exe -prj F:/ISE/UE_CTRL_4CH/top_tb_beh.prj work.top_tb work.glbl 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 8
+Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Determining compilation order of HDL files
+Analyzing Verilog file "F:/ISE/UE_CTRL_4CH/srcs/UART_TX.v" into library work
+Analyzing Verilog file "F:/ISE/UE_CTRL_4CH/srcs/UART_RX.v" into library work
+Analyzing Verilog file "F:/ISE/UE_CTRL_4CH/srcs/UART_Listener.v" into library work
+Analyzing Verilog file "F:/ISE/UE_CTRL_4CH/srcs/SPI_Slave.v" into library work
+Analyzing Verilog file "F:/ISE/UE_CTRL_4CH/srcs/SPI_Listener.v" into library work
+Analyzing Verilog file "F:/ISE/UE_CTRL_4CH/srcs/rst.v" into library work
+Analyzing Verilog file "F:/ISE/UE_CTRL_4CH/srcs/process.v" into library work
+Analyzing Verilog file "F:/ISE/UE_CTRL_4CH/srcs/LED_control.v" into library work
+Analyzing Verilog file "F:/ISE/UE_CTRL_4CH/srcs/FEM_TR_switch.v" into library work
+Analyzing Verilog file "F:/ISE/UE_CTRL_4CH/srcs/CTRL_switch.v" into library work
+Analyzing Verilog file "F:/ISE/UE_CTRL_4CH/srcs/CTRL_TOP.v" into library work
+Analyzing Verilog file "F:/ISE/UE_CTRL_4CH/srcs/tb_Top.v" into library work
+Analyzing Verilog file "E:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:1016 - "F:/ISE/UE_CTRL_4CH/srcs/CTRL_TOP.v" Line 84: Port i_TX_DV is not connected to this instance
+WARNING:HDLCompiler:189 - "F:/ISE/UE_CTRL_4CH/srcs/tb_Top.v" Line 78: Size mismatch in connection of port <TX_B1_LE>. Formal port size is 4-bit while actual signal size is 8-bit.
+WARNING:HDLCompiler:189 - "F:/ISE/UE_CTRL_4CH/srcs/tb_Top.v" Line 80: Size mismatch in connection of port <RX_B1_LE>. Formal port size is 4-bit while actual signal size is 8-bit.
+WARNING:HDLCompiler:189 - "F:/ISE/UE_CTRL_4CH/srcs/tb_Top.v" Line 81: Size mismatch in connection of port <RX_B1_LNA_BYPASS>. Formal port size is 4-bit while actual signal size is 8-bit.
+Completed static elaboration
+Compiling module IBUFG
+Compiling module BUFG
+Compiling module SPI_Slave(SPI_MODE=0)
+Compiling module spi_listener
+Compiling module UART_RX(Baud_rate=115200,clk_frq...
+Compiling module UART_TX(Baud_rate=115200,clk_frq...
+Compiling module UART_Listener(uart_max_byte_len=...
+Compiling module CTRL_switch
+Compiling module ctrl_process
+Compiling module FEM_TR_switch
+Compiling module LED_control
+Compiling module rst(delay_cnt=10)
+Compiling module CTRL_TOP
+Compiling module top_tb
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 15 Verilog Units
+Built simulation executable F:/ISE/UE_CTRL_4CH/top_tb_isim_beh.exe
+Fuse Memory Usage: 30084 KB
+Fuse CPU Usage: 452 ms

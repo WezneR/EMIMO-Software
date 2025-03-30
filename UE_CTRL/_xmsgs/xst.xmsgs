@@ -71,7 +71,7 @@
 <msg type="warning" file="HDLCompiler" num="1127" delta="old" >"F:\ISE\UE_CTRL\srcs\CTRL_TOP.v" Line 213: Assignment to <arg fmt="%s" index="1">TX_ready</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="413" delta="old" >"F:\ISE\UE_CTRL\srcs\process.v" Line 328: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"F:\ISE\UE_CTRL\srcs\process.v" Line 398: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="413" delta="old" >"F:\ISE\UE_CTRL\srcs\rst.v" Line 37: Result of <arg fmt="%d" index="1">9</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">8</arg>-bit target.
@@ -134,19 +134,19 @@
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">TXD_MCU</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\ISE\UE_CTRL\srcs\CTRL_TOP.v</arg>&quot; line <arg fmt="%s" index="2">97</arg>: Output port &lt;<arg fmt="%s" index="3">o_SPI_MISO</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">SPI_Slave_test</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\ISE\UE_CTRL\srcs\CTRL_TOP.v</arg>&quot; line <arg fmt="%s" index="2">97</arg>: Output port &lt;<arg fmt="%s" index="3">o_SPI_MISO</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">SPI_Slave_test</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\ISE\UE_CTRL\srcs\CTRL_TOP.v</arg>&quot; line <arg fmt="%s" index="2">148</arg>: Output port &lt;<arg fmt="%s" index="3">receive_data</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">UART_RX_inst</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\ISE\UE_CTRL\srcs\CTRL_TOP.v</arg>&quot; line <arg fmt="%s" index="2">148</arg>: Output port &lt;<arg fmt="%s" index="3">receive_data</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">UART_RX_inst</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\ISE\UE_CTRL\srcs\CTRL_TOP.v</arg>&quot; line <arg fmt="%s" index="2">148</arg>: Output port &lt;<arg fmt="%s" index="3">receive_data_check</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">UART_RX_inst</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\ISE\UE_CTRL\srcs\CTRL_TOP.v</arg>&quot; line <arg fmt="%s" index="2">148</arg>: Output port &lt;<arg fmt="%s" index="3">receive_data_check</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">UART_RX_inst</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\ISE\UE_CTRL\srcs\CTRL_TOP.v</arg>&quot; line <arg fmt="%s" index="2">148</arg>: Output port &lt;<arg fmt="%s" index="3">receive_data_check_all</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">UART_RX_inst</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\ISE\UE_CTRL\srcs\CTRL_TOP.v</arg>&quot; line <arg fmt="%s" index="2">148</arg>: Output port &lt;<arg fmt="%s" index="3">receive_data_check_all</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">UART_RX_inst</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">F:\ISE\UE_CTRL\srcs\CTRL_TOP.v</arg>&quot; line <arg fmt="%s" index="2">194</arg>: Output port &lt;<arg fmt="%s" index="3">TX_ready</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">UART_TX_inst</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">F:\ISE\UE_CTRL\srcs\CTRL_TOP.v</arg>&quot; line <arg fmt="%s" index="2">194</arg>: Output port &lt;<arg fmt="%s" index="3">TX_ready</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">UART_TX_inst</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
 <msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">send_data</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.

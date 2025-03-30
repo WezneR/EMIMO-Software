@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.34 secs
+Total CPU time to Xst completion: 0.28 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.34 secs
+Total CPU time to Xst completion: 0.28 secs
  
 --> Reading design: CTRL_TOP.prj
 
@@ -173,7 +173,7 @@ Elaborating module <UART_Listener(uart_max_byte_len=10)>.
 Elaborating module <CTRL_switch>.
 
 Elaborating module <ctrl_process>.
-WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL\srcs\process.v" Line 328: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "F:\ISE\UE_CTRL\srcs\process.v" Line 398: Result of 5-bit expression is truncated to fit in 4-bit target.
 
 Elaborating module <FEM_TR_switch>.
 
@@ -402,7 +402,7 @@ WARNING:Xst:647 - Input <ctrl_data<27:26>> is never used. This port will be pres
     Found 8-bit register for signal <o_B2_LNA_BYPASS>.
     Found 4-bit register for signal <Board_ID>.
     Found 6-bit register for signal <dsa_att>.
-    Found 1-bit register for signal <ALL_DSA>.
+    Found 2-bit register for signal <ALL_DSA>.
     Found 2-bit register for signal <Bank_ID>.
     Found 4-bit register for signal <DSA_ID>.
     Found 4-bit register for signal <write_dsa_cnt>.
@@ -419,7 +419,7 @@ WARNING:Xst:647 - Input <ctrl_data<27:26>> is never used. This port will be pres
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 4-bit adder for signal <write_dsa_cnt[3]_GND_12_o_add_201_OUT> created at line 328.
+    Found 4-bit adder for signal <write_dsa_cnt[3]_GND_12_o_add_203_OUT> created at line 398.
     Found 2-bit 3-to-1 multiplexer for signal <host_bank_id[1]_o_TX_ON[1]_wide_mux_12_OUT> created at line 124.
     Found 2-bit 3-to-1 multiplexer for signal <host_bank_id[1]_o_RX_ON[1]_wide_mux_13_OUT> created at line 124.
     Found 2-bit 3-to-1 multiplexer for signal <host_bank_id[1]_o_TX_ON[1]_wide_mux_22_OUT> created at line 140.
@@ -427,13 +427,13 @@ WARNING:Xst:647 - Input <ctrl_data<27:26>> is never used. This port will be pres
     Found 4-bit comparator equal for signal <host_board_id[3]_Board_ID[3]_equal_6_o> created at line 118
     Found 1-bit comparator not equal for signal <n0009> created at line 123
     Found 2-bit comparator lessequal for signal <n0017> created at line 142
-    Found 4-bit comparator greater for signal <DSA_ID[3]_PWR_15_o_LessThan_82_o> created at line 252
-    Found 4-bit comparator greater for signal <GND_12_o_write_dsa_cnt[3]_LessThan_203_o> created at line 329
+    Found 4-bit comparator greater for signal <DSA_ID[3]_PWR_15_o_LessThan_84_o> created at line 269
+    Found 4-bit comparator greater for signal <GND_12_o_write_dsa_cnt[3]_LessThan_205_o> created at line 399
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  97 D-type flip-flop(s).
+	inferred  98 D-type flip-flop(s).
 	inferred   5 Comparator(s).
-	inferred  96 Multiplexer(s).
+	inferred 104 Multiplexer(s).
 	inferred   1 Finite State Machine(s).
 Unit <ctrl_process> synthesized.
 
@@ -475,10 +475,10 @@ Macro Statistics
  7-bit subtractor                                      : 1
  8-bit adder                                           : 1
 # Registers                                            : 55
- 1-bit register                                        : 16
+ 1-bit register                                        : 15
  10-bit register                                       : 1
  16-bit register                                       : 3
- 2-bit register                                        : 3
+ 2-bit register                                        : 4
  24-bit register                                       : 1
  3-bit register                                        : 1
  32-bit register                                       : 2
@@ -494,7 +494,7 @@ Macro Statistics
  4-bit comparator equal                                : 1
  4-bit comparator greater                              : 2
  4-bit comparator lessequal                            : 1
-# Multiplexers                                         : 136
+# Multiplexers                                         : 144
  1-bit 2-to-1 multiplexer                              : 39
  10-bit 2-to-1 multiplexer                             : 1
  16-bit 2-to-1 multiplexer                             : 5
@@ -504,7 +504,7 @@ Macro Statistics
  32-bit 2-to-1 multiplexer                             : 37
  4-bit 2-to-1 multiplexer                              : 7
  6-bit 2-to-1 multiplexer                              : 2
- 8-bit 2-to-1 multiplexer                              : 34
+ 8-bit 2-to-1 multiplexer                              : 42
  80-bit 2-to-1 multiplexer                             : 3
 # Logic shifters                                       : 1
  80-bit shifter logical left                           : 1
@@ -593,8 +593,8 @@ Macro Statistics
  4-bit up counter                                      : 1
  6-bit up counter                                      : 1
  8-bit up counter                                      : 1
-# Registers                                            : 442
- Flip-Flops                                            : 442
+# Registers                                            : 443
+ Flip-Flops                                            : 443
 # Comparators                                          : 8
  1-bit comparator not equal                            : 2
  2-bit comparator lessequal                            : 1
@@ -602,7 +602,7 @@ Macro Statistics
  4-bit comparator equal                                : 1
  4-bit comparator greater                              : 2
  4-bit comparator lessequal                            : 1
-# Multiplexers                                         : 133
+# Multiplexers                                         : 141
  1-bit 2-to-1 multiplexer                              : 38
  10-bit 2-to-1 multiplexer                             : 1
  16-bit 2-to-1 multiplexer                             : 4
@@ -612,7 +612,7 @@ Macro Statistics
  32-bit 2-to-1 multiplexer                             : 37
  4-bit 2-to-1 multiplexer                              : 7
  6-bit 2-to-1 multiplexer                              : 1
- 8-bit 2-to-1 multiplexer                              : 34
+ 8-bit 2-to-1 multiplexer                              : 42
  80-bit 2-to-1 multiplexer                             : 3
 # Logic shifters                                       : 1
  80-bit shifter logical left                           : 1
@@ -778,7 +778,7 @@ WARNING:Xst:1293 - FF/Latch <process_inst/write_dsa_cnt_3> has a constant value 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block CTRL_TOP, actual ratio is 4.
+Found area constraint ratio of 100 (+ 5) on block CTRL_TOP, actual ratio is 5.
 FlipFlop UART_RX_inst/RX_busy has been replicated 1 time(s)
 
 Final Macro Processing ...
@@ -791,8 +791,8 @@ Unit <CTRL_TOP> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 390
- Flip-Flops                                            : 390
+# Registers                                            : 391
+ Flip-Flops                                            : 391
 
 =========================================================================
 
@@ -815,24 +815,24 @@ Top Level Output File Name         : CTRL_TOP.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 660
+# BELS                             : 669
 #      GND                         : 1
 #      INV                         : 8
 #      LUT1                        : 28
-#      LUT2                        : 112
-#      LUT3                        : 94
-#      LUT4                        : 42
+#      LUT2                        : 113
+#      LUT3                        : 93
+#      LUT4                        : 46
 #      LUT5                        : 105
-#      LUT6                        : 198
+#      LUT6                        : 199
 #      MUXCY                       : 28
-#      MUXF7                       : 12
+#      MUXF7                       : 16
 #      VCC                         : 1
 #      XORCY                       : 31
-# FlipFlops/Latches                : 390
+# FlipFlops/Latches                : 391
 #      FD                          : 5
 #      FDC                         : 13
 #      FDCE                        : 106
-#      FDE                         : 74
+#      FDE                         : 75
 #      FDR                         : 10
 #      FDRE                        : 171
 #      FDS                         : 11
@@ -851,15 +851,15 @@ Selected Device : 6slx25ftg256-2
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             390  out of  30064     1%  
- Number of Slice LUTs:                  587  out of  15032     3%  
-    Number used as Logic:               587  out of  15032     3%  
+ Number of Slice Registers:             391  out of  30064     1%  
+ Number of Slice LUTs:                  592  out of  15032     3%  
+    Number used as Logic:               592  out of  15032     3%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    679
-   Number with an unused Flip Flop:     289  out of    679    42%  
-   Number with an unused LUT:            92  out of    679    13%  
-   Number of fully used LUT-FF pairs:   298  out of    679    43%  
+ Number of LUT Flip Flop pairs used:    684
+   Number with an unused Flip Flop:     293  out of    684    42%  
+   Number with an unused LUT:            92  out of    684    13%  
+   Number of fully used LUT-FF pairs:   299  out of    684    43%  
    Number of unique control sets:        34
 
 IO Utilization: 
@@ -890,7 +890,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-CLK_SYS                            | IBUFG+BUFG             | 371   |
+CLK_SYS                            | IBUFG+BUFG             | 372   |
 SPI_CLK                            | BUFGP                  | 19    |
 -----------------------------------+------------------------+-------+
 
@@ -903,9 +903,9 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 6.185ns (Maximum Frequency: 161.672MHz)
-   Minimum input arrival time before clock: 7.483ns
+   Minimum input arrival time before clock: 7.500ns
    Maximum output required time after clock: 5.414ns
-   Maximum combinational path delay: 7.359ns
+   Maximum combinational path delay: 7.376ns
 
 Timing Details:
 ---------------
@@ -914,7 +914,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK_SYS'
   Clock period: 6.185ns (frequency: 161.672MHz)
-  Total number of paths / destination ports: 10987 / 1004
+  Total number of paths / destination ports: 11132 / 1006
 -------------------------------------------------------------------------
 Delay:               6.185ns (Levels of Logic = 3)
   Source:            UART_RX_inst/counter_11 (FF)
@@ -979,9 +979,9 @@ Offset:              3.807ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK_SYS'
-  Total number of paths / destination ports: 679 / 77
+  Total number of paths / destination ports: 693 / 79
 -------------------------------------------------------------------------
-Offset:              7.483ns (Levels of Logic = 5)
+Offset:              7.500ns (Levels of Logic = 5)
   Source:            PLUG_IN (PAD)
   Destination:       process_inst/o_B2_LNA_BYPASS_7 (FF)
   Destination Clock: CLK_SYS rising
@@ -990,15 +990,15 @@ Offset:              7.483ns (Levels of Logic = 5)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            46   1.328   1.982  PLUG_IN_IBUF (PLUG_IN_IBUF)
+     IBUF:I->O            47   1.328   1.999  PLUG_IN_IBUF (PLUG_IN_IBUF)
      LUT3:I0->O            3   0.235   0.994  CTRL_switch_inst/Mmux_o_ctrl_data241 (ctrl_data<30>)
-     LUT6:I3->O            5   0.235   0.949  process_inst/host_board_id[3]_host_board_id[3]_OR_119_o_SW6 (N47)
+     LUT6:I3->O            5   0.235   0.949  process_inst/host_board_id[3]_host_board_id[3]_OR_119_o_SW6 (N51)
      LUT5:I3->O           16   0.250   1.182  process_inst/host_board_id[3]_host_board_id[3]_OR_119_o (process_inst/host_board_id[3]_host_board_id[3]_OR_119_o)
      LUT6:I5->O            1   0.254   0.000  process_inst/o_B2_LNA_BYPASS_0_dpot (process_inst/o_B2_LNA_BYPASS_0_dpot)
      FDCE:D                    0.074          process_inst/o_B2_LNA_BYPASS_0
     ----------------------------------------
-    Total                      7.483ns (2.376ns logic, 5.107ns route)
-                                       (31.8% logic, 68.2% route)
+    Total                      7.500ns (2.376ns logic, 5.124ns route)
+                                       (31.7% logic, 68.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK_SYS'
@@ -1024,7 +1024,7 @@ Offset:              5.414ns (Levels of Logic = 2)
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 18 / 6
 -------------------------------------------------------------------------
-Delay:               7.359ns (Levels of Logic = 3)
+Delay:               7.376ns (Levels of Logic = 3)
   Source:            PLUG_IN (PAD)
   Destination:       TX_LED (PAD)
 
@@ -1032,12 +1032,12 @@ Delay:               7.359ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            46   1.328   2.184  PLUG_IN_IBUF (PLUG_IN_IBUF)
+     IBUF:I->O            47   1.328   2.201  PLUG_IN_IBUF (PLUG_IN_IBUF)
      LUT5:I0->O            1   0.254   0.681  RX_LED1 (RX_LED_OBUF)
      OBUF:I->O                 2.912          RX_LED_OBUF (RX_LED)
     ----------------------------------------
-    Total                      7.359ns (4.494ns logic, 2.865ns route)
-                                       (61.1% logic, 38.9% route)
+    Total                      7.376ns (4.494ns logic, 2.882ns route)
+                                       (60.9% logic, 39.1% route)
 
 =========================================================================
 
@@ -1069,7 +1069,7 @@ Total CPU time to Xst completion: 10.69 secs
  
 --> 
 
-Total memory usage is 4503092 kilobytes
+Total memory usage is 4503680 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  185 (   0 filtered)

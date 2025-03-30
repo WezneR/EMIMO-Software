@@ -1,0 +1,20 @@
+ISim log file
+Running: F:\ISE\UE_CTRL_4CH\top_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb F:/ISE/UE_CTRL_4CH/top_tb_isim_beh.wdb 
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+WARNING: File "F:/ISE/UE_CTRL_4CH/srcs/tb_Top.v" Line 37.  For instance top_tb/uut/, width 4 of formal port TX_B1_LE is not equal to width 8 of actual signal TX_B1_LE.
+WARNING: File "F:/ISE/UE_CTRL_4CH/srcs/tb_Top.v" Line 39.  For instance top_tb/uut/, width 4 of formal port RX_B1_LE is not equal to width 8 of actual signal RX_B1_LE.
+WARNING: File "F:/ISE/UE_CTRL_4CH/srcs/tb_Top.v" Line 40.  For instance top_tb/uut/, width 4 of formal port RX_B1_LNA_BYPASS is not equal to width 8 of actual signal RX_B1_LNA_BYPASS.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# run all
+Stopped at time : 4971900 ns :  in File "F:/ISE/UE_CTRL_4CH/srcs/tb_Top.v" Line 166 

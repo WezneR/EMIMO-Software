@@ -19,3 +19,69 @@ WARNING:NetListWriters:306 - Signal bus
 Writing EDIF netlist file CTRL_TOP.edif ...
 ngc2edif: Total memory usage is 4317916 kilobytes
 
+Release 14.7 - ngc2edif P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design CTRL_TOP.ngc ...
+WARNING:NetListWriters:298 - No output is written to CTRL_TOP.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:306 - Signal bus UART_RX_inst/receive_data_<79 : 32> on
+   block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus ctrl_data<31 : 0> on block CTRL_TOP is
+   not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus SPI_Listener_test/spi_data<31 : 0> on
+   block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus uart_listener_inst/o_uart_data<31 : 0>
+   on block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus
+   UART_RX_inst/receive_data_[79]_receive_data_[79]_mux_126_OUT<79 : 32> on
+   block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus
+   SPI_Listener_test/spi_byte_cnt[1]_spi_slave_bytes[0][7]_wide_mux_4_OUT<23 :
+   0> on block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus SPI_Listener_test/spi_slave_bytes_2<23 :
+   0> on block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+  finished :Prep
+Writing EDIF netlist file CTRL_TOP.edif ...
+ngc2edif: Total memory usage is 4317940 kilobytes
+
+Release 14.7 - ngc2edif P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design CTRL_TOP.ngc ...
+WARNING:NetListWriters:298 - No output is written to CTRL_TOP.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:306 - Signal bus UART_RX_inst/receive_data_<79 : 32> on
+   block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus ctrl_data<31 : 0> on block CTRL_TOP is
+   not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus SPI_Listener_test/spi_data<31 : 0> on
+   block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus uart_listener_inst/o_uart_data<31 : 0>
+   on block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus
+   UART_RX_inst/receive_data_[79]_receive_data_[79]_mux_126_OUT<79 : 32> on
+   block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus
+   SPI_Listener_test/spi_byte_cnt[1]_spi_slave_bytes[0][7]_wide_mux_4_OUT<23 :
+   0> on block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+WARNING:NetListWriters:306 - Signal bus SPI_Listener_test/spi_slave_bytes_2<23 :
+   0> on block CTRL_TOP is not reconstructed, because there are some missing bus
+   signals.
+  finished :Prep
+Writing EDIF netlist file CTRL_TOP.edif ...
+ngc2edif: Total memory usage is 4317940 kilobytes
+

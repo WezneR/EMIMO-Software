@@ -37,8 +37,8 @@ Setup/Hold to clock CLK_SYS
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-PLUG_IN     |    7.352(R)|      SLOW  |   -1.365(R)|      FAST  |clk               |   0.000|
-TXD_HOST    |    1.514(R)|      SLOW  |   -0.111(R)|      SLOW  |clk               |   0.000|
+PLUG_IN     |    7.163(R)|      SLOW  |   -1.195(R)|      FAST  |clk               |   0.000|
+TXD_HOST    |    1.513(R)|      SLOW  |   -0.110(R)|      SLOW  |clk               |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Setup/Hold to clock SPI_CLK
@@ -46,8 +46,8 @@ Setup/Hold to clock SPI_CLK
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
-SPI_DATA    |   -0.526(R)|      FAST  |    2.702(R)|      SLOW  |SPI_CLK_BUFGP     |   0.000|
-SPI_LE      |   -0.105(R)|      FAST  |    3.173(R)|      SLOW  |SPI_CLK_BUFGP     |   0.000|
+SPI_DATA    |   -0.601(R)|      FAST  |    2.916(R)|      SLOW  |SPI_CLK_BUFGP     |   0.000|
+SPI_LE      |    0.140(R)|      FAST  |    3.240(R)|      SLOW  |SPI_CLK_BUFGP     |   0.000|
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Clock CLK_SYS to Pad
@@ -55,34 +55,34 @@ Clock CLK_SYS to Pad
                    |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
 Destination        |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
 -------------------+-----------------+------------+-----------------+------------+------------------+--------+
-RX_B1_DSA<0>       |        10.175(R)|      SLOW  |         4.625(R)|      FAST  |clk               |   0.000|
-RX_B1_DSA<1>       |        10.228(R)|      SLOW  |         4.649(R)|      FAST  |clk               |   0.000|
-RX_B1_DSA<2>       |        11.354(R)|      SLOW  |         5.280(R)|      FAST  |clk               |   0.000|
-RX_B1_DSA<3>       |        11.739(R)|      SLOW  |         5.471(R)|      FAST  |clk               |   0.000|
-RX_B1_DSA<4>       |        11.821(R)|      SLOW  |         5.479(R)|      FAST  |clk               |   0.000|
-RX_B1_DSA<5>       |        10.890(R)|      SLOW  |         4.966(R)|      FAST  |clk               |   0.000|
-RX_B1_LE<0>        |        10.031(R)|      SLOW  |         4.537(R)|      FAST  |clk               |   0.000|
-RX_B1_LE<1>        |         9.897(R)|      SLOW  |         4.449(R)|      FAST  |clk               |   0.000|
-RX_B1_LE<2>        |        10.560(R)|      SLOW  |         4.842(R)|      FAST  |clk               |   0.000|
-RX_B1_LE<3>        |        10.894(R)|      SLOW  |         5.014(R)|      FAST  |clk               |   0.000|
-RX_B1_LNA_BYPASS<0>|        11.509(R)|      SLOW  |         5.329(R)|      FAST  |clk               |   0.000|
-RX_B1_LNA_BYPASS<1>|        11.706(R)|      SLOW  |         5.494(R)|      FAST  |clk               |   0.000|
-RX_B1_LNA_BYPASS<2>|        11.372(R)|      SLOW  |         5.284(R)|      FAST  |clk               |   0.000|
-RX_B1_LNA_BYPASS<3>|        11.798(R)|      SLOW  |         5.510(R)|      FAST  |clk               |   0.000|
-RX_LED             |        12.426(R)|      SLOW  |         5.794(R)|      FAST  |clk               |   0.000|
-RX_ON_B1           |        13.026(R)|      SLOW  |         6.173(R)|      FAST  |clk               |   0.000|
-TX_B1_DSA<0>       |        10.532(R)|      SLOW  |         4.777(R)|      FAST  |clk               |   0.000|
-TX_B1_DSA<1>       |        10.585(R)|      SLOW  |         4.800(R)|      FAST  |clk               |   0.000|
-TX_B1_DSA<2>       |        11.049(R)|      SLOW  |         5.126(R)|      FAST  |clk               |   0.000|
-TX_B1_DSA<3>       |        11.043(R)|      SLOW  |         5.040(R)|      FAST  |clk               |   0.000|
-TX_B1_DSA<4>       |        10.718(R)|      SLOW  |         4.871(R)|      FAST  |clk               |   0.000|
-TX_B1_DSA<5>       |        10.901(R)|      SLOW  |         4.968(R)|      FAST  |clk               |   0.000|
-TX_B1_LE<0>        |        11.598(R)|      SLOW  |         5.401(R)|      FAST  |clk               |   0.000|
-TX_B1_LE<1>        |        11.588(R)|      SLOW  |         5.391(R)|      FAST  |clk               |   0.000|
-TX_B1_LE<2>        |        10.707(R)|      SLOW  |         4.936(R)|      FAST  |clk               |   0.000|
-TX_B1_LE<3>        |        11.431(R)|      SLOW  |         5.342(R)|      FAST  |clk               |   0.000|
-TX_LED             |        12.649(R)|      SLOW  |         5.938(R)|      FAST  |clk               |   0.000|
-TX_ON_B1           |        13.110(R)|      SLOW  |         6.213(R)|      FAST  |clk               |   0.000|
+RX_B1_DSA<0>       |        10.193(R)|      SLOW  |         4.638(R)|      FAST  |clk               |   0.000|
+RX_B1_DSA<1>       |        10.146(R)|      SLOW  |         4.568(R)|      FAST  |clk               |   0.000|
+RX_B1_DSA<2>       |        11.361(R)|      SLOW  |         5.287(R)|      FAST  |clk               |   0.000|
+RX_B1_DSA<3>       |        11.553(R)|      SLOW  |         5.371(R)|      FAST  |clk               |   0.000|
+RX_B1_DSA<4>       |        11.976(R)|      SLOW  |         5.555(R)|      FAST  |clk               |   0.000|
+RX_B1_DSA<5>       |        10.897(R)|      SLOW  |         4.973(R)|      FAST  |clk               |   0.000|
+RX_B1_LE<0>        |        10.673(R)|      SLOW  |         4.856(R)|      FAST  |clk               |   0.000|
+RX_B1_LE<1>        |        10.670(R)|      SLOW  |         4.870(R)|      FAST  |clk               |   0.000|
+RX_B1_LE<2>        |        11.045(R)|      SLOW  |         5.093(R)|      FAST  |clk               |   0.000|
+RX_B1_LE<3>        |        11.203(R)|      SLOW  |         5.158(R)|      FAST  |clk               |   0.000|
+RX_B1_LNA_BYPASS<0>|        11.416(R)|      SLOW  |         5.297(R)|      FAST  |clk               |   0.000|
+RX_B1_LNA_BYPASS<1>|        11.962(R)|      SLOW  |         5.699(R)|      FAST  |clk               |   0.000|
+RX_B1_LNA_BYPASS<2>|        11.796(R)|      SLOW  |         5.530(R)|      FAST  |clk               |   0.000|
+RX_B1_LNA_BYPASS<3>|        12.164(R)|      SLOW  |         5.762(R)|      FAST  |clk               |   0.000|
+RX_LED             |        12.219(R)|      SLOW  |         5.667(R)|      FAST  |clk               |   0.000|
+RX_ON_B1           |        13.243(R)|      SLOW  |         6.253(R)|      FAST  |clk               |   0.000|
+TX_B1_DSA<0>       |        10.308(R)|      SLOW  |         4.644(R)|      FAST  |clk               |   0.000|
+TX_B1_DSA<1>       |        10.339(R)|      SLOW  |         4.660(R)|      FAST  |clk               |   0.000|
+TX_B1_DSA<2>       |        10.816(R)|      SLOW  |         5.001(R)|      FAST  |clk               |   0.000|
+TX_B1_DSA<3>       |        10.810(R)|      SLOW  |         4.915(R)|      FAST  |clk               |   0.000|
+TX_B1_DSA<4>       |        10.735(R)|      SLOW  |         4.869(R)|      FAST  |clk               |   0.000|
+TX_B1_DSA<5>       |        10.410(R)|      SLOW  |         4.702(R)|      FAST  |clk               |   0.000|
+TX_B1_LE<0>        |        11.741(R)|      SLOW  |         5.482(R)|      FAST  |clk               |   0.000|
+TX_B1_LE<1>        |        11.583(R)|      SLOW  |         5.403(R)|      FAST  |clk               |   0.000|
+TX_B1_LE<2>        |        11.042(R)|      SLOW  |         5.100(R)|      FAST  |clk               |   0.000|
+TX_B1_LE<3>        |        11.181(R)|      SLOW  |         5.193(R)|      FAST  |clk               |   0.000|
+TX_LED             |        12.220(R)|      SLOW  |         5.675(R)|      FAST  |clk               |   0.000|
+TX_ON_B1           |        12.805(R)|      SLOW  |         6.036(R)|      FAST  |clk               |   0.000|
 -------------------+-----------------+------------+-----------------+------------+------------------+--------+
 
 Clock to Setup on destination clock CLK_SYS
@@ -90,8 +90,8 @@ Clock to Setup on destination clock CLK_SYS
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK_SYS        |    6.611|         |         |         |
-SPI_CLK        |    6.684|         |         |         |
+CLK_SYS        |    6.512|         |         |         |
+SPI_CLK        |    6.387|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock SPI_CLK
@@ -99,29 +99,29 @@ Clock to Setup on destination clock SPI_CLK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-SPI_CLK        |    2.688|         |         |         |
+SPI_CLK        |    2.702|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Pad to Pad
 ---------------+---------------+---------+
 Source Pad     |Destination Pad|  Delay  |
 ---------------+---------------+---------+
-PLUG_IN        |RX_LED         |   13.767|
-PLUG_IN        |RX_ON_B1       |   14.367|
-PLUG_IN        |TX_LED         |   14.091|
-PLUG_IN        |TX_ON_B1       |   14.552|
-RX_ON          |RX_LED         |   12.962|
-RX_ON          |RX_ON_B1       |   13.562|
-RX_ON          |TX_LED         |   13.286|
-RX_ON          |TX_ON_B1       |   13.747|
-TX_ON          |RX_LED         |   12.817|
-TX_ON          |RX_ON_B1       |   13.417|
-TX_ON          |TX_LED         |   13.141|
-TX_ON          |TX_ON_B1       |   13.602|
+PLUG_IN        |RX_LED         |   13.795|
+PLUG_IN        |RX_ON_B1       |   14.819|
+PLUG_IN        |TX_LED         |   13.733|
+PLUG_IN        |TX_ON_B1       |   14.318|
+RX_ON          |RX_LED         |   13.413|
+RX_ON          |RX_ON_B1       |   14.437|
+RX_ON          |TX_LED         |   13.351|
+RX_ON          |TX_ON_B1       |   13.936|
+TX_ON          |RX_LED         |   12.900|
+TX_ON          |RX_ON_B1       |   13.924|
+TX_ON          |TX_LED         |   12.838|
+TX_ON          |TX_ON_B1       |   13.423|
 ---------------+---------------+---------+
 
 
-Analysis completed Tue Mar 18 14:22:04 2025 
+Analysis completed Sun Mar 30 18:45:48 2025 
 --------------------------------------------------------------------------------
 
 Trace Settings:

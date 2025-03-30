@@ -149,18 +149,26 @@ module top_tb;
         // #100000;
 
         // 向所有 RF_Bank 的所有通道写入衰减码字 0x3A
-        send_multiple_bytes(48'h555D_02_0A_01_3A, 6);
+        send_multiple_bytes(48'h555D_02_0A_03_3A, 6);
+        #100000;
+
+        // 向 RF_Bank1 的所有RX通道写入衰减码字 0x1F
+        send_multiple_bytes(48'h555D_00_0A_01_1F, 6);
+        #100000;
+
+        // 向 RF_Bank2 的所有TX通道写入衰减码字 0x0E
+        send_multiple_bytes(48'h555D_01_0A_02_0E, 6);
         #100000;
 
         // 向 RF_Bank1 的通道8（TX的最后一个通道）写入衰减码字 0x3F
         send_multiple_bytes(48'h555D_00_7A_00_3F, 6);
         #100000;
 
-        // 向 RF_Bank2 的通道13（RX的第六个通道）写入衰减码字 0x28
-        send_multiple_bytes(48'h555D_01_DA_00_28, 6);
-        #100000;
+        // // 向 RF_Bank2 的通道13（RX的第六个通道）写入衰减码字 0x28
+        // send_multiple_bytes(48'h555D_01_DA_00_28, 6);
+        // #100000;
 
-
+        
         // 停止模拟
         #5000;
         $stop;

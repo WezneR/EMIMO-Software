@@ -30,11 +30,13 @@
 //
 //
 // 2025-03-14 13:16:47
-// Revision v6 （当前版本）
+// Revision v6 （已弃用：不支持同时控制TX的所有通道或RX的所有通道的衰减器）
 // - 为了支持4CH版本的UE，增加了Board_ID的位宽，删去了Bank_ID的部分。
 //
 //
-//
+// 2025-03-30 18:21:22
+// Revision v7 （当前版本）
+// - 修改了帧格式定义中有关 ALL_DSA 字段的部分。新的版允许同时控制TX的所有通道或RX的所有通道的衰减器，或者同时控制TX+RX的所有通道的衰减器。
 //
 //
 //
@@ -82,7 +84,7 @@ module ctrl_process (
     // 保存DSA的衰减码字和片选信息
     reg [5:0] dsa_att;
     reg [2:0] DSA_ID;
-    reg  ALL_DSA;
+    reg [1:0] ALL_DSA;
 
     // 维持DSA(HMC1122)数据和LE时序的状态机
     reg [1:0] write_dsa_state;
@@ -135,7 +137,7 @@ module ctrl_process (
                         CMD_WRITE_DSA: begin
                             // 保存DSA衰减值
                             dsa_att <= host_data[5:0];
-                            ALL_DSA <= host_data[8];
+                            ALL_DSA <= host_data[9:8];
                             DSA_ID <= host_dsa_id;
                             write_dsa_state <= S_WDSA_DATA_START;
                         end
@@ -156,35 +158,57 @@ module ctrl_process (
 
             // 负责更新DSA数据总线的模块
             if (write_dsa_state == S_WDSA_DATA_START) begin
-                if (ALL_DSA) begin
-                    TX_B1_DSA <= dsa_att;
-                    RX_B1_DSA <= dsa_att;
-                end
-                else begin
-                    if (DSA_ID < 4) begin
-                        TX_B1_DSA <= dsa_att;
+                case (ALL_DSA)
+                    2'd0: begin // 只更新某一个DSA
+                        if (DSA_ID < 4) begin
+                            TX_B1_DSA <= dsa_att;
+                        end
+                        else begin
+                            RX_B1_DSA <= dsa_att;
+                        end
                     end
-                    else begin
+                    2'd1: begin // 更新所有RX DSA
                         RX_B1_DSA <= dsa_att;
                     end
-                end
+                    2'd2: begin // 更新所有TX DSA
+                        TX_B1_DSA <= dsa_att;
+                    end
+                    2'd3: begin // 更新所有DSA
+                        TX_B1_DSA <= dsa_att;
+                        RX_B1_DSA <= dsa_att;
+                    end
+                    default: begin
+                        
+                    end
+                endcase
                 write_dsa_state <= S_WDSA_LE_HIGH;
             end
 
             // 负责拉高所选衰减器LE的模块
             if (write_dsa_state == S_WDSA_LE_HIGH) begin
-                if (ALL_DSA) begin
-                    TX_B1_LE <= 4'hF;
-                    RX_B1_LE <= 4'hF;
-                end
-                else begin
-                    if (DSA_ID < 4) begin
-                        TX_B1_LE[DSA_ID[1:0]] <= 1;
+                case (ALL_DSA)
+                    2'd0: begin // 只更新某一个DSA
+                        if (DSA_ID < 4) begin
+                            TX_B1_LE[DSA_ID[1:0]] <= 1;
+                        end
+                        else begin
+                            RX_B1_LE[DSA_ID[1:0]] <= 1;
+                        end
                     end
-                    else begin
-                        RX_B1_LE[DSA_ID[1:0]] <= 1;
+                    2'd1: begin // 更新所有RX DSA
+                        RX_B1_LE <= 4'hF;
                     end
-                end
+                    2'd2: begin // 更新所有TX DSA
+                        TX_B1_LE <= 4'hF;
+                    end
+                    2'd3: begin // 更新所有DSA
+                        TX_B1_LE <= 4'hF;
+                        RX_B1_LE <= 4'hF;
+                    end
+                    default: begin
+                        
+                    end
+                endcase
                 write_dsa_state <= S_WDSA_LE_LOW;
             end
 
