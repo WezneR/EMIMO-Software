@@ -19,7 +19,8 @@ extern "C" {
 #define MEM_PHA 0
 #define MEM_ATT 16
 #define MEM_BID 32  
-#define BORADCAST_BID 0x08 
+#define BID_BORADCAST   0x8 
+#define BID_MODULE_ONLY 0x9
 
 #define CMD_PHASE_ARRAY_CAL 0x0
 #define CMD_INIT            0x1

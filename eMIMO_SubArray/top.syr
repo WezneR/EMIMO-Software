@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 1.64 secs
+Total REAL time to Xst completion: 2.00 secs
+Total CPU time to Xst completion: 1.78 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 1.64 secs
+Total REAL time to Xst completion: 2.00 secs
+Total CPU time to Xst completion: 1.80 secs
  
 --> Reading design: top.prj
 
@@ -146,13 +146,13 @@ Elaborating module <spi_process(spi_master_data_len=24)>.
 Elaborating module <phase_shift_calculator>.
 Reading initialization file \"./mem/psb_lookup_table.hex\".
 WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray\srcs\PhaseArrayCal.v" Line 22: Result of 6-bit expression is truncated to fit in 5-bit target.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray\srcs\process.v" Line 431: Result of 6-bit expression is truncated to fit in 5-bit target.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray\srcs\process.v" Line 447: Result of 6-bit expression is truncated to fit in 5-bit target.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray\srcs\process.v" Line 467: Result of 6-bit expression is truncated to fit in 5-bit target.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray\srcs\process.v" Line 506: Result of 6-bit expression is truncated to fit in 5-bit target.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray\srcs\process.v" Line 523: Result of 5-bit expression is truncated to fit in 4-bit target.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray\srcs\process.v" Line 577: Result of 6-bit expression is truncated to fit in 5-bit target.
-WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray\srcs\process.v" Line 234: Assignment to IFDSA_ID ignored, since the identifier is never used
+WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray\srcs\process.v" Line 432: Result of 6-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray\srcs\process.v" Line 448: Result of 6-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray\srcs\process.v" Line 468: Result of 6-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray\srcs\process.v" Line 507: Result of 6-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray\srcs\process.v" Line 524: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray\srcs\process.v" Line 578: Result of 6-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray\srcs\process.v" Line 235: Assignment to IFDSA_ID ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray\srcs\Top.v" Line 158: Assignment to spi_data_depth ignored, since the identifier is never used
 
 Elaborating module <SPI_Master_PE44951(clk_div=2,spi_max_data_len=24)>.
@@ -266,9 +266,9 @@ Synthesizing Unit <spi_process>.
     Found 1-bit register for signal <LP_state>.
     Found 1-bit register for signal <write_onece_state>.
     Found 1-bit register for signal <o_RsetB>.
-    Found 12-bit register for signal <n0357[11:0]>.
+    Found 12-bit register for signal <n0361[11:0]>.
     Found 1-bit register for signal <load_IFDSA>.
-    Found 128-bit register for signal <n0337[127:0]>.
+    Found 128-bit register for signal <n0341[127:0]>.
     Found 4-bit register for signal <Modlue_ID>.
     Found 4-bit register for signal <Board_ID>.
     Found 4-bit register for signal <write_onece_chip_id>.
@@ -280,7 +280,7 @@ Synthesizing Unit <spi_process>.
     Found 1-bit register for signal <write_onece_cnt>.
     Found 5-bit register for signal <beamform_cnt>.
     Found 4-bit register for signal <LP_cnt>.
-    Found 128-bit register for signal <n0338[127:0]>.
+    Found 128-bit register for signal <n0342[127:0]>.
     Found finite state machine <FSM_1> for signal <o_LP_Pulse>.
     -----------------------------------------------------------------------
     | States             | 2                                              |
@@ -333,31 +333,32 @@ Synthesizing Unit <spi_process>.
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 5-bit adder for signal <n0451> created at line 427.
-    Found 5-bit adder for signal <init_cnt[4]_GND_5_o_add_136_OUT> created at line 431.
-    Found 5-bit adder for signal <n0496> created at line 502.
-    Found 5-bit adder for signal <beamform_cnt[4]_GND_5_o_add_206_OUT> created at line 506.
-    Found 4-bit adder for signal <LP_cnt[3]_GND_5_o_add_224_OUT> created at line 523.
+    Found 5-bit adder for signal <n0455> created at line 428.
+    Found 5-bit adder for signal <init_cnt[4]_GND_5_o_add_138_OUT> created at line 432.
+    Found 5-bit adder for signal <n0500> created at line 503.
+    Found 5-bit adder for signal <beamform_cnt[4]_GND_5_o_add_208_OUT> created at line 507.
+    Found 4-bit adder for signal <LP_cnt[3]_GND_5_o_add_226_OUT> created at line 524.
     Found 16x8-bit dual-port RAM <Mram_atten_reg_init> for signal <atten_reg_init>.
-    Found 8-bit 16-to-1 multiplexer for signal <init_cnt[4]_BF_phase_reg[15][7]_wide_mux_133_OUT> created at line 427.
-    Found 8-bit 16-to-1 multiplexer for signal <init_cnt[3]_BF_phase_reg[15][7]_wide_mux_134_OUT> created at line 427.
-    Found 8-bit 16-to-1 multiplexer for signal <beamform_cnt[4]_AC_phase_reg[15][7]_wide_mux_203_OUT> created at line 502.
-    Found 8-bit 16-to-1 multiplexer for signal <beamform_cnt[3]_AC_phase_reg[15][7]_wide_mux_204_OUT> created at line 502.
-    Found 128-bit 4-to-1 multiplexer for signal <_n0930> created at line 366.
-    Found 8-bit comparator equal for signal <host_module_id[3]_General_BID[7]_equal_7_o> created at line 255
-    Found 1-bit comparator equal for signal <n0022> created at line 312
-    Found 2-bit comparator lessequal for signal <n0091> created at line 399
-    Found 5-bit comparator greater for signal <init_cnt[4]_PWR_5_o_LessThan_128_o> created at line 421
-    Found 5-bit comparator greater for signal <init_cnt[4]_GND_5_o_LessThan_129_o> created at line 423
-    Found 5-bit comparator greater for signal <init_cnt[4]_GND_5_o_LessThan_150_o> created at line 441
-    Found 5-bit comparator greater for signal <beamform_cnt[4]_PWR_5_o_LessThan_198_o> created at line 496
-    Found 5-bit comparator greater for signal <beamform_cnt[4]_GND_5_o_LessThan_199_o> created at line 498
-    Found 4-bit comparator greater for signal <LP_cnt[3]_GND_5_o_LessThan_224_o> created at line 522
+    Found 8-bit 16-to-1 multiplexer for signal <init_cnt[4]_BF_phase_reg[15][7]_wide_mux_135_OUT> created at line 428.
+    Found 8-bit 16-to-1 multiplexer for signal <init_cnt[3]_BF_phase_reg[15][7]_wide_mux_136_OUT> created at line 428.
+    Found 8-bit 16-to-1 multiplexer for signal <beamform_cnt[4]_AC_phase_reg[15][7]_wide_mux_205_OUT> created at line 503.
+    Found 8-bit 16-to-1 multiplexer for signal <beamform_cnt[3]_AC_phase_reg[15][7]_wide_mux_206_OUT> created at line 503.
+    Found 128-bit 4-to-1 multiplexer for signal <_n0983> created at line 367.
+    Found 8-bit comparator equal for signal <host_module_id[3]_General_BID[7]_equal_7_o> created at line 256
+    Found 4-bit comparator equal for signal <host_module_id[3]_Modlue_ID[3]_equal_9_o> created at line 256
+    Found 1-bit comparator equal for signal <n0026> created at line 313
+    Found 2-bit comparator lessequal for signal <n0095> created at line 400
+    Found 5-bit comparator greater for signal <init_cnt[4]_PWR_5_o_LessThan_130_o> created at line 422
+    Found 5-bit comparator greater for signal <init_cnt[4]_GND_5_o_LessThan_131_o> created at line 424
+    Found 5-bit comparator greater for signal <init_cnt[4]_GND_5_o_LessThan_152_o> created at line 442
+    Found 5-bit comparator greater for signal <beamform_cnt[4]_PWR_5_o_LessThan_200_o> created at line 497
+    Found 5-bit comparator greater for signal <beamform_cnt[4]_GND_5_o_LessThan_201_o> created at line 499
+    Found 4-bit comparator greater for signal <LP_cnt[3]_GND_5_o_LessThan_226_o> created at line 523
     Summary:
 	inferred   2 RAM(s).
 	inferred   5 Adder/Subtractor(s).
 	inferred 406 D-type flip-flop(s).
-	inferred   9 Comparator(s).
+	inferred  10 Comparator(s).
 	inferred 150 Multiplexer(s).
 	inferred   4 Finite State Machine(s).
 Unit <spi_process> synthesized.
@@ -516,11 +517,12 @@ Macro Statistics
  4-bit register                                        : 5
  5-bit register                                        : 5
  8-bit register                                        : 10
-# Comparators                                          : 11
+# Comparators                                          : 12
  1-bit comparator equal                                : 1
  1-bit comparator not equal                            : 1
  2-bit comparator lessequal                            : 1
  32-bit comparator lessequal                           : 1
+ 4-bit comparator equal                                : 1
  4-bit comparator greater                              : 1
  5-bit comparator greater                              : 5
  8-bit comparator equal                                : 1
@@ -546,6 +548,30 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_48> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_112> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_49> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_113> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_50> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_114> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_24> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_88> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_51> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_115> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_25> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_89> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_52> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_116> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_26> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_90> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_0> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_64> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_53> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_117> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_27> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_91> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_1> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_65> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_54> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_118> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_28> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_92> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_2> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_66> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_55> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_119> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_29> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_93> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_3> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_67> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_30> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_94> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_4> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_68> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_31> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_95> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_5> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_69> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_6> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_70> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_7> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_71> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_40> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_104> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_41> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_105> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_42> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_106> 
@@ -586,30 +612,6 @@ INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_39> in Unit <process_test> is equiv
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_13> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_77> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_14> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_78> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_15> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_79> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_48> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_112> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_49> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_113> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_50> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_114> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_24> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_88> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_51> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_115> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_25> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_89> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_52> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_116> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_26> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_90> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_0> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_64> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_53> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_117> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_27> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_91> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_1> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_65> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_54> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_118> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_28> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_92> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_2> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_66> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_55> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_119> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_29> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_93> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_3> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_67> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_30> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_94> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_4> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_68> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_31> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_95> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_5> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_69> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_6> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_70> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_7> in Unit <process_test> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_71> 
 WARNING:Xst:2677 - Node <r_Temp_RX_Byte_7> of sequential type is unconnected in block <SPI_Slave_test>.
 
 Synthesizing (advanced) Unit <SPI_Master_PE44951>.
@@ -722,7 +724,7 @@ INFO:Xst:3231 - The small RAM <Mram_atten_reg_init1> will be implemented on LUTs
     -----------------------------------------------------------------------
     | Port B                                                              |
     |     aspect ratio   | 16-word x 8-bit                     |          |
-    |     addrB          | connected to signal <n0451>         |          |
+    |     addrB          | connected to signal <n0455>         |          |
     |     doB            | connected to internal node          |          |
     -----------------------------------------------------------------------
 INFO:Xst:3212 - HDL ADVISOR - Asynchronous or synchronous initialization of the register <init_cnt> prevents it from being combined with the RAM <Mram_atten_reg_init> for implementation as read-only block RAM.
@@ -768,11 +770,12 @@ Macro Statistics
  5-bit up accumulator                                  : 1
 # Registers                                            : 555
  Flip-Flops                                            : 555
-# Comparators                                          : 11
+# Comparators                                          : 12
  1-bit comparator equal                                : 1
  1-bit comparator not equal                            : 1
  2-bit comparator lessequal                            : 1
  32-bit comparator lessequal                           : 1
+ 4-bit comparator equal                                : 1
  4-bit comparator greater                              : 1
  5-bit comparator greater                              : 5
  8-bit comparator equal                                : 1
@@ -802,6 +805,30 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <write_onece_data_de
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <write_onece_data_depth_2> (without init value) has a constant value of 0 in block <spi_process>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <write_onece_data_depth_3> (without init value) has a constant value of 1 in block <spi_process>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <write_onece_data_depth_4> (without init value) has a constant value of 1 in block <spi_process>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_48> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_112> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_49> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_113> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_50> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_114> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_24> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_88> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_51> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_115> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_25> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_89> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_52> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_116> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_26> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_90> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_0> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_64> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_53> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_117> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_27> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_91> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_1> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_65> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_54> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_118> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_28> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_92> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_2> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_66> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_55> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_119> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_29> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_93> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_3> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_67> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_30> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_94> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_4> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_68> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_31> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_95> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_5> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_69> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_6> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_70> 
+INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_7> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_71> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_40> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_104> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_41> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_105> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_42> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_106> 
@@ -842,30 +869,6 @@ INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_39> in Unit <spi_process> is equiva
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_13> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_77> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_14> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_78> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_15> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_79> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_48> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_112> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_49> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_113> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_50> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_114> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_24> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_88> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_51> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_115> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_25> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_89> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_52> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_116> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_26> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_90> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_0> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_64> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_53> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_117> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_27> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_91> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_1> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_65> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_54> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_118> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_28> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_92> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_2> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_66> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_55> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_119> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_29> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_93> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_3> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_67> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_30> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_94> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_4> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_68> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_31> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_95> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_5> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_69> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_6> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_70> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_7> in Unit <spi_process> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_71> 
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <SPI_Master_test/FSM_5> on signal <spi_state[1:3]> with user encoding.
 -------------------
@@ -2160,17 +2163,17 @@ Top Level Output File Name         : top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 3379
+# BELS                             : 3372
 #      GND                         : 1
 #      INV                         : 12
 #      LUT1                        : 13
 #      LUT2                        : 82
 #      LUT3                        : 172
-#      LUT4                        : 214
-#      LUT5                        : 153
-#      LUT6                        : 2499
+#      LUT4                        : 210
+#      LUT5                        : 152
+#      LUT6                        : 2498
 #      MUXCY                       : 69
-#      MUXF7                       : 59
+#      MUXF7                       : 58
 #      MUXF8                       : 24
 #      VCC                         : 1
 #      XORCY                       : 80
@@ -2200,16 +2203,16 @@ Selected Device : 6slx25ftg256-2
 
 Slice Logic Utilization: 
  Number of Slice Registers:             468  out of  30064     1%  
- Number of Slice LUTs:                 6885  out of  15032    45%  
-    Number used as Logic:              3145  out of  15032    20%  
+ Number of Slice LUTs:                 6879  out of  15032    45%  
+    Number used as Logic:              3139  out of  15032    20%  
     Number used as Memory:             3740  out of   3664   102% (*) 
        Number used as RAM:             3740
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   6969
-   Number with an unused Flip Flop:    6501  out of   6969    93%  
-   Number with an unused LUT:            84  out of   6969     1%  
-   Number of fully used LUT-FF pairs:   384  out of   6969     5%  
+ Number of LUT Flip Flop pairs used:   6963
+   Number with an unused Flip Flop:    6495  out of   6963    93%  
+   Number with an unused LUT:            84  out of   6963     1%  
+   Number of fully used LUT-FF pairs:   384  out of   6963     5%  
    Number of unique control sets:        40
 
 IO Utilization: 
@@ -2260,7 +2263,7 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 9.303ns (Maximum Frequency: 107.496MHz)
-   Minimum input arrival time before clock: 4.830ns
+   Minimum input arrival time before clock: 4.651ns
    Maximum output required time after clock: 6.652ns
    Maximum combinational path delay: 7.674ns
 
@@ -2271,7 +2274,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_in'
   Clock period: 9.303ns (frequency: 107.496MHz)
-  Total number of paths / destination ports: 70375 / 1048
+  Total number of paths / destination ports: 65591 / 1048
 -------------------------------------------------------------------------
 Delay:               9.303ns (Levels of Logic = 14)
   Source:            process_test/ang_pitch_0 (FF)
@@ -2329,7 +2332,7 @@ Delay:               3.320ns (Levels of Logic = 1)
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_in'
   Total number of paths / destination ports: 17 / 17
 -------------------------------------------------------------------------
-Offset:              4.830ns (Levels of Logic = 2)
+Offset:              4.651ns (Levels of Logic = 2)
   Source:            DEV_MODE (PAD)
   Destination:       process_test/o_RX_ON_7 (FF)
   Destination Clock: clk_in rising
@@ -2338,12 +2341,12 @@ Offset:              4.830ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            21   1.328   1.765  DEV_MODE_IBUF (DEV_MODE_IBUF)
-     LUT6:I0->O           16   0.254   1.181  process_test/_n1626_inv (process_test/_n1626_inv)
+     IBUF:I->O            21   1.328   1.586  DEV_MODE_IBUF (DEV_MODE_IBUF)
+     LUT6:I2->O           16   0.254   1.181  process_test/_n1679_inv (process_test/_n1679_inv)
      FDCE:CE                   0.302          process_test/o_TX_ON_0
     ----------------------------------------
-    Total                      4.830ns (1.884ns logic, 2.946ns route)
-                                       (39.0% logic, 61.0% route)
+    Total                      4.651ns (1.884ns logic, 2.767ns route)
+                                       (40.5% logic, 59.5% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'selected_SCLK'
@@ -2439,12 +2442,12 @@ selected_SCLK  |    3.320|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 108.00 secs
-Total CPU time to Xst completion: 108.34 secs
+Total REAL time to Xst completion: 107.00 secs
+Total CPU time to Xst completion: 106.81 secs
  
 --> 
 
-Total memory usage is 4591400 kilobytes
+Total memory usage is 4591484 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  121 (   0 filtered)

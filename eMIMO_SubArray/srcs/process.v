@@ -143,6 +143,7 @@ module spi_process #(
     localparam CMD_WRITE_IFDSA     = 4'hA;
 
     localparam BOARD_ID_ALL = 4'h8;
+    localparam BOARD_ID_MODULE_ONLY = 4'h9;
 
     // 板子ID定义
     reg [3:0] Modlue_ID;     // FPGA本地存储的Modlue_ID
@@ -252,7 +253,7 @@ module spi_process #(
         else begin
             if (i_spi_listener_interrupt) begin
                 // 比较主机的Board_ID与本地存储的Board_ID
-                if (({host_module_id, host_board_id} == General_BID) || (host_board_id == BOARD_ID_ALL)) begin
+                if (({host_module_id, host_board_id} == General_BID) || (host_board_id == BOARD_ID_ALL) || (host_module_id == Modlue_ID && host_board_id == BOARD_ID_MODULE_ONLY)) begin
                     // 处理不同的命令地址
                     case (cmd_addr)
                         CMD_PHASE_ARRAY_CAL: begin

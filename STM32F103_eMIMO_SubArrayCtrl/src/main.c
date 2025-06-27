@@ -27,7 +27,7 @@ int main(void) {
     SubArray_init_info_transmitt();
     if (general_BID == 0)
     {
-        printf("Ready. -- #0\r\n");
+        printf("Ready. -- #00\r\n");
     }
 
     // 正常工作模式下，STM32到此不再向FPGA发送任何信息

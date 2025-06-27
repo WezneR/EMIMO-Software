@@ -50,12 +50,15 @@ void GPIO_init(void)
 }
 
 
-
+/// @brief 从EEPROM中读取板号、初始幅相信息，然后通过SPI发送给FPGA
+/// @param  None
 void SubArray_init_info_transmitt(void)
 {
-
+    // 读取16字节的初相信息。前8字节对应TX，后8字节对应RX
     EEPROM_ReadSequenBytes(MEM_PHA, init_phase, 16);
+    // 读取16字节的幅度信息。前8字节对应TX，后8字节对应RX
     EEPROM_ReadSequenBytes(MEM_ATT, init_atten, 16);
+    // 读取板号
     general_BID = EEPROM_ReadByte(MEM_BID);
 
     FPGA_CSEL_CLR();
@@ -92,7 +95,8 @@ void SubArray_init_info_transmitt(void)
 
 void process(uint8_t uart_data[8], uint8_t * ptr_process_once)
 {
-    if (uart_data[2] == general_BID || (uart_data[2]&0x0F) == BORADCAST_BID )
+    if (uart_data[2] == general_BID || (uart_data[2]&0x0F) == BID_BORADCAST || 
+    ((uart_data[2]&0x0F) == BID_MODULE_ONLY && (uart_data[2]&0xF0) == (general_BID&0xF0)))
     {    
         // 需要转发给FPGA的指令
         if (uart_data[6] == UART_Tail0 && uart_data[7] == UART_Tail1)
@@ -109,6 +113,10 @@ void process(uint8_t uart_data[8], uint8_t * ptr_process_once)
         else if (uart_data[6] == UART_Tail1 && uart_data[7] == UART_Tail0)
         {
             uint8_t cmd_addr = uart_data[3] & 0x0F;
+
+            uint8_t Select = ((uart_data[3]&0xF0)>>4);
+            uint8_t current_GBID = EEPROM_ReadByte(MEM_BID); 
+
             switch (cmd_addr)
             {
             case 0x0:
@@ -124,13 +132,110 @@ void process(uint8_t uart_data[8], uint8_t * ptr_process_once)
             case 0x1:
                 SubArray_init_info_transmitt();
                 break;
+            case 0x2:
+
+
+                if ((uart_data[2]&0x0F) == BID_BORADCAST)
+                {
+                    // // 广播模式下同时返回会产生冲突，此处只允许 M0B0 回复
+                    // if (general_BID == 0)
+                    // {
+                    //     printf("Cannot return values upon boardcast request. -- #00\r\n")
+                    // }
+                    // 为了便于定位串口号与模组的映射关系，仍然允许所有模组的B0进行回复，为了避免收到乱码，务必只对一个串口号发送该指令
+                    // 因为单片机无法检查其他单片机是否也收到了这条广播指令
+                    if((general_BID&0x0F) == 0)
+                    {
+                        if (Select == 0)
+                        {
+                            printf("%x\r\n", current_GBID);
+                        }
+                        else
+                        {
+                            printf("Cannot return values upon boardcast request. -- #%x\r\n", current_GBID);
+                        }
+                    }
+                    break; // 如果不是广播操作，则继续
+                }
+
+                if ((uart_data[2]&0x0F) == BID_MODULE_ONLY)
+                {
+                    // 单模组操作时，只需要该模组的0号板回复
+                    if((general_BID&0x0F) == 0)
+                    {
+                        if (Select == 0)
+                        {
+                            printf("%x\r\n", current_GBID);
+                        }
+                        else
+                        {
+                            printf("Cannot return values upon module-wise request. -- #%x\r\n", current_GBID);
+                        }
+                    }
+                    break; // 如果不是单模组操作，则继续（接下来只可能是单板操作）
+                }
+
+                if (Select == 0)
+                {
+                    printf("%x\r\n", current_GBID);
+                }
+                else if (Select == 1)
+                {
+                    uint8_t current_init_phase[8] = {0};
+                    // 读取TX的8个通道的初相信息。
+                    EEPROM_ReadSequenBytes(MEM_PHA, current_init_phase, 8);
+                    for (uint8_t i = 0; i < 7; i++)
+                    {
+                        printf("%d,", current_init_phase[i]);
+                    }
+                    printf("%d\r\n", current_init_phase[7]);
+                    
+                    // 读取16字节的幅度信息。前8字节对应TX，后8字节对应RX
+                    EEPROM_ReadSequenBytes(MEM_ATT, init_atten, 16);
+                }
+                else if (Select == 2)
+                {
+                    uint8_t current_init_phase[8] = {0};
+                    // 读取RX的8个通道的初相信息。
+                    EEPROM_ReadSequenBytes(MEM_PHA + 8, current_init_phase, 8);
+                    for (uint8_t i = 0; i < 7; i++)
+                    {
+                        printf("%d,", current_init_phase[i]);
+                    }
+                    printf("%d\r\n", current_init_phase[7]);
+                }
+                else if (Select == 3)
+                {
+                    uint8_t current_init_att[8] = {0};
+                    // 读取TX的8个通道的幅度信息。
+                    EEPROM_ReadSequenBytes(MEM_ATT, current_init_att, 8);
+                    for (uint8_t i = 0; i < 7; i++)
+                    {
+                        printf("%d,", current_init_att[i]);
+                    }
+                    printf("%d\r\n", current_init_att[7]);
+                }
+                else if (Select == 4)
+                {
+                    uint8_t current_init_att[8] = {0};
+                    // 读取RX的8个通道的幅度信息。
+                    EEPROM_ReadSequenBytes(MEM_ATT + 8, current_init_att, 8);
+                    for (uint8_t i = 0; i < 7; i++)
+                    {
+                        printf("%d,", current_init_att[i]);
+                    }
+                    printf("%d\r\n", current_init_att[7]);
+                }
+                break;
             case 0x7:
                 EEPROM_WriteByte(MEM_BID, uart_data[5]);
                 break;
             case 0x8:
+                // 某通道初相存储地址：基地址 + Chip_ID偏移 + Channel_ID
                 EEPROM_WriteByte(MEM_PHA | ((uart_data[3]&0xF0)>>3) | (uart_data[4]&0x01), uart_data[5]);
                 break;
             case 0x9:
+                // 某通道幅度存储地址：基地址 + Chip_ID偏移 + Channel_ID
                 EEPROM_WriteByte(MEM_ATT | ((uart_data[3]&0xF0)>>3) | (uart_data[4]&0x01), uart_data[5]);
                 break;
             default:
