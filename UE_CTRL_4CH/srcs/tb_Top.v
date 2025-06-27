@@ -34,17 +34,10 @@ module top_tb;
     wire TX_ON_B1;
     wire RX_ON_B1;
     wire [5:0] TX_B1_DSA;
-    wire [7:0] TX_B1_LE;
+    wire [3:0] TX_B1_LE;
     wire [5:0] RX_B1_DSA;
-    wire [7:0] RX_B1_LE;
-    wire [7:0] RX_B1_LNA_BYPASS;
-    wire TX_ON_B2;
-    wire RX_ON_B2;
-    wire [5:0] TX_B2_DSA;
-    wire [7:0] TX_B2_LE;
-    wire [5:0] RX_B2_DSA;   
-    wire [7:0] RX_B2_LE;
-    wire [7:0] RX_B2_LNA_BYPASS;
+    wire [3:0] RX_B1_LE;
+    wire [3:0] RX_B1_LNA_BYPASS;
     wire TX_LED;
     wire RX_LED;
 
@@ -79,13 +72,6 @@ module top_tb;
         .RX_B1_DSA(RX_B1_DSA),
         .RX_B1_LE(RX_B1_LE),
         .RX_B1_LNA_BYPASS(RX_B1_LNA_BYPASS),
-        .TX_ON_B2(TX_ON_B2),
-        .RX_ON_B2(RX_ON_B2),
-        .TX_B2_DSA(TX_B2_DSA),
-        .TX_B2_LE(TX_B2_LE),
-        .RX_B2_DSA(RX_B2_DSA),
-        .RX_B2_LE(RX_B2_LE),
-        .RX_B2_LNA_BYPASS(RX_B2_LNA_BYPASS),
         .TX_LED(TX_LED),
         .RX_LED(RX_LED)
     );
@@ -104,6 +90,7 @@ module top_tb;
 ////////////////////////////////////////////////////////////////////////////////
 
     // 初始化测试环境
+
     initial begin
 
 
@@ -128,38 +115,37 @@ module top_tb;
 
         #500;
 
-        // 打开 RF_Bank1 TX
+        // 打开 TX
         send_multiple_bytes(48'h555D_00_04_02_00, 6);
         #100000;
 
-        // 关闭所有 RF_Bank
-        send_multiple_bytes(48'h555D_02_04_00_00, 6);
+        // 关闭所有通道 
+        send_multiple_bytes(48'h555D_00_04_00_00, 6);
         #100000;
 
-        // 打开 RF_Bank2 RX
-        send_multiple_bytes(48'h555D_01_04_01_00, 6);
+        // 打开 RX
+        send_multiple_bytes(48'h555D_00_04_01_00, 6);
         #100000;
 
-        // // 关闭所有 RF_Bank
-        // send_multiple_bytes(48'h555D_02_04_00_00, 6);
-        // #100000;
-
-        // // 打开所有 RF_Bank TX
-        // send_multiple_bytes(48'h555D_02_04_02_00, 6);
-        // #100000;
-
-        // 向所有 RF_Bank 的所有通道写入衰减码字 0x3A
-        send_multiple_bytes(48'h555D_02_0A_01_3A, 6);
+        // 待机 
+        send_multiple_bytes(48'h555D_00_06_00_00, 6);
         #100000;
 
-        // 向 RF_Bank1 的通道8（TX的最后一个通道）写入衰减码字 0x3F
-        send_multiple_bytes(48'h555D_00_7A_00_3F, 6);
+        // 向所有通道写入衰减码字 0x3A
+        send_multiple_bytes(48'h555D_00_0A_03_3A, 6);
         #100000;
 
-        // 向 RF_Bank2 的通道13（RX的第六个通道）写入衰减码字 0x28
-        send_multiple_bytes(48'h555D_01_DA_00_28, 6);
+        // 向所有RX通道写入衰减码字 0x1F
+        send_multiple_bytes(48'h555D_00_0A_01_1F, 6);
         #100000;
 
+        // 向所有TX通道写入衰减码字 0x0E
+        send_multiple_bytes(48'h555D_00_0A_02_0E, 6);
+        #100000;
+
+        // 向RX1通道写入衰减码字 0x28
+        send_multiple_bytes(48'h555D_00_5A_00_28, 6);
+        #100000;
 
         // 停止模拟
         #5000;

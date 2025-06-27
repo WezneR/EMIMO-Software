@@ -71,7 +71,7 @@
 <msg type="warning" file="HDLCompiler" num="1127" delta="old" >"F:\ISE\UE_CTRL_4CH\srcs\CTRL_TOP.v" Line 203: Assignment to <arg fmt="%s" index="1">TX_ready</arg> ignored, since the identifier is never used
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="413" delta="old" >"F:\ISE\UE_CTRL_4CH\srcs\process.v" Line 193: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"F:\ISE\UE_CTRL_4CH\srcs\process.v" Line 217: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="413" delta="old" >"F:\ISE\UE_CTRL_4CH\srcs\rst.v" Line 37: Result of <arg fmt="%d" index="1">9</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">8</arg>-bit target.

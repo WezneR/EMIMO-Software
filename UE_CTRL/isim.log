@@ -14,4 +14,4 @@ Time resolution is 1 ps
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
 # run all
-Stopped at time : 3730300 ns :  in File "F:/ISE/UE_CTRL/srcs/tb_Top.v" Line 166 
+Stopped at time : 4351100 ns :  in File "F:/ISE/UE_CTRL/srcs/tb_Top.v" Line 174 

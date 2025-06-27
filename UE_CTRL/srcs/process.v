@@ -23,12 +23,15 @@
 //      
 //
 // 2025-02-25 14:53:16
-// Revision v5 （当前版本）
+// Revision v5 （已弃用：不支持同时控制TX的所有通道或RX的所有通道的衰减器）
 //  - 加入了来自HDMI接口的外部SPI控制信号，需要和原来的USB接口的UART信号进行选路，选路信号为PLUG_IN。
 //    为了使两种控制信号兼容同一个process模块，需要删除原来process模块中有关receive_data_bytes和interrupt_clear的部分。
 //    只留下相同的部分：32位的输入数据 和 一个中断信号。
 //
 //
+// 2025-03-30 18:21:22
+// Revision v6 （当前版本）
+// - 修改了帧格式定义中有关 ALL_DSA 字段的部分。新的版允许同时控制TX的所有通道或RX的所有通道的衰减器，或者同时控制TX+RX的所有通道的衰减器。
 //
 //
 //
@@ -83,7 +86,7 @@ module ctrl_process (
     reg [5:0] dsa_att;
     reg [1:0] Bank_ID;
     reg [3:0] DSA_ID;
-    reg  ALL_DSA;
+    reg [1:0] ALL_DSA;
 
     // 维持DSA(HMC1122)数据和LE时序的状态机
     reg [1:0] write_dsa_state;
@@ -165,7 +168,7 @@ module ctrl_process (
                         CMD_WRITE_DSA: begin
                             // 保存DSA衰减值
                             dsa_att <= host_data[5:0];
-                            ALL_DSA <= host_data[8];
+                            ALL_DSA <= host_data[9:8];
                             Bank_ID <= host_bank_id;
                             DSA_ID <= host_dsa_id;
                             write_dsa_state <= S_WDSA_DATA_START;
@@ -214,50 +217,85 @@ module ctrl_process (
             if (write_dsa_state == S_WDSA_DATA_START) begin
                 case (Bank_ID)
                     2'd0: begin
-                        if (ALL_DSA) begin
-                            TX_B1_DSA <= dsa_att;
-                            RX_B1_DSA <= dsa_att;
-                        end
-                        else begin
-                            if (DSA_ID < 8) begin
-                                TX_B1_DSA <= dsa_att;
+                        case (ALL_DSA)
+                            2'd0: begin // 只更新某一个DSA
+                                if (DSA_ID < 8) begin
+                                    TX_B1_DSA <= dsa_att;
+                                end
+                                else begin
+                                    RX_B1_DSA <= dsa_att;
+                                end
                             end
-                            else begin
+                            2'd1: begin // 更新所有RX DSA
                                 RX_B1_DSA <= dsa_att;
                             end
-                        end
+                            2'd2: begin // 更新所有TX DSA
+                                TX_B1_DSA <= dsa_att;
+                            end
+                            2'd3: begin // 更新所有DSA
+                                TX_B1_DSA <= dsa_att;
+                                RX_B1_DSA <= dsa_att;
+                            end
+                            default: begin
+                                
+                            end
+                        endcase
                     end
                     2'd1: begin
-                        if (ALL_DSA) begin
-                            TX_B2_DSA <= dsa_att;
-                            RX_B2_DSA <= dsa_att;
-                        end
-                        else begin
-                            if (DSA_ID < 8) begin
-                                TX_B2_DSA <= dsa_att;
+                        case (ALL_DSA)
+                            2'd0: begin // 只更新某一个DSA
+                                if (DSA_ID < 8) begin
+                                    TX_B2_DSA <= dsa_att;
+                                end
+                                else begin
+                                    RX_B2_DSA <= dsa_att;
+                                end
                             end
-                            else begin
+                            2'd1: begin // 更新所有RX DSA
                                 RX_B2_DSA <= dsa_att;
                             end
-                        end
-                    end
-                    2'd2: begin
-                        if (ALL_DSA) begin
-                            TX_B1_DSA <= dsa_att;
-                            RX_B1_DSA <= dsa_att;
-                            TX_B2_DSA <= dsa_att;
-                            RX_B2_DSA <= dsa_att;
-                        end
-                        else begin
-                            if (DSA_ID < 8) begin
-                                TX_B1_DSA <= dsa_att;
+                            2'd2: begin // 更新所有TX DSA
                                 TX_B2_DSA <= dsa_att;
                             end
-                            else begin
+                            2'd3: begin // 更新所有DSA
+                                TX_B2_DSA <= dsa_att;
+                                RX_B2_DSA <= dsa_att;
+                            end
+                            default: begin
+                                
+                            end
+                        endcase
+                    end
+                    2'd2: begin
+                        case (ALL_DSA)
+                            2'd0: begin // 只更新某两个DSA
+                                if (DSA_ID < 8) begin
+                                    TX_B1_DSA <= dsa_att;
+                                    TX_B2_DSA <= dsa_att;
+                                end
+                                else begin
+                                    RX_B1_DSA <= dsa_att;
+                                    RX_B2_DSA <= dsa_att;
+                                end
+                            end
+                            2'd1: begin // 更新所有RX DSA
                                 RX_B1_DSA <= dsa_att;
                                 RX_B2_DSA <= dsa_att;
                             end
-                        end
+                            2'd2: begin // 更新所有TX DSA
+                                TX_B1_DSA <= dsa_att;
+                                TX_B2_DSA <= dsa_att;
+                            end
+                            2'd3: begin // 更新所有DSA
+                                TX_B1_DSA <= dsa_att;
+                                TX_B2_DSA <= dsa_att;
+                                RX_B1_DSA <= dsa_att;
+                                RX_B2_DSA <= dsa_att;
+                            end
+                            default: begin
+                                
+                            end
+                        endcase
                     end
                     default: begin
                         
@@ -270,50 +308,85 @@ module ctrl_process (
             if (write_dsa_state == S_WDSA_LE_HIGH) begin
                 case (Bank_ID)
                     2'd0: begin
-                        if (ALL_DSA) begin
-                            TX_B1_LE <= 8'hFF;
-                            RX_B1_LE <= 8'hFF;
-                        end
-                        else begin
-                            if (DSA_ID < 8) begin
-                                TX_B1_LE[DSA_ID[2:0]] <= 1;
+                        case (ALL_DSA)
+                            2'd0: begin // 只更新某一个DSA
+                                if (DSA_ID < 8) begin
+                                    TX_B1_LE[DSA_ID[2:0]] <= 1;
+                                end
+                                else begin
+                                    RX_B1_LE[DSA_ID[2:0]] <= 1;
+                                end
                             end
-                            else begin
-                                RX_B1_LE[DSA_ID[2:0]] <= 1;
+                            2'd1: begin // 更新所有RX DSA
+                                RX_B1_LE <= 8'hFF;
                             end
-                        end
+                            2'd2: begin // 更新所有TX DSA
+                                TX_B1_LE <= 8'hFF;
+                            end
+                            2'd3: begin // 更新所有DSA
+                                TX_B1_LE <= 8'hFF;
+                                RX_B1_LE <= 8'hFF;
+                            end
+                            default: begin
+                                
+                            end
+                        endcase
                     end
                     2'd1: begin
-                        if (ALL_DSA) begin
-                            TX_B2_LE <= 8'hFF;
-                            RX_B2_LE <= 8'hFF;
-                        end
-                        else begin
-                            if (DSA_ID < 8) begin
-                                TX_B2_LE[DSA_ID[2:0]] <= 1;
+                        case (ALL_DSA)
+                            2'd0: begin // 只更新某一个DSA
+                                if (DSA_ID < 8) begin
+                                    TX_B2_LE[DSA_ID[2:0]] <= 1;
+                                end
+                                else begin
+                                    RX_B2_LE[DSA_ID[2:0]] <= 1;
+                                end
                             end
-                            else begin
-                                RX_B2_LE[DSA_ID[2:0]] <= 1;
+                            2'd1: begin // 更新所有RX DSA
+                                RX_B2_LE <= 8'hFF;
                             end
-                        end
+                            2'd2: begin // 更新所有TX DSA
+                                TX_B2_LE <= 8'hFF;
+                            end
+                            2'd3: begin // 更新所有DSA
+                                TX_B2_LE <= 8'hFF;
+                                RX_B2_LE <= 8'hFF;
+                            end
+                            default: begin
+                                
+                            end
+                        endcase
                     end
                     2'd2: begin
-                        if (ALL_DSA) begin
-                            TX_B1_LE <= 8'hFF;
-                            RX_B1_LE <= 8'hFF;
-                            TX_B2_LE <= 8'hFF;
-                            RX_B2_LE <= 8'hFF;
-                        end
-                        else begin
-                            if (DSA_ID < 8) begin
-                                TX_B1_LE[DSA_ID[2:0]] <= 1;
-                                TX_B2_LE[DSA_ID[2:0]] <= 1;
+                        case (ALL_DSA)
+                            2'd0: begin // 只更新某两个DSA
+                                if (DSA_ID < 8) begin
+                                    TX_B1_LE[DSA_ID[2:0]] <= 1;
+                                    TX_B2_LE[DSA_ID[2:0]] <= 1;
+                                end
+                                else begin
+                                    RX_B1_LE[DSA_ID[2:0]] <= 1;
+                                    RX_B2_LE[DSA_ID[2:0]] <= 1;
+                                end
                             end
-                            else begin
-                                RX_B1_LE[DSA_ID[2:0]] <= 1;
-                                RX_B2_LE[DSA_ID[2:0]] <= 1;
+                            2'd1: begin // 更新所有RX DSA
+                                RX_B1_LE <= 8'hFF;
+                                RX_B2_LE <= 8'hFF;
                             end
-                        end
+                            2'd2: begin // 更新所有TX DSA
+                                TX_B1_LE <= 8'hFF;
+                                TX_B2_LE <= 8'hFF;
+                            end
+                            2'd3: begin // 更新所有DSA
+                                TX_B1_LE <= 8'hFF;
+                                TX_B2_LE <= 8'hFF;
+                                RX_B1_LE <= 8'hFF;
+                                RX_B2_LE <= 8'hFF;
+                            end
+                            default: begin
+                                
+                            end
+                        endcase
                     end
                     default: begin
                         
