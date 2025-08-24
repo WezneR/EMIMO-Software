@@ -13,6 +13,15 @@
 
 #define UART_GPIO GPIOA
 
+
+#define UART_Head0 0x55
+#define UART_Head1 0x5D
+#define UART_Tail0 0x0D
+#define UART_Tail1 0x0A
+
+#define UART_Head   (UART_Head0<<8)|UART_Head1
+#define UART_Tail   (UART_Tail0<<8)|UART_Tail1
+
 void UART_Init(void);
 void USART2_IRQHandler(void);
 

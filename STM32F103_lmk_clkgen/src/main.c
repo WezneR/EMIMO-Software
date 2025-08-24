@@ -1,8 +1,17 @@
+#include <stdio.h>
 #include "delay.h"
 #include "uart.h"
 #include "LMK04832_Drv.h"
 
 extern uint8_t init_regmap[];
+
+extern uint8_t host_instruction_valid;
+
+extern uint8_t process_once;
+
+extern uint8_t uart_rx_buffer[8];
+
+static void process(uint8_t uart_data[8], uint8_t * ptr_process_once);
 
 int main()
 {
@@ -85,12 +94,70 @@ int main()
         // 检查是否接收到有效的UART指令
         if (host_instruction_valid && process_once == 0)
         {
-            // MCU_PLUG_SET();
             process(uart_rx_buffer, &process_once);
-            #if (USE_LED == 1)
-            LED_OFF();
-            #endif
         }
     }
     
 }
+
+static void process(uint8_t uart_data[8], uint8_t * ptr_process_once)
+{
+
+    uint8_t cmd_addr = uart_data[3] & 0x0F;
+
+    uint8_t dist = ((uart_data[3]&0xF0)>>4);
+
+    switch (cmd_addr)
+    {
+    case 0x1:
+        if (uart_data[5]& 0x01)
+        {
+            if (dist == 0)
+            {
+                TGOUT_SET();
+                printf("trig_out is ON.\r\n");
+            }
+            else
+            {
+                TGIN_SET();
+                printf("trig_in is ON.\r\n");
+            }
+        }
+        else
+        {
+            if (dist == 0)
+            {
+                TGOUT_CLR();
+                printf("trig_out is OFF.\r\n");
+            }
+            else
+            {
+                TGIN_CLR();
+                printf("trig_in is OFF.\r\n");
+            }
+        }
+        break;
+    case 0x2:
+        if (dist == 0)
+        {
+            TGOUT_SET();
+            delay_ms(1);
+            TGOUT_CLR();
+            printf("A trig_out pulse is sent.\r\n");
+        }
+        else
+        {
+            TGIN_SET();
+            delay_ms(1);
+            TGIN_CLR();
+            printf("A trig_in pulse is sent.\r\n");
+        }
+        break;
+    
+    default:
+        printf("lmk_clk_gen: Unknown command %02X\r\n", cmd_addr);
+        break;
+    }
+    *ptr_process_once = 1;
+}
+
