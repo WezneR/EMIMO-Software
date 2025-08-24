@@ -7,7 +7,7 @@
  */
 void GPIO_init(void)
 {
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOC , ENABLE);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOD, ENABLE);
 
     GPIO_InitTypeDef GPIO_InitStruct;
     // 用户按键
@@ -40,6 +40,39 @@ void GPIO_init(void)
     GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(LMK_GPIOx, &GPIO_InitStruct);
 
+
+    // 打开PD0 PD1复用功能
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
+
+    GPIO_PinRemapConfig(GPIO_Remap_PD01, ENABLE);
+
+    // 配置PD0和PD1为复用推挽输出
+    GPIO_InitStruct.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
+    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+    TGIN_CLR();
+    TGOUT_CLR();
+
+    // 发送三个上升沿，因为后级LMK00101的时钟输入疑似有三级缓存
+    TGIN_SET();
+    TGOUT_SET();
+    delay_ms(1);
+    TGIN_CLR();
+    TGOUT_CLR();
+    delay_ms(1);
+    TGIN_SET();
+    TGOUT_SET();
+    delay_ms(1);
+    TGIN_CLR();
+    TGOUT_CLR();
+    delay_ms(1);
+    TGIN_SET();
+    TGOUT_SET();
+    delay_ms(1);
+    TGIN_CLR();
+    TGOUT_CLR();
 }
 
 /// @brief 初始化SPI1外设用于与LMK04832通信

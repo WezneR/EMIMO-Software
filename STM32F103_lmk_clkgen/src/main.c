@@ -14,6 +14,8 @@ int main()
     GPIO_init();
 
     LMK_regmap_init(init_regmap);
+    delay_ms(100);
+    LMK_regmap_init(init_regmap);
 
     uint8_t combined_key_encode = 0;
 
@@ -60,23 +62,34 @@ int main()
         switch (combined_key_encode)
         {
         case 1:
-            __NOP();
             break;
-        
         case 2:
-            LMK_PLL1_PD();
-            break;
-        
+            {
+                TGOUT_SET();
+                delay_ms(1);
+                TGOUT_CLR();
+                break;
+            }
         case 3:
-            __NOP();
             break;
-        
         case 4:
-            LMK_PLL2_PD();
-            break;
-        
+            {
+                TGIN_SET();
+                delay_ms(1);
+                TGIN_CLR();
+                break;
+            }            
         default:
             break;
+        }
+        // 检查是否接收到有效的UART指令
+        if (host_instruction_valid && process_once == 0)
+        {
+            // MCU_PLUG_SET();
+            process(uart_rx_buffer, &process_once);
+            #if (USE_LED == 1)
+            LED_OFF();
+            #endif
         }
     }
     

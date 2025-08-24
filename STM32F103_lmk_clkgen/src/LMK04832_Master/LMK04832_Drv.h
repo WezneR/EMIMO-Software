@@ -47,7 +47,12 @@ extern "C" {
 #define USRKEY2_Pin GPIO_Pin_14
 #define USRKEY3_Pin GPIO_Pin_15
 
-
+#define TGOUT_Pin GPIO_Pin_0
+#define TGIN_Pin GPIO_Pin_1
+#define TGOUT_SET() GPIO_WriteBit(GPIOD, TGOUT_Pin, 1)
+#define TGOUT_CLR() GPIO_WriteBit(GPIOD, TGOUT_Pin, 0)
+#define TGIN_SET() GPIO_WriteBit(GPIOD, TGIN_Pin, 1)
+#define TGIN_CLR() GPIO_WriteBit(GPIOD, TGIN_Pin, 0)
 
 /* functions -----------------------------------------------------------------*/
 void LMK_Master_Init(void);
