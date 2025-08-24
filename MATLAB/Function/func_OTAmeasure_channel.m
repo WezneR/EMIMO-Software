@@ -61,7 +61,7 @@ for bi = 0:7 % from board 1 to board 8
         p4 = zeros(1,loop);
 
         func_channel_switch(COM, Module_ID, bi, i, isTX, 0);
-        pause(0.02);
+        pause(0.1);
 
         VNA_Single_Sweep_Fast_loopIndicator.j=bi;
         VNA_Single_Sweep_Fast_loopIndicator.k=i;
@@ -86,7 +86,7 @@ for bi = 0:7 % from board 1 to board 8
             phase_init(i+1, bi+1, 4) = sum(p4)/loop;
         % close all channels of all boards
         func_channel_switch(COM, 0, 8, 8, isTX, 1);
-        pause(0.02);
+        pause(0.1);
     end
 end
 

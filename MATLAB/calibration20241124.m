@@ -33,7 +33,7 @@ fwrite(COM,Frame);
 fprintf('已打开开发者模式。')
 
 %% 设备
-Module_ID = 12;
+Module_ID = 2;
 isTX = 1;
 %% Open
 func_channel_switch(COM, Module_ID, 8, 8, isTX, 0);

@@ -57,7 +57,7 @@ for t = 1:cal_times
             
             % 打开该通道
             func_channel_switch(COM, Module_ID, bi, i, isTX, 0);
-            pause(0.08);
+            pause(0.1);
             VNA_Single_Sweep_Fast_loopIndicator.i=t;
             VNA_Single_Sweep_Fast_loopIndicator.j=bi;
             VNA_Single_Sweep_Fast_loopIndicator.k=i;
@@ -109,7 +109,7 @@ for t = 1:cal_times
         for j = chip_id_list
             for ci = 0:1
                 func_ps_att_write(COM, Module_ID, i, j, ci, dec2hex(amp_delta(j*2+ci+1 - 8*double(~isTX), i+1), 2));
-                pause(0.1);
+                pause(0.04);
             end
         end
     end
@@ -124,7 +124,7 @@ for bi = 0:7 % from board 1 to board 8
         
         % 打开该通道
         func_channel_switch(COM, Module_ID, bi, i, isTX, 0);
-        pause(0.04);
+        pause(0.1);
         VNA_Single_Sweep_Fast_loopIndicator.i= cal_times + 1;
         VNA_Single_Sweep_Fast_loopIndicator.j=bi;
         VNA_Single_Sweep_Fast_loopIndicator.k=i;

@@ -56,7 +56,7 @@ for t = 1:cal_times
             p = zeros(1,loop);
             % 打开该通道
             func_channel_switch(COM, Module_ID, bi, i, isTX, 0);
-            pause(0.08);
+            pause(0.1);
             VNA_Single_Sweep_Fast_loopIndicator.i=t;
             VNA_Single_Sweep_Fast_loopIndicator.j=bi;
             VNA_Single_Sweep_Fast_loopIndicator.k=i;
