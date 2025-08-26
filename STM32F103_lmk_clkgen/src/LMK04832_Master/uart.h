@@ -4,12 +4,12 @@
 #include "stm32f10x.h"
 
 // UART2定义
-#define UARTx USART2
-#define UART_RCC RCC_APB1Periph_USART2
+#define UARTx USART1
+#define UART_RCC RCC_APB2Periph_USART1
 #define UART_GPIO_RCC RCC_APB2Periph_GPIOA
 
-#define UART_TX_PIN GPIO_Pin_2
-#define UART_RX_PIN GPIO_Pin_3
+#define UART_TX_PIN GPIO_Pin_9
+#define UART_RX_PIN GPIO_Pin_10
 
 #define UART_GPIO GPIOA
 
@@ -23,6 +23,6 @@
 #define UART_Tail   (UART_Tail0<<8)|UART_Tail1
 
 void UART_Init(void);
-void USART2_IRQHandler(void);
+void USART1_IRQHandler(void);
 
 #endif // __UART_H

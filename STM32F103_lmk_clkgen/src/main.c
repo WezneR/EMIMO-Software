@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "stdio.h"
 #include "delay.h"
 #include "uart.h"
 #include "LMK04832_Drv.h"
@@ -17,10 +17,10 @@ int main()
 {
 
     SystemInit();
-    LMK_Master_Init();
-    UART_Init();
     SysTick_Init();
+    LMK_Master_Init();
     GPIO_init();
+    UART_Init();
 
     LMK_regmap_init(init_regmap);
     delay_ms(100);

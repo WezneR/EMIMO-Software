@@ -1,5 +1,5 @@
 #include "uart.h"
-#include <stdio.h>
+#include "stdio.h"
 
 static uint8_t uart_index = 0;
 // 确认帧头：0表示没有收到，1表示已经收到UART_Head0，2表示收到了完整的帧头
@@ -77,15 +77,16 @@ void UART_Init(void) {
     USART_InitTypeDef USART_InitStruct;
 
     // 使能 GPIO 和 USART 时钟
-    RCC_APB2PeriphClockCmd(UART_GPIO_RCC, ENABLE);
-    RCC_APB1PeriphClockCmd(UART_RCC, ENABLE);
+    RCC_APB2PeriphClockCmd(UART_GPIO_RCC, ENABLE); // 注意，GPIOA在APB2上
+    RCC_APB2PeriphClockCmd(UART_RCC, ENABLE); // 注意，USART1在APB2上
 
     // 配置 TX 和 RX 引脚
-    GPIO_InitStruct.GPIO_Pin = UART_TX_PIN | UART_RX_PIN;
+    GPIO_InitStruct.GPIO_Pin = UART_TX_PIN;
     GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AF_PP; // TX
     GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(UART_GPIO, &GPIO_InitStruct);
 
+    GPIO_InitStruct.GPIO_Pin = UART_RX_PIN;
     GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IN_FLOATING; // RX
     GPIO_Init(UART_GPIO, &GPIO_InitStruct);
 
@@ -100,7 +101,7 @@ void UART_Init(void) {
 
     // 使能 USART 接收中断
     USART_ITConfig(UARTx, USART_IT_RXNE, ENABLE);
-    NVIC_EnableIRQ(USART2_IRQn); // 使能 USART2 中断
+    NVIC_EnableIRQ(USART1_IRQn); // 使能 USART1 中断
 
     // 启用 USART
     USART_Cmd(UARTx, ENABLE);
@@ -119,8 +120,8 @@ UART会收到来自主机的8字节指令数据包。当然，也有可能收到
         判断后两个字节是否与帧尾一致，决定是否收到有效数据以及如何处理
 
  */
-// USART2 中断服务程序
-void USART2_IRQHandler(void) {
+// USART1 中断服务程序
+void USART1_IRQHandler(void) {
     if (USART_GetITStatus(UARTx, USART_IT_RXNE) != RESET)
     {
         USART_ClearITPendingBit(UARTx, USART_IT_RXNE); //清除中断标志
