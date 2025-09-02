@@ -27,8 +27,8 @@ int main()
     // LMK_regmap_init(init_regmap);
     // LMK_regmap_init(init_regmap_pll1only);
     LMK_regmap_init(init_regmap_v2);
-    // delay_ms(100);
-    // LMK_regmap_init(init_regmap);
+    delay_ms(100);
+    LMK_regmap_init(init_regmap_v2);
 
     uint8_t combined_key_encode = 0;
 

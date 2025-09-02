@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "cwd": "${workspaceRoot}",
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "ST-Link Debug",
+            "servertype": "stlink",
+            "interface": "swd",
+            "executable": ".\\build\\Debug\\STM32F103_lmk_clkgen.elf",
+            "serverpath": "E:\\ST\\STM32CubeIDE_1.5.0\\STM32CubeIDE\\plugins\\com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.win32_1.5.0.202011040924\\tools\\bin\\ST-LINK_gdbserver.exe",
+            "postLaunchCommands": [
+                "target reset halt"
+            ],
+            "preLaunchCommands": [],
+            "device": "STM32F103",
+            "runToEntryPoint": "main",
+        },
+        {
+            "cwd": "${workspaceRoot}",
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "openocd",
+            "servertype": "openocd",
+            "executable": ".\\build\\Debug\\STM32F103_lmk_clkgen.elf",
+            "configFiles": [
+                "interface/<debugger-type>.cfg",
+                "target/<mcu-series>.cfg"
+            ]
+        }
+    ]
+}

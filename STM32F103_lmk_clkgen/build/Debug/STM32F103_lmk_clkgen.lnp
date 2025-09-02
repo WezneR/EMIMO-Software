@@ -1,0 +1,21 @@
+-mthumb -mcpu=cortex-m3 -T f:/WPS_Sync/202409_eMIMO/Software/STM32F103_lmk_clkgen/stm32f1x_64KB_flash.ld -Wl,--gc-sections -Wl,--print-memory-usage --specs=nosys.specs --specs=nano.specs
+-Wl,-Map=./build/Debug/STM32F103_lmk_clkgen.map
+-o ./build/Debug/STM32F103_lmk_clkgen.elf ./build/Debug/.obj/hal/STM32F10x_StdPeriph_Driver/src/misc.o
+./build/Debug/.obj/hal/STM32F10x_StdPeriph_Driver/src/stm32f10x_adc.o
+./build/Debug/.obj/hal/STM32F10x_StdPeriph_Driver/src/stm32f10x_exti.o
+./build/Debug/.obj/hal/STM32F10x_StdPeriph_Driver/src/stm32f10x_flash.o
+./build/Debug/.obj/hal/STM32F10x_StdPeriph_Driver/src/stm32f10x_gpio.o
+./build/Debug/.obj/hal/STM32F10x_StdPeriph_Driver/src/stm32f10x_rcc.o
+./build/Debug/.obj/hal/STM32F10x_StdPeriph_Driver/src/stm32f10x_spi.o
+./build/Debug/.obj/hal/STM32F10x_StdPeriph_Driver/src/stm32f10x_tim.o
+./build/Debug/.obj/hal/STM32F10x_StdPeriph_Driver/src/stm32f10x_usart.o
+./build/Debug/.obj/hal/STM32F10x_StdPeriph_Driver/system_stm32f10x.o
+./build/Debug/.obj/src/LMK04832_Master/LMK04832_Drv.o
+./build/Debug/.obj/src/LMK04832_Master/init_regmap.o
+./build/Debug/.obj/src/LMK04832_Master/init_regmap_pll1only.o
+./build/Debug/.obj/src/LMK04832_Master/init_regmap_v2.o
+./build/Debug/.obj/src/LMK04832_Master/uart.o
+./build/Debug/.obj/src/delay.o
+./build/Debug/.obj/src/main.o
+./build/Debug/.obj/src/startup_stm32f10x_md.o
+./build/Debug/.obj/src/stm32f10x_it.o -lm
