@@ -9,8 +9,10 @@
 
 %% 参数
 
-CenterFreq = 6.0e9 ; %6.95GHz
-Span = 400e6  ;  %400MHz
+CenterFreq = 6.95e9 ; %6.95GHz
+% CenterFreq = 6.75e9 ; %6.75GHz
+% CenterFreq = 7.15e9 ; %6.75GHz
+Span = 50e6  ;  %400MHz
 
 %% 初始化设置
 
@@ -96,7 +98,7 @@ while (~opcStatus)
 end
 
 % 设置Marker测量为Peak
-fprintf(SAObj, 'CALC:MARK1:FUNC:PEAK ON');  % 设置Marker为Peak测量模式
+fprintf(SAObj, 'CALC:MARK1:MAX');  % 设置Marker为Peak测量模式
 opcStatus = 0;
 while (~opcStatus)
     opcStatus = str2double(query(SAObj, '*OPC?'));  % 等待命令执行

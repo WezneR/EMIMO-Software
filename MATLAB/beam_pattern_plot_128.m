@@ -1,3 +1,25 @@
+%
+% 同时连接两个基带机箱并使用串口发送'uramPlay'命令
+% 需要自行对照设备管理器识别串口号（每个FT4232有4个串口，其中3个会显示在设备管理器的'端口'中，最低的那个被用来UART通信）
+baudrate = 115200;
+
+BB1_COM = 'com23';
+BB2_COM = 'com27';
+
+ft1 = OpenSerial(BB1_COM, baudrate, @ReadFcn_Com)
+ft2 = OpenSerial(BB2_COM, baudrate, @ReadFcn_Com)
+
+%%
+cmd = 'uramPlay\n';
+% cmd = 'rfdcStartup\n';
+% cmd = 'dacMTS 0xf\n'
+fwrite(ft1,cmd)
+fwrite(ft2,cmd)
+
+%%
+fclose(ft1)
+fclose(ft2)
+
 %%
 CloseSerial;
 clear COM;
@@ -5,10 +27,7 @@ fclose(SAObj);
 
 %%
 CloseSerial;
-clear COM_ZT;
-clear COM_VT;
-
-clear COM_EM;
+clear COMHUB_EM;
 clear classObj;
 
 %%
@@ -23,17 +42,10 @@ addpath(genpath('mat'));
 %% 识别 EMIMO 设备串口号 和 转台（ZT） 串口号 并载入
 % 注意确认COM号的具体对应关系
 baudrate = 115200;
-%tic
-devices = IdentifySerialComs();  %IdentifySerialComs用于识别计算机链接的串口设备，输出为devices
-%toc
-for i = 1:size(devices,1)
-    if strcmp(devices{i,1}, 'USB-SERIAL CH340')
-        COM_VT = sprintf('com%d',devices{i,2});   % 查找EMIMO的串口
-        break;
-    end
-end
-COM_EM = OpenSerial(COM_VT,baudrate,@ReadFcn_Com);  %连接EMIMO设备，准备控制波束
 
+COMHUB_EM = open_serial_hub(baudrate,@ReadFcn_Com);  %连接多个EMIMO模组（这里会打开所有CH340串口，所以不要连接非EMIMO模组的CH340设备）
+
+devices = IdentifySerialComs();
 % 注意修改成转台的串口，名为 Prolific USB-to-Serial Comm Port
 NET.addAssembly('F:\202409_EMIMO\EMIMO-Software\MATLAB\MCC4DLL.dll');  %加载一个dll程序集,记得修改文件位置
 classObj = SerialPortLibrary.SPLibClass();
@@ -56,35 +68,25 @@ ang_pitch = 0; %俯仰角
 
 % 初始化，波束回到无偏转状态。重新将接收的初始相位写入各通道BF寄存器；各通道AC寄存器置0；
 % 将接收的初始衰减幅度写入各通道DSA；
-% 完成后自动产生LP脉冲更新相位
-UART.Head = hex2dec(['55';'5D']);  
-UART.Pause_Sec = 0.1; %Between each frame
-UART.End = hex2dec(['0D';'0A']);
-UART.End_mcu = hex2dec(['0A';'0D']);
+
 
 %打开开发者模式
-Parket = hex2dec(['08';'00';'00';'01';'0A';'0D']);
-Frame = [UART.Head; Parket];
-fwrite(COM_EM,Frame);
+func_dev_mode(COMHUB_EM,1);
 fprintf('已打开开发者模式。')
+
 %打开通道
-Parket = hex2dec(['08';'04';'02';'00']);
-Frame = [UART.Head; Parket; UART.End];
-fwrite(COM_EM,Frame);
+func_channel_switch(COMHUB_EM,0,8,8,isTX,0);
+fprintf('已打开射频通道。')
+
 %法相波束
-Parket = hex2dec(['08';'01';'00';'00']);
-Frame = [UART.Head; Parket; UART.End];
-fwrite(COM_EM,Frame);
+func_phase_array_beam_init(COMHUB_EM);
 fprintf('阵面已初始化为法相波束。')
 %%
-Parket = hex2dec(['08';'04';'00';'00']);
-Frame = [UART.Head; Parket; UART.End];
-fwrite(COM_EM,Frame);
+func_channel_switch(COMHUB_EM,0,8,8,isTX,1);
 fprintf('已关闭通道。\n')
 %%
-att_byte = '20'
-
-func_IFDSA_write(COM_EM, isTX, att_byte);
+att_byte = '10'
+func_IFDSA_write(COMHUB_EM, isTX, att_byte);
 
 %% 使用LAN口连接频谱仪，并完成初始化
 SA_Init_SVA1075X(); 
@@ -93,9 +95,9 @@ SA_Init_SVA1075X();
 %% 循环转圈，三个频率，6.8，6.95，7.1GHz，每个频率的波束从-60到+60°，每隔10°转一圈
 %测试的频点
 % measfreq = [6.8 6.95 7.1];
-% measfreq = [6.95];
+measfreq = [6.95];
 % measfreq = [6.75];
-measfreq = [7.15];
+% measfreq = [7.15];
 %波束偏转角度
 Beamdirect = -60:10:60;
 %转台角度
@@ -111,7 +113,7 @@ pause(1);
 
 %% 转到指定角度
 speci_ang = 0
-classObj.MoCtrCard_MCrlAxisAbsMove(1,speci_ang,20,0.1);  %1可能是控制的轴编号，Start_Angle是转到目标位置，
+classObj.MoCtrCard_MCrlAxisAbsMove(1,speci_ang,10,0.1);  %1可能是控制的轴编号，Start_Angle是转到目标位置，
 
 
 %% 循环测试
@@ -125,7 +127,7 @@ for i = 1:length(measfreq)
     figure;
     legends = cell(8,1);
     for j = 1:length(Beamdirect)
-        func_phase_array_beam_direct_to(COM_EM, Beamdirect(j), 0);%偏转水平角
+        func_phase_array_beam_direct_to(COMHUB_EM, Beamdirect(j), 0);%偏转水平角
         pause(0.5);
         if(j ~= 1) % 除了首次启动转台，其他情况都需要等待转台回到开始位置
             classObj.MoCtrCard_MCrlAxisAbsMove(1,Start_Angle,20,0.1);  %1可能是控制的轴编号，Start_Angle是转到目标位置，
