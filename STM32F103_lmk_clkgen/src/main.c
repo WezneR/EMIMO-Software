@@ -3,7 +3,9 @@
 #include "uart.h"
 #include "LMK04832_Drv.h"
 
-extern uint8_t init_regmap[];
+// extern uint8_t init_regmap[];
+// extern uint8_t init_regmap_pll1only[];
+extern uint8_t init_regmap_v2[];
 
 extern uint8_t host_instruction_valid;
 
@@ -22,9 +24,11 @@ int main()
     GPIO_init();
     UART_Init();
 
-    LMK_regmap_init(init_regmap);
-    delay_ms(100);
-    LMK_regmap_init(init_regmap);
+    // LMK_regmap_init(init_regmap);
+    // LMK_regmap_init(init_regmap_pll1only);
+    LMK_regmap_init(init_regmap_v2);
+    // delay_ms(100);
+    // LMK_regmap_init(init_regmap);
 
     uint8_t combined_key_encode = 0;
 
