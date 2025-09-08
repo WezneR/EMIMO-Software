@@ -5,7 +5,7 @@
 
 // extern uint8_t init_regmap[];
 // extern uint8_t init_regmap_pll1only[];
-extern uint8_t init_regmap_v2[];
+extern uint8_t init_regmap_v4[];
 
 extern uint8_t host_instruction_valid;
 
@@ -26,9 +26,9 @@ int main()
 
     // LMK_regmap_init(init_regmap);
     // LMK_regmap_init(init_regmap_pll1only);
-    LMK_regmap_init(init_regmap_v2);
+    LMK_regmap_init(init_regmap_v4);
     delay_ms(100);
-    LMK_regmap_init(init_regmap_v2);
+    LMK_regmap_init(init_regmap_v4);
 
     uint8_t combined_key_encode = 0;
 
@@ -75,23 +75,34 @@ int main()
         switch (combined_key_encode)
         {
         case 1:
+            
             break;
         case 2:
+            if (GPIO_ReadInputDataBit(GPIOD, TGOUT_Pin) == 0)
             {
                 TGOUT_SET();
-                delay_ms(1);
-                TGOUT_CLR();
-                break;
+                printf("trig_out is ON.\r\n");
             }
+            else
+            {
+                TGOUT_CLR();
+                printf("trig_out is OFF.\r\n");
+            }
+            break;
         case 3:
             break;
         case 4:
+            if (GPIO_ReadInputDataBit(GPIOD, TGIN_Pin) == 0)
             {
                 TGIN_SET();
-                delay_ms(1);
+                printf("trig_in is ON.\r\n");
+            }
+            else
+            {
                 TGIN_CLR();
-                break;
-            }            
+                printf("trig_in is OFF.\r\n");
+            }
+            break;
         default:
             break;
         }
@@ -109,14 +120,19 @@ static void process(uint8_t uart_data[8], uint8_t * ptr_process_once)
 
     uint8_t cmd_addr = uart_data[3] & 0x0F;
 
-    uint8_t dist = ((uart_data[3]&0xF0)>>4);
+    union {
+        uint8_t dist;
+        uint8_t sysref_mode;
+    }B3Field;
 
+    B3Field.dist = ((uart_data[3]&0xF0)>>4);
+    
     switch (cmd_addr)
     {
     case 0x1:
         if (uart_data[5]& 0x01)
         {
-            if (dist == 0)
+            if (B3Field.dist == 0)
             {
                 TGOUT_SET();
                 printf("trig_out is ON.\r\n");
@@ -129,7 +145,7 @@ static void process(uint8_t uart_data[8], uint8_t * ptr_process_once)
         }
         else
         {
-            if (dist == 0)
+            if (B3Field.dist == 0)
             {
                 TGOUT_CLR();
                 printf("trig_out is OFF.\r\n");
@@ -142,7 +158,7 @@ static void process(uint8_t uart_data[8], uint8_t * ptr_process_once)
         }
         break;
     case 0x2:
-        if (dist == 0)
+        if (B3Field.dist == 0)
         {
             TGOUT_SET();
             delay_ms(1);
@@ -157,9 +173,20 @@ static void process(uint8_t uart_data[8], uint8_t * ptr_process_once)
             printf("A trig_in pulse is sent.\r\n");
         }
         break;
-    
+    case 0x3:
+        if (B3Field.sysref_mode == 0)
+        {
+            LMK_set_sysref_mode_continuous();
+            printf("SYSREF mode: Continuous.\r\n");
+        }
+        else if (B3Field.sysref_mode == 1)
+        {
+            uint8_t cnt = uart_data[5] & 0x3;
+            LMK_set_sysref_mode_pulser(cnt);
+            printf("SYSREF mode: Pulser. Num: %d\r\n", (0x1 << cnt));
+        }
     default:
-        printf("lmk_clk_gen: Unknown command %02X\r\n", cmd_addr);
+        printf("lmk_clk_gen: Unknown command: %02X\r\n", cmd_addr);
         break;
     }
     *ptr_process_once = 1;

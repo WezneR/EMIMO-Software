@@ -12,6 +12,7 @@
 ./build/Debug/.obj/src/LMK04832_Master/init_regmap.o
 ./build/Debug/.obj/src/LMK04832_Master/init_regmap_pll1only.o
 ./build/Debug/.obj/src/LMK04832_Master/init_regmap_v2.o
+./build/Debug/.obj/src/LMK04832_Master/init_regmap_v4.o
 ./build/Debug/.obj/src/LMK04832_Master/uart.o
 ./build/Debug/.obj/src/delay.o
 ./build/Debug/.obj/src/main.o

@@ -84,3 +84,138 @@ These source files will be recompiled
 [2025-09-02 22:03:19]	[done]
 	build successfully !
 
+[2025-09-07 15:09:47]	[done]
+	build successfully !
+
+[2025-09-08 19:24:12]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c': source file has been changed.
+'f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\LMK04832_Master\init_regmap_v4.c': object (.o) file not exist
+'f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\main.c': source file has been changed.
+
+[2025-09-08 19:24:13]	compilation failed at : "f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\main.c", exit code: 1
+command: 
+  "C:\Users\62526\.eide\tools\gcc_arm\bin\arm-none-eabi-gcc.exe" -c -xc -mthumb -std=c11 -I. -Ilib/cmsis -Isrc -Isrc/LMK04832_Master -Ihal/STM32F10x_StdPeriph_Driver -Ihal/STM32F10x_StdPeriph_Driver/src -Ihal/STM32F10x_StdPeriph_Driver/inc -D"USE_STDPERIPH_DRIVER" -D"STM32F10X_MD" -mcpu=cortex-m3 -Og -Wall -g -ffunction-sections -fdata-sections -funsigned-char --specs=nosys.specs --specs=nano.specs -o ./build/Debug/.obj/src/main.o -MMD ./src/main.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/main.c: In function 'main':
+./src/main.c:29:21: error: 'init_regmap_v4' undeclared (first use in this function); did you mean 'init_regmap_v2'?
+   29 |     LMK_regmap_init(init_regmap_v4);
+      |                     ^~~~~~~~~~~~~~
+      |                     init_regmap_v2
+./src/main.c:29:21: note: each undeclared identifier is reported only once for each function it appears in
+./src/main.c:81:39: error: 'TGOUT_GPIOx' undeclared (first use in this function); did you mean 'TGOUT_Pin'?
+   81 |             if (GPIO_ReadInputDataBit(TGOUT_GPIOx, TGOUT_Pin) == 0)
+      |                                       ^~~~~~~~~~~
+      |                                       TGOUT_Pin
+./src/main.c:95:39: error: 'TGIN_GPIOx' undeclared (first use in this function); did you mean 'TGIN_Pin'?
+   95 |             if (GPIO_ReadInputDataBit(TGIN_GPIOx, TGIN_Pin) == 0)
+      |                                       ^~~~~~~~~~
+      |                                       TGIN_Pin
+./src/main.c: In function 'process':
+./src/main.c:126:5: warning: unnamed struct/union that defines no instances
+  126 |     };
+      |     ^
+./src/main.c:127:5: error: 'dist' undeclared (first use in this function)
+  127 |     dist = ((uart_data[3]&0xF0)>>4);
+      |     ^~~~
+./src/main.c:176:13: error: 'sysref_mode' undeclared (first use in this function)
+  176 |         if (sysref_mode == 0)
+      |             ^~~~~~~~~~~
+./src/main.c:178:13: error: implicit declaration of function 'LMK_set_sysref_mode_continuous' [-Wimplicit-function-declaration]
+  178 |             LMK_set_sysref_mode_continuous();
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./src/main.c:184:13: error: implicit declaration of function 'LMK_set_sysref_mode_pulser' [-Wimplicit-function-declaration]
+  184 |             LMK_set_sysref_mode_pulser(cnt);
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+
+[2025-09-08 19:24:46]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c': dependence 'f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.h' has been changed.
+'f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\main.c': source file has been changed.
+
+[2025-09-08 19:24:46]	compilation failed at : "f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\main.c", exit code: 1
+command: 
+  "C:\Users\62526\.eide\tools\gcc_arm\bin\arm-none-eabi-gcc.exe" -c -xc -mthumb -std=c11 -I. -Ilib/cmsis -Isrc -Isrc/LMK04832_Master -Ihal/STM32F10x_StdPeriph_Driver -Ihal/STM32F10x_StdPeriph_Driver/src -Ihal/STM32F10x_StdPeriph_Driver/inc -D"USE_STDPERIPH_DRIVER" -D"STM32F10X_MD" -mcpu=cortex-m3 -Og -Wall -g -ffunction-sections -fdata-sections -funsigned-char --specs=nosys.specs --specs=nano.specs -o ./build/Debug/.obj/src/main.o -MMD ./src/main.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/main.c: In function 'main':
+./src/main.c:29:21: error: 'init_regmap_v4' undeclared (first use in this function); did you mean 'init_regmap_v2'?
+   29 |     LMK_regmap_init(init_regmap_v4);
+      |                     ^~~~~~~~~~~~~~
+      |                     init_regmap_v2
+./src/main.c:29:21: note: each undeclared identifier is reported only once for each function it appears in
+./src/main.c:81:39: error: 'TGOUT_GPIOx' undeclared (first use in this function); did you mean 'TGOUT_Pin'?
+   81 |             if (GPIO_ReadInputDataBit(TGOUT_GPIOx, TGOUT_Pin) == 0)
+      |                                       ^~~~~~~~~~~
+      |                                       TGOUT_Pin
+./src/main.c:95:39: error: 'TGIN_GPIOx' undeclared (first use in this function); did you mean 'TGIN_Pin'?
+   95 |             if (GPIO_ReadInputDataBit(TGIN_GPIOx, TGIN_Pin) == 0)
+      |                                       ^~~~~~~~~~
+      |                                       TGIN_Pin
+./src/main.c: In function 'process':
+./src/main.c:126:5: warning: unnamed struct/union that defines no instances
+  126 |     };
+      |     ^
+./src/main.c:127:5: error: 'dist' undeclared (first use in this function)
+  127 |     dist = ((uart_data[3]&0xF0)>>4);
+      |     ^~~~
+./src/main.c:176:13: error: 'sysref_mode' undeclared (first use in this function)
+  176 |         if (sysref_mode == 0)
+      |             ^~~~~~~~~~~
+
+[2025-09-08 19:29:35]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\main.c': source file has been changed.
+
+[2025-09-08 19:29:35]	compilation failed at : "f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\main.c", exit code: 1
+command: 
+  "C:\Users\62526\.eide\tools\gcc_arm\bin\arm-none-eabi-gcc.exe" -c -xc -mthumb -std=c11 -I. -Ilib/cmsis -Isrc -Isrc/LMK04832_Master -Ihal/STM32F10x_StdPeriph_Driver -Ihal/STM32F10x_StdPeriph_Driver/src -Ihal/STM32F10x_StdPeriph_Driver/inc -D"USE_STDPERIPH_DRIVER" -D"STM32F10X_MD" -mcpu=cortex-m3 -Og -Wall -g -ffunction-sections -fdata-sections -funsigned-char --specs=nosys.specs --specs=nano.specs -o ./build/Debug/.obj/src/main.o -MMD ./src/main.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/main.c: In function 'main':
+./src/main.c:29:21: error: 'init_regmap_v4' undeclared (first use in this function); did you mean 'init_regmap_v2'?
+   29 |     LMK_regmap_init(init_regmap_v4);
+      |                     ^~~~~~~~~~~~~~
+      |                     init_regmap_v2
+./src/main.c:29:21: note: each undeclared identifier is reported only once for each function it appears in
+./src/main.c:81:39: error: 'TGOUT_GPIOx' undeclared (first use in this function); did you mean 'TGOUT_Pin'?
+   81 |             if (GPIO_ReadInputDataBit(TGOUT_GPIOx, TGOUT_Pin) == 0)
+      |                                       ^~~~~~~~~~~
+      |                                       TGOUT_Pin
+./src/main.c:95:39: error: 'TGIN_GPIOx' undeclared (first use in this function); did you mean 'TGIN_Pin'?
+   95 |             if (GPIO_ReadInputDataBit(TGIN_GPIOx, TGIN_Pin) == 0)
+      |                                       ^~~~~~~~~~
+      |                                       TGIN_Pin
+./src/main.c: In function 'process':
+./src/main.c:135:17: error: 'dist' undeclared (first use in this function)
+  135 |             if (dist == 0)
+      |                 ^~~~
+
+[2025-09-08 19:30:24]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\main.c': source file has been changed.
+
+[2025-09-08 19:30:24]	compilation failed at : "f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\main.c", exit code: 1
+command: 
+  "C:\Users\62526\.eide\tools\gcc_arm\bin\arm-none-eabi-gcc.exe" -c -xc -mthumb -std=c11 -I. -Ilib/cmsis -Isrc -Isrc/LMK04832_Master -Ihal/STM32F10x_StdPeriph_Driver -Ihal/STM32F10x_StdPeriph_Driver/src -Ihal/STM32F10x_StdPeriph_Driver/inc -D"USE_STDPERIPH_DRIVER" -D"STM32F10X_MD" -mcpu=cortex-m3 -Og -Wall -g -ffunction-sections -fdata-sections -funsigned-char --specs=nosys.specs --specs=nano.specs -o ./build/Debug/.obj/src/main.o -MMD ./src/main.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/main.c: In function 'process':
+./src/main.c:135:17: error: 'dist' undeclared (first use in this function)
+  135 |             if (dist == 0)
+      |                 ^~~~
+./src/main.c:135:17: note: each undeclared identifier is reported only once for each function it appears in
+
+[2025-09-08 19:30:50]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\main.c': source file has been changed.
+
+[2025-09-08 19:30:51]	[done]
+	build successfully !
+
