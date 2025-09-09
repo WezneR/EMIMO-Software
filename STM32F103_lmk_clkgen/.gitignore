@@ -5,10 +5,10 @@
 /.eide.usr.ctx.json
 
 # project out
-# /build
-# /bin
-# /obj
-# /out
+/build
+/bin
+/obj
+/out
 
 # eide template
 *.ept

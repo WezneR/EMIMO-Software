@@ -336,3 +336,43 @@ These source files will be recompiled
 [2025-09-08 21:30:38]	[done]
 	build successfully !
 
+[2025-09-09 17:09:04]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c': source file has been changed.
+'f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\LMK04832_Master\init_regmap_v4.c': source file has been changed.
+'f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\main.c': source file has been changed.
+
+[2025-09-09 17:09:04]	compilation failed at : "f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c", exit code: 1
+command: 
+  "C:\Users\62526\.eide\tools\gcc_arm\bin\arm-none-eabi-gcc.exe" -c -xc -mthumb -std=c11 -I. -Ilib/cmsis -Isrc -Isrc/LMK04832_Master -Ihal/STM32F10x_StdPeriph_Driver -Ihal/STM32F10x_StdPeriph_Driver/src -Ihal/STM32F10x_StdPeriph_Driver/inc -D"USE_STDPERIPH_DRIVER" -D"STM32F10X_MD" -mcpu=cortex-m3 -Og -Wall -g -ffunction-sections -fdata-sections -funsigned-char --specs=nosys.specs --specs=nano.specs -o ./build/Debug/.obj/src/LMK04832_Master/LMK04832_Drv.o -MMD ./src/LMK04832_Master/LMK04832_Drv.c
+   at unify_builder.Program.Main(String[] args_)
+---
+./src/LMK04832_Master/LMK04832_Drv.c: In function 'LMK_set_sysref_mode_switch':
+./src/LMK04832_Master/LMK04832_Drv.c:137:5: error: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+  137 |     printf("SYSREF mode switched to: %d\r\n", mode);
+      |     ^~~~~~
+./src/LMK04832_Master/LMK04832_Drv.c:4:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+    3 | #include "delay.h"
+  +++ |+#include <stdio.h>
+    4 | 
+./src/LMK04832_Master/LMK04832_Drv.c:137:5: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+  137 |     printf("SYSREF mode switched to: %d\r\n", mode);
+      |     ^~~~~~
+./src/LMK04832_Master/LMK04832_Drv.c:137:5: note: include '<stdio.h>' or provide a declaration of 'printf'
+./src/LMK04832_Master/LMK04832_Drv.c: In function 'LMK_set_sysref_pulse':
+./src/LMK04832_Master/LMK04832_Drv.c:158:5: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+  158 |     printf("SYSREF Pulse sent, count: %d (actual pulses: %d)\r\n",
+      |     ^~~~~~
+./src/LMK04832_Master/LMK04832_Drv.c:158:5: note: include '<stdio.h>' or provide a declaration of 'printf'
+
+[2025-09-09 17:10:28]	[info] incremental build: 3 source files changed
+These source files will be recompiled
+---
+'f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c': source file has been changed.
+'f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\LMK04832_Master\init_regmap_v4.c': source file has been changed.
+'f:\WPS_Sync\202409_eMIMO\Software\STM32F103_lmk_clkgen\src\main.c': source file has been changed.
+
+[2025-09-09 17:10:29]	[done]
+	build successfully !
+

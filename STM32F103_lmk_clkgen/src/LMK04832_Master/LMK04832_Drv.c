@@ -1,10 +1,164 @@
 #include "stm32f10x.h"
 #include "LMK04832_Drv.h"
 #include "delay.h"
+#include "stdio.h"
 
-/// @brief 初始化GPIO，用于用户按键输入, LMK SYNC, LMK RST, CLKin SEL, Status LD.
-/* 
- */
+// 添加寄存器写入辅助函数
+static void LMK_write_register(uint16_t addr, uint8_t data)
+{
+    LMK_CSEL_CLR();
+    LMK_Master_Send((addr >> 8) & 0xFF);  // 高字节
+    LMK_Master_Send(addr & 0xFF);         // 低字节
+    LMK_Master_Send(data);                // 数据
+    while (SPI_I2S_GetFlagStatus(LMK_SPIx, SPI_I2S_FLAG_BSY) == SET);
+    LMK_CSEL_SET();
+}
+
+// SYSREF清零函数 - 关键修复
+static void LMK_clear_sysref_delay_buffers(void)
+{
+    // 根据手册8.3.3.1.2，设置SYSREF_CLR=1持续15个VCO时钟周期
+    // VCO频率约3GHz，15个周期约5ns，但为了安全，我们使用更长的延迟
+    
+    // 设置SYSREF_CLR = 1 (Reg 0x143, bit 1)
+    LMK_write_register(0x143, 0x16);  // SYNC_EN=1, SYSREF_CLR=1, 其他位保持
+    
+    // 等待15个VCO周期 (约5ns，但实际使用1ms确保充分清零)
+    delay_ms(1);
+    
+    // 清除SYSREF_CLR = 0
+    LMK_write_register(0x143, 0x14);  // SYNC_EN=1, SYSREF_CLR=0
+}
+
+// 执行同步操作
+static void LMK_perform_sync(void)
+{
+    // 通过切换SYNC_POL位执行同步
+    // 先设置SYNC_POL = 1
+    LMK_write_register(0x143, 0x34);  // SYNC_EN=1, SYNC_POL=1, SYNC_MODE=1
+    delay_ms(1);
+    
+    // 然后设置SYNC_POL = 0
+    LMK_write_register(0x143, 0x14);  // SYNC_EN=1, SYNC_POL=0, SYNC_MODE=1
+    delay_ms(1);
+}
+
+// 修复的SYSREF模式切换函数
+void LMK_set_sysref_mode_switch(uint8_t mode)
+{
+    switch(mode) {
+        case 0:  // 禁用SYSREF - 通过SYSREF_PD=1
+            // 步骤1: 禁用所有相关的SYNC
+            LMK_write_register(0x144, 0xFF);  // 设置所有SYNC_DISx = 1
+            LMK_write_register(0x145, 0x01);  // 设置SYNC_DISSYSREF = 1
+            
+            // 步骤2: 断电SYSREF
+            LMK_write_register(0x140, 0x0D);  // SYSREF_PD=1, SYSREF_DDLY_PD=1, SYSREF_PLSR_PD=1
+            delay_ms(1);  // 等待电路稳定
+            break;
+            
+        case 1:  // Pin or SPI SYNC (SYSREF_MUX=0, SYNC_MODE=1)
+            // 步骤1: 准备SYSREF电路
+            LMK_write_register(0x140, 0x00);  // Power up: SYSREF_PD=0, SYSREF_DDLY_PD=0, SYSREF_PLSR_PD=0
+            delay_ms(1);
+            
+            // 步骤2: 清零SYSREF延迟缓冲区
+            LMK_clear_sysref_delay_buffers();
+            
+            // 步骤3: 设置SYNC配置
+            LMK_write_register(0x143, 0x14);  // SYNC_EN=1, SYNC_MODE=1, SYNC_POL=0
+            LMK_write_register(0x139, 0x00);  // SYSREF_MUX=0
+            
+            // 步骤4: 启用必要的SYNC (允许同步影响分频器)
+            LMK_write_register(0x144, 0x00);  // 清除SYNC_DISx位
+            LMK_write_register(0x145, 0x00);  // 清除SYNC_DISSYSREF位
+            
+            // 步骤5: 执行同步
+            LMK_perform_sync();
+            
+            // 步骤6: 禁用SYNC以防止后续意外同步
+            LMK_write_register(0x144, 0xFF);  // 重新设置SYNC_DISx = 1
+            LMK_write_register(0x145, 0x01);  // 重新设置SYNC_DISSYSREF = 1
+            break;
+            
+        case 2:  // Pulser模式 (SYSREF_MUX=2)
+            // 步骤1: 准备SYSREF电路
+            LMK_write_register(0x140, 0x00);  // Power up all SYSREF circuits
+            delay_ms(1);
+            
+            // 步骤2: 清零SYSREF延迟缓冲区
+            LMK_clear_sysref_delay_buffers();
+            
+            // 步骤3: 首先进行同步以建立确定性相位关系
+            LMK_write_register(0x143, 0x14);  // SYNC_EN=1, SYNC_MODE=1, SYNC_POL=0
+            LMK_write_register(0x139, 0x00);  // 临时设置SYSREF_MUX=0用于同步
+            
+            // 启用同步
+            LMK_write_register(0x144, 0x00);  // 清除SYNC_DISx
+            LMK_write_register(0x145, 0x00);  // 清除SYNC_DISSYSREF
+            
+            // 执行同步
+            LMK_perform_sync();
+            
+            // 步骤4: 禁用SYNC并切换到Pulser模式
+            LMK_write_register(0x144, 0xFF);  // 设置SYNC_DISx = 1
+            LMK_write_register(0x145, 0x01);  // 设置SYNC_DISSYSREF = 1
+            
+            // 步骤5: 设置Pulser模式
+            LMK_write_register(0x143, 0x24);  // SYNC_EN=1, SYNC_MODE=2 (Pulser on pin)
+            LMK_write_register(0x139, 0x02);  // SYSREF_MUX=2 (Pulser)
+            delay_ms(1);
+            break;
+            
+        case 3:  // Continuous模式 (SYSREF_MUX=3)
+            // 步骤1: 准备SYSREF电路
+            LMK_write_register(0x140, 0x01);  // SYSREF_PD=0, SYSREF_DDLY_PD=0, SYSREF_PLSR_PD=1
+            delay_ms(1);
+            
+            // 步骤2: 清零SYSREF延迟缓冲区
+            LMK_clear_sysref_delay_buffers();
+            
+            // 步骤3: 首先进行同步
+            LMK_write_register(0x143, 0x14);  // SYNC_EN=1, SYNC_MODE=1
+            LMK_write_register(0x139, 0x00);  // 临时设置SYSREF_MUX=0
+            
+            // 执行同步流程
+            LMK_write_register(0x144, 0x00);  // 启用同步
+            LMK_write_register(0x145, 0x00);  // 启用SYSREF同步
+            LMK_perform_sync();
+            LMK_write_register(0x144, 0xFF);  // 禁用同步
+            LMK_write_register(0x145, 0x01);  // 禁用SYSREF同步
+            
+            // 步骤4: 切换到连续模式
+            LMK_write_register(0x139, 0x03);  // SYSREF_MUX=3 (Continuous)
+            delay_ms(1);
+            break;
+    }
+    
+    printf("SYSREF mode switched to: %d\r\n", mode);
+}
+
+// 修复的SYSREF脉冲发送函数
+void LMK_set_sysref_pulse(uint8_t SYSREF_PULSE_CNT)
+{
+    // 确保当前在Pulser模式
+    LMK_write_register(0x143, 0x34);  // SYNC_EN=1, SYNC_MODE=3 (SPI Pulser), SYNC_POL=1
+    LMK_write_register(0x139, 0x02);  // SYSREF_MUX=2 (Pulser)
+    delay_ms(1);
+    
+    // 编程脉冲计数 - 这将触发脉冲发送
+    LMK_write_register(0x13E, SYSREF_PULSE_CNT);
+    
+    // 等待脉冲发送完成
+    // 对于2个脉冲@6.912MHz，大约需要300ns，我们等待1ms确保完成
+    delay_ms(1);
+    
+    // 重新清零SYSREF延迟缓冲区以清除可能的异常状态
+    LMK_clear_sysref_delay_buffers();
+    
+    printf("SYSREF Pulse sent, count: %d (actual pulses: %d)\r\n", SYSREF_PULSE_CNT, (1 << SYSREF_PULSE_CNT));
+}
+
 void GPIO_init(void)
 {
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOD, ENABLE);
@@ -40,10 +194,8 @@ void GPIO_init(void)
     GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(LMK_GPIOx, &GPIO_InitStruct);
 
-
     // 打开PD0 PD1复用功能
     RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
-
     GPIO_PinRemapConfig(GPIO_Remap_PD01, ENABLE);
 
     // 配置PD0和PD1为复用推挽输出
@@ -56,27 +208,16 @@ void GPIO_init(void)
     TGOUT_CLR();
 
     // 发送三个上升沿，因为后级LMK00101的时钟输入疑似有三级缓存
-    TGIN_SET();
-    TGOUT_SET();
-    delay_ms(1);
-    TGIN_CLR();
-    TGOUT_CLR();
-    delay_ms(1);
-    TGIN_SET();
-    TGOUT_SET();
-    delay_ms(1);
-    TGIN_CLR();
-    TGOUT_CLR();
-    delay_ms(1);
-    TGIN_SET();
-    TGOUT_SET();
-    delay_ms(1);
-    TGIN_CLR();
-    TGOUT_CLR();
+    for(int i = 0; i < 3; i++) {
+        TGIN_SET();
+        TGOUT_SET();
+        delay_ms(1);
+        TGIN_CLR();
+        TGOUT_CLR();
+        delay_ms(1);
+    }
 }
 
-/// @brief 初始化SPI1外设用于与LMK04832通信
-/// @param 
 void LMK_Master_Init(void)
 {
     //初始化GPIO引脚
@@ -89,11 +230,6 @@ void LMK_Master_Init(void)
     GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(LMK_GPIOx,&GPIO_InitStruct);
  
-    // //配置MISO引脚为浮空输入
-    // GPIO_InitStruct.GPIO_Pin = LMK_MISO_Pin;
-    // GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IN_FLOATING;
-    // GPIO_Init(LMK_GPIOx,&GPIO_InitStruct);
- 
     //配置CS引脚为输出
     GPIO_InitStruct.GPIO_Pin = LMK_CSEL_Pin;
     GPIO_InitStruct.GPIO_Mode = GPIO_Mode_Out_PP;
@@ -103,26 +239,23 @@ void LMK_Master_Init(void)
  
     //初始化SPI主机
     SPI_InitTypeDef SPI_InitStruct;
-    SPI_InitStruct.SPI_Direction = SPI_Direction_2Lines_FullDuplex; //全双工模式
-    SPI_InitStruct.SPI_Mode = SPI_Mode_Master; //主模式
-    SPI_InitStruct.SPI_DataSize = SPI_DataSize_8b; //8位数据
-    SPI_InitStruct.SPI_CPOL = SPI_CPOL_Low; //时钟极性为低电平
-    SPI_InitStruct.SPI_CPHA = SPI_CPHA_1Edge; //时钟相位为第一个时钟沿
-    SPI_InitStruct.SPI_NSS = SPI_NSS_Soft;  //软件控制片选信号
+    SPI_InitStruct.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
+    SPI_InitStruct.SPI_Mode = SPI_Mode_Master;
+    SPI_InitStruct.SPI_DataSize = SPI_DataSize_8b;
+    SPI_InitStruct.SPI_CPOL = SPI_CPOL_Low;
+    SPI_InitStruct.SPI_CPHA = SPI_CPHA_1Edge;
+    SPI_InitStruct.SPI_NSS = SPI_NSS_Soft;
     SPI_InitStruct.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_32;
-    SPI_InitStruct.SPI_FirstBit = SPI_FirstBit_MSB; //最高有效位先传输
-    SPI_InitStruct.SPI_CRCPolynomial = 7; //设置CRC多项式
-    SPI_Init(LMK_SPIx,&SPI_InitStruct); //SPI初始化
+    SPI_InitStruct.SPI_FirstBit = SPI_FirstBit_MSB;
+    SPI_InitStruct.SPI_CRCPolynomial = 7;
+    SPI_Init(LMK_SPIx,&SPI_InitStruct);
 
-    SPI_Cmd(LMK_SPIx, ENABLE);  //使能SPI外设
+    SPI_Cmd(LMK_SPIx, ENABLE);
 }
-
 
 void LMK_Master_Send(uint8_t data)
 {
-    //等待发送缓冲区为空
     while (SPI_I2S_GetFlagStatus(LMK_SPIx, SPI_I2S_FLAG_TXE) == RESET);
-    //发送数据
     SPI_I2S_SendData(LMK_SPIx, data);
 }
  
@@ -148,6 +281,7 @@ void LMK_regmap_init(uint8_t init_regmap[378])
         LMK_Master_Send(init_regmap[i+2]);
         while (SPI_I2S_GetFlagStatus(LMK_SPIx, SPI_I2S_FLAG_BSY) == SET);
         LMK_CSEL_SET();
+        
         if(i == 0)
         {
             // 配置Reg0x000 的RESET字段，等待复位结束
@@ -166,80 +300,18 @@ void LMK_regmap_init(uint8_t init_regmap[378])
             // 等待 PLL2 power up
             delay_ms(1);
         }
-    }       
+    }
+    
+    // 初始化完成后，清零SYSREF延迟缓冲区
+    LMK_clear_sysref_delay_buffers();
 }
-
-
 
 void LMK_PLL2_PD(void)
 {
-    // 配置R371(Reg 0x173) 的 PLL2_PRE_PD 和 PLL2_PD 
-    LMK_CSEL_CLR();
-    LMK_Master_Send(0x01);
-    LMK_Master_Send(0x73);
-    LMK_Master_Send(0x70);
-    while (SPI_I2S_GetFlagStatus(LMK_SPIx, SPI_I2S_FLAG_BSY) == SET);
-    LMK_CSEL_SET();
+    LMK_write_register(0x173, 0x70);
 }
-
-
 
 void LMK_PLL1_PD(void)
 {
-    // 配置R320(Reg 0x140) 的 PLL1_PD
-    LMK_CSEL_CLR();
-    LMK_Master_Send(0x01);
-    LMK_Master_Send(0x40);
-    LMK_Master_Send(0x81);
-    while (SPI_I2S_GetFlagStatus(LMK_SPIx, SPI_I2S_FLAG_BSY) == SET);
-    LMK_CSEL_SET();
-}
-
-
-void LMK_set_sysref_mode_switch(uint8_t mode)
-{
-    LMK_CSEL_CLR();
-    // 修改SYSREF_MUX为 Continuous
-    LMK_Master_Send(0x01);
-    LMK_Master_Send(0x39);
-    LMK_Master_Send(mode);
-    while (SPI_I2S_GetFlagStatus(LMK_SPIx, SPI_I2S_FLAG_BSY) == SET);
-    LMK_CSEL_SET();
-}
-
-void LMK_set_sysref_pulse(uint8_t SYSREF_PULSE_CNT)
-{
-    // LMK_CSEL_CLR();
-    // // 修改SYSREF_MUX为00
-    // LMK_Master_Send(0x01);
-    // LMK_Master_Send(0x39);
-    // LMK_Master_Send(0x00);
-    // while (SPI_I2S_GetFlagStatus(LMK_SPIx, SPI_I2S_FLAG_BSY) == SET);
-    // LMK_CSEL_SET();
-    // __NOP();
-    // while (SPI_I2S_GetFlagStatus(LMK_SPIx, SPI_I2S_FLAG_BSY) == SET);
-    // LMK_CSEL_CLR();
-    // // 启用SYSREF Pulser电源
-    // LMK_Master_Send(0x01);
-    // LMK_Master_Send(0x40);
-    // LMK_Master_Send(0x00);
-    // // 关闭SYSREF
-    // LMK_Master_Send(0x01);
-    // LMK_Master_Send(0x40);
-    // LMK_Master_Send(0x0C);
-    // 修改SYSREF_MUX为 Pulser
-    // LMK_Master_Send(0x01);
-    // LMK_Master_Send(0x39);
-    // LMK_Master_Send(0x02);
-    // while (SPI_I2S_GetFlagStatus(LMK_SPIx, SPI_I2S_FLAG_BSY) == SET);
-    // LMK_CSEL_SET();
-    // delay_ms(1);
-    LMK_CSEL_CLR();
-    // Programming SYSREF_PULSE_CNT register starts sending the number of pulses.
-    LMK_Master_Send(0x01);
-    LMK_Master_Send(0x3E);
-    LMK_Master_Send(SYSREF_PULSE_CNT);
-    while (SPI_I2S_GetFlagStatus(LMK_SPIx, SPI_I2S_FLAG_BSY) == SET);
-    LMK_CSEL_SET();
-
+    LMK_write_register(0x140, 0x81);
 }
