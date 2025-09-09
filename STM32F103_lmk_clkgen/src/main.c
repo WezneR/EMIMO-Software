@@ -176,15 +176,17 @@ static void process(uint8_t uart_data[8], uint8_t * ptr_process_once)
     case 0x3:
         if (B3Field.sysref_mode == 0)
         {
-            LMK_set_sysref_mode_continuous();
-            printf("SYSREF mode: Continuous.\r\n");
+            uint8_t mode = uart_data[5] & 0x3;
+            LMK_set_sysref_mode_switch(mode);
+            printf("SYSREF MUX set to: %d.\r\n", mode);
         }
         else if (B3Field.sysref_mode == 1)
         {
             uint8_t cnt = uart_data[5] & 0x3;
-            LMK_set_sysref_mode_pulser(cnt);
-            printf("SYSREF mode: Pulser. Num: %d\r\n", (0x1 << cnt));
+            LMK_set_sysref_pulse(cnt);
+            printf("SYSREF Pulse Num: %d\r\n", (0x1 << cnt));
         }
+        break;
     default:
         printf("lmk_clk_gen: Unknown command: %02X\r\n", cmd_addr);
         break;

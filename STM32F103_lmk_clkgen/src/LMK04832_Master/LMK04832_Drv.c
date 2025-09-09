@@ -196,36 +196,50 @@ void LMK_PLL1_PD(void)
 }
 
 
-void LMK_set_sysref_mode_continuous(void)
+void LMK_set_sysref_mode_switch(uint8_t mode)
 {
     LMK_CSEL_CLR();
     // 修改SYSREF_MUX为 Continuous
     LMK_Master_Send(0x01);
     LMK_Master_Send(0x39);
-    LMK_Master_Send(0x03);
-    // 关闭SYSREF Pulser电源
-    LMK_Master_Send(0x01);
-    LMK_Master_Send(0x40);
-    LMK_Master_Send(0x01);
+    LMK_Master_Send(mode);
     while (SPI_I2S_GetFlagStatus(LMK_SPIx, SPI_I2S_FLAG_BSY) == SET);
     LMK_CSEL_SET();
 }
 
-void LMK_set_sysref_mode_pulser(uint8_t SYSREF_PULSE_CNT)
+void LMK_set_sysref_pulse(uint8_t SYSREF_PULSE_CNT)
 {
-    LMK_CSEL_CLR();
+    // LMK_CSEL_CLR();
+    // // 修改SYSREF_MUX为00
+    // LMK_Master_Send(0x01);
+    // LMK_Master_Send(0x39);
+    // LMK_Master_Send(0x00);
+    // while (SPI_I2S_GetFlagStatus(LMK_SPIx, SPI_I2S_FLAG_BSY) == SET);
+    // LMK_CSEL_SET();
+    // __NOP();
+    // while (SPI_I2S_GetFlagStatus(LMK_SPIx, SPI_I2S_FLAG_BSY) == SET);
+    // LMK_CSEL_CLR();
+    // // 启用SYSREF Pulser电源
+    // LMK_Master_Send(0x01);
+    // LMK_Master_Send(0x40);
+    // LMK_Master_Send(0x00);
+    // // 关闭SYSREF
+    // LMK_Master_Send(0x01);
+    // LMK_Master_Send(0x40);
+    // LMK_Master_Send(0x0C);
     // 修改SYSREF_MUX为 Pulser
-    LMK_Master_Send(0x01);
-    LMK_Master_Send(0x39);
-    LMK_Master_Send(0x02);
-    // 启用SYSREF Pulser电源
-    LMK_Master_Send(0x01);
-    LMK_Master_Send(0x40);
-    LMK_Master_Send(0x00);
+    // LMK_Master_Send(0x01);
+    // LMK_Master_Send(0x39);
+    // LMK_Master_Send(0x02);
+    // while (SPI_I2S_GetFlagStatus(LMK_SPIx, SPI_I2S_FLAG_BSY) == SET);
+    // LMK_CSEL_SET();
+    // delay_ms(1);
+    LMK_CSEL_CLR();
     // Programming SYSREF_PULSE_CNT register starts sending the number of pulses.
     LMK_Master_Send(0x01);
     LMK_Master_Send(0x3E);
     LMK_Master_Send(SYSREF_PULSE_CNT);
     while (SPI_I2S_GetFlagStatus(LMK_SPIx, SPI_I2S_FLAG_BSY) == SET);
     LMK_CSEL_SET();
+
 }

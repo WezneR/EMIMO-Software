@@ -3,11 +3,11 @@
     "target": "Debug",
     "toolchain": "GCC",
     "toolchainLocation": "C:\\Users\\62526\\.eide\\tools\\gcc_arm",
-    "toolchainCfgFile": "c:\\Users\\62526\\.vscode\\extensions\\cl.eide-3.25.1\\res\\data\\models/arm.gcc.model.json",
+    "toolchainCfgFile": "c:\\Users\\62526\\.vscode\\extensions\\cl.eide-3.25.0\\res\\data\\models/arm.gcc.model.json",
     "buildMode": "fast|multhread",
     "showRepathOnLog": true,
-    "threadNum": 32,
-    "rootDir": "f:\\WPS_Sync\\202409_eMIMO\\Software\\STM32F103_lmk_clkgen",
+    "threadNum": 8,
+    "rootDir": "f:\\202409_EMIMO\\EMIMO-Software\\STM32F103_lmk_clkgen",
     "dumpPath": "build\\Debug",
     "outDir": "build\\Debug",
     "incDirs": [
@@ -84,20 +84,20 @@
             "LIB_FLAGS": "-lm",
             "$toolName": "gcc",
             "link-scatter": [
-                "f:/WPS_Sync/202409_eMIMO/Software/STM32F103_lmk_clkgen/stm32f1x_64KB_flash.ld"
+                "f:/202409_EMIMO/EMIMO-Software/STM32F103_lmk_clkgen/stm32f1x_64KB_flash.ld"
             ]
         }
     },
     "env": {
-        "workspaceFolder": "f:\\WPS_Sync\\202409_eMIMO\\Software\\STM32F103_lmk_clkgen",
+        "workspaceFolder": "f:\\202409_EMIMO\\EMIMO-Software\\STM32F103_lmk_clkgen",
         "workspaceFolderBasename": "STM32F103_lmk_clkgen",
-        "OutDir": "f:\\WPS_Sync\\202409_eMIMO\\Software\\STM32F103_lmk_clkgen\\build\\Debug",
+        "OutDir": "f:\\202409_EMIMO\\EMIMO-Software\\STM32F103_lmk_clkgen\\build\\Debug",
         "OutDirRoot": "build",
         "OutDirBase": "build\\Debug",
         "ProjectName": "STM32F103_lmk_clkgen",
         "ConfigName": "Debug",
-        "ProjectRoot": "f:\\WPS_Sync\\202409_eMIMO\\Software\\STM32F103_lmk_clkgen",
-        "ExecutableName": "f:\\WPS_Sync\\202409_eMIMO\\Software\\STM32F103_lmk_clkgen\\build\\Debug\\STM32F103_lmk_clkgen",
+        "ProjectRoot": "f:\\202409_EMIMO\\EMIMO-Software\\STM32F103_lmk_clkgen",
+        "ExecutableName": "f:\\202409_EMIMO\\EMIMO-Software\\STM32F103_lmk_clkgen\\build\\Debug\\STM32F103_lmk_clkgen",
         "ChipPackDir": ".pack/Keil/STM32F1xx_DFP.2.3.0",
         "ChipName": "STM32F103C8",
         "SYS_Platform": "win32",
@@ -106,7 +106,7 @@
         "SYS_PathSep": ";",
         "SYS_PathSeparator": ";",
         "SYS_EOL": "\r\n",
-        "EIDE_BUILDER_DIR": "c:\\Users\\62526\\.vscode\\extensions\\cl.eide-3.25.1\\res\\tools\\win32\\unify_builder",
+        "EIDE_BUILDER_DIR": "c:\\Users\\62526\\.vscode\\extensions\\cl.eide-3.25.0\\res\\tools\\win32\\unify_builder",
         "EIDE_BINARIES_VER": "12.1.1",
         "EIDE_MSYS": "C:\\Users\\62526\\.eide\\bin\\builder\\msys\\bin",
         "EIDE_PY3_CMD": "C:\\Users\\62526\\.eide\\bin\\python36\\python3.exe",

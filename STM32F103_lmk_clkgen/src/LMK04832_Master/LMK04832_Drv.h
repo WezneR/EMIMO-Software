@@ -61,8 +61,8 @@ void GPIO_init(void);
 void LMK_regmap_init(uint8_t init_regmap[378]);
 void LMK_PLL1_PD(void);
 void LMK_PLL2_PD(void);
-void LMK_set_sysref_mode_continuous(void);
-void LMK_set_sysref_mode_pulser(uint8_t SYSREF_PULSE_CNT);
+void LMK_set_sysref_mode_switch(uint8_t mode);
+void LMK_set_sysref_pulse(uint8_t SYSREF_PULSE_CNT);
 
 
 
