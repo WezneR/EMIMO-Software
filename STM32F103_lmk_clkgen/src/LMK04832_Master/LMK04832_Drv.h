@@ -63,6 +63,7 @@ void LMK_PLL1_PD(void);
 void LMK_PLL2_PD(void);
 void LMK_set_sysref_mode_switch(uint8_t mode);
 void LMK_set_sysref_pulse(uint8_t SYSREF_PULSE_CNT);
+void LMK_write_register(uint16_t addr, uint8_t data);
 
 
 

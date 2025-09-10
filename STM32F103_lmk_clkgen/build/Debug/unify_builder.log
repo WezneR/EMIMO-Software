@@ -376,3 +376,153 @@ These source files will be recompiled
 [2025-09-09 17:10:29]	[done]
 	build successfully !
 
+[2025-09-09 19:34:06]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c': source file has been changed.
+
+[2025-09-09 19:34:08]	[done]
+	build successfully !
+
+[2025-09-09 20:00:32]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c': source file has been changed.
+
+[2025-09-09 20:00:32]	[done]
+	build successfully !
+
+[2025-09-09 20:05:54]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c': source file has been changed.
+
+[2025-09-09 20:05:55]	[done]
+	build successfully !
+
+[2025-09-09 20:08:13]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\main.c': source file has been changed.
+
+[2025-09-09 20:08:14]	[done]
+	build successfully !
+
+[2025-09-09 20:37:08]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c': source file has been changed.
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\main.c': source file has been changed.
+
+[2025-09-09 20:37:08]	[done]
+	build successfully !
+
+[2025-09-10 14:26:47]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\init_regmap_v4.c': source file has been changed.
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\main.c': source file has been changed.
+
+[2025-09-10 14:26:48]	[done]
+	build successfully !
+
+[2025-09-10 14:31:41]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\init_regmap_v4.c': source file has been changed.
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\main.c': source file has been changed.
+
+[2025-09-10 14:31:42]	[done]
+	build successfully !
+
+[2025-09-10 14:34:27]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\init_regmap_v4.c': source file has been changed.
+
+[2025-09-10 14:34:27]	[done]
+	build successfully !
+
+[2025-09-10 14:45:10]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c': source file has been changed.
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\main.c': source file has been changed.
+
+[2025-09-10 14:45:11]	[done]
+	build successfully !
+
+[2025-09-10 14:48:15]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c': source file has been changed.
+
+[2025-09-10 14:48:15]	[done]
+	build successfully !
+
+[2025-09-10 14:50:48]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c': source file has been changed.
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\init_regmap_v4.c': source file has been changed.
+
+[2025-09-10 14:50:49]	[done]
+	build successfully !
+
+[2025-09-10 14:52:10]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\init_regmap_v4.c': source file has been changed.
+
+[2025-09-10 14:52:10]	[done]
+	build successfully !
+
+[2025-09-10 14:56:00]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c': source file has been changed.
+
+[2025-09-10 14:56:00]	[done]
+	build successfully !
+
+[2025-09-10 15:00:10]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c': source file has been changed.
+
+[2025-09-10 15:00:10]	[done]
+	build successfully !
+
+[2025-09-10 15:15:10]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c': source file has been changed.
+
+[2025-09-10 15:15:11]	[done]
+	build successfully !
+
+[2025-09-10 15:16:57]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c': source file has been changed.
+
+[2025-09-10 15:16:57]	[done]
+	build successfully !
+
+[2025-09-10 15:28:29]	[info] incremental build: 2 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c': source file has been changed.
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\main.c': source file has been changed.
+
+[2025-09-10 15:28:29]	[done]
+	build successfully !
+
+[2025-09-10 15:31:20]	[info] incremental build: 1 source files changed
+These source files will be recompiled
+---
+'f:\202409_EMIMO\EMIMO-Software\STM32F103_lmk_clkgen\src\LMK04832_Master\LMK04832_Drv.c': source file has been changed.
+
+[2025-09-10 15:31:20]	[done]
+	build successfully !
+

@@ -1,10 +1,8 @@
 #include "stm32f10x.h"
 #include "LMK04832_Drv.h"
 #include "delay.h"
-#include "stdio.h"
 
-// 添加寄存器写入辅助函数
-static void LMK_write_register(uint16_t addr, uint8_t data)
+void LMK_write_register(uint16_t addr, uint8_t data)
 {
     LMK_CSEL_CLR();
     LMK_Master_Send((addr >> 8) & 0xFF);  // 高字节
@@ -14,7 +12,7 @@ static void LMK_write_register(uint16_t addr, uint8_t data)
     LMK_CSEL_SET();
 }
 
-// SYSREF清零函数 - 关键修复
+// SYSREF清零函数
 static void LMK_clear_sysref_delay_buffers(void)
 {
     // 根据手册8.3.3.1.2，设置SYSREF_CLR=1持续15个VCO时钟周期
@@ -23,9 +21,9 @@ static void LMK_clear_sysref_delay_buffers(void)
     // 设置SYSREF_CLR = 1 (Reg 0x143, bit 1)
     LMK_write_register(0x143, 0x16);  // SYNC_EN=1, SYSREF_CLR=1, 其他位保持
     
-    // 等待15个VCO周期 (约5ns，但实际使用1ms确保充分清零)
-    delay_ms(1);
-    
+    // 等待15个VCO周期 (约5ns)
+    // __NOP();
+    delay_ms(1);    
     // 清除SYSREF_CLR = 0
     LMK_write_register(0x143, 0x14);  // SYNC_EN=1, SYSREF_CLR=0
 }
@@ -64,7 +62,7 @@ void LMK_set_sysref_mode_switch(uint8_t mode)
             
             // 步骤2: 清零SYSREF延迟缓冲区
             LMK_clear_sysref_delay_buffers();
-            
+            delay_ms(1);
             // 步骤3: 设置SYNC配置
             LMK_write_register(0x143, 0x14);  // SYNC_EN=1, SYNC_MODE=1, SYNC_POL=0
             LMK_write_register(0x139, 0x00);  // SYSREF_MUX=0
@@ -82,82 +80,38 @@ void LMK_set_sysref_mode_switch(uint8_t mode)
             break;
             
         case 2:  // Pulser模式 (SYSREF_MUX=2)
-            // 步骤1: 准备SYSREF电路
-            LMK_write_register(0x140, 0x00);  // Power up all SYSREF circuits
-            delay_ms(1);
             
-            // 步骤2: 清零SYSREF延迟缓冲区
-            LMK_clear_sysref_delay_buffers();
-            
-            // 步骤3: 首先进行同步以建立确定性相位关系
-            LMK_write_register(0x143, 0x14);  // SYNC_EN=1, SYNC_MODE=1, SYNC_POL=0
-            LMK_write_register(0x139, 0x00);  // 临时设置SYSREF_MUX=0用于同步
-            
-            // 启用同步
-            LMK_write_register(0x144, 0x00);  // 清除SYNC_DISx
-            LMK_write_register(0x145, 0x00);  // 清除SYNC_DISSYSREF
-            
-            // 执行同步
-            LMK_perform_sync();
-            
-            // 步骤4: 禁用SYNC并切换到Pulser模式
+            // 禁用SYNC并切换到Pulser模式
             LMK_write_register(0x144, 0xFF);  // 设置SYNC_DISx = 1
             LMK_write_register(0x145, 0x01);  // 设置SYNC_DISSYSREF = 1
             
-            // 步骤5: 设置Pulser模式
-            LMK_write_register(0x143, 0x24);  // SYNC_EN=1, SYNC_MODE=2 (Pulser on pin)
+            // 设置Pulser模式
+            LMK_write_register(0x143, 0x13);  // SYNC_EN=1, SYNC_MODE=3 (Pulser on SPI programming)
             LMK_write_register(0x139, 0x02);  // SYSREF_MUX=2 (Pulser)
-            delay_ms(1);
             break;
             
         case 3:  // Continuous模式 (SYSREF_MUX=3)
-            // 步骤1: 准备SYSREF电路
-            LMK_write_register(0x140, 0x01);  // SYSREF_PD=0, SYSREF_DDLY_PD=0, SYSREF_PLSR_PD=1
+            // 准备SYSREF电路 // 不需要，置位这些PD会导致SYSREF波形在触发阈值附近反复横跳
+            // LMK_write_register(0x140, 0x01);  // SYSREF_PD=0, SYSREF_DDLY_PD=0, SYSREF_PLSR_PD=1
+            // delay_ms(1);
+
+            // 清零SYSREF延迟缓冲区
+            LMK_clear_sysref_delay_buffers();
             delay_ms(1);
             
-            // 步骤2: 清零SYSREF延迟缓冲区
-            LMK_clear_sysref_delay_buffers();
-            
-            // 步骤3: 首先进行同步
-            LMK_write_register(0x143, 0x14);  // SYNC_EN=1, SYNC_MODE=1
-            LMK_write_register(0x139, 0x00);  // 临时设置SYSREF_MUX=0
-            
-            // 执行同步流程
-            LMK_write_register(0x144, 0x00);  // 启用同步
-            LMK_write_register(0x145, 0x00);  // 启用SYSREF同步
-            LMK_perform_sync();
-            LMK_write_register(0x144, 0xFF);  // 禁用同步
-            LMK_write_register(0x145, 0x01);  // 禁用SYSREF同步
             
             // 步骤4: 切换到连续模式
             LMK_write_register(0x139, 0x03);  // SYSREF_MUX=3 (Continuous)
             delay_ms(1);
             break;
     }
-    
-    printf("SYSREF mode switched to: %d\r\n", mode);
 }
 
-// 修复的SYSREF脉冲发送函数
 void LMK_set_sysref_pulse(uint8_t SYSREF_PULSE_CNT)
-{
-    // 确保当前在Pulser模式
-    LMK_write_register(0x143, 0x34);  // SYNC_EN=1, SYNC_MODE=3 (SPI Pulser), SYNC_POL=1
-    LMK_write_register(0x139, 0x02);  // SYSREF_MUX=2 (Pulser)
-    delay_ms(1);
-    
+{   
     // 编程脉冲计数 - 这将触发脉冲发送
     LMK_write_register(0x13E, SYSREF_PULSE_CNT);
-    
-    // 等待脉冲发送完成
-    // 对于2个脉冲@6.912MHz，大约需要300ns，我们等待1ms确保完成
-    delay_ms(1);
-    
-    // 重新清零SYSREF延迟缓冲区以清除可能的异常状态
-    LMK_clear_sysref_delay_buffers();
-    
-    printf("SYSREF Pulse sent, count: %d (actual pulses: %d)\r\n", SYSREF_PULSE_CNT, (1 << SYSREF_PULSE_CNT));
-}
+    }
 
 void GPIO_init(void)
 {
