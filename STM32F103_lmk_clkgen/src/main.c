@@ -5,7 +5,7 @@
 
 // extern uint8_t init_regmap[];
 // extern uint8_t init_regmap_pll1only[];
-extern uint8_t init_regmap_v4[];
+extern uint8_t init_regmap_v5[];
 
 extern uint8_t host_instruction_valid;
 
@@ -13,7 +13,11 @@ extern uint8_t process_once;
 
 extern uint8_t uart_rx_buffer[8];
 
+extern uint8_t sysref_mode;
+
 static void process(uint8_t uart_data[8], uint8_t * ptr_process_once);
+
+static uint8_t key1_for_the_1st = 0;
 
 int main()
 {
@@ -26,7 +30,7 @@ int main()
 
     // LMK_regmap_init(init_regmap);
     // LMK_regmap_init(init_regmap_pll1only);
-    LMK_regmap_init(init_regmap_v4);
+    LMK_regmap_init(init_regmap_v5);
 
 
     uint8_t combined_key_encode = 0;
@@ -74,23 +78,6 @@ int main()
         switch (combined_key_encode)
         {
         case 1:
-            
-            break;
-        case 2:
-            if (GPIO_ReadInputDataBit(GPIOD, TGOUT_Pin) == 0)
-            {
-                TGOUT_SET();
-                printf("trig_out is ON.\r\n");
-            }
-            else
-            {
-                TGOUT_CLR();
-                printf("trig_out is OFF.\r\n");
-            }
-            break;
-        case 3:
-            break;
-        case 4:
             if (GPIO_ReadInputDataBit(GPIOD, TGIN_Pin) == 0)
             {
                 TGIN_SET();
@@ -100,6 +87,52 @@ int main()
             {
                 TGIN_CLR();
                 printf("trig_in is OFF.\r\n");
+            }
+            break;
+        case 2:
+            if (key1_for_the_1st == 0)
+            {
+                key1_for_the_1st = 1; // 未知原因导致上电之后KEY1必被检测按下，因此跳过
+            }
+            else
+            {
+                if (sysref_mode == 3)
+                {
+                    if (GPIO_ReadInputDataBit(GPIOD, TGOUT_Pin) == 0)
+                    {
+                        TGOUT_SET();
+                        printf("trig_out is ON.\r\n");
+                    }
+                    else
+                    {
+                        TGOUT_CLR();
+                        printf("trig_out is OFF.\r\n");
+                    }           
+                }
+                else if (sysref_mode == 2)
+                {
+                    // 发送Pulse
+                    uint8_t cnt = 1;
+                    LMK_set_sysref_pulse(cnt);
+                    printf("SYSREF Pulse sent, CNT: %d (actual pulses: %d)\r\n", cnt, (0x1 << cnt));
+                }
+        
+            }
+            break;
+        case 3:
+            break;
+        case 4:
+            if (sysref_mode == 3)
+            {
+                uint8_t mode = 2;
+                LMK_set_sysref_mode_switch(mode);
+                printf("SYSREF MUX set to: %d.\r\n", mode);
+            } 
+            else if (sysref_mode == 2)
+            {
+                uint8_t mode = 3;
+                LMK_set_sysref_mode_switch(mode);
+                printf("SYSREF MUX set to: %d.\r\n", mode);
             }
             break;
         default:

@@ -3,7 +3,7 @@
     "target": "Debug",
     "toolchain": "GCC",
     "toolchainLocation": "C:\\Users\\62526\\.eide\\tools\\gcc_arm",
-    "toolchainCfgFile": "c:\\Users\\62526\\.vscode\\extensions\\cl.eide-3.25.0\\res\\data\\models/arm.gcc.model.json",
+    "toolchainCfgFile": "c:\\Users\\62526\\.vscode\\extensions\\cl.eide-3.26.0\\res\\data\\models/arm.gcc.model.json",
     "buildMode": "fast|multhread",
     "showRepathOnLog": true,
     "threadNum": 8,
@@ -40,6 +40,7 @@
         "src/LMK04832_Master/init_regmap_pll1only.c",
         "src/LMK04832_Master/init_regmap_v2.c",
         "src/LMK04832_Master/init_regmap_v4.c",
+        "src/LMK04832_Master/init_regmap_v5.c",
         "src/LMK04832_Master/uart.c",
         "src/delay.c",
         "src/main.c",
@@ -50,13 +51,27 @@
     "sourceParams": {},
     "options": {
         "version": 5,
-        "beforeBuildTasks": [],
         "afterBuildTasks": [],
+        "asm-compiler": {
+            "ASM_FLAGS": ""
+        },
+        "beforeBuildTasks": [],
+        "c/cpp-compiler": {
+            "CXX_FLAGS": "",
+            "C_FLAGS": "",
+            "language-c": "c11",
+            "language-cpp": "c++11",
+            "one-elf-section-per-data": true,
+            "one-elf-section-per-function": true,
+            "optimization": "level-debug",
+            "warnings": "all-warnings"
+        },
         "global": {
             "$float-abi-type": "softfp",
-            "output-debug-info": "enable",
             "misc-control": "--specs=nosys.specs --specs=nano.specs",
+            "output-debug-info": "enable",
             "toolPrefix": "arm-none-eabi-",
+            "arm-thumb-mode": "thumb",
             "microcontroller-cpu": "cortex-m3",
             "microcontroller-fpu": "cortex-m3",
             "microcontroller-float": "cortex-m3",
@@ -64,24 +79,11 @@
             "$clang-arch-extensions": "",
             "$armlink-arch-extensions": ""
         },
-        "c/cpp-compiler": {
-            "language-c": "c11",
-            "language-cpp": "c++11",
-            "optimization": "level-debug",
-            "warnings": "all-warnings",
-            "one-elf-section-per-function": true,
-            "one-elf-section-per-data": true,
-            "C_FLAGS": "",
-            "CXX_FLAGS": ""
-        },
-        "asm-compiler": {
-            "ASM_FLAGS": ""
-        },
         "linker": {
-            "output-format": "elf",
-            "remove-unused-input-sections": true,
             "LD_FLAGS": "",
             "LIB_FLAGS": "-lm",
+            "output-format": "elf",
+            "remove-unused-input-sections": true,
             "$toolName": "gcc",
             "link-scatter": [
                 "f:/202409_EMIMO/EMIMO-Software/STM32F103_lmk_clkgen/stm32f1x_64KB_flash.ld"
@@ -106,7 +108,7 @@
         "SYS_PathSep": ";",
         "SYS_PathSeparator": ";",
         "SYS_EOL": "\r\n",
-        "EIDE_BUILDER_DIR": "c:\\Users\\62526\\.vscode\\extensions\\cl.eide-3.25.0\\res\\tools\\win32\\unify_builder",
+        "EIDE_BUILDER_DIR": "c:\\Users\\62526\\.vscode\\extensions\\cl.eide-3.26.0\\res\\tools\\win32\\unify_builder",
         "EIDE_BINARIES_VER": "12.1.1",
         "EIDE_MSYS": "C:\\Users\\62526\\.eide\\bin\\builder\\msys\\bin",
         "EIDE_PY3_CMD": "C:\\Users\\62526\\.eide\\bin\\python36\\python3.exe",

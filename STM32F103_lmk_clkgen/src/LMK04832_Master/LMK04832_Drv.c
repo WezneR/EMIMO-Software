@@ -2,6 +2,8 @@
 #include "LMK04832_Drv.h"
 #include "delay.h"
 
+uint8_t sysref_mode = 3;
+
 void LMK_write_register(uint16_t addr, uint8_t data)
 {
     LMK_CSEL_CLR();
@@ -105,13 +107,14 @@ void LMK_set_sysref_mode_switch(uint8_t mode)
             delay_ms(1);
             break;
     }
+    sysref_mode = mode;
 }
 
 void LMK_set_sysref_pulse(uint8_t SYSREF_PULSE_CNT)
 {   
     // 编程脉冲计数 - 这将触发脉冲发送
     LMK_write_register(0x13E, SYSREF_PULSE_CNT);
-    }
+}
 
 void GPIO_init(void)
 {

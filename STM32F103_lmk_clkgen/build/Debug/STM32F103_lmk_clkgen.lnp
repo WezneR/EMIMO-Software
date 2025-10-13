@@ -1,4 +1,4 @@
--mthumb -mcpu=cortex-m3 -T f:/202409_EMIMO/EMIMO-Software/STM32F103_lmk_clkgen/stm32f1x_64KB_flash.ld -Wl,--gc-sections -Wl,--print-memory-usage --specs=nosys.specs --specs=nano.specs
+-mcpu=cortex-m3 -mthumb -T f:/202409_EMIMO/EMIMO-Software/STM32F103_lmk_clkgen/stm32f1x_64KB_flash.ld -Wl,--gc-sections -Wl,--print-memory-usage --specs=nosys.specs --specs=nano.specs
 -Wl,-Map=./build/Debug/STM32F103_lmk_clkgen.map
 -o ./build/Debug/STM32F103_lmk_clkgen.elf ./build/Debug/.obj/hal/STM32F10x_StdPeriph_Driver/src/misc.o
 ./build/Debug/.obj/hal/STM32F10x_StdPeriph_Driver/src/stm32f10x_adc.o
@@ -15,6 +15,7 @@
 ./build/Debug/.obj/src/LMK04832_Master/init_regmap_pll1only.o
 ./build/Debug/.obj/src/LMK04832_Master/init_regmap_v2.o
 ./build/Debug/.obj/src/LMK04832_Master/init_regmap_v4.o
+./build/Debug/.obj/src/LMK04832_Master/init_regmap_v5.o
 ./build/Debug/.obj/src/LMK04832_Master/uart.o
 ./build/Debug/.obj/src/delay.o
 ./build/Debug/.obj/src/main.o

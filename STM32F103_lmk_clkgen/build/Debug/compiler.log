@@ -1,10 +1,12 @@
 >>> cc
 
-
+./hal/STM32F10x_StdPeriph_Driver/system_stm32f10x.c:392:13: warning: 'SetSysClock' defined but not used [-Wunused-function]
+  392 | static void SetSysClock(void)
+      |             ^~~~~~~~~~~
 
 >>> ld
 
 Memory region         Used Size  Region Size  %age Used
-           FLASH:        8884 B       128 KB      6.78%
-             RAM:         840 B        20 KB      4.10%
+           FLASH:        9004 B       128 KB      6.87%
+             RAM:         844 B        20 KB      4.12%
        MEMORY_B1:          0 GB         0 GB
