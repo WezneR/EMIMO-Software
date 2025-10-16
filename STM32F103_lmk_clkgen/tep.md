@@ -1,5 +1,11 @@
+
+F:\MATLAB\RFSoCClient\claude
+
 cd F:/Vivado/ZU47DR_MTS_test
 source download_waveform.tcl
+
+# 发送trig_in正脉冲
+55 5d 00 12 00 00 0d 0a
 
 dacMTSwl 0xf
 getPhaseAll

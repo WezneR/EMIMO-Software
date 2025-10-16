@@ -124,12 +124,14 @@ int main()
         case 4:
             if (sysref_mode == 3)
             {
+                // 切换到SYSREF Pulser
                 uint8_t mode = 2;
                 LMK_set_sysref_mode_switch(mode);
                 printf("SYSREF MUX set to: %d.\r\n", mode);
             } 
             else if (sysref_mode == 2)
             {
+                // 切换到连续SYSREF
                 uint8_t mode = 3;
                 LMK_set_sysref_mode_switch(mode);
                 printf("SYSREF MUX set to: %d.\r\n", mode);
