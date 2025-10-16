@@ -158,6 +158,66 @@ end
 % 此时需要对表格中的数据的每一行取最大值，即是此时的测量的频率的功率值，得到一个181*1的表格
 % 就是某频点下，某个波束偏转角下，的方向图数据，即-90~90度每1度的功率，画图可以得到方向图
 
+
+
+%% 读取保存的mat文件，重新画图
+
+% load("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\chan_power6.95GHz60angle20258251524.mat")
+% load("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\chan_power6.75GHz60angle20258251627.mat")
+load("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\chan_power7.15GHz60angle20258251658.mat")
+
+
+[lenRotAng, lenBeamDir] = size(recv_pw_peak);
+% maxGain = getMaxGainFromMat("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\chan_power6.95GHz60angle20258261058.mat")
+%波束偏转角度
+Beamdirect = -60:10:60;
+if lenBeamDir ~= length(Beamdirect)
+    error('检查波束个数');
+end
+maxPw = max(recv_pw_peak(:));
+if maxPw == 0
+    error('数据可能不完整，请检查');
+end
+
+% 归一化
+recv_pw_peak = recv_pw_peak - maxPw;
+
+% 生成横轴
+Start_Angle = -90;
+Stop_Angle  = 90;
+AStep=1;
+Angle=Start_Angle:AStep:Stop_Angle;
+
+legends = cell(lenBeamDir + 1, 1);
+figure;
+hold on;
+for i=1:lenBeamDir
+    plot(Angle, recv_pw_peak(:,i), LineStyle="-", LineWidth=1);
+    legends{i} = sprintf('%d°', Beamdirect(i));
+end
+Angle4bl = -72:72;
+baseLine = 10*log10(cos(deg2rad(Angle4bl)));
+plot(Angle4bl, baseLine, LineStyle="--", LineWidth=1.5, Color=[0.1 0.1 0.1]);
+legends{end} = '10lg(cos\theta)';
+
+set(gca,'FontName','Times New Roman','FontSize', 14);
+xlabel('\fontname{宋体}\fontsize{14}扫描角度\fontname{Times New Roman}\theta\fontsize{14}(°)');
+ylabel('\fontname{宋体}\fontsize{14}归一化增益\fontname{Times New Roman}\fontsize{14}(dB)');
+
+lg = legend(legends, 'Location', 'best');
+lg.ItemHitFcn=@HitCallbackFcn;
+grid on;
+
+% function maxVal = getMaxGainFromMat(MatFileName)
+% recv_pw_peak = load(MatFileName);
+% % 假定MatFileName中只有所需的recv_pw_peak变量
+%     maxVal = max(recv_pw_peak(:));
+%     if maxVal == 0
+%         error('数据不完整');
+%     end
+% end
+
+
 function HitCallbackFcn(src,evnt) % 当点击图例后执行的自定义函数
     if strcmp(evnt.Peer.Visible,'on')
         evnt.Peer.Visible = 'off';

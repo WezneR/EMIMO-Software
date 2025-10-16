@@ -2,6 +2,7 @@
 F:\MATLAB\RFSoCClient\claude
 
 cd F:/Vivado/ZU47DR_MTS_test
+cd F:/Vivado/zu47_calibadc  
 source download_waveform.tcl
 
 # 发送trig_in正脉冲
