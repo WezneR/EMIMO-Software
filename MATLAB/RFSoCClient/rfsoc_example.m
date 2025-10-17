@@ -6,7 +6,7 @@ clear all; close all; clc;
 
 %% Configuration
 % Modify these parameters according to your setup
-RFSOC_IP = '192.168.1.1';  % Replace with your RFSoC board IP
+RFSOC_IP = '192.168.1.2';  % Replace with your RFSoC board IP
 RFSOC_PORT = 6001;           % TCP port (should match server)
 
 % RFSOC_IP = '127.0.0.1';  % 用于连接本地 Net assistant 测试
