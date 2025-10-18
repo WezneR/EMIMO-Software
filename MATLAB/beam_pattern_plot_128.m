@@ -1,36 +1,38 @@
-%
-% 同时连接两个基带机箱并使用串口发送'uramPlay'命令
-% 需要自行对照设备管理器识别串口号（每个FT4232有4个串口，其中3个会显示在设备管理器的'端口'中，最低的那个被用来UART通信）
-baudrate = 115200;
+%% 测试128单元（双模组）阵列的方向图
+% 1. 数字基带同步并校准
+% （测试TX，方位角）
+% 2. 连接MIMO模组TX和基带的DAC，阵列水平放置，检查连线，打开电源，打开本振，初始化MIMO前端，转台归位。
+% （注意，执行"%% 识别 EMIMO 设备串口号 和 转台（ZT） 串口号 并载入" 节时，不要插入时钟板的CH340串口，等这里运行结束之后，再插入）
+% 
+% 3. 基带trig_out ON
+% 4. 开转，每转一度记录频谱仪峰值
+% 5. 切换下一个扫描的方位角，重复3,4
+% 6. 切换下一个频率，然后重复3,4,5.直到测完所有频率。
+% 【绘制TX下，不同扫描角、不同频率的方向图】
+% 
+% （测试RX，方位角。把喇叭改连信号源，频谱仪关掉）
+% 7. 连接MIMO模组RX和基带的ADC，阵列水平放置。初始化MIMO前端，转台归位。
+% 9. 基带trig_in pulse
+% 10. 转台每转一度，基带trig_in触发一次，网口读两块板ADC数据并保存。（可能还需要检查数据中的异常值：直接正弦拟合，异常值用拟合值代替，最终目的是拿到每个通道的正弦幅度）
+% 11. 切换下一个扫描的方位角，重复9,10。
+% 12. 切换下一个频率，重复9,10,11
+% 【绘制RX下，不同扫描角，不同频率的方向图】
+% 
+% 
+% 13. 
 
-BB1_COM = 'com23';
-BB2_COM = 'com27';
 
-ft1 = OpenSerial(BB1_COM, baudrate, @ReadFcn_Com)
-ft2 = OpenSerial(BB2_COM, baudrate, @ReadFcn_Com)
-
-%%
-cmd = 'uramPlay\n';
-% cmd = 'rfdcStartup\n';
-% cmd = 'dacMTS 0xf\n'
-fwrite(ft1,cmd)
-fwrite(ft2,cmd)
-
-%%
-fclose(ft1)
-fclose(ft2)
-
-%%
+%% 清除已有连接
 CloseSerial;
 clear COM;
 fclose(SAObj);
 
-%%
+%% 清除已有连接
 CloseSerial;
 clear COMHUB_EM;
 clear classObj;
 
-%%
+%% 初始化工作区
 close all;
 clear all;
 clc;
@@ -38,6 +40,16 @@ addpath(genpath('UART'));
 addpath(genpath('SA'));
 addpath(genpath('Function'));
 addpath(genpath('mat'));
+
+%% 基带同步 dacMTSwl
+
+% 在串口命令行中操作
+
+% 可能需要用示波器检查，或者环回检查
+
+
+% 注意先拔出时钟板的CH340串口
+
 
 %% 识别 EMIMO 设备串口号 和 转台（ZT） 串口号 并载入
 % 注意确认COM号的具体对应关系
@@ -57,6 +69,40 @@ for i = 1:size(devices,1)
 end
 classObj.MoCtrCard_Initial(COM_ZT);  %连接转台
 
+
+%% 连接时钟板的串口 (运行到此处时再插入设备，不要提前插入，否则会被识别到 COMHUB_EM 中)
+
+tic
+devices = IdentifySerialComs();
+toc
+
+% 获取已经打开的EMIMO串口列表
+openedEMIMOports = fieldnames(COMHUB_EM);
+
+for i = 1:size(devices,1)
+    if strcmp(devices{i,1}, 'USB-SERIAL CH340')
+        % Found a CH340 device, check if it's already in COMHUB_EM
+        comstr = sprintf('com%d',devices{i,2});
+        fieldname = matlab.lang.makeValidName(comstr);
+        
+        % 检查这个串口是否已经在COMHUB_EM中打开
+        isEMIMOport = any(strcmp(fieldname, openedEMIMOports));
+        
+        if ~isEMIMOport
+            % 这个CH340设备不在COMHUB_EM中，应该是时钟板
+            COM_CLK = OpenSerial(comstr, baudrate, @ReadFcn_Com);
+            fprintf('找到时钟板串口: %s\n', comstr);
+        else
+            fprintf('跳过EMIMO串口: %s\n', comstr);
+        end
+    end
+end
+
+% 确保 SYSREF是连续模式
+func_clk_sysrefmode(COM_CLK, 3);
+
+% trig_out
+func_clk_trig(COM_CLK, 0, 'ON');
 
 %% 控制EMIMO相位
 
@@ -85,10 +131,12 @@ fprintf('阵面已初始化为法相波束。')
 func_channel_switch(COMHUB_EM,0,8,8,isTX,1);
 fprintf('已关闭通道。\n')
 %%
-att_byte = '10'
+att_byte = '20'
 func_IFDSA_write(COMHUB_EM, isTX, att_byte);
 
 %% 使用LAN口连接频谱仪，并完成初始化
+% 注意，为了匹配基带板的IPV4子网IP且不相互冲突，频谱仪的IPV4地址改为192.168.1.201
+
 SA_Init_SVA1075X(); 
 
 
