@@ -464,6 +464,33 @@ classdef RFSoC_Client < handle
                 success = false;
             end
         end
+
+        function [success] = trig_mts(obj)
+            % trigger a dacMTSwl section in RFSoC
+            if ~obj.isConnected
+                fprintf('Not connected. Please connect first.\n');
+                return;
+            end
+
+            try
+                cmd = sprintf('TRIG_MTS');
+                obj.sendCommand(cmd);
+                
+                % Wait for ready response
+                response = obj.readTextResponse();
+                if ~startsWith(response, 'OK')
+                    error('Server not ready: %s', response);
+                else
+                    fprintf('MTS section is running on board %s:%d\n', obj.serverIP, obj.serverPort);
+                end
+                success = true;
+                
+            catch ME
+                fprintf('Error triggering MTS: %s\n', ME.message);
+                success = false;
+            end
+        end
+    
         
         function runInteractiveMenu(obj)
             % Run interactive command menu
@@ -482,7 +509,7 @@ classdef RFSoC_Client < handle
                 fprintf('6. Get calibration parameter\n');
                 fprintf('7. Set all calibration parameters\n');
                 fprintf('8. Get all calibration parameters\n');
-                fprintf('9. Disconnect\n');
+                fprintf('9. Trigger an MTS operation\n');
                 fprintf('0. Exit\n');
                 
                 choice = input('Enter choice: ', 's');
@@ -547,7 +574,7 @@ classdef RFSoC_Client < handle
                             fprintf('\n');
                         end
                     case '9'
-                        obj.disconnect();
+                        obj.trig_mts();
                         return;
                     case '0'
                         obj.disconnect();
