@@ -8,7 +8,7 @@ classdef RFSoC_Client < handle
         isConnected = false
         serverIP
         serverPort = 6001
-        timeout = 10  % seconds
+        timeout = 3  % seconds
     end
     
     properties (Constant)
@@ -123,41 +123,44 @@ classdef RFSoC_Client < handle
                         error('Cannot open file: %s', filename);
                     end
                     
-                    % Read as uint32 (I/Q interleaved)
-                    raw_data = fread(fid, inf, 'uint32');
+                    % Read as int16 (I/Q interleaved, 2^16 = 64k samples in total, 32k samples for I or Q)
+                    raw_data = fread(fid, 2^16 ,'int16', 0, 'ieee-le');
                     fclose(fid);
-                    
+
                     % Convert to binary for transmission
-                    data_bytes = typecast(raw_data, 'uint8');
+                    data_bytes = typecast(uint16(raw_data), 'uint8');
+
+                    % data_bytes = fread(fid, 2^16 ,'int16', 0, 'ieee-le');
+
                     
                 elseif ~isempty(data)
                     % Convert complex data to I/Q format
                     if ~isnumeric(data)
                         error('Data must be numeric');
                     end
-                    
+
                     % Ensure data is complex
                     if isreal(data)
                         error('Data must be complex (I+jQ)');
                     end
-                    
+
                     % Limit to maximum samples
                     if length(data) > obj.SAMPLES_PER_TX_BRAM
                         warning('Data truncated to %d samples', obj.SAMPLES_PER_TX_BRAM);
                         data = data(1:obj.SAMPLES_PER_TX_BRAM);
                     end
-                    
+
                     % Convert to I/Q interleaved format (16-bit each)
                     I = int16(real(data) * 32767);  % Normalize to 16-bit range
                     Q = int16(imag(data) * 32767);
-                    
+
                     % Interleave I and Q, then convert to 32-bit words
                     iq_data = zeros(1, length(data), 'uint32');
                     for i = 1:length(data)
                         iq_data(i) = bitor(uint32(uint16(I(i))), ...
                                           bitshift(uint32(uint16(Q(i))), 16));
                     end
-                    
+
                     % Convert to bytes for transmission
                     data_bytes = typecast(iq_data, 'uint8');
                     
@@ -171,8 +174,11 @@ classdef RFSoC_Client < handle
                           data_size, obj.TX_BRAM_SIZE);
                 end
                 
-                fprintf('Writing %d bytes of DAC data...\n', data_size);
                 
+                %
+                pause(0.5)
+                %
+
                 % Send write command
                 cmd = sprintf('WRITE_DAC %d', data_size);
                 obj.sendCommand(cmd);
@@ -181,11 +187,23 @@ classdef RFSoC_Client < handle
                 response = obj.readTextResponse();
                 if ~startsWith(response, 'OK')
                     error('Server not ready: %s', response);
+                else
+                    fprintf('Server response received.\n');
                 end
-                
+
+                fprintf('Writing %d bytes of DAC data, 2KB per chunk...\n', data_size);
+
                 % Send data
-                write(obj.tcpClient, data_bytes);
-                
+                N_chunk = data_size/2048; % 2KB per chunk
+                for chunk_i = 1:N_chunk
+                    pause(0.1)
+                    dataOffset = chunk_i*2048;
+                    fprintf('Sending chunk %d.\n', chunk_i);
+                    write(obj.tcpClient, data_bytes(dataOffset : dataOffset + 2048));
+                end
+
+                pause(0.5)
+
                 % Wait for completion response
                 response = obj.readTextResponse();
                 if startsWith(response, 'OK')
@@ -476,6 +494,7 @@ classdef RFSoC_Client < handle
                 cmd = sprintf('TRIG_MTS');
                 obj.sendCommand(cmd);
                 
+                pause(1)
                 % Wait for ready response
                 response = obj.readTextResponse();
                 if ~startsWith(response, 'OK')

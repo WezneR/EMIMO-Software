@@ -11,7 +11,7 @@ RFSOC_PORT = 6001;           % TCP port (should match server)
 
 % RFSOC_IP = '127.0.0.1';  % 用于连接本地 Net assistant 测试
 % RFSOC_PORT = 8080;           % TCP port (should match server)
-%% Create and connect to RFSoC client
+% Create and connect to RFSoC client
 fprintf('=== RFSoC ZU47DR MATLAB Client Example ===\n');
 
 % Create client instance

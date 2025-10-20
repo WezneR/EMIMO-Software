@@ -1,3 +1,6 @@
 STM32F103_lmk_clkgen/build/Debug/builder.params
 STM32F103_lmk_clkgen/build/Debug/compile_commands.json
 STM32F103_lmk_clkgen/build/Debug/ref.json
+
+# RX的测试结果太大了，所以不同步，手动拷贝吧QwQ
+MATLAB/mat/BeamScanRX*
