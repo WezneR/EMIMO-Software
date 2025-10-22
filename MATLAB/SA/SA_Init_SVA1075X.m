@@ -9,8 +9,8 @@
 
 %% 参数
 
-CenterFreq = 6.95e9 ; %6.95GHz
-% CenterFreq = 6.75e9 ; %6.75GHz
+% CenterFreq = 6.95e9 ; %6.95GHz
+CenterFreq = 6.75e9 ; %6.75GHz
 % CenterFreq = 7.15e9 ; %6.75GHz
 Span = 50e6  ;  %400MHz
 

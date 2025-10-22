@@ -18,7 +18,6 @@
 % 12. 切换下一个频率，重复9,10,11
 % 【绘制RX下，不同扫描角，不同频率的方向图】
 % 
-% 
 % 13. 
 
 
@@ -194,7 +193,7 @@ func_clk_trig(COM_CLK, 1, 'Pulse');
 
 %% 控制EMIMO相位
 
-isTX = 0;
+isTX = 1;
 
 ang_azimuth = 0; %水平方向角
 
@@ -233,7 +232,7 @@ SA_Init_SVA1075X();
 %% 循环转圈，三个频率，6.8，6.95，7.1GHz，每个频率的波束从-60到+60°，每隔10°转一圈
 %测试的频点
 % measfreq = [6.8 6.95 7.1];
-measfreq = [6.95];
+% measfreq = [6.95];
 % measfreq = [6.75];
 % measfreq = [7.15];
 %波束偏转角度
@@ -503,6 +502,69 @@ plot(Angle, mag2db(amp))
 % 得出该ZTang的所有adc数据之和的单音幅度值
 
 
+%% TX 俯仰角测试
+%测试的频点
+% measfreq = [6.8 6.95 7.1];
+% measfreq = [6.95];
+measfreq = [6.75];
+% measfreq = [7.15];
+%波束偏转角度
+Beamdirect = -60:10:60;
+%转台角度
+Start_Angle = -90;
+Stop_Angle  = 90;
+AStep=1;
+Angle=Start_Angle:AStep:Stop_Angle;
+
+%初始化转台在-90°
+classObj.MoCtrCard_MCrlAxisAbsMove(1,Start_Angle,20,0.1);  %1可能是控制的轴编号，Start_Angle是转到目标位置，
+
+
+%% 
+% 初始化矩阵来存储数据，假设每个频点旋转角度从-90到90度，步进1度
+% 每1度，都读取频谱仪此时测量的信道的所有频率的功率值
+% 每个频点有181个角度测量
+recv_pw_peak = zeros(length(Angle),length(Beamdirect));
+
+for i = 1:length(measfreq)
+    % 每个频点画一幅图
+    figure;
+    legends = cell(length(Beamdirect),1);
+    for j = 1:length(Beamdirect)
+        func_phase_array_beam_direct_to(COMHUB_EM, 0, Beamdirect(j)); %偏转俯仰角角
+        pause(0.5);
+        if(j ~= 1) % 除了首次启动转台，其他情况都需要等待转台回到开始位置
+            classObj.MoCtrCard_MCrlAxisAbsMove(1,Start_Angle,20,0.1);  %1可能是控制的轴编号，Start_Angle是转到目标位置，
+            pause(11); % 速度20时，转90°大约耗时4.9s。
+            fprintf("转台已回到起始位置。下一个波束号%d(角度%d°)\n", j, Beamdirect(j));
+        end
+        for ii = 1:length(Angle)
+                classObj.MoCtrCard_MCrlAxisAbsMove(1, Angle(ii), 5, 0.1);
+                pause(0.4);
+                fprintf(SAObj, 'CALC:MARK1:Y?');  % 读取Marker 1的幅度（Y轴）
+                markerAmplitude = fscanf(SAObj, '%f');  % 幅度值
+                recv_pw_peak(ii, j) = markerAmplitude;  % 将数据存储在矩阵中，-90°对应矩阵中的第1行
+        end
+        %保存数据
+        fileName=['mat\pitch_scan' num2str(measfreq(i)) 'GHz' num2str(Beamdirect(j)) 'angle' char(datetime('now','Format','yMdHHmm')) '.mat'];
+        save(fileName,'recv_pw_peak');
+        
+        plot(Angle, recv_pw_peak(:,j));
+        legends{j} = sprintf('%d°', Beamdirect(j));
+        hold on;
+    end
+    hold off;    
+    lg = legend(legends, 'Location', 'bestoutside');
+    lg.ItemHitFcn=@HitCallbackFcn;
+    grid on;
+
+    input('手动切换下一个频率...（完成后按Enter）')
+end
+
+%% 关闭一个模组
+
+func_channel_switch(COMHUB_EM.com6,0,8,8,isTX,1);
+fprintf('已关闭通道。\n')
 
 %% Function
 
