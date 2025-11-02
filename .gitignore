@@ -4,3 +4,5 @@ STM32F103_lmk_clkgen/build/Debug/ref.json
 
 # RX的测试结果太大了，所以不同步，手动拷贝吧QwQ
 MATLAB/mat/BeamScanRX*
+# EIDE设置无需同步
+/STM32F103_eMIMO_SubArrayCtrl/.eide

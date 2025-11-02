@@ -162,12 +162,53 @@ end
 
 %% 读取保存的mat文件，重新画图
 
-% load("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\chan_power6.95GHz60angle20258251524.mat")
+
+% 这是8月底测试的单模组TX方向图。
 % load("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\chan_power6.75GHz60angle20258251627.mat")
-load("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\chan_power7.15GHz60angle20258251658.mat")
+% outputFileName = '.\figure\single_BeamScanTX_6p75GHz';
+
+% load("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\chan_power6.95GHz60angle20258251524.mat")
+% outputFileName = '.\figure\single_BeamScanTX_6p95GHz';
+
+% load("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\chan_power7.15GHz60angle20258251658.mat")
+% outputFileName = '.\figure\single_BeamScanTX_7p15GHz';
+
+% 这是同期测试的双模组TX方向图，然而由于当时的基带板尚未校准，且两板之间完全未同步，所以方向图很糟糕
+% load("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\chan_power6.95GHz60angle20258261058.mat")
+% outputFileName = '.\figure\pair_BeamScanTX_6p95GHz_woSync';
+
+% 这是10月中旬测试的双模组TX水平方位角扫描方向图
+% load('f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\BeamScanTX_202510182301\chan_power6.75GHz60angle202510181521.mat')
+% outputFileName = '.\figure\pair_BeamScanTX_6p75GHz';
+
+% load('f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\BeamScanTX_202510191500\chan_power7.15GHz60angle202510191520.mat')
+% outputFileName = '.\figure\pair_BeamScanTX_7p15GHz';
+
+load('f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\BeamScanTX_202510191538\chan_power6.95GHz60angle202510191558.mat')
+outputFileName = '.\figure\pair_BeamScanTX_6p95GHz';
 
 
-[lenRotAng, lenBeamDir] = size(recv_pw_peak);
+% 使用latex interpreter的legend，必须使用$$来包括数学表达式，并且不能interprete
+% 如°这样的特殊字符。除此之外，另一个致命缺点是不支持中文，不能控制英文字体。
+% 另外还发现一个小问题，就是latex模式下，$$内的空格会被作特定的格式化处理，最后显示的空白长度并不是你计算过的空格数。
+% 因此推荐用TeX解决所有标注问题。除非你真的想打一串复杂的数学公式...。
+%     legends{i} = ['$\theta_{a} = \mathrm{', sprintf('%3d',Beamdirect(i)) '} ^{\circ}$'];
+%     angle_val = Beamdirect(i);
+%     
+%     if angle_val > 0
+%         formatted_angle = [' ', num2str(angle_val, '%2d')];
+%     elseif angle_val < 0
+%         formatted_angle = num2str(angle_val, '%3d');
+%     else
+%         formatted_angle = ['  ', num2str(angle_val)];
+%     end
+%     
+%     legends{i} = ['$\theta_{a} = \mathrm{', formatted_angle, '} ^{\circ}$'];
+%     legends{end} = '$10\lg(\cos\varphi)$';
+
+
+
+[lenRotAng, lenBeamDir] = size(recv_pw_peak)
 % maxGain = getMaxGainFromMat("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\chan_power6.95GHz60angle20258261058.mat")
 %波束偏转角度
 Beamdirect = -60:10:60;
@@ -188,25 +229,167 @@ Stop_Angle  = 90;
 AStep=1;
 Angle=Start_Angle:AStep:Stop_Angle;
 
+dy = zeros(lenBeamDir, 1);
+% dy(1) = 0.3;
+% dy(3) = -0.2;
+% dy(4) = 0.1
+% dy(5) = 0.1;
+
 legends = cell(lenBeamDir + 1, 1);
 figure;
 hold on;
 for i=1:lenBeamDir
-    plot(Angle, recv_pw_peak(:,i), LineStyle="-", LineWidth=1);
-    legends{i} = sprintf('%d°', Beamdirect(i));
+    legends{i} = ['\theta_a = ', sprintf('%3d',Beamdirect(i)) '°'];
+    y = recv_pw_peak(:,i) + dy(i);
+    plot(Angle, y , LineStyle="-", LineWidth=1);
+
 end
 Angle4bl = -72:72;
 baseLine = 10*log10(cos(deg2rad(Angle4bl)));
 plot(Angle4bl, baseLine, LineStyle="--", LineWidth=1.5, Color=[0.1 0.1 0.1]);
-legends{end} = '10lg(cos\theta)';
+legends{end} = '10lg(cosφ)';
 
 set(gca,'FontName','Times New Roman','FontSize', 14);
-xlabel('\fontname{宋体}\fontsize{14}扫描角度\fontname{Times New Roman}\theta\fontsize{14}(°)');
+
+
+% xlabel('\fontname{宋体}\fontsize{14}转台角度\fontname{Times New Roman}$\varphi$\fontsize{14}(°)', 'Interpreter', 'latex'); % 这个会乱码
+% xlabel('\fontname{宋体}\fontsize{14}转台角度\fontname{Times New Roman}\phi\fontsize{14}(°)'); %这个会乱码
+% xlabel('$\varphi(^{\circ})$', 'Interpreter', 'latex') % 这个可以，但不能打中文
+% xlabel('\fontname{宋体}\fontsize{14}转台角度\fontname{Times New Roman}\phi\fontsize{14}(°)') % 这个可以，但不能打\varphi
+xlabel('\fontname{宋体}\fontsize{14}转台角度\fontname{Times New Roman}φ\fontsize{14}(°)') % 这个可以，显示出来是varphi
 ylabel('\fontname{宋体}\fontsize{14}归一化增益\fontname{Times New Roman}\fontsize{14}(dB)');
 
-lg = legend(legends, 'Location', 'best');
+
+lg = legend(legends, 'Location', 'southeast', 'Interpreter', 'tex', Orientation='horizontal', NumColumns=2);
+
 lg.ItemHitFcn=@HitCallbackFcn;
 grid on;
+
+
+
+xlim([-100, 100]);
+ylim([-35, 0]);
+
+set(gcf, 'Units','centimeters','Position', [0,0, 21, 14]) % 3:2
+
+set(gcf, 'PaperUnits', 'centimeters');
+set(gcf, 'PaperSize', [21, 14]);
+set(gcf, 'PaperPositionMode', 'manual');
+set(gcf, 'PaperPosition', [0, 0, 21, 14]);
+
+
+% 设置渲染器以获得更好的质量
+set(gcf, 'Renderer', 'painters'); % 对于矢量图形很重要
+
+% % 导出PDF（推荐用于打印）
+% print('-dpdf', '-vector', 'output.pdf', '-r300');
+
+% 导出SVG（推荐用于网页和编辑）
+print('-dsvg', '-vector', [outputFileName '.svg'], '-r300');
+disp(['成功导出到' outputFileName '.svg']);
+
+
+
+%% 绘制已保存的俯仰角波束扫描数据 
+
+% 这是10月中旬测试的双模组TX 俯仰角扫描方向图（当时是先测了pair再测了single；频率顺序是7.15->6.75(中间这里有一次测试中途转台卡住了，因此有一份数据是应当跳过的)->6.95; 6.95->7.15->6.75）
+% 有效的测数据尾号对应为：1927 -> (舍弃了2000) 2033 -> 2102 -> | (从这里开始是single) 2200 -> 2223 -> 2251
+% load('f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\pitch_scan7.15GHz60angle202510201927.mat')
+% outputFileName = '.\figure\pair_PitchScanTX_7p15GHz';
+
+% load('f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\pitch_scan6.75GHz60angle202510202033.mat')
+% outputFileName = '.\figure\pair_PitchScanTX_6p75GHz';
+
+% load('f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\pitch_scan6.95GHz60angle202510202102.mat')
+% outputFileName = '.\figure\pair_PitchScanTX_6p95GHz';
+
+% 这是单模组TX俯仰扫描方向图。
+% load("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\pitch_scan6.95GHz60angle202510202200.mat")
+% outputFileName = '.\figure\single_PitchScanTX_6p95GHz';
+
+% load("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\pitch_scan7.15GHz60angle202510202223.mat")
+% outputFileName = '.\figure\single_PitchScanTX_7p15GHz';
+
+% load("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\pitch_scan6.75GHz60angle202510202251.mat")
+% outputFileName = '.\figure\single_PitchScanTX_6p75GHz';
+
+
+
+[lenRotAng, lenBeamDir] = size(recv_pw_peak)
+
+%波束偏转角度
+Beamdirect = -60:10:60;
+if lenBeamDir ~= length(Beamdirect)
+    error('检查波束个数');
+end
+maxPw = max(recv_pw_peak(:));
+if maxPw == 0
+    error('数据可能不完整，请检查');
+end
+
+% 归一化
+recv_pw_peak = recv_pw_peak - maxPw;
+
+% 生成横轴
+Start_Angle = -90;
+Stop_Angle  = 90;
+AStep=1;
+Angle=Start_Angle:AStep:Stop_Angle;
+
+dy = zeros(lenBeamDir, 1);
+
+legends = cell(lenBeamDir + 1, 1);
+figure;
+hold on;
+
+for i=1:lenBeamDir
+    legends{i} = ['\theta_p = ', sprintf('%3d',Beamdirect(i)) '°'];
+    y = recv_pw_peak(:,i) + dy(i);
+    plot(Angle, y , LineStyle="-", LineWidth=1);
+end
+
+Angle4bl = -72:72;
+baseLine = 10*log10(cos(deg2rad(Angle4bl)));
+plot(Angle4bl, baseLine, LineStyle="--", LineWidth=1.5, Color=[0.1 0.1 0.1]);
+legends{end} = '10lg(cosφ)';
+
+set(gca,'FontName','Times New Roman','FontSize', 14);
+
+xlabel('\fontname{宋体}\fontsize{14}转台角度\fontname{Times New Roman}φ\fontsize{14}(°)')
+ylabel('\fontname{宋体}\fontsize{14}归一化增益\fontname{Times New Roman}\fontsize{14}(dB)');
+
+
+lg = legend(legends, 'Location', 'southeast', 'Interpreter', 'tex', Orientation='horizontal', NumColumns=2);
+
+lg.ItemHitFcn=@HitCallbackFcn;
+grid on;
+
+
+
+xlim([-100, 100]);
+ylim([-35, 0]);
+
+set(gcf, 'Units','centimeters','Position', [0,0, 21, 14]) % 3:2
+
+set(gcf, 'PaperUnits', 'centimeters');
+set(gcf, 'PaperSize', [21, 14]);
+set(gcf, 'PaperPositionMode', 'manual');
+set(gcf, 'PaperPosition', [0, 0, 21, 14]);
+
+
+% 设置渲染器以获得更好的质量
+set(gcf, 'Renderer', 'painters'); % 对于矢量图形很重要
+
+% % 导出PDF（推荐用于打印）
+% print('-dpdf', '-vector', 'output.pdf', '-r300');
+
+% 导出SVG（推荐用于网页和编辑）
+print('-dsvg', '-vector', [outputFileName '.svg'], '-r300');
+disp(['成功导出到' outputFileName '.svg']);
+
+
+%% Function
+
 
 % function maxVal = getMaxGainFromMat(MatFileName)
 % recv_pw_peak = load(MatFileName);
