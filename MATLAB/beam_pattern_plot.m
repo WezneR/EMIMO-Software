@@ -178,14 +178,14 @@ end
 % outputFileName = '.\figure\pair_BeamScanTX_6p95GHz_woSync';
 
 % 这是10月中旬测试的双模组TX水平方位角扫描方向图
-% load('f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\BeamScanTX_202510182301\chan_power6.75GHz60angle202510181521.mat')
-% outputFileName = '.\figure\pair_BeamScanTX_6p75GHz';
+load('f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\BeamScanTX_202510182301\chan_power6.75GHz60angle202510181521.mat')
+outputFileName = '.\figure\pair_BeamScanTX_6p75GHz';
 
 % load('f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\BeamScanTX_202510191500\chan_power7.15GHz60angle202510191520.mat')
 % outputFileName = '.\figure\pair_BeamScanTX_7p15GHz';
 
-load('f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\BeamScanTX_202510191538\chan_power6.95GHz60angle202510191558.mat')
-outputFileName = '.\figure\pair_BeamScanTX_6p95GHz';
+% load('f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\BeamScanTX_202510191538\chan_power6.95GHz60angle202510191558.mat')
+% outputFileName = '.\figure\pair_BeamScanTX_6p95GHz';
 
 
 % 使用latex interpreter的legend，必须使用$$来包括数学表达式，并且不能interprete
@@ -209,7 +209,6 @@ outputFileName = '.\figure\pair_BeamScanTX_6p95GHz';
 
 
 [lenRotAng, lenBeamDir] = size(recv_pw_peak)
-% maxGain = getMaxGainFromMat("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\chan_power6.95GHz60angle20258261058.mat")
 %波束偏转角度
 Beamdirect = -60:10:60;
 if lenBeamDir ~= length(Beamdirect)
@@ -229,18 +228,13 @@ Stop_Angle  = 90;
 AStep=1;
 Angle=Start_Angle:AStep:Stop_Angle;
 
-dy = zeros(lenBeamDir, 1);
-% dy(1) = 0.3;
-% dy(3) = -0.2;
-% dy(4) = 0.1
-% dy(5) = 0.1;
 
 legends = cell(lenBeamDir + 1, 1);
 figure;
 hold on;
 for i=1:lenBeamDir
     legends{i} = ['\theta_a = ', sprintf('%3d',Beamdirect(i)) '°'];
-    y = recv_pw_peak(:,i) + dy(i);
+    y = recv_pw_peak(:,i);
     plot(Angle, y , LineStyle="-", LineWidth=1);
 
 end
@@ -283,11 +277,11 @@ set(gcf, 'Renderer', 'painters'); % 对于矢量图形很重要
 
 % % 导出PDF（推荐用于打印）
 % print('-dpdf', '-vector', 'output.pdf', '-r300');
-
-% 导出SVG（推荐用于网页和编辑）
-print('-dsvg', '-vector', [outputFileName '.svg'], '-r300');
-disp(['成功导出到' outputFileName '.svg']);
-
+% 
+% % 导出SVG（推荐用于网页和编辑）
+% print('-dsvg', '-vector', [outputFileName '.svg'], '-r300');
+% disp(['成功导出到' outputFileName '.svg']);
+% 
 
 
 %% 绘制已保存的俯仰角波束扫描数据 
@@ -307,8 +301,8 @@ disp(['成功导出到' outputFileName '.svg']);
 % load("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\pitch_scan6.95GHz60angle202510202200.mat")
 % outputFileName = '.\figure\single_PitchScanTX_6p95GHz';
 
-% load("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\pitch_scan7.15GHz60angle202510202223.mat")
-% outputFileName = '.\figure\single_PitchScanTX_7p15GHz';
+load("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\pitch_scan7.15GHz60angle202510202223.mat")
+outputFileName = '.\figure\single_PitchScanTX_7p15GHz';
 
 % load("f:\WPS_Sync\202409_eMIMO\Software\MATLAB\mat\pitch_scan6.75GHz60angle202510202251.mat")
 % outputFileName = '.\figure\single_PitchScanTX_6p75GHz';
@@ -336,15 +330,13 @@ Stop_Angle  = 90;
 AStep=1;
 Angle=Start_Angle:AStep:Stop_Angle;
 
-dy = zeros(lenBeamDir, 1);
-
 legends = cell(lenBeamDir + 1, 1);
 figure;
 hold on;
 
 for i=1:lenBeamDir
     legends{i} = ['\theta_p = ', sprintf('%3d',Beamdirect(i)) '°'];
-    y = recv_pw_peak(:,i) + dy(i);
+    y = recv_pw_peak(:,i);
     plot(Angle, y , LineStyle="-", LineWidth=1);
 end
 
@@ -376,16 +368,16 @@ set(gcf, 'PaperSize', [21, 14]);
 set(gcf, 'PaperPositionMode', 'manual');
 set(gcf, 'PaperPosition', [0, 0, 21, 14]);
 
-
-% 设置渲染器以获得更好的质量
-set(gcf, 'Renderer', 'painters'); % 对于矢量图形很重要
-
-% % 导出PDF（推荐用于打印）
-% print('-dpdf', '-vector', 'output.pdf', '-r300');
-
-% 导出SVG（推荐用于网页和编辑）
-print('-dsvg', '-vector', [outputFileName '.svg'], '-r300');
-disp(['成功导出到' outputFileName '.svg']);
+% 
+% % 设置渲染器以获得更好的质量
+% set(gcf, 'Renderer', 'painters'); % 对于矢量图形很重要
+% 
+% % % 导出PDF（推荐用于打印）
+% % print('-dpdf', '-vector', 'output.pdf', '-r300');
+% 
+% % 导出SVG（推荐用于网页和编辑）
+% print('-dsvg', '-vector', [outputFileName '.svg'], '-r300');
+% disp(['成功导出到' outputFileName '.svg']);
 
 
 %% Function

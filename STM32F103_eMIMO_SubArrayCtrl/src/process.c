@@ -148,7 +148,7 @@ void process(uint8_t uart_data[8], uint8_t * ptr_process_once)
                     {
                         if (Select == 0)
                         {
-                            printf("%x\r\n", current_GBID);
+                            printf("0x%02x\r\n", current_GBID);
                         }
                         else
                         {
@@ -165,7 +165,7 @@ void process(uint8_t uart_data[8], uint8_t * ptr_process_once)
                     {
                         if (Select == 0)
                         {
-                            printf("%x\r\n", current_GBID);
+                            printf("0x%02x\r\n", current_GBID);
                         }
                         else
                         {
@@ -177,7 +177,7 @@ void process(uint8_t uart_data[8], uint8_t * ptr_process_once)
 
                 if (Select == 0)
                 {
-                    printf("%x\r\n", current_GBID);
+                    printf("0x%02x\r\n", current_GBID);
                 }
                 else if (Select == 1)
                 {
@@ -254,3 +254,90 @@ void process(uint8_t uart_data[8], uint8_t * ptr_process_once)
     }
     *ptr_process_once = 1;
 }
+
+
+
+
+/// @brief Configure beam scan parameters
+/// @param num_dirs Number of scan directions (1-16)
+/// @param scan_mode Scan mode: 0=TX only, 1=RX only, 2=TX+RX
+void FPGA_BeamScan_Config(uint8_t num_dirs, uint8_t scan_mode)
+{
+    uint16_t data = ((uint16_t)num_dirs << 8) | ((scan_mode & 0x3) << 4);
+    
+    FPGA_CSEL_CLR();
+    MCU_PLUG_SET();
+    FPGA_Master_Send(SPI_BORADCAST_DF32A | CMD_BEAM_SCAN_CONFIG);
+    FPGA_Master_Send(data);
+    while (SPI_I2S_GetFlagStatus(FPGA_SPIx, SPI_I2S_FLAG_BSY) == SET);
+    FPGA_CSEL_SET();
+    MCU_PLUG_CLR();
+    Delay_us(2);
+}
+
+
+/// @brief Add a scan direction to the beam scan controller
+/// @param dir_index Direction index (0-15)
+/// @param azimuth Azimuth angle (signed, -128 to 127 degrees)
+/// @param pitch Pitch/elevation angle (signed, -128 to 127 degrees)
+void FPGA_BeamScan_AddDirection(uint8_t dir_index, int8_t azimuth, int8_t pitch)
+{
+    uint16_t data = ((uint16_t)(uint8_t)azimuth << 8) | (uint8_t)pitch;
+    
+    FPGA_CSEL_CLR();
+    MCU_PLUG_SET();
+    FPGA_Master_Send(SPI_BORADCAST_DF32A | ((dir_index & 0xF) << 4) | CMD_BEAM_SCAN_ADD_DIR);
+    FPGA_Master_Send(data);
+    while (SPI_I2S_GetFlagStatus(FPGA_SPIx, SPI_I2S_FLAG_BSY) == SET);
+    FPGA_CSEL_SET();
+    MCU_PLUG_CLR();
+    Delay_us(2);
+}
+
+
+/// @brief Arm the beam scan controller with timeout
+/// @param timeout_us Timeout in microseconds (0 = no timeout)
+void FPGA_BeamScan_Arm(uint16_t timeout_us)
+{
+    FPGA_CSEL_CLR();
+    MCU_PLUG_SET();
+    FPGA_Master_Send(SPI_BORADCAST_DF32A | CMD_BEAM_SCAN_ARM);
+    FPGA_Master_Send(timeout_us);
+    while (SPI_I2S_GetFlagStatus(FPGA_SPIx, SPI_I2S_FLAG_BSY) == SET);
+    FPGA_CSEL_SET();
+    MCU_PLUG_CLR();
+    Delay_us(2);
+}
+
+
+/// @brief Disarm the beam scan controller
+/// @param  None
+void FPGA_BeamScan_Disarm(void)
+{
+    FPGA_CSEL_CLR();
+    MCU_PLUG_SET();
+    FPGA_Master_Send(SPI_BORADCAST_DF32A | CMD_BEAM_SCAN_DISARM);
+    FPGA_Master_Send(0x0000);
+    while (SPI_I2S_GetFlagStatus(FPGA_SPIx, SPI_I2S_FLAG_BSY) == SET);
+    FPGA_CSEL_SET();
+    MCU_PLUG_CLR();
+    Delay_us(2);
+}
+
+
+// /// @brief Example: Setup a 4-direction beam scan sequence
+// /// @param  None
+// void FPGA_BeamScan_Setup_Example(void)
+// {
+//     // Configure for 4 directions, TX+RX mode
+//     FPGA_BeamScan_Config(4, 2);
+    
+//     // Add 4 scan directions (example angles)
+//     FPGA_BeamScan_AddDirection(0, 0, 60);    // Dir 0: az=0, pitch=60
+//     FPGA_BeamScan_AddDirection(1, 0, 20);    // Dir 1: az=0, pitch=20
+//     FPGA_BeamScan_AddDirection(2, 0, -20);   // Dir 2: az=0, pitch=-20
+//     FPGA_BeamScan_AddDirection(3, 0, -60);   // Dir 3: az=0, pitch=-60
+    
+//     // Arm with 10ms timeout
+//     FPGA_BeamScan_Arm(10000);
+// }

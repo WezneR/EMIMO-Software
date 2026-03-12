@@ -3,12 +3,12 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pn" timeStamp="Fri Jun 27 15:17:01 2025">
+<application name="pn" timeStamp="Fri Dec 12 14:38:38 2025">
 <section name="Project Information" visible="false">
-<property name="ProjectID" value="8B6BADFD29CD4206ACA2BB1A56E28C7E" type="project"/>
-<property name="ProjectIteration" value="22" type="project"/>
-<property name="ProjectFile" value="F:/ISE/eMIMO_SubArray/eMIMO_SubArray.xise" type="project"/>
-<property name="ProjectCreationTimestamp" value="2024-10-27T11:44:35" type="project"/>
+<property name="ProjectID" value="E161D1CEE11546909B5A31017ED408AA" type="project"/>
+<property name="ProjectIteration" value="1" type="project"/>
+<property name="ProjectFile" value="F:/ISE/eMIMO_SubArray4/eMIMO_SubArray4.xise" type="project"/>
+<property name="ProjectCreationTimestamp" value="2025-12-12T14:29:58" type="project"/>
 </section>
 <section name="Project Statistics" visible="true">
 <property name="PROP_Enable_Message_Filtering" value="false" type="design"/>
@@ -17,25 +17,20 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_LastAppliedStrategy" value="Xilinx Default (unlocked)" type="design"/>
 <property name="PROP_ManualCompileOrderImp" value="false" type="design"/>
 <property name="PROP_PropSpecInProjFile" value="Store all values" type="design"/>
-<property name="PROP_SelectedInstanceHierarchicalPath" value="/top_tb" type="process"/>
 <property name="PROP_Simulator" value="ISim (VHDL/Verilog)" type="design"/>
 <property name="PROP_SynthTopFile" value="changed" type="process"/>
 <property name="PROP_Top_Level_Module_Type" value="HDL" type="design"/>
 <property name="PROP_UseSmartGuide" value="false" type="design"/>
-<property name="PROP_UserBrowsedStrategyFiles" value="E:/Xilinx/14.7/ISE_DS/ISE/data/default.xds" type="process"/>
 <property name="PROP_UserConstraintEditorPreference" value="Text Editor" type="process"/>
-<property name="PROP_intProjectCreationTimestamp" value="2024-10-27T11:44:35" type="design"/>
-<property name="PROP_intWbtProjectID" value="8B6BADFD29CD4206ACA2BB1A56E28C7E" type="design"/>
-<property name="PROP_intWbtProjectIteration" value="22" type="process"/>
+<property name="PROP_intProjectCreationTimestamp" value="2025-12-12T14:29:58" type="design"/>
+<property name="PROP_intWbtProjectID" value="E161D1CEE11546909B5A31017ED408AA" type="design"/>
+<property name="PROP_intWbtProjectIteration" value="1" type="process"/>
 <property name="PROP_intWorkingDirLocWRTProjDir" value="Same" type="design"/>
 <property name="PROP_intWorkingDirUsed" value="No" type="design"/>
-<property name="PROP_lockPinsUcfFile" value="changed" type="process"/>
-<property name="PROP_selectedSimRootSourceNode_behav" value="work.top_tb" type="process"/>
-<property name="PROP_xilxBitgCfg_Rate_spartan6" value="26" type="process"/>
+<property name="PROP_xilxBitgCfg_Rate_spartan6" value="4" type="process"/>
 <property name="PROP_xilxBitgCfg_SpiBusWidth_spartan6" value="4" type="process"/>
-<property name="PROP_xilxBitgCfg_Unused" value="Float" type="process"/>
-<property name="PROP_xilxBitgStart_IntDone" value="true" type="process"/>
-<property name="PROP_AutoTop" value="false" type="design"/>
+<property name="PROP_xilxSynthKeepHierarchy" value="Yes" type="process"/>
+<property name="PROP_AutoTop" value="true" type="design"/>
 <property name="PROP_DevFamily" value="Spartan6" type="design"/>
 <property name="PROP_DevDevice" value="xc6slx25" type="design"/>
 <property name="PROP_DevFamilyPMName" value="spartan6" type="design"/>
