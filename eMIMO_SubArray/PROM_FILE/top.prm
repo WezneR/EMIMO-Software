@@ -1,15 +1,9 @@
 PROMGEN: Xilinx Prom Generator P.20131013
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-<<<<<<< Updated upstream
-promgen -w -p mcs -c FF -o F:\ISE\eMIMO_SubArray4\PROM_FILE//top -s 16384 -u 0000 F:/ISE/eMIMO_SubArray4/top_v3.bit -spi 
-
-PROM F:\ISE\eMIMO_SubArray4\PROM_FILE\top.prm map: Fri Dec 12 14:46:06 2025
-=======
 promgen -w -p mcs -c FF -o F:\ISE\eMIMO_SubArray6\PROM_FILE//top -s 16384 -u 0000 F:/ISE/eMIMO_SubArray6/top_v3.bit -spi 
 
 PROM F:\ISE\eMIMO_SubArray6\PROM_FILE\top.prm map: Mon Jan 05 14:29:20 2026
->>>>>>> Stashed changes
 
 Calculating PROM checksum with fill value ff
 
@@ -17,14 +11,7 @@ Format        Mcs86 (32-bit)
 Size          16384K
 PROM start    0000:0000
 PROM end      00ff:ffff
-<<<<<<< Updated upstream
-PROM checksum f37f139a
-
-        Addr1        Addr2                     Date File(s)
-    0000:0000    000c:3af9     Dec 12 14:40:23 2025 F:/ISE/eMIMO_SubArray4/top_v3.bit
-=======
 PROM checksum f37a8fe0
 
         Addr1        Addr2                     Date File(s)
     0000:0000    000c:3af9     Jan 05 14:24:55 2026 F:/ISE/eMIMO_SubArray6/top_v3.bit
->>>>>>> Stashed changes

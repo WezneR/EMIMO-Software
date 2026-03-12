@@ -165,15 +165,9 @@ module spi_process_v4 #(
     output wire         o_scan_timeout
 );
 
-<<<<<<< Updated upstream
-    localparam LP_PULSE_CYCLES = 1;
-    localparam LP_LEAD_CYCLES = 2;
-    localparam LP_LAG_CYCLES = 2;
-=======
     localparam LP_PULSE_CYCLES = 2;
     localparam LP_LEAD_CYCLES = 3;
     localparam LP_LAG_CYCLES = 3;
->>>>>>> Stashed changes
 
     //==========================================================================
     // Command Constants
@@ -321,11 +315,7 @@ module spi_process_v4 #(
 
     assign beam_scan_rst_n = rst_n && beam_scan_init_rst_n;
 
-<<<<<<< Updated upstream
-    beam_scan_controller_v2 #(
-=======
     beam_scan_controller_v3 #(
->>>>>>> Stashed changes
         .CLK_FREQ(100_000_000),
         .MAX_SCAN_DIRECTIONS(16),
         .SPI_DATA_LEN(spi_master_data_len)
@@ -415,11 +405,7 @@ module spi_process_v4 #(
 
     // Parallel SPI Master
     SPI_Master_PE44951_Parallel #(
-<<<<<<< Updated upstream
-        .clk_div(2),
-=======
         .clk_div(1),
->>>>>>> Stashed changes
         .spi_data_len(spi_master_data_len)
     ) spi_master_inst (
         .i_clk(clk_100M),
@@ -495,11 +481,7 @@ module spi_process_v4 #(
                S_LP_HIGH = 1'b1;
 
     // Reset counter
-<<<<<<< Updated upstream
-    reg [4:0] rst_cnt;
-=======
     reg [3:0] rst_cnt;
->>>>>>> Stashed changes
 
     integer i;
 
@@ -533,11 +515,7 @@ module spi_process_v4 #(
             lp_state <= S_LP_LOW;
             lp_cnt <= 4'd0;
             o_RsetB <= 1'b0;
-<<<<<<< Updated upstream
-            rst_cnt <= 5'd0;
-=======
             rst_cnt <= 0;
->>>>>>> Stashed changes
             o_IFDSA_LE <= 2'b00;
             o_IFDSA_DIN <= 12'd0;
             beamform_state <= S_MBF_IDLE;
@@ -843,13 +821,9 @@ module spi_process_v4 #(
             end
 
 
-<<<<<<< Updated upstream
-            // load IF DSA
-=======
             //==================================================================
             // IF DSA Control
             //==================================================================
->>>>>>> Stashed changes
             if (load_IFDSA == 1) begin
                 IFDSA_LE_psflag <= 1;
                 case (IFDSA_ID)
@@ -904,8 +878,6 @@ module spi_process_v4 #(
                 local_spi_start <= 1'b0;
             end
 
-<<<<<<< Updated upstream
-=======
             // Auto-release RST of PE44951
             if (o_RsetB == 0)begin
                 if (rst_cnt < 4'd10) begin
@@ -918,7 +890,6 @@ module spi_process_v4 #(
             end
 
 
->>>>>>> Stashed changes
             //==================================================================
             // Manual Beamforming State Machine
             //==================================================================

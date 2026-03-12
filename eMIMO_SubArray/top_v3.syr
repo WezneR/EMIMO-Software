@@ -4,21 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-<<<<<<< Updated upstream
-Total CPU time to Xst completion: 0.09 secs
-=======
 Total CPU time to Xst completion: 0.22 secs
->>>>>>> Stashed changes
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-<<<<<<< Updated upstream
-Total CPU time to Xst completion: 0.09 secs
-=======
 Total CPU time to Xst completion: 0.22 secs
->>>>>>> Stashed changes
  
 --> Reading design: top_v3.prj
 
@@ -91,7 +83,7 @@ Equivalent register Removal        : YES
 Optimization Goal                  : Speed
 Optimization Effort                : 1
 Power Reduction                    : NO
-Keep Hierarchy                     : Yes
+Keep Hierarchy                     : No
 Netlist Hierarchy                  : As_Optimized
 RTL Output                         : Yes
 Global Optimization                : AllClockNets
@@ -113,27 +105,6 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-<<<<<<< Updated upstream
-Analyzing Verilog file "F:\ISE\eMIMO_SubArray4\srcs\SPI_Master_PE44951.v" into library work
-Parsing module <SPI_Master_PE44951_Parallel>.
-Analyzing Verilog file "F:\ISE\eMIMO_SubArray4\srcs\PhaseArrayCal.v" into library work
-Parsing module <phase_shift_calculator>.
-Analyzing Verilog file "F:\ISE\eMIMO_SubArray4\srcs\beam_scan_controller.v" into library work
-Parsing module <beam_scan_controller_v2>.
-Analyzing Verilog file "F:\ISE\eMIMO_SubArray4\srcs\SPI_Slave.v" into library work
-Parsing module <SPI_Slave>.
-Analyzing Verilog file "F:\ISE\eMIMO_SubArray4\srcs\SPI_Listener.v" into library work
-Parsing module <spi_listener>.
-Analyzing Verilog file "F:\ISE\eMIMO_SubArray4\srcs\rst.v" into library work
-Parsing module <rst>.
-Analyzing Verilog file "F:\ISE\eMIMO_SubArray4\srcs\process.v" into library work
-Parsing module <spi_process_v4>.
-Analyzing Verilog file "F:\ISE\eMIMO_SubArray4\srcs\host_spi_mux.v" into library work
-Parsing module <host_spi_mux>.
-Analyzing Verilog file "F:\ISE\eMIMO_SubArray4\srcs\FEM_TR_switch.v" into library work
-Parsing module <FEM_TR_switch>.
-Analyzing Verilog file "F:\ISE\eMIMO_SubArray4\srcs\top.v" into library work
-=======
 Analyzing Verilog file "F:\ISE\eMIMO_SubArray6\srcs\SPI_Master_PE44951.v" into library work
 Parsing module <SPI_Master_PE44951_Parallel>.
 Analyzing Verilog file "F:\ISE\eMIMO_SubArray6\srcs\PhaseArrayCal.v" into library work
@@ -153,32 +124,17 @@ Parsing module <host_spi_mux>.
 Analyzing Verilog file "F:\ISE\eMIMO_SubArray6\srcs\FEM_TR_switch.v" into library work
 Parsing module <FEM_TR_switch>.
 Analyzing Verilog file "F:\ISE\eMIMO_SubArray6\srcs\top.v" into library work
->>>>>>> Stashed changes
 Parsing module <top_v3>.
 
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
-<<<<<<< Updated upstream
-WARNING:HDLCompiler:1016 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" Line 149: Port i_TX_DV is not connected to this instance
-WARNING:HDLCompiler:1016 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" Line 236: Port i_IF_TX_ON is not connected to this instance
-=======
 WARNING:HDLCompiler:1016 - "F:\ISE\eMIMO_SubArray6\srcs\top.v" Line 149: Port i_TX_DV is not connected to this instance
 WARNING:HDLCompiler:1016 - "F:\ISE\eMIMO_SubArray6\srcs\top.v" Line 236: Port i_IF_TX_ON is not connected to this instance
->>>>>>> Stashed changes
 
 Elaborating module <top_v3>.
 
 Elaborating module <SPI_Slave(SPI_MODE=0)>.
-<<<<<<< Updated upstream
-WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray4\srcs\SPI_Slave.v" Line 60: Assignment to w_CPOL ignored, since the identifier is never used
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray4\srcs\SPI_Slave.v" Line 84: Result of 4-bit expression is truncated to fit in 3-bit target.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray4\srcs\SPI_Slave.v" Line 163: Result of 32-bit expression is truncated to fit in 3-bit target.
-WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray4\srcs\SPI_Slave.v" Line 192: Assignment to w_SPI_MISO_Mux ignored, since the identifier is never used
-
-Elaborating module <spi_listener>.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray4\srcs\SPI_Listener.v" Line 90: Result of 17-bit expression is truncated to fit in 16-bit target.
-=======
 WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray6\srcs\SPI_Slave.v" Line 60: Assignment to w_CPOL ignored, since the identifier is never used
 WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray6\srcs\SPI_Slave.v" Line 84: Result of 4-bit expression is truncated to fit in 3-bit target.
 WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray6\srcs\SPI_Slave.v" Line 163: Result of 32-bit expression is truncated to fit in 3-bit target.
@@ -186,36 +142,11 @@ WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray6\srcs\SPI_Slave.v" Line 192: A
 
 Elaborating module <spi_listener>.
 WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray6\srcs\SPI_Listener.v" Line 90: Result of 17-bit expression is truncated to fit in 16-bit target.
->>>>>>> Stashed changes
 
 Elaborating module <spi_process_v4(spi_listener_data_len=32,spi_master_data_len=24)>.
 
 Elaborating module <phase_shift_calculator>.
 Reading initialization file \"./mem/psb_lookup_table.hex\".
-<<<<<<< Updated upstream
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray4\srcs\PhaseArrayCal.v" Line 22: Result of 6-bit expression is truncated to fit in 5-bit target.
-
-Elaborating module <beam_scan_controller_v2(CLK_FREQ=100000000,MAX_SCAN_DIRECTIONS=16,SPI_DATA_LEN=24)>.
-WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray4\srcs\beam_scan_controller.v" Line 193: Assignment to cfg_dir_index_d2 ignored, since the identifier is never used
-
-Elaborating module <SPI_Master_PE44951_Parallel(clk_div=2,spi_data_len=24)>.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray4\srcs\process.v" Line 945: Result of 9-bit expression is truncated to fit in 8-bit target.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray4\srcs\process.v" Line 956: Result of 9-bit expression is truncated to fit in 8-bit target.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray4\srcs\process.v" Line 987: Result of 9-bit expression is truncated to fit in 8-bit target.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray4\srcs\process.v" Line 991: Result of 9-bit expression is truncated to fit in 8-bit target.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray4\srcs\process.v" Line 998: Result of 9-bit expression is truncated to fit in 8-bit target.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray4\srcs\process.v" Line 1045: Result of 9-bit expression is truncated to fit in 8-bit target.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray4\srcs\process.v" Line 1050: Result of 9-bit expression is truncated to fit in 8-bit target.
-WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray4\srcs\process.v" Line 491: Assignment to rst_cnt ignored, since the identifier is never used
-WARNING:HDLCompiler:189 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" Line 205: Size mismatch in connection of port <o_scan_dir_index>. Formal port size is 6-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" Line 205: Assignment to SCAN_DIR_INDEX ignored, since the identifier is never used
-WARNING:HDLCompiler:189 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" Line 206: Size mismatch in connection of port <o_scan_state>. Formal port size is 3-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" Line 206: Assignment to SCAN_STATE ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" Line 207: Assignment to SCAN_ARMED ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" Line 208: Assignment to SCAN_ACTIVE ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" Line 209: Assignment to SCAN_DONE ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" Line 210: Assignment to SCAN_TIMEOUT ignored, since the identifier is never used
-=======
 WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray6\srcs\PhaseArrayCal.v" Line 22: Result of 6-bit expression is truncated to fit in 5-bit target.
 
 Elaborating module <beam_scan_controller_v3(CLK_FREQ=100000000,MAX_SCAN_DIRECTIONS=16,SPI_DATA_LEN=24)>.
@@ -240,24 +171,10 @@ WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray6\srcs\top.v" Line 207: Assignm
 WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray6\srcs\top.v" Line 208: Assignment to SCAN_ACTIVE ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray6\srcs\top.v" Line 209: Assignment to SCAN_DONE ignored, since the identifier is never used
 WARNING:HDLCompiler:1127 - "F:\ISE\eMIMO_SubArray6\srcs\top.v" Line 210: Assignment to SCAN_TIMEOUT ignored, since the identifier is never used
->>>>>>> Stashed changes
 
 Elaborating module <host_spi_mux>.
 
 Elaborating module <FEM_TR_switch>.
-<<<<<<< Updated upstream
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray4\srcs\FEM_TR_switch.v" Line 74: Result of 8-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray4\srcs\FEM_TR_switch.v" Line 75: Result of 8-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray4\srcs\FEM_TR_switch.v" Line 76: Result of 8-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray4\srcs\FEM_TR_switch.v" Line 77: Result of 8-bit expression is truncated to fit in 1-bit target.
-WARNING:HDLCompiler:189 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" Line 242: Size mismatch in connection of port <i_IF_TX_ON_soft>. Formal port size is 8-bit while actual signal size is 1-bit.
-WARNING:HDLCompiler:189 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" Line 243: Size mismatch in connection of port <i_IF_RX_ON_soft>. Formal port size is 8-bit while actual signal size is 1-bit.
-
-Elaborating module <rst(delay_cnt=10)>.
-WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray4\srcs\rst.v" Line 37: Result of 9-bit expression is truncated to fit in 8-bit target.
-WARNING:HDLCompiler:552 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" Line 151: Input port i_TX_DV is not connected on this instance
-WARNING:HDLCompiler:552 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" Line 236: Input port i_IF_TX_ON is not connected on this instance
-=======
 WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray6\srcs\FEM_TR_switch.v" Line 74: Result of 8-bit expression is truncated to fit in 1-bit target.
 WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray6\srcs\FEM_TR_switch.v" Line 75: Result of 8-bit expression is truncated to fit in 1-bit target.
 WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray6\srcs\FEM_TR_switch.v" Line 76: Result of 8-bit expression is truncated to fit in 1-bit target.
@@ -269,18 +186,13 @@ Elaborating module <rst(delay_cnt=10)>.
 WARNING:HDLCompiler:413 - "F:\ISE\eMIMO_SubArray6\srcs\rst.v" Line 37: Result of 9-bit expression is truncated to fit in 8-bit target.
 WARNING:HDLCompiler:552 - "F:\ISE\eMIMO_SubArray6\srcs\top.v" Line 151: Input port i_TX_DV is not connected on this instance
 WARNING:HDLCompiler:552 - "F:\ISE\eMIMO_SubArray6\srcs\top.v" Line 236: Input port i_IF_TX_ON is not connected on this instance
->>>>>>> Stashed changes
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <top_v3>.
-<<<<<<< Updated upstream
-    Related source file is "F:\ISE\eMIMO_SubArray4\srcs\top.v".
-=======
     Related source file is "F:\ISE\eMIMO_SubArray6\srcs\top.v".
->>>>>>> Stashed changes
         clk_frq = 100000000
         spi_clk_div = 2
         spi_listener_data_len = 32
@@ -297,15 +209,6 @@ WARNING:Xst:647 - Input <REV1> is never used. This port will be preserved and le
 WARNING:Xst:647 - Input <REV2> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <MCU_FCLK> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <MCU_INIT> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-<<<<<<< Updated upstream
-INFO:Xst:3210 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" line 151: Output port <o_SPI_MISO> of the instance <SPI_Slave_inst> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" line 178: Output port <o_scan_dir_index> of the instance <process_inst> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" line 178: Output port <o_scan_state> of the instance <process_inst> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" line 178: Output port <o_scan_armed> of the instance <process_inst> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" line 178: Output port <o_scan_active> of the instance <process_inst> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" line 178: Output port <o_scan_done> of the instance <process_inst> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "F:\ISE\eMIMO_SubArray4\srcs\top.v" line 178: Output port <o_scan_timeout> of the instance <process_inst> is unconnected or connected to loadless signal.
-=======
 INFO:Xst:3210 - "F:\ISE\eMIMO_SubArray6\srcs\top.v" line 151: Output port <o_SPI_MISO> of the instance <SPI_Slave_inst> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "F:\ISE\eMIMO_SubArray6\srcs\top.v" line 178: Output port <o_scan_dir_index> of the instance <process_inst> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "F:\ISE\eMIMO_SubArray6\srcs\top.v" line 178: Output port <o_scan_state> of the instance <process_inst> is unconnected or connected to loadless signal.
@@ -313,17 +216,12 @@ INFO:Xst:3210 - "F:\ISE\eMIMO_SubArray6\srcs\top.v" line 178: Output port <o_sca
 INFO:Xst:3210 - "F:\ISE\eMIMO_SubArray6\srcs\top.v" line 178: Output port <o_scan_active> of the instance <process_inst> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "F:\ISE\eMIMO_SubArray6\srcs\top.v" line 178: Output port <o_scan_done> of the instance <process_inst> is unconnected or connected to loadless signal.
 INFO:Xst:3210 - "F:\ISE\eMIMO_SubArray6\srcs\top.v" line 178: Output port <o_scan_timeout> of the instance <process_inst> is unconnected or connected to loadless signal.
->>>>>>> Stashed changes
     Summary:
 	no macro.
 Unit <top_v3> synthesized.
 
 Synthesizing Unit <SPI_Slave>.
-<<<<<<< Updated upstream
-    Related source file is "F:\ISE\eMIMO_SubArray4\srcs\SPI_Slave.v".
-=======
     Related source file is "F:\ISE\eMIMO_SubArray6\srcs\SPI_Slave.v".
->>>>>>> Stashed changes
         SPI_MODE = 0
 WARNING:Xst:647 - Input <i_TX_Byte> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <i_TX_DV> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -343,11 +241,7 @@ WARNING:Xst:653 - Signal <o_SPI_MISO> is used but never assigned. This sourceles
 Unit <SPI_Slave> synthesized.
 
 Synthesizing Unit <spi_listener>.
-<<<<<<< Updated upstream
-    Related source file is "F:\ISE\eMIMO_SubArray4\srcs\SPI_Listener.v".
-=======
     Related source file is "F:\ISE\eMIMO_SubArray6\srcs\SPI_Listener.v".
->>>>>>> Stashed changes
         listener_timeout = 2000
     Found 1-bit register for signal <spi_listener_interrupt>.
     Found 2-bit register for signal <spi_byte_cnt>.
@@ -375,20 +269,13 @@ Synthesizing Unit <spi_listener>.
 Unit <spi_listener> synthesized.
 
 Synthesizing Unit <spi_process_v4>.
-<<<<<<< Updated upstream
-    Related source file is "F:\ISE\eMIMO_SubArray4\srcs\process.v".
-=======
     Related source file is "F:\ISE\eMIMO_SubArray6\srcs\process.v".
->>>>>>> Stashed changes
         spi_listener_data_len = 32
         spi_master_data_len = 24
     Found 4-bit register for signal <beam_cfg_cmd>.
     Found 4-bit register for signal <beam_cfg_dir_index>.
     Found 4-bit register for signal <lp_cnt>.
-<<<<<<< Updated upstream
-=======
     Found 4-bit register for signal <rst_cnt>.
->>>>>>> Stashed changes
     Found 4-bit register for signal <Module_ID>.
     Found 8-bit register for signal <beam_cfg_num_dirs>.
     Found 8-bit register for signal <beam_cfg_azimuth>.
@@ -408,29 +295,18 @@ Synthesizing Unit <spi_process_v4>.
     Found 3-bit register for signal <init_state>.
     Found 3-bit register for signal <beamform_state>.
     Found 12-bit register for signal <o_IFDSA_DIN>.
-<<<<<<< Updated upstream
-    Found 12-bit register for signal <n0410[11:0]>.
-    Found 128-bit register for signal <n0359[127:0]>.
-    Found 128-bit register for signal <n0360[127:0]>.
-    Found 128-bit register for signal <n0361[127:0]>.
-    Found 192-bit register for signal <n0398[191:0]>.
-=======
     Found 12-bit register for signal <n0418[11:0]>.
     Found 128-bit register for signal <n0367[127:0]>.
     Found 128-bit register for signal <n0368[127:0]>.
     Found 128-bit register for signal <n0369[127:0]>.
     Found 192-bit register for signal <n0406[191:0]>.
->>>>>>> Stashed changes
     Found 4-bit register for signal <Board_ID>.
     Found 1-bit register for signal <beam_scan_init_rst_n>.
     Found 1-bit register for signal <beam_cfg_valid>.
     Found 1-bit register for signal <local_spi_start>.
     Found 1-bit register for signal <local_spi_busy>.
     Found 1-bit register for signal <lp_state>.
-<<<<<<< Updated upstream
-=======
     Found 1-bit register for signal <o_RsetB>.
->>>>>>> Stashed changes
     Found 1-bit register for signal <load_IFDSA>.
     Found 1-bit register for signal <IFDSA_LE_psflag>.
     Found finite state machine <FSM_1> for signal <init_state>.
@@ -459,29 +335,6 @@ Synthesizing Unit <spi_process_v4>.
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-<<<<<<< Updated upstream
-    Found 8-bit adder for signal <beamform_cnt[7]_GND_5_o_add_207_OUT> created at line 956.
-    Found 8-bit adder for signal <init_cnt[7]_GND_5_o_add_222_OUT> created at line 987.
-    Found 4-bit adder for signal <lp_cnt[3]_GND_5_o_add_260_OUT> created at line 1078.
-    Found 8-bit shifter logical left for signal <GND_5_o_host_chip_id[2]_shift_left_70_OUT> created at line 623
-    Found 4x2-bit Read Only RAM for signal <IFDSA_ID[1]_GND_5_o_wide_mux_191_OUT>
-    Found 12-bit 3-to-1 multiplexer for signal <host_chip_id[1]_GND_5_o_wide_mux_135_OUT> created at line 774.
-    Found 12-bit 4-to-1 multiplexer for signal <IFDSA_ID[1]_GND_5_o_wide_mux_188_OUT> created at line 827.
-    Found 128-bit 4-to-1 multiplexer for signal <_n1019> created at line 745.
-    Found 128-bit 4-to-1 multiplexer for signal <_n1034> created at line 716.
-    Found 8-bit comparator equal for signal <host_module_id[3]_General_BID[7]_equal_7_o> created at line 238
-    Found 4-bit comparator equal for signal <host_module_id[3]_Module_ID[3]_equal_9_o> created at line 240
-    Found 2-bit comparator lessequal for signal <n0149> created at line 776
-    Found 8-bit comparator greater for signal <n0235> created at line 940
-    Found 8-bit comparator greater for signal <n0240> created at line 951
-    Found 4-bit comparator greater for signal <n0294> created at line 1073
-    Summary:
-	inferred   1 RAM(s).
-	inferred   3 Adder/Subtractor(s).
-	inferred 731 D-type flip-flop(s).
-	inferred   6 Comparator(s).
-	inferred 195 Multiplexer(s).
-=======
     Found 4-bit adder for signal <rst_cnt[3]_GND_5_o_add_197_OUT> created at line 884.
     Found 8-bit adder for signal <beamform_cnt[7]_GND_5_o_add_212_OUT> created at line 970.
     Found 8-bit adder for signal <init_cnt[7]_GND_5_o_add_227_OUT> created at line 1001.
@@ -505,17 +358,12 @@ Synthesizing Unit <spi_process_v4>.
 	inferred 736 D-type flip-flop(s).
 	inferred   7 Comparator(s).
 	inferred 196 Multiplexer(s).
->>>>>>> Stashed changes
 	inferred   1 Combinational logic shifter(s).
 	inferred   2 Finite State Machine(s).
 Unit <spi_process_v4> synthesized.
 
 Synthesizing Unit <phase_shift_calculator>.
-<<<<<<< Updated upstream
-    Related source file is "F:\ISE\eMIMO_SubArray4\srcs\PhaseArrayCal.v".
-=======
     Related source file is "F:\ISE\eMIMO_SubArray6\srcs\PhaseArrayCal.v".
->>>>>>> Stashed changes
 WARNING:Xst:647 - Input <General_BID<3:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2999 - Signal 'PSB_lookup_table', unconnected in block 'phase_shift_calculator', is tied to its initial value.
     Found 5-bit adder for signal <m_a> created at line 17.
@@ -542,21 +390,12 @@ WARNING:Xst:2999 - Signal 'PSB_lookup_table', unconnected in block 'phase_shift_
 	inferred  18 Adder/Subtractor(s).
 Unit <phase_shift_calculator> synthesized.
 
-<<<<<<< Updated upstream
-Synthesizing Unit <beam_scan_controller_v2>.
-    Related source file is "F:\ISE\eMIMO_SubArray4\srcs\beam_scan_controller.v".
-        CLK_FREQ = 100000000
-        MAX_SCAN_DIRECTIONS = 16
-        SPI_DATA_LEN = 24
-        TIMEOUT_US_DEFAULT = 10000
-=======
 Synthesizing Unit <beam_scan_controller_v3>.
     Related source file is "F:\ISE\eMIMO_SubArray6\srcs\beam_scan_controller.v".
         CLK_FREQ = 100000000
         MAX_SCAN_DIRECTIONS = 16
         SPI_DATA_LEN = 24
 WARNING:Xst:647 - Input <i_cfg_timeout_us> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
->>>>>>> Stashed changes
     Found 1-bit register for signal <update_pha_d2>.
     Found 1-bit register for signal <o_calc_request>.
     Found 1-bit register for signal <cfg_valid_d1>.
@@ -564,10 +403,6 @@ WARNING:Xst:647 - Input <i_cfg_timeout_us> is never used. This port will be pres
     Found 1-bit register for signal <o_scan_armed>.
     Found 1-bit register for signal <o_scan_active>.
     Found 1-bit register for signal <o_scan_done>.
-<<<<<<< Updated upstream
-    Found 1-bit register for signal <o_scan_timeout>.
-=======
->>>>>>> Stashed changes
     Found 1-bit register for signal <o_spi_start>.
     Found 1-bit register for signal <lp_enable>.
     Found 1-bit register for signal <update_pha_d1>.
@@ -575,21 +410,12 @@ WARNING:Xst:647 - Input <i_cfg_timeout_us> is never used. This port will be pres
     Found 8-bit register for signal <o_calc_azimuth>.
     Found 8-bit register for signal <o_calc_pitch>.
     Found 8-bit register for signal <o_spi_chip_en>.
-<<<<<<< Updated upstream
-    Found 32-bit register for signal <timeout_cycles>.
-=======
->>>>>>> Stashed changes
     Found 4-bit register for signal <cfg_cmd_d1>.
     Found 4-bit register for signal <cfg_cmd_d2>.
     Found 4-bit register for signal <cfg_dir_index_d1>.
     Found 3-bit register for signal <state>.
     Found 6-bit register for signal <dir_index>.
-<<<<<<< Updated upstream
-    Found 5-bit register for signal <timing_cnt>.
-    Found 32-bit register for signal <timeout_cnt>.
-=======
     Found 7-bit register for signal <timing_cnt>.
->>>>>>> Stashed changes
     Found 24-bit register for signal <o_spi_data_0>.
     Found 24-bit register for signal <o_spi_data_1>.
     Found 24-bit register for signal <o_spi_data_2>.
@@ -599,22 +425,6 @@ WARNING:Xst:647 - Input <i_cfg_timeout_us> is never used. This port will be pres
     Found 24-bit register for signal <o_spi_data_6>.
     Found 24-bit register for signal <o_spi_data_7>.
     Found 2-bit register for signal <scan_mode>.
-<<<<<<< Updated upstream
-    Found 128-bit register for signal <n0328[127:0]>.
-    Found 128-bit register for signal <n0329[127:0]>.
-    Found 128-bit register for signal <n0330[127:0]>.
-    Found 128-bit register for signal <n0331[127:0]>.
-    Found 128-bit register for signal <n0332[127:0]>.
-    Found 128-bit register for signal <n0333[127:0]>.
-    Found 128-bit register for signal <n0334[127:0]>.
-    Found 128-bit register for signal <n0335[127:0]>.
-    Found finite state machine <FSM_3> for signal <state>.
-    -----------------------------------------------------------------------
-    | States             | 8                                              |
-    | Transitions        | 48                                             |
-    | Inputs             | 12                                             |
-    | Outputs            | 9                                              |
-=======
     Found 128-bit register for signal <n0289[127:0]>.
     Found 128-bit register for signal <n0290[127:0]>.
     Found 128-bit register for signal <n0291[127:0]>.
@@ -629,7 +439,6 @@ WARNING:Xst:647 - Input <i_cfg_timeout_us> is never used. This port will be pres
     | Transitions        | 25                                             |
     | Inputs             | 9                                              |
     | Outputs            | 8                                              |
->>>>>>> Stashed changes
     | Clock              | i_clk (rising_edge)                            |
     | Reset              | i_rst_n (negative)                             |
     | Reset type         | asynchronous                                   |
@@ -637,55 +446,6 @@ WARNING:Xst:647 - Input <i_cfg_timeout_us> is never used. This port will be pres
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-<<<<<<< Updated upstream
-    Found 9-bit subtractor for signal <GND_7_o_GND_7_o_sub_209_OUT> created at line 351.
-    Found 32-bit adder for signal <timeout_cnt[31]_GND_7_o_add_201_OUT> created at line 343.
-    Found 6-bit adder for signal <dir_index[5]_GND_7_o_add_210_OUT> created at line 356.
-    Found 5-bit adder for signal <timing_cnt[4]_GND_7_o_add_213_OUT> created at line 360.
-    Found 16x7-bit multiplier for signal <i_cfg_timeout_us[15]_PWR_7_o_MuLt_4_OUT> created at line 185.
-    Found 4x8-bit Read Only RAM for signal <scan_mode[1]_GND_7_o_wide_mux_193_OUT>
-    Found 2-bit 4-to-1 multiplexer for signal <scan_mode[1]_GND_7_o_wide_mux_185_OUT> created at line 229.
-    Found 8-bit 16-to-1 multiplexer for signal <dir_index[3]_precomputed_phase_0[15][7]_wide_mux_217_OUT> created at line 366.
-    Found 8-bit 16-to-1 multiplexer for signal <dir_index[3]_precomputed_phase_1[15][7]_wide_mux_218_OUT> created at line 366.
-    Found 8-bit 16-to-1 multiplexer for signal <dir_index[3]_precomputed_phase_2[15][7]_wide_mux_219_OUT> created at line 367.
-    Found 8-bit 16-to-1 multiplexer for signal <dir_index[3]_precomputed_phase_3[15][7]_wide_mux_220_OUT> created at line 367.
-    Found 8-bit 16-to-1 multiplexer for signal <dir_index[3]_precomputed_phase_4[15][7]_wide_mux_221_OUT> created at line 368.
-    Found 8-bit 16-to-1 multiplexer for signal <dir_index[3]_precomputed_phase_5[15][7]_wide_mux_222_OUT> created at line 368.
-    Found 8-bit 16-to-1 multiplexer for signal <dir_index[3]_precomputed_phase_6[15][7]_wide_mux_223_OUT> created at line 369.
-    Found 8-bit 16-to-1 multiplexer for signal <dir_index[3]_precomputed_phase_7[15][7]_wide_mux_224_OUT> created at line 369.
-    Found 8-bit comparator greater for signal <GND_7_o_num_directions[7]_LessThan_189_o> created at line 272
-    Found 32-bit comparator greater for signal <timeout_cnt[31]_timeout_cycles[31]_LessThan_190_o> created at line 272
-    Found 6-bit comparator greater for signal <n0205> created at line 332
-    Found 5-bit comparator greater for signal <n0223> created at line 350
-    Found 32-bit comparator greater for signal <n0226> created at line 351
-    Summary:
-	inferred   1 RAM(s).
-	inferred   1 Multiplier(s).
-	inferred   4 Adder/Subtractor(s).
-	inferred 1348 D-type flip-flop(s).
-	inferred   5 Comparator(s).
-	inferred 161 Multiplexer(s).
-	inferred   1 Finite State Machine(s).
-Unit <beam_scan_controller_v2> synthesized.
-
-Synthesizing Unit <SPI_Master_PE44951_Parallel>.
-    Related source file is "F:\ISE\eMIMO_SubArray4\srcs\SPI_Master_PE44951.v".
-        clk_div = 2
-        spi_data_len = 24
-    Found 2-bit register for signal <o_sclk>.
-    Found 1-bit register for signal <o_mosi<7>>.
-    Found 1-bit register for signal <o_mosi<6>>.
-    Found 1-bit register for signal <o_mosi<5>>.
-    Found 1-bit register for signal <o_mosi<4>>.
-    Found 1-bit register for signal <o_mosi<3>>.
-    Found 1-bit register for signal <o_mosi<2>>.
-    Found 1-bit register for signal <o_mosi<1>>.
-    Found 1-bit register for signal <o_mosi<0>>.
-    Found 2-bit register for signal <spi_state>.
-    Found 1-bit register for signal <o_spi_ready>.
-    Found 5-bit register for signal <bit_cnt>.
-    Found 16-bit register for signal <clk_div_cnt>.
-=======
     Found 9-bit subtractor for signal <GND_7_o_GND_7_o_sub_190_OUT> created at line 338.
     Found 6-bit adder for signal <dir_index[5]_GND_7_o_add_191_OUT> created at line 343.
     Found 7-bit adder for signal <timing_cnt[6]_GND_7_o_add_194_OUT> created at line 347.
@@ -720,7 +480,6 @@ Synthesizing Unit <SPI_Master_PE44951_Parallel>.
     Found 2-bit register for signal <spi_state>.
     Found 1-bit register for signal <o_spi_ready>.
     Found 5-bit register for signal <bit_cnt>.
->>>>>>> Stashed changes
     Found 24-bit register for signal <shift_reg_0>.
     Found 24-bit register for signal <shift_reg_1>.
     Found 24-bit register for signal <shift_reg_2>.
@@ -734,60 +493,32 @@ Synthesizing Unit <SPI_Master_PE44951_Parallel>.
     Found finite state machine <FSM_4> for signal <spi_state>.
     -----------------------------------------------------------------------
     | States             | 4                                              |
-<<<<<<< Updated upstream
-    | Transitions        | 8                                              |
-    | Inputs             | 3                                              |
-    | Outputs            | 2                                              |
-    | Clock              | i_clk (rising_edge)                            |
-    | Reset              | i_rst_n_INV_44_o (positive)                    |
-=======
     | Transitions        | 6                                              |
     | Inputs             | 2                                              |
     | Outputs            | 4                                              |
     | Clock              | i_clk (rising_edge)                            |
     | Reset              | i_rst_n_INV_43_o (positive)                    |
->>>>>>> Stashed changes
     | Reset type         | synchronous                                    |
     | Reset State        | 00                                             |
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-<<<<<<< Updated upstream
-    Found 16-bit adder for signal <clk_div_cnt[15]_GND_10_o_add_22_OUT> created at line 127.
-    Found 5-bit adder for signal <bit_cnt[4]_GND_10_o_add_23_OUT> created at line 143.
-    Found 2-bit 4-to-1 multiplexer for signal <spi_state[1]_GND_10_o_wide_mux_38_OUT> created at line 78.
-    Found 16-bit comparator greater for signal <clk_div_cnt[15]_GND_10_o_LessThan_22_o> created at line 106
-    Summary:
-	inferred   2 Adder/Subtractor(s).
-	inferred 240 D-type flip-flop(s).
-	inferred   1 Comparator(s).
-	inferred  41 Multiplexer(s).
-=======
     Found 5-bit adder for signal <bit_cnt[4]_GND_10_o_add_15_OUT> created at line 143.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred 224 D-type flip-flop(s).
 	inferred  21 Multiplexer(s).
->>>>>>> Stashed changes
 	inferred   1 Finite State Machine(s).
 Unit <SPI_Master_PE44951_Parallel> synthesized.
 
 Synthesizing Unit <host_spi_mux>.
-<<<<<<< Updated upstream
-    Related source file is "F:\ISE\eMIMO_SubArray4\srcs\host_spi_mux.v".
-=======
     Related source file is "F:\ISE\eMIMO_SubArray6\srcs\host_spi_mux.v".
->>>>>>> Stashed changes
     Summary:
 	inferred   3 Multiplexer(s).
 Unit <host_spi_mux> synthesized.
 
 Synthesizing Unit <FEM_TR_switch>.
-<<<<<<< Updated upstream
-    Related source file is "F:\ISE\eMIMO_SubArray4\srcs\FEM_TR_switch.v".
-=======
     Related source file is "F:\ISE\eMIMO_SubArray6\srcs\FEM_TR_switch.v".
->>>>>>> Stashed changes
 WARNING:Xst:647 - Input <i_IF_TX_ON_soft<7:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <i_IF_RX_ON_soft<7:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <i_IF_TX_ON> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -799,19 +530,11 @@ WARNING:Xst:647 - Input <i_IF_RX_ON> is never used. This port will be preserved 
 Unit <FEM_TR_switch> synthesized.
 
 Synthesizing Unit <rst>.
-<<<<<<< Updated upstream
-    Related source file is "F:\ISE\eMIMO_SubArray4\srcs\rst.v".
-        delay_cnt = 10
-    Found 8-bit register for signal <clk_cnt>.
-    Found 1-bit register for signal <rst_n>.
-    Found 8-bit adder for signal <clk_cnt[7]_GND_16_o_add_2_OUT> created at line 37.
-=======
     Related source file is "F:\ISE\eMIMO_SubArray6\srcs\rst.v".
         delay_cnt = 10
     Found 8-bit register for signal <clk_cnt>.
     Found 1-bit register for signal <rst_n>.
     Found 8-bit adder for signal <clk_cnt[7]_GND_15_o_add_2_OUT> created at line 37.
->>>>>>> Stashed changes
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred   9 D-type flip-flop(s).
@@ -826,24 +549,6 @@ Macro Statistics
  4x8-bit single-port Read Only RAM                     : 1
  8192x8-bit dual-port Read Only RAM                    : 4
  8192x8-bit single-port Read Only RAM                  : 1
-<<<<<<< Updated upstream
-# Multipliers                                          : 1
- 16x7-bit multiplier                                   : 1
-# Adders/Subtractors                                   : 30
- 16-bit adder                                          : 2
- 3-bit adder                                           : 1
- 32-bit adder                                          : 1
- 4-bit adder                                           : 1
- 5-bit adder                                           : 10
- 6-bit adder                                           : 1
- 8-bit adder                                           : 13
- 9-bit subtractor                                      : 1
-# Registers                                            : 109
- 1-bit register                                        : 34
- 12-bit register                                       : 2
- 128-bit register                                      : 11
- 16-bit register                                       : 3
-=======
 # Adders/Subtractors                                   : 29
  16-bit adder                                          : 1
  3-bit adder                                           : 1
@@ -858,19 +563,10 @@ Macro Statistics
  12-bit register                                       : 2
  128-bit register                                      : 11
  16-bit register                                       : 2
->>>>>>> Stashed changes
  192-bit register                                      : 1
  2-bit register                                        : 6
  24-bit register                                       : 17
  3-bit register                                        : 1
-<<<<<<< Updated upstream
- 32-bit register                                       : 3
- 4-bit register                                        : 8
- 5-bit register                                        : 2
- 6-bit register                                        : 1
- 8-bit register                                        : 20
-# Comparators                                          : 13
-=======
  32-bit register                                       : 1
  4-bit register                                        : 9
  5-bit register                                        : 1
@@ -878,21 +574,8 @@ Macro Statistics
  7-bit register                                        : 1
  8-bit register                                        : 21
 # Comparators                                          : 11
->>>>>>> Stashed changes
  1-bit comparator not equal                            : 1
- 16-bit comparator greater                             : 1
  2-bit comparator lessequal                            : 1
-<<<<<<< Updated upstream
- 32-bit comparator greater                             : 2
- 4-bit comparator equal                                : 1
- 4-bit comparator greater                              : 1
- 5-bit comparator greater                              : 1
- 6-bit comparator greater                              : 1
- 8-bit comparator equal                                : 1
- 8-bit comparator greater                              : 3
-# Multiplexers                                         : 410
- 1-bit 2-to-1 multiplexer                              : 87
-=======
  32-bit comparator greater                             : 1
  4-bit comparator equal                                : 1
  4-bit comparator greater                              : 2
@@ -901,23 +584,10 @@ Macro Statistics
  8-bit comparator greater                              : 3
 # Multiplexers                                         : 384
  1-bit 2-to-1 multiplexer                              : 69
->>>>>>> Stashed changes
  12-bit 3-to-1 multiplexer                             : 1
  12-bit 4-to-1 multiplexer                             : 1
  128-bit 2-to-1 multiplexer                            : 2
  128-bit 4-to-1 multiplexer                            : 2
-<<<<<<< Updated upstream
- 16-bit 2-to-1 multiplexer                             : 3
- 2-bit 2-to-1 multiplexer                              : 39
- 2-bit 4-to-1 multiplexer                              : 2
- 24-bit 2-to-1 multiplexer                             : 58
- 32-bit 2-to-1 multiplexer                             : 5
- 4-bit 2-to-1 multiplexer                              : 4
- 5-bit 2-to-1 multiplexer                              : 2
- 6-bit 2-to-1 multiplexer                              : 3
- 8-bit 16-to-1 multiplexer                             : 8
- 8-bit 2-to-1 multiplexer                              : 193
-=======
  2-bit 2-to-1 multiplexer                              : 37
  2-bit 4-to-1 multiplexer                              : 1
  24-bit 2-to-1 multiplexer                             : 58
@@ -927,7 +597,6 @@ Macro Statistics
  7-bit 2-to-1 multiplexer                              : 1
  8-bit 16-to-1 multiplexer                             : 8
  8-bit 2-to-1 multiplexer                              : 195
->>>>>>> Stashed changes
 # Logic shifters                                       : 1
  8-bit shifter logical left                            : 1
 # FSMs                                                 : 5
@@ -938,9 +607,6 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-<<<<<<< Updated upstream
-INFO:Xst:2261 - The FF/Latch <timeout_cycles_23> in Unit <beam_scan_inst> is equivalent to the following 8 FFs/Latches, which will be removed : <timeout_cycles_24> <timeout_cycles_25> <timeout_cycles_26> <timeout_cycles_27> <timeout_cycles_28> <timeout_cycles_29> <timeout_cycles_30> <timeout_cycles_31> 
-=======
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_40> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_104> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_41> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_105> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_42> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_106> 
@@ -964,7 +630,6 @@ INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_32> in Unit <process_inst> is equiv
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_59> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_123> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_33> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_97> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_60> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_124> 
->>>>>>> Stashed changes
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_34> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_98> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_8> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_72> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_61> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_125> 
@@ -1006,33 +671,6 @@ INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_31> in Unit <process_inst> is equiv
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_5> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_69> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_6> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_70> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_7> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_71> 
-<<<<<<< Updated upstream
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_40> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_104> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_41> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_105> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_42> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_106> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_16> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_80> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_43> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_107> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_17> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_81> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_44> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_108> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_18> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_82> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_45> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_109> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_19> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_83> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_46> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_110> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_20> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_84> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_47> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_111> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_21> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_85> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_22> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_86> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_23> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_87> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_56> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_120> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_57> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_121> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_58> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_122> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_32> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_96> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_59> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_123> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_33> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_97> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_60> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_124> 
-WARNING:Xst:1710 - FF/Latch <timeout_cycles_23> (without init value) has a constant value of 0 in block <beam_scan_inst>. This FF/Latch will be trimmed during the optimization process.
-=======
->>>>>>> Stashed changes
 WARNING:Xst:2677 - Node <r_Temp_RX_Byte_7> of sequential type is unconnected in block <SPI_Slave_inst>.
 
 Synthesizing (advanced) Unit <SPI_Master_PE44951_Parallel>.
@@ -1043,17 +681,10 @@ Synthesizing (advanced) Unit <SPI_Slave>.
 The following registers are absorbed into counter <r_RX_Bit_Count>: 1 register on signal <r_RX_Bit_Count>.
 Unit <SPI_Slave> synthesized (advanced).
 
-<<<<<<< Updated upstream
-Synthesizing (advanced) Unit <beam_scan_controller_v2>.
-The following registers are absorbed into counter <dir_index>: 1 register on signal <dir_index>.
-The following registers are absorbed into counter <timing_cnt>: 1 register on signal <timing_cnt>.
-INFO:Xst:3217 - HDL ADVISOR - Register <o_spi_chip_en> currently described with an asynchronous reset, could be combined with distributed RAM <Mram_scan_mode[1]_GND_7_o_wide_mux_193_OUT> for implementation on block RAM resources if you made this reset synchronous instead.
-=======
 Synthesizing (advanced) Unit <beam_scan_controller_v3>.
 The following registers are absorbed into counter <timing_cnt>: 1 register on signal <timing_cnt>.
 The following registers are absorbed into counter <dir_index>: 1 register on signal <dir_index>.
 INFO:Xst:3217 - HDL ADVISOR - Register <o_spi_chip_en> currently described with an asynchronous reset, could be combined with distributed RAM <Mram_scan_mode[1]_GND_7_o_wide_mux_183_OUT> for implementation on block RAM resources if you made this reset synchronous instead.
->>>>>>> Stashed changes
     -----------------------------------------------------------------------
     | ram_type           | Distributed                         |          |
     -----------------------------------------------------------------------
@@ -1064,11 +695,7 @@ INFO:Xst:3217 - HDL ADVISOR - Register <o_spi_chip_en> currently described with 
     |     diA            | connected to signal <GND>           |          |
     |     doA            | connected to internal node          |          |
     -----------------------------------------------------------------------
-<<<<<<< Updated upstream
-Unit <beam_scan_controller_v2> synthesized (advanced).
-=======
 Unit <beam_scan_controller_v3> synthesized (advanced).
->>>>>>> Stashed changes
 
 Synthesizing (advanced) Unit <phase_shift_calculator>.
 INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_PSB_lookup_table1> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
@@ -1157,10 +784,7 @@ The following registers are absorbed into counter <timeout_cnt>: 1 register on s
 Unit <spi_listener> synthesized (advanced).
 
 Synthesizing (advanced) Unit <spi_process_v4>.
-<<<<<<< Updated upstream
-=======
 The following registers are absorbed into counter <rst_cnt>: 1 register on signal <rst_cnt>.
->>>>>>> Stashed changes
 INFO:Xst:3217 - HDL ADVISOR - Register <o_IFDSA_LE> currently described with an asynchronous reset, could be combined with distributed RAM <Mram_IFDSA_ID[1]_GND_5_o_wide_mux_191_OUT> for implementation on block RAM resources if you made this reset synchronous instead.
     -----------------------------------------------------------------------
     | ram_type           | Distributed                         |          |
@@ -1184,30 +808,11 @@ Macro Statistics
  4x8-bit single-port distributed Read Only RAM         : 1
  8192x8-bit dual-port distributed Read Only RAM        : 4
  8192x8-bit single-port distributed Read Only RAM      : 1
-<<<<<<< Updated upstream
-# Multipliers                                          : 1
- 16x7-bit multiplier                                   : 1
-# Adders/Subtractors                                   : 24
- 16-bit adder                                          : 1
- 32-bit adder                                          : 1
-=======
 # Adders/Subtractors                                   : 22
->>>>>>> Stashed changes
  4-bit adder                                           : 1
  5-bit adder                                           : 8
  8-bit adder                                           : 12
  9-bit subtractor                                      : 1
-<<<<<<< Updated upstream
-# Counters                                             : 6
- 16-bit up counter                                     : 1
- 3-bit up counter                                      : 1
- 5-bit up counter                                      : 2
- 6-bit up counter                                      : 1
- 8-bit up counter                                      : 1
-# Registers                                            : 2389
- Flip-Flops                                            : 2389
-# Comparators                                          : 13
-=======
 # Counters                                             : 7
  16-bit up counter                                     : 1
  3-bit up counter                                      : 1
@@ -1219,22 +824,8 @@ Macro Statistics
 # Registers                                            : 2309
  Flip-Flops                                            : 2309
 # Comparators                                          : 11
->>>>>>> Stashed changes
  1-bit comparator not equal                            : 1
- 16-bit comparator greater                             : 1
  2-bit comparator lessequal                            : 1
-<<<<<<< Updated upstream
- 32-bit comparator greater                             : 2
- 4-bit comparator equal                                : 1
- 4-bit comparator greater                              : 1
- 5-bit comparator greater                              : 1
- 6-bit comparator greater                              : 1
- 8-bit comparator equal                                : 1
- 8-bit comparator greater                              : 3
-# Multiplexers                                         : 1303
- 1-bit 16-to-1 multiplexer                             : 64
- 1-bit 2-to-1 multiplexer                              : 1047
-=======
  32-bit comparator greater                             : 1
  4-bit comparator equal                                : 1
  4-bit comparator greater                              : 2
@@ -1244,28 +835,16 @@ Macro Statistics
 # Multiplexers                                         : 1276
  1-bit 16-to-1 multiplexer                             : 64
  1-bit 2-to-1 multiplexer                              : 1029
->>>>>>> Stashed changes
  12-bit 3-to-1 multiplexer                             : 1
  12-bit 4-to-1 multiplexer                             : 1
  128-bit 2-to-1 multiplexer                            : 2
  128-bit 4-to-1 multiplexer                            : 2
-<<<<<<< Updated upstream
- 16-bit 2-to-1 multiplexer                             : 3
- 2-bit 2-to-1 multiplexer                              : 39
- 2-bit 4-to-1 multiplexer                              : 2
- 24-bit 2-to-1 multiplexer                             : 58
- 32-bit 2-to-1 multiplexer                             : 5
- 4-bit 2-to-1 multiplexer                              : 4
- 6-bit 2-to-1 multiplexer                              : 2
- 8-bit 2-to-1 multiplexer                              : 73
-=======
  2-bit 2-to-1 multiplexer                              : 37
  2-bit 4-to-1 multiplexer                              : 1
  24-bit 2-to-1 multiplexer                             : 58
  4-bit 2-to-1 multiplexer                              : 4
  6-bit 2-to-1 multiplexer                              : 2
  8-bit 2-to-1 multiplexer                              : 75
->>>>>>> Stashed changes
 # Logic shifters                                       : 1
  8-bit shifter logical left                            : 1
 # FSMs                                                 : 5
@@ -1275,17 +854,6 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-<<<<<<< Updated upstream
-WARNING:Xst:1710 - FF/Latch <timeout_cycles_23> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <timeout_cycles_24> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <timeout_cycles_25> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <timeout_cycles_26> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <timeout_cycles_27> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <timeout_cycles_28> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <timeout_cycles_29> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <timeout_cycles_30> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <timeout_cycles_31> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-=======
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_40> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_104> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_41> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_105> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_42> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_106> 
@@ -1309,7 +877,6 @@ INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_32> in Unit <spi_process_v4> is equ
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_59> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_123> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_33> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_97> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_60> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_124> 
->>>>>>> Stashed changes
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_34> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_98> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_8> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_72> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_61> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_125> 
@@ -1351,32 +918,6 @@ INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_31> in Unit <spi_process_v4> is equ
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_5> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_69> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_6> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_70> 
 INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_7> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_71> 
-<<<<<<< Updated upstream
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_40> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_104> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_41> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_105> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_42> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_106> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_16> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_80> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_43> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_107> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_17> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_81> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_44> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_108> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_18> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_82> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_45> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_109> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_19> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_83> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_46> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_110> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_20> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_84> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_47> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_111> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_21> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_85> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_22> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_86> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_23> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_87> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_56> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_120> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_57> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_121> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_58> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_122> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_32> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_96> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_59> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_123> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_33> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_97> 
-INFO:Xst:2261 - The FF/Latch <AC_phase_reg_0_60> in Unit <spi_process_v4> is equivalent to the following FF/Latch, which will be removed : <AC_phase_reg_0_124> 
-=======
->>>>>>> Stashed changes
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <process_inst/FSM_1> on signal <init_state[1:3]> with user encoding.
 -------------------
@@ -1435,142 +976,6 @@ Optimizing FSM <SPI_Listener_inst/FSM_0> on signal <spi_byte_cnt[1:2]> with user
  10    | 10
  11    | 11
 -------------------
-<<<<<<< Updated upstream
-WARNING:Xst:1710 - FF/Latch <o_spi_data_3_18> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_3_19> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_3_21> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_3_22> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_3_23> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_4_18> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_4_19> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_4_21> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_4_22> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_4_23> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_6_18> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_6_19> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_6_21> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_6_22> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_6_23> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_7_18> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_7_19> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_7_21> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_7_22> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_7_23> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_2_18> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_2_19> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_2_21> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_2_22> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_2_23> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_0_18> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_0_19> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_0_21> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_0_22> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_0_23> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_1_18> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_1_19> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_1_21> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_1_22> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_1_23> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_5_18> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_5_19> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_5_21> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_5_22> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_5_23> (without init value) has a constant value of 0 in block <beam_scan_controller_v2>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <o_spi_data_2_6> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_6_14> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_0_4> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_4_12> 
-INFO:Xst:2261 - The FF/Latch <o_spi_chip_en_0> in Unit <beam_scan_controller_v2> is equivalent to the following 3 FFs/Latches, which will be removed : <o_spi_chip_en_1> <o_spi_chip_en_2> <o_spi_chip_en_3> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_2_7> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_6_15> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_3_0> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_7_8> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_0_5> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_4_13> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_2_8> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_6_0> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_3_1> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_7_9> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_0_6> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_4_14> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_2_9> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_6_1> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_3_2> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_7_10> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_2_10> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_6_2> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_0_7> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_4_15> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_1_0> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_5_8> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_0_10> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_4_2> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_3_3> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_7_11> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_2_11> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_6_3> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_0_8> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_4_0> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_1_1> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_5_9> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_0_11> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_4_3> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_3_4> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_7_12> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_2_12> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_6_4> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_0_9> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_4_1> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_1_2> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_5_10> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_0_12> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_4_4> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_3_5> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_7_13> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_2_13> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_6_5> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_1_3> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_5_11> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_3_6> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_7_14> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_0_13> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_4_5> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_2_14> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_6_6> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_1_4> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_5_12> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_0_14> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_4_6> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_3_7> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_7_15> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_2_15> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_6_7> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_1_5> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_5_13> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_0_15> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_4_7> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_3_8> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_7_0> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_1_6> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_5_14> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_3_9> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_7_1> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_1_7> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_5_15> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_1_8> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_5_0> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_1_9> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_5_1> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_3_10> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_7_2> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_1_10> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_5_2> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_3_11> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_7_3> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_1_11> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_5_3> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_3_12> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_7_4> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_2_16> in Unit <beam_scan_controller_v2> is equivalent to the following 23 FFs/Latches, which will be removed : <o_spi_data_2_17> <o_spi_data_2_20> <o_spi_data_0_16> <o_spi_data_0_17> <o_spi_data_0_20> <o_spi_data_1_16> <o_spi_data_1_17> <o_spi_data_1_20> <o_spi_data_5_16> <o_spi_data_5_17> <o_spi_data_5_20> <o_spi_data_3_16> <o_spi_data_3_17> <o_spi_data_3_20> <o_spi_data_4_16> <o_spi_data_4_17> <o_spi_data_4_20> <o_spi_data_6_16> <o_spi_data_6_17> <o_spi_data_6_20> <o_spi_data_7_16> <o_spi_data_7_17> <o_spi_data_7_20> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_1_12> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_5_4> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_3_13> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_7_5> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_1_13> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_5_5> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_3_14> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_7_6> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_1_14> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_5_6> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_3_15> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_7_7> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_1_15> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_5_7> 
-INFO:Xst:2261 - The FF/Latch <o_spi_chip_en_4> in Unit <beam_scan_controller_v2> is equivalent to the following 3 FFs/Latches, which will be removed : <o_spi_chip_en_5> <o_spi_chip_en_6> <o_spi_chip_en_7> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_2_0> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_6_8> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_2_1> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_6_9> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_2_2> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_6_10> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_0_0> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_4_8> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_2_3> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_6_11> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_0_1> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_4_9> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_2_4> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_6_12> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_0_2> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_4_10> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_2_5> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_6_13> 
-INFO:Xst:2261 - The FF/Latch <o_spi_data_0_3> in Unit <beam_scan_controller_v2> is equivalent to the following FF/Latch, which will be removed : <o_spi_data_4_11> 
-
-Optimizing unit <spi_mux_inst> ...
-
-Optimizing unit <top_v3> ...
-
-Optimizing unit <spi_process_v4> ...
-WARNING:Xst:1710 - FF/Latch <lp_cnt_1> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <lp_cnt_2> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <lp_cnt_3> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <local_spi_data_0_22> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <local_spi_data_0_23> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <local_spi_data_0_46> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <local_spi_data_0_47> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <local_spi_data_0_70> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <local_spi_data_0_71> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <local_spi_data_0_94> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <local_spi_data_0_95> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <local_spi_data_0_118> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <local_spi_data_0_119> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <local_spi_data_0_142> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <local_spi_data_0_143> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <local_spi_data_0_166> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <local_spi_data_0_167> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <local_spi_data_0_190> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <local_spi_data_0_191> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
-
-Optimizing unit <beam_scan_controller_v2> ...
-=======
 WARNING:Xst:1710 - FF/Latch <o_spi_data_3_18> (without init value) has a constant value of 0 in block <beam_scan_controller_v3>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_3_19> (without init value) has a constant value of 0 in block <beam_scan_controller_v3>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <o_spi_data_3_21> (without init value) has a constant value of 0 in block <beam_scan_controller_v3>. This FF/Latch will be trimmed during the optimization process.
@@ -1703,22 +1108,14 @@ WARNING:Xst:1710 - FF/Latch <lp_cnt_3> (without init value) has a constant value
 WARNING:Xst:1710 - FF/Latch <lp_cnt_2> (without init value) has a constant value of 0 in block <spi_process_v4>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <beam_scan_controller_v3> ...
->>>>>>> Stashed changes
 
 Optimizing unit <SPI_Master_PE44951_Parallel> ...
 
 Optimizing unit <phase_shift_calculator> ...
 
-Optimizing unit <FEM_TR_switch> ...
-
 Optimizing unit <SPI_Slave> ...
 
 Optimizing unit <spi_listener> ...
-<<<<<<< Updated upstream
-
-Optimizing unit <rst> ...
-WARNING:Xst:2677 - Node <o_scan_armed> of sequential type is unconnected in block <beam_scan_inst>.
-=======
 WARNING:Xst:2677 - Node <process_inst/beam_cfg_timeout_us_15> of sequential type is unconnected in block <top_v3>.
 WARNING:Xst:2677 - Node <process_inst/beam_cfg_timeout_us_14> of sequential type is unconnected in block <top_v3>.
 WARNING:Xst:2677 - Node <process_inst/beam_cfg_timeout_us_13> of sequential type is unconnected in block <top_v3>.
@@ -1736,7 +1133,6 @@ WARNING:Xst:2677 - Node <process_inst/beam_cfg_timeout_us_2> of sequential type 
 WARNING:Xst:2677 - Node <process_inst/beam_cfg_timeout_us_1> of sequential type is unconnected in block <top_v3>.
 WARNING:Xst:2677 - Node <process_inst/beam_cfg_timeout_us_0> of sequential type is unconnected in block <top_v3>.
 WARNING:Xst:2677 - Node <process_inst/beam_scan_inst/o_scan_armed> of sequential type is unconnected in block <top_v3>.
->>>>>>> Stashed changes
 INFO:Xst:2399 - RAMs <Mram_PSB_lookup_table32>, <Mram_PSB_lookup_table31> are equivalent, second RAM is removed
 INFO:Xst:2399 - RAMs <Mram_PSB_lookup_table32>, <Mram_PSB_lookup_table365> are equivalent, second RAM is removed
 INFO:Xst:2399 - RAMs <Mram_PSB_lookup_table32>, <Mram_PSB_lookup_table366> are equivalent, second RAM is removed
@@ -2854,60 +2250,6 @@ INFO:Xst:2399 - RAMs <Mram_PSB_lookup_table800>, <Mram_PSB_lookup_table882> are 
 INFO:Xst:2399 - RAMs <Mram_PSB_lookup_table804>, <Mram_PSB_lookup_table890> are equivalent, second RAM is removed
 INFO:Xst:2399 - RAMs <Mram_PSB_lookup_table807>, <Mram_PSB_lookup_table897> are equivalent, second RAM is removed
 INFO:Xst:2399 - RAMs <Mram_PSB_lookup_table810>, <Mram_PSB_lookup_table902> are equivalent, second RAM is removed
-<<<<<<< Updated upstream
-WARNING:Xst:1710 - FF/Latch <timeout_cnt_23> (without init value) has a constant value of 0 in block <beam_scan_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <timeout_cnt_24> (without init value) has a constant value of 0 in block <beam_scan_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <timeout_cnt_25> (without init value) has a constant value of 0 in block <beam_scan_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <timeout_cnt_26> (without init value) has a constant value of 0 in block <beam_scan_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <timeout_cnt_27> (without init value) has a constant value of 0 in block <beam_scan_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <timeout_cnt_28> (without init value) has a constant value of 0 in block <beam_scan_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <timeout_cnt_29> (without init value) has a constant value of 0 in block <beam_scan_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <timeout_cnt_30> (without init value) has a constant value of 0 in block <beam_scan_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <timeout_cnt_31> (without init value) has a constant value of 0 in block <beam_scan_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <timing_cnt_2> (without init value) has a constant value of 0 in block <beam_scan_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <timing_cnt_3> (without init value) has a constant value of 0 in block <beam_scan_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <timing_cnt_4> (without init value) has a constant value of 0 in block <beam_scan_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <clk_div_cnt_1> (without init value) has a constant value of 0 in block <spi_master_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <clk_div_cnt_2> (without init value) has a constant value of 0 in block <spi_master_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <clk_div_cnt_3> (without init value) has a constant value of 0 in block <spi_master_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <clk_div_cnt_4> (without init value) has a constant value of 0 in block <spi_master_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <clk_div_cnt_5> (without init value) has a constant value of 0 in block <spi_master_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <clk_div_cnt_6> (without init value) has a constant value of 0 in block <spi_master_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <clk_div_cnt_7> (without init value) has a constant value of 0 in block <spi_master_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <clk_div_cnt_8> (without init value) has a constant value of 0 in block <spi_master_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <clk_div_cnt_9> (without init value) has a constant value of 0 in block <spi_master_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <clk_div_cnt_10> (without init value) has a constant value of 0 in block <spi_master_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <clk_div_cnt_11> (without init value) has a constant value of 0 in block <spi_master_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <clk_div_cnt_12> (without init value) has a constant value of 0 in block <spi_master_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <clk_div_cnt_13> (without init value) has a constant value of 0 in block <spi_master_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <clk_div_cnt_14> (without init value) has a constant value of 0 in block <spi_master_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <clk_div_cnt_15> (without init value) has a constant value of 0 in block <spi_master_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <beamform_cnt_2> (without init value) has a constant value of 0 in block <process_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <beamform_cnt_3> (without init value) has a constant value of 0 in block <process_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <beamform_cnt_4> (without init value) has a constant value of 0 in block <process_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <beamform_cnt_5> (without init value) has a constant value of 0 in block <process_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <beamform_cnt_6> (without init value) has a constant value of 0 in block <process_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <beamform_cnt_7> (without init value) has a constant value of 0 in block <process_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <timeout_cnt_11> has a constant value of 0 in block <SPI_Listener_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <timeout_cnt_12> has a constant value of 0 in block <SPI_Listener_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <timeout_cnt_13> has a constant value of 0 in block <SPI_Listener_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <timeout_cnt_14> has a constant value of 0 in block <SPI_Listener_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <timeout_cnt_15> has a constant value of 0 in block <SPI_Listener_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <clk_cnt_4> has a constant value of 0 in block <rst_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <clk_cnt_5> has a constant value of 0 in block <rst_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <clk_cnt_6> has a constant value of 0 in block <rst_inst>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1293 - FF/Latch <clk_cnt_7> has a constant value of 0 in block <rst_inst>. This FF/Latch will be trimmed during the optimization process.
-INFO:Xst:2261 - The FF/Latch <local_spi_data_0_21> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <local_spi_data_0_19> 
-INFO:Xst:2261 - The FF/Latch <local_spi_data_0_45> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <local_spi_data_0_43> 
-INFO:Xst:2261 - The FF/Latch <local_spi_data_0_69> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <local_spi_data_0_67> 
-INFO:Xst:2261 - The FF/Latch <local_spi_data_0_93> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <local_spi_data_0_91> 
-INFO:Xst:2261 - The FF/Latch <local_lp_pulse_0> in Unit <process_inst> is equivalent to the following FF/Latch, which will be removed : <local_lp_pulse_1> 
-INFO:Xst:2261 - The FF/Latch <o_sclk_0> in Unit <spi_master_inst> is equivalent to the following FF/Latch, which will be removed : <o_sclk_1> 
-
-Mapping all equations...
-Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block top_v3, actual ratio is 12.
-=======
 WARNING:Xst:1293 - FF/Latch <rst_inst/clk_cnt_4> has a constant value of 0 in block <top_v3>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <rst_inst/clk_cnt_5> has a constant value of 0 in block <top_v3>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <rst_inst/clk_cnt_6> has a constant value of 0 in block <top_v3>. This FF/Latch will be trimmed during the optimization process.
@@ -2928,7 +2270,6 @@ INFO:Xst:2261 - The FF/Latch <process_inst/local_lp_pulse_0> in Unit <top_v3> is
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block top_v3, actual ratio is 36.
->>>>>>> Stashed changes
 
 Final Macro Processing ...
 
@@ -2936,13 +2277,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-<<<<<<< Updated upstream
-# Registers                                            : 2171
- Flip-Flops                                            : 2171
-=======
 # Registers                                            : 2122
  Flip-Flops                                            : 2122
->>>>>>> Stashed changes
 
 =========================================================================
 
@@ -2965,30 +2301,6 @@ Top Level Output File Name         : top_v3.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-<<<<<<< Updated upstream
-# BELS                             : 5810
-#      GND                         : 6
-#      INV                         : 15
-#      LUT1                        : 35
-#      LUT2                        : 170
-#      LUT3                        : 481
-#      LUT4                        : 396
-#      LUT5                        : 229
-#      LUT6                        : 4037
-#      MUXCY                       : 105
-#      MUXF7                       : 156
-#      MUXF8                       : 72
-#      VCC                         : 5
-#      XORCY                       : 103
-# FlipFlops/Latches                : 2171
-#      FD                          : 3
-#      FDC                         : 216
-#      FDCE                        : 603
-#      FDE                         : 1099
-#      FDPE                        : 10
-#      FDR                         : 6
-#      FDRE                        : 225
-=======
 # BELS                             : 5511
 #      GND                         : 1
 #      INV                         : 7
@@ -3011,7 +2323,6 @@ Primitive and Black Box Usage:
 #      FDPE                        : 3
 #      FDR                         : 6
 #      FDRE                        : 229
->>>>>>> Stashed changes
 #      FDSE                        : 9
 # RAMS                             : 931
 #      RAM128X1D                   : 931
@@ -3020,8 +2331,6 @@ Primitive and Black Box Usage:
 # IO Buffers                       : 67
 #      IBUF                        : 11
 #      OBUF                        : 56
-# DSPs                             : 1
-#      DSP48A1                     : 1
 
 Device utilization summary:
 ---------------------------
@@ -3030,32 +2339,18 @@ Selected Device : 6slx25ftg256-2
 
 
 Slice Logic Utilization: 
-<<<<<<< Updated upstream
- Number of Slice Registers:            2171  out of  30064     7%  
- Number of Slice LUTs:                 9087  out of  15032    60%  
-    Number used as Logic:              5363  out of  15032    35%  
-=======
  Number of Slice Registers:            2122  out of  30064     7%  
  Number of Slice LUTs:                 8850  out of  15032    58%  
     Number used as Logic:              5126  out of  15032    34%  
->>>>>>> Stashed changes
     Number used as Memory:             3724  out of   3664   101% (*) 
        Number used as RAM:             3724
 
 Slice Logic Distribution: 
-<<<<<<< Updated upstream
- Number of LUT Flip Flop pairs used:   9360
-   Number with an unused Flip Flop:    7189  out of   9360    76%  
-   Number with an unused LUT:           273  out of   9360     2%  
-   Number of fully used LUT-FF pairs:  1898  out of   9360    20%  
-   Number of unique control sets:        57
-=======
  Number of LUT Flip Flop pairs used:   8955
    Number with an unused Flip Flop:    6833  out of   8955    76%  
    Number with an unused LUT:           105  out of   8955     1%  
    Number of fully used LUT-FF pairs:  2017  out of   8955    22%  
    Number of unique control sets:        53
->>>>>>> Stashed changes
 
 IO Utilization: 
  Number of IOs:                          80
@@ -3063,7 +2358,6 @@ IO Utilization:
 
 Specific Feature Utilization:
  Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
- Number of DSP48A1s:                      1  out of     38     2%  
 
 WARNING:Xst:1336 -  (*) More than 100% of Device resources are used
 
@@ -3085,15 +2379,6 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
-<<<<<<< Updated upstream
------------------------------------------------------------------+--------------------------------------------------------------+-------+
-Clock Signal                                                     | Clock buffer(FF name)                                        | Load  |
------------------------------------------------------------------+--------------------------------------------------------------+-------+
-clk_in                                                           | BUFGP                                                        | 2152  |
-process_inst/phase_calc_shared/N0                                | NONE(process_inst/phase_calc_shared/Mram_PSB_lookup_table908)| 931   |
-spi_mux_inst/o_SCLK_mux_out(spi_mux_inst/Mmux_o_SCLK_mux_out11:O)| NONE(*)(SPI_Slave_inst/r_RX_Done)                            | 19    |
------------------------------------------------------------------+--------------------------------------------------------------+-------+
-=======
 ---------------------------------------------------+--------------------------------------------------------------+-------+
 Clock Signal                                       | Clock buffer(FF name)                                        | Load  |
 ---------------------------------------------------+--------------------------------------------------------------+-------+
@@ -3101,7 +2386,6 @@ clk_in                                             | BUFGP                      
 selected_SCLK(spi_mux_inst/Mmux_o_SCLK_mux_out11:O)| NONE(*)(SPI_Slave_inst/r_RX_Bit_Count_2)                     | 19    |
 N0                                                 | NONE(process_inst/phase_calc_shared_Mram_PSB_lookup_table908)| 931   |
 ---------------------------------------------------+--------------------------------------------------------------+-------+
->>>>>>> Stashed changes
 (*) This 1 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
@@ -3116,15 +2400,9 @@ Timing Summary:
 Speed Grade: -2
 
    Minimum period: 12.202ns (Maximum Frequency: 81.956MHz)
-<<<<<<< Updated upstream
-   Minimum input arrival time before clock: 4.932ns
-   Maximum output required time after clock: 7.813ns
-   Maximum combinational path delay: 7.086ns
-=======
    Minimum input arrival time before clock: 4.479ns
    Maximum output required time after clock: 7.242ns
    Maximum combinational path delay: 7.674ns
->>>>>>> Stashed changes
 
 Timing Details:
 ---------------
@@ -3133,42 +2411,6 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_in'
   Clock period: 12.202ns (frequency: 81.956MHz)
-<<<<<<< Updated upstream
-  Total number of paths / destination ports: 2371279 / 5135
--------------------------------------------------------------------------
-Delay:               12.202ns (Levels of Logic = 18)
-  Source:            process_inst/beam_scan_inst/o_calc_request (FF)
-  Destination:       process_inst/beam_scan_inst/precomputed_phase_7_15_7 (FF)
-  Source Clock:      clk_in rising
-  Destination Clock: clk_in rising
-
-  Data Path: process_inst/beam_scan_inst/o_calc_request to process_inst/beam_scan_inst/precomputed_phase_7_15_7
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDC:C->Q             16   0.525   1.182  o_calc_request (o_calc_request)
-     end scope: 'process_inst/beam_scan_inst:o_calc_request'
-     LUT3:I2->O         1319   0.254   3.142  Mmux_calc_mux_pitch11 (calc_mux_pitch<0>)
-     begin scope: 'process_inst/phase_calc_shared:ang_pitch<0>'
-     LUT6:I0->O            1   0.254   0.958  Mram_PSB_lookup_table41031 (Mram_PSB_lookup_table4103)
-     LUT6:I2->O            1   0.254   0.958  Mram_PSB_lookup_table41241_134 (Mram_PSB_lookup_table41241_134)
-     LUT6:I2->O            1   0.254   0.958  Mram_PSB_lookup_table41241_81 (Mram_PSB_lookup_table41241_81)
-     LUT6:I2->O            1   0.254   0.000  Mram_PSB_lookup_table41241_3 (Mram_PSB_lookup_table41241_3)
-     MUXF7:I1->O           1   0.175   0.682  Mram_PSB_lookup_table41241_2_f7 (PSB_pitch<7><0>)
-     LUT2:I1->O            1   0.254   0.000  Madd_PSB7_lut<0> (Madd_PSB7_lut<0>)
-     MUXCY:S->O            1   0.215   0.000  Madd_PSB7_cy<0> (Madd_PSB7_cy<0>)
-     MUXCY:CI->O           1   0.023   0.000  Madd_PSB7_cy<1> (Madd_PSB7_cy<1>)
-     MUXCY:CI->O           1   0.023   0.000  Madd_PSB7_cy<2> (Madd_PSB7_cy<2>)
-     MUXCY:CI->O           1   0.023   0.000  Madd_PSB7_cy<3> (Madd_PSB7_cy<3>)
-     MUXCY:CI->O           1   0.023   0.000  Madd_PSB7_cy<4> (Madd_PSB7_cy<4>)
-     MUXCY:CI->O           1   0.023   0.000  Madd_PSB7_cy<5> (Madd_PSB7_cy<5>)
-     MUXCY:CI->O           0   0.023   0.000  Madd_PSB7_cy<6> (Madd_PSB7_cy<6>)
-     XORCY:CI->O          17   0.206   1.209  Madd_PSB7_xor<7> (PSB7<7>)
-     end scope: 'process_inst/phase_calc_shared:PSB7<7>'
-     begin scope: 'process_inst/beam_scan_inst:i_calc_PSB7<7>'
-     LUT6:I5->O            1   0.254   0.000  Mmux_precomputed_phase_7[0][7]_i_calc_PSB7[7]_mux_168_OUT81 (precomputed_phase_7[0][7]_i_calc_PSB7[7]_mux_168_OUT<7>)
-     FDE:D                     0.074          precomputed_phase_7_15_127
-=======
   Total number of paths / destination ports: 2363266 / 4987
 -------------------------------------------------------------------------
 Delay:               12.202ns (Levels of Logic = 16)
@@ -3199,31 +2441,15 @@ Delay:               12.202ns (Levels of Logic = 16)
      XORCY:CI->O          17   0.206   1.209  process_inst/phase_calc_shared/Madd_PSB7_xor<7> (process_inst/PSB7<7>)
      LUT6:I5->O            1   0.254   0.000  process_inst/beam_scan_inst/mux93511 (process_inst/beam_scan_inst/precomputed_phase_7[4][7]_i_calc_PSB7[7]_mux_156_OUT<7>)
      FDE:D                     0.074          process_inst/beam_scan_inst/precomputed_phase_7_15_95
->>>>>>> Stashed changes
     ----------------------------------------
     Total                     12.202ns (3.112ns logic, 9.089ns route)
                                        (25.5% logic, 74.5% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'spi_mux_inst/o_SCLK_mux_out'
-  Clock period: 3.176ns (frequency: 314.861MHz)
+Timing constraint: Default period analysis for Clock 'selected_SCLK'
+  Clock period: 3.320ns (frequency: 301.205MHz)
   Total number of paths / destination ports: 49 / 26
 -------------------------------------------------------------------------
-<<<<<<< Updated upstream
-Delay:               3.176ns (Levels of Logic = 1)
-  Source:            SPI_Slave_inst/r_RX_Bit_Count_0 (FF)
-  Destination:       SPI_Slave_inst/r_RX_Byte_0 (FF)
-  Source Clock:      spi_mux_inst/o_SCLK_mux_out rising
-  Destination Clock: spi_mux_inst/o_SCLK_mux_out rising
-
-  Data Path: SPI_Slave_inst/r_RX_Bit_Count_0 to SPI_Slave_inst/r_RX_Byte_0
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDC:C->Q              6   0.525   1.152  r_RX_Bit_Count_0 (r_RX_Bit_Count_0)
-     LUT4:I0->O            8   0.254   0.943  _n0049_inv1 (_n0049_inv)
-     FDE:CE                    0.302          r_RX_Byte_0
-=======
 Delay:               3.320ns (Levels of Logic = 1)
   Source:            SPI_Slave_inst/r_RX_Bit_Count_1 (FF)
   Destination:       SPI_Slave_inst/r_RX_Byte_7 (FF)
@@ -3237,33 +2463,14 @@ Delay:               3.320ns (Levels of Logic = 1)
      FDC:C->Q              5   0.525   1.296  SPI_Slave_inst/r_RX_Bit_Count_1 (SPI_Slave_inst/r_RX_Bit_Count_1)
      LUT6:I0->O            8   0.254   0.943  SPI_Slave_inst/_n0049_inv1 (SPI_Slave_inst/_n0049_inv)
      FDE:CE                    0.302          SPI_Slave_inst/r_RX_Byte_0
->>>>>>> Stashed changes
     ----------------------------------------
-    Total                      3.176ns (1.081ns logic, 2.095ns route)
-                                       (34.0% logic, 66.0% route)
+    Total                      3.320ns (1.081ns logic, 2.239ns route)
+                                       (32.6% logic, 67.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_in'
   Total number of paths / destination ports: 17 / 17
 -------------------------------------------------------------------------
-<<<<<<< Updated upstream
-Offset:              4.430ns (Levels of Logic = 3)
-  Source:            DEV_MODE (PAD)
-  Destination:       process_inst/o_TX_ON_0 (FF)
-  Destination Clock: clk_in rising
-
-  Data Path: DEV_MODE to process_inst/o_TX_ON_0
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O            19   1.328   1.369  DEV_MODE_IBUF (DEV_MODE_IBUF)
-     begin scope: 'process_inst:i_DEV_MODE'
-     LUT6:I4->O           16   0.250   1.181  _n1152_inv1 (_n1152_inv)
-     FDCE:CE                   0.302          o_TX_ON_0
-    ----------------------------------------
-    Total                      4.430ns (1.880ns logic, 2.550ns route)
-                                       (42.4% logic, 57.6% route)
-=======
 Offset:              4.479ns (Levels of Logic = 2)
   Source:            DEV_MODE (PAD)
   Destination:       process_inst/o_RX_ON_7 (FF)
@@ -3279,30 +2486,13 @@ Offset:              4.479ns (Levels of Logic = 2)
     ----------------------------------------
     Total                      4.479ns (1.880ns logic, 2.599ns route)
                                        (42.0% logic, 58.0% route)
->>>>>>> Stashed changes
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'spi_mux_inst/o_SCLK_mux_out'
+Timing constraint: Default OFFSET IN BEFORE for Clock 'selected_SCLK'
   Total number of paths / destination ports: 63 / 21
 -------------------------------------------------------------------------
-Offset:              4.932ns (Levels of Logic = 5)
+Offset:              3.894ns (Levels of Logic = 2)
   Source:            MCU_PLUG (PAD)
-<<<<<<< Updated upstream
-  Destination:       SPI_Slave_inst/r_RX_Byte_0 (FF)
-  Destination Clock: spi_mux_inst/o_SCLK_mux_out rising
-
-  Data Path: MCU_PLUG to SPI_Slave_inst/r_RX_Byte_0
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             3   1.328   0.994  MCU_PLUG_IBUF (MCU_PLUG_IBUF)
-     begin scope: 'spi_mux_inst:i_SEL'
-     LUT3:I0->O            6   0.235   0.876  Mmux_o_LE_mux_out11 (o_LE_mux_out)
-     end scope: 'spi_mux_inst:o_LE_mux_out'
-     begin scope: 'SPI_Slave_inst:i_SPI_CS_n'
-     LUT4:I3->O            8   0.254   0.943  _n0049_inv1 (_n0049_inv)
-     FDE:CE                    0.302          r_RX_Byte_0
-=======
   Destination:       SPI_Slave_inst/r_RX_Bit_Count_2 (FF)
   Destination Clock: selected_SCLK rising
 
@@ -3313,22 +2503,15 @@ Offset:              4.932ns (Levels of Logic = 5)
      IBUF:I->O             5   1.328   1.069  MCU_PLUG_IBUF (MCU_PLUG_IBUF)
      LUT3:I0->O            4   0.235   0.803  spi_mux_inst/Mmux_o_LE_mux_out11 (selected_LE)
      FDCE:CLR                  0.459          SPI_Slave_inst/r_RX_Done
->>>>>>> Stashed changes
     ----------------------------------------
-    Total                      4.932ns (2.119ns logic, 2.813ns route)
-                                       (43.0% logic, 57.0% route)
+    Total                      3.894ns (2.022ns logic, 1.872ns route)
+                                       (51.9% logic, 48.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_in'
-<<<<<<< Updated upstream
-  Total number of paths / destination ports: 91 / 54
--------------------------------------------------------------------------
-Offset:              7.813ns (Levels of Logic = 4)
-=======
   Total number of paths / destination ports: 90 / 55
 -------------------------------------------------------------------------
 Offset:              7.242ns (Levels of Logic = 2)
->>>>>>> Stashed changes
   Source:            process_inst/beam_scan_inst/o_scan_active (FF)
   Destination:       PE44951_LP<1> (PAD)
   Source Clock:      clk_in rising
@@ -3337,21 +2520,6 @@ Offset:              7.242ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-<<<<<<< Updated upstream
-     FDCE:C->Q           186   0.525   2.509  o_scan_active (o_scan_active)
-     LUT4:I2->O            1   0.250   0.682  Mmux_o_lp_pulse11 (o_lp_pulse<0>)
-     end scope: 'process_inst/beam_scan_inst:o_lp_pulse<0>'
-     LUT3:I2->O            1   0.254   0.681  Mmux_o_LP_Pulse11 (o_LP_Pulse<0>)
-     end scope: 'process_inst:o_LP_Pulse<0>'
-     OBUF:I->O                 2.912          PE44951_LP_0_OBUF (PE44951_LP<0>)
-    ----------------------------------------
-    Total                      7.813ns (3.941ns logic, 3.872ns route)
-                                       (50.4% logic, 49.6% route)
-
-=========================================================================
-Timing constraint: Default path analysis
-  Total number of paths / destination ports: 62 / 22
-=======
      FDCE:C->Q           199   0.525   2.870  process_inst/beam_scan_inst/o_scan_active (process_inst/beam_scan_inst/o_scan_active)
      LUT6:I0->O            1   0.254   0.681  process_inst/Mmux_o_LP_Pulse21 (PE44951_LP_1_OBUF)
      OBUF:I->O                 2.912          PE44951_LP_1_OBUF (PE44951_LP<1>)
@@ -3362,35 +2530,28 @@ Timing constraint: Default path analysis
 =========================================================================
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 66 / 22
->>>>>>> Stashed changes
 -------------------------------------------------------------------------
-Delay:               7.086ns (Levels of Logic = 6)
-  Source:            UPDATE (PAD)
-  Destination:       PE44951_LP<1> (PAD)
+Delay:               7.674ns (Levels of Logic = 4)
+  Source:            DEV_MODE (PAD)
+  Destination:       IF_TX_ON (PAD)
 
-  Data Path: UPDATE to PE44951_LP<1>
+  Data Path: DEV_MODE to IF_TX_ON
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             3   1.328   0.994  UPDATE_IBUF (UPDATE_IBUF)
-     begin scope: 'process_inst:i_UPDATE'
-     begin scope: 'process_inst/beam_scan_inst:i_lp_trigger'
-     LUT4:I1->O            1   0.235   0.682  Mmux_o_lp_pulse11 (o_lp_pulse<0>)
-     end scope: 'process_inst/beam_scan_inst:o_lp_pulse<0>'
-     LUT3:I2->O            1   0.254   0.681  Mmux_o_LP_Pulse11 (o_LP_Pulse<0>)
-     end scope: 'process_inst:o_LP_Pulse<0>'
-     OBUF:I->O                 2.912          PE44951_LP_0_OBUF (PE44951_LP<0>)
+     IBUF:I->O            21   1.328   1.538  DEV_MODE_IBUF (DEV_MODE_IBUF)
+     LUT3:I0->O            1   0.235   0.682  FEM_TR_switch_inst/Mmux_o_IF_TX_ON111 (FEM_TR_switch_inst/Mmux_o_IF_TX_ON11)
+     LUT6:I5->O            2   0.254   0.725  FEM_TR_switch_inst/Mmux_o_IF_TX_ON1 (IF_TX_ON_OBUF)
+     OBUF:I->O                 2.912          IF_TX_ON_OBUF (IF_TX_ON)
     ----------------------------------------
-    Total                      7.086ns (4.729ns logic, 2.357ns route)
-                                       (66.7% logic, 33.3% route)
+    Total                      7.674ns (4.729ns logic, 2.945ns route)
+                                       (61.6% logic, 38.4% route)
 
 =========================================================================
 
 Cross Clock Domains Report:
 --------------------------
 
-<<<<<<< Updated upstream
-=======
 Clock to Setup on destination clock N0
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
@@ -3399,52 +2560,26 @@ Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 clk_in         |    4.650|         |         |         |
 ---------------+---------+---------+---------+---------+
 
->>>>>>> Stashed changes
 Clock to Setup on destination clock clk_in
----------------------------+---------+---------+---------+---------+
-                           | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock               |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------------------+---------+---------+---------+---------+
-clk_in                     |   12.202|         |         |         |
-spi_mux_inst/o_SCLK_mux_out|    1.280|         |         |         |
----------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock process_inst/phase_calc_shared/N0
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-<<<<<<< Updated upstream
-clk_in         |    4.650|         |         |         |
-=======
 clk_in         |   12.202|         |         |         |
 selected_SCLK  |    1.280|         |         |         |
->>>>>>> Stashed changes
 ---------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock spi_mux_inst/o_SCLK_mux_out
----------------------------+---------+---------+---------+---------+
-                           | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock               |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------------------+---------+---------+---------+---------+
-spi_mux_inst/o_SCLK_mux_out|    3.176|         |         |         |
----------------------------+---------+---------+---------+---------+
+Clock to Setup on destination clock selected_SCLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+selected_SCLK  |    3.320|         |         |         |
+---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-<<<<<<< Updated upstream
-Total REAL time to Xst completion: 111.00 secs
-Total CPU time to Xst completion: 111.82 secs
- 
---> 
-
-Total memory usage is 4610712 kilobytes
-
-Number of errors   :    0 (   0 filtered)
-Number of warnings :  167 (   0 filtered)
-Number of infos    : 1334 (   0 filtered)
-=======
 Total REAL time to Xst completion: 119.00 secs
 Total CPU time to Xst completion: 118.78 secs
  
@@ -3455,5 +2590,4 @@ Total memory usage is 4609180 kilobytes
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  144 (   0 filtered)
 Number of infos    : 1333 (   0 filtered)
->>>>>>> Stashed changes
 
