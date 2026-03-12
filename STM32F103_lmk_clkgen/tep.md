@@ -1,5 +1,6 @@
 
 F:\MATLAB\RFSoCClient\claude
+F:\Vivado\ZU47DR_MTS_test\Matlab
 
 cd F:/Vivado/ZU47DR_MTS_test
 cd F:/Vivado/zu47_calibadc  

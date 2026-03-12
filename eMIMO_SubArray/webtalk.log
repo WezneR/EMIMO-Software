@@ -3,7 +3,11 @@ Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 
 Project Information
 --------------------
+<<<<<<< Updated upstream
 ProjectID=E161D1CEE11546909B5A31017ED408AA
+=======
+ProjectID=6D1EE72B3B084A61AC3B05753E229315
+>>>>>>> Stashed changes
 ProjectIteration=1
 
 WebTalk Summary
@@ -13,4 +17,8 @@ INFO:WebTalk:1 - WebTalk is enabled because you are using a WebPACK license.
 INFO:WebTalk:9 - WebTalk Install setting is OFF.
 INFO:WebTalk:6 - WebTalk User setting is ON.
 
+<<<<<<< Updated upstream
 INFO:WebTalk:5 - F:/ISE/eMIMO_SubArray4/usage_statistics_webtalk.html WebTalk report has not been sent to Xilinx.  Please check your network and proxy settings.  For additional details about this file, please refer to the WebTalk help file at E:/Xilinx/14.7/ISE_DS/ISE/data/reports/webtalk_introduction.html
+=======
+INFO:WebTalk:5 - F:/ISE/eMIMO_SubArray6/usage_statistics_webtalk.html WebTalk report has not been sent to Xilinx.  Please check your network and proxy settings.  For additional details about this file, please refer to the WebTalk help file at E:/Xilinx/14.7/ISE_DS/ISE/data/reports/webtalk_introduction.html
+>>>>>>> Stashed changes

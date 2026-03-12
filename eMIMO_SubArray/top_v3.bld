@@ -5,7 +5,11 @@ Command Line: E:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
 -intstyle ise -dd _ngo -nt timestamp -uc srcs/top_v3.ucf -p xc6slx25-ftg256-2
 top_v3.ngc top_v3.ngd
 
+<<<<<<< Updated upstream
 Reading NGO file "F:/ISE/eMIMO_SubArray4/top_v3.ngc" ...
+=======
+Reading NGO file "F:/ISE/eMIMO_SubArray6/top_v3.ngc" ...
+>>>>>>> Stashed changes
 Gathering constraint information from source properties...
 Done.
 
@@ -28,10 +32,17 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   1
 
+<<<<<<< Updated upstream
 Total memory usage is 4446784 kilobytes
 
 Writing NGD file "top_v3.ngd" ...
 Total REAL time to NGDBUILD completion:  6 sec
+=======
+Total memory usage is 4446796 kilobytes
+
+Writing NGD file "top_v3.ngd" ...
+Total REAL time to NGDBUILD completion:  7 sec
+>>>>>>> Stashed changes
 Total CPU time to NGDBUILD completion:   6 sec
 
 Writing NGDBUILD log file "top_v3.bld"...

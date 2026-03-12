@@ -10,7 +10,11 @@ Target Device  : xc6slx25
 Target Package : ftg256
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
+<<<<<<< Updated upstream
 Mapped Date    : Fri Dec 12 14:34:37 2025
+=======
+Mapped Date    : Mon Jan 05 14:21:45 2026
+>>>>>>> Stashed changes
 
 Mapping design into LUTs...
 Running directed packing...
@@ -19,6 +23,7 @@ Updating timing models...
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
 Running timing-driven placement...
+<<<<<<< Updated upstream
 Total REAL time at the beginning of Placer: 10 secs 
 Total CPU  time at the beginning of Placer: 10 secs 
 
@@ -30,10 +35,24 @@ Phase 2.7  Design Feasibility Check (Checksum:ae146382) REAL time: 12 secs
 
 Phase 3.31  Local Placement Optimization
 Phase 3.31  Local Placement Optimization (Checksum:ae146382) REAL time: 12 secs 
+=======
+Total REAL time at the beginning of Placer: 15 secs 
+Total CPU  time at the beginning of Placer: 10 secs 
+
+Phase 1.1  Initial Placement Analysis
+Phase 1.1  Initial Placement Analysis (Checksum:8b2a9420) REAL time: 17 secs 
+
+Phase 2.7  Design Feasibility Check
+Phase 2.7  Design Feasibility Check (Checksum:8b2a9420) REAL time: 17 secs 
+
+Phase 3.31  Local Placement Optimization
+Phase 3.31  Local Placement Optimization (Checksum:8b2a9420) REAL time: 17 secs 
+>>>>>>> Stashed changes
 
 Phase 4.2  Initial Placement for Architecture Specific Features
 
 Phase 4.2  Initial Placement for Architecture Specific Features
+<<<<<<< Updated upstream
 (Checksum:bc936bf2) REAL time: 16 secs 
 
 Phase 5.36  Local Placement Optimization
@@ -70,11 +89,49 @@ Phase 13.34  Placement Validation (Checksum:54deeba7) REAL time: 3 mins 56 secs
 
 Total REAL time to Placer completion: 3 mins 56 secs 
 Total CPU  time to Placer completion: 3 mins 56 secs 
+=======
+(Checksum:a24fcc0) REAL time: 22 secs 
+
+Phase 5.36  Local Placement Optimization
+Phase 5.36  Local Placement Optimization (Checksum:a24fcc0) REAL time: 22 secs 
+
+Phase 6.30  Global Clock Region Assignment
+Phase 6.30  Global Clock Region Assignment (Checksum:a24fcc0) REAL time: 22 secs 
+
+Phase 7.3  Local Placement Optimization
+Phase 7.3  Local Placement Optimization (Checksum:a24fcc0) REAL time: 22 secs 
+
+Phase 8.5  Local Placement Optimization
+Phase 8.5  Local Placement Optimization (Checksum:a24fcc0) REAL time: 22 secs 
+
+Phase 9.8  Global Placement
+.............................................................................................
+........................................................................................................................
+....................................................................................................
+..............................................................................................................................................................
+Phase 9.8  Global Placement (Checksum:9e64df7b) REAL time: 49 secs 
+
+Phase 10.5  Local Placement Optimization
+Phase 10.5  Local Placement Optimization (Checksum:9e64df7b) REAL time: 49 secs 
+
+Phase 11.18  Placement Optimization
+Phase 11.18  Placement Optimization (Checksum:ef7aa8eb) REAL time: 1 mins 8 secs 
+
+Phase 12.5  Local Placement Optimization
+Phase 12.5  Local Placement Optimization (Checksum:ef7aa8eb) REAL time: 1 mins 8 secs 
+
+Phase 13.34  Placement Validation
+Phase 13.34  Placement Validation (Checksum:c7c3da0) REAL time: 1 mins 9 secs 
+
+Total REAL time to Placer completion: 1 mins 9 secs 
+Total CPU  time to Placer completion: 1 mins 2 secs 
+>>>>>>> Stashed changes
 Running post-placement packing...
 Writing output files...
 WARNING:PhysDesignRules:372 - Gated clock. Clock net selected_SCLK is sourced by
    a combinatorial pin. This is not good design practice. Use the CE pin to
    control the loading of data into the flip-flop.
+<<<<<<< Updated upstream
 WARNING:PhysDesignRules:367 - The signal <process_inst/beam_spi_data_3<4>> is
    incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <process_inst/beam_spi_data_4<7>> is
@@ -83,12 +140,15 @@ WARNING:PhysDesignRules:367 - The signal <process_inst/beam_spi_data_5<17>> is
    incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <process_inst/beam_spi_data_7<20>> is
    incomplete. The signal does not drive any load pins in the design.
+=======
+>>>>>>> Stashed changes
 
 Design Summary
 --------------
 
 Design Summary:
 Number of errors:      0
+<<<<<<< Updated upstream
 Number of warnings:    5
 Slice Logic Utilization:
   Number of Slice Registers:                 2,171 out of  30,064    7%
@@ -101,6 +161,20 @@ Slice Logic Utilization:
       Number using O6 output only:           2,793
       Number using O5 output only:              32
       Number using O5 and O6:                  368
+=======
+Number of warnings:    1
+Slice Logic Utilization:
+  Number of Slice Registers:                 2,122 out of  30,064    7%
+    Number used as Flip Flops:               2,122
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                      5,265 out of  15,032   35%
+    Number used as logic:                    3,134 out of  15,032   20%
+      Number using O6 output only:           2,928
+      Number using O5 output only:              16
+      Number using O5 and O6:                  190
+>>>>>>> Stashed changes
       Number used as ROM:                        0
     Number used as Memory:                   2,112 out of   3,664   57%
       Number used as Dual Port RAM:            912
@@ -112,6 +186,7 @@ Slice Logic Utilization:
         Number using O5 output only:             0
         Number using O5 and O6:                  0
       Number used as Shift Register:             0
+<<<<<<< Updated upstream
     Number used exclusively as route-thrus:     42
       Number with same-slice register load:     31
       Number with same-slice carry load:         3
@@ -127,6 +202,23 @@ Slice Logic Distribution:
     Number of unique control sets:              57
     Number of slice register sites lost
       to control set restrictions:             205 out of  30,064    1%
+=======
+    Number used exclusively as route-thrus:     19
+      Number with same-slice register load:      9
+      Number with same-slice carry load:         2
+      Number with other load:                    8
+
+Slice Logic Distribution:
+  Number of occupied Slices:                 1,646 out of   3,758   43%
+  Number of MUXCYs used:                        84 out of   7,516    1%
+  Number of LUT Flip Flop pairs used:        5,385
+    Number with an unused Flip Flop:         3,356 out of   5,385   62%
+    Number with an unused LUT:                 120 out of   5,385    2%
+    Number of fully used LUT-FF pairs:       1,909 out of   5,385   35%
+    Number of unique control sets:              53
+    Number of slice register sites lost
+      to control set restrictions:             190 out of  30,064    1%
+>>>>>>> Stashed changes
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -163,11 +255,19 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
+<<<<<<< Updated upstream
 Average Fanout of Non-Clock Nets:                7.49
 
 Peak Memory Usage:  4652 MB
 Total REAL time to MAP completion:  3 mins 59 secs 
 Total CPU time to MAP completion:   3 mins 59 secs 
+=======
+Average Fanout of Non-Clock Nets:                7.86
+
+Peak Memory Usage:  4668 MB
+Total REAL time to MAP completion:  1 mins 12 secs 
+Total CPU time to MAP completion:   1 mins 5 secs 
+>>>>>>> Stashed changes
 
 Mapping completed.
 See MAP report file "top_v3_map.mrp" for details.

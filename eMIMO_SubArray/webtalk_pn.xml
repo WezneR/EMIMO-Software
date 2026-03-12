@@ -3,12 +3,21 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
+<<<<<<< Updated upstream
 <application name="pn" timeStamp="Fri Dec 12 14:38:38 2025">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="E161D1CEE11546909B5A31017ED408AA" type="project"/>
 <property name="ProjectIteration" value="1" type="project"/>
 <property name="ProjectFile" value="F:/ISE/eMIMO_SubArray4/eMIMO_SubArray4.xise" type="project"/>
 <property name="ProjectCreationTimestamp" value="2025-12-12T14:29:58" type="project"/>
+=======
+<application name="pn" timeStamp="Mon Jan 05 14:23:00 2026">
+<section name="Project Information" visible="false">
+<property name="ProjectID" value="6D1EE72B3B084A61AC3B05753E229315" type="project"/>
+<property name="ProjectIteration" value="1" type="project"/>
+<property name="ProjectFile" value="F:/ISE/eMIMO_SubArray6/eMIMO_SubArray6.xise" type="project"/>
+<property name="ProjectCreationTimestamp" value="2026-01-05T14:01:35" type="project"/>
+>>>>>>> Stashed changes
 </section>
 <section name="Project Statistics" visible="true">
 <property name="PROP_Enable_Message_Filtering" value="false" type="design"/>
@@ -22,14 +31,22 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_Top_Level_Module_Type" value="HDL" type="design"/>
 <property name="PROP_UseSmartGuide" value="false" type="design"/>
 <property name="PROP_UserConstraintEditorPreference" value="Text Editor" type="process"/>
+<<<<<<< Updated upstream
 <property name="PROP_intProjectCreationTimestamp" value="2025-12-12T14:29:58" type="design"/>
 <property name="PROP_intWbtProjectID" value="E161D1CEE11546909B5A31017ED408AA" type="design"/>
+=======
+<property name="PROP_intProjectCreationTimestamp" value="2026-01-05T14:01:35" type="design"/>
+<property name="PROP_intWbtProjectID" value="6D1EE72B3B084A61AC3B05753E229315" type="design"/>
+>>>>>>> Stashed changes
 <property name="PROP_intWbtProjectIteration" value="1" type="process"/>
 <property name="PROP_intWorkingDirLocWRTProjDir" value="Same" type="design"/>
 <property name="PROP_intWorkingDirUsed" value="No" type="design"/>
 <property name="PROP_xilxBitgCfg_Rate_spartan6" value="4" type="process"/>
 <property name="PROP_xilxBitgCfg_SpiBusWidth_spartan6" value="4" type="process"/>
+<<<<<<< Updated upstream
 <property name="PROP_xilxSynthKeepHierarchy" value="Yes" type="process"/>
+=======
+>>>>>>> Stashed changes
 <property name="PROP_AutoTop" value="true" type="design"/>
 <property name="PROP_DevFamily" value="Spartan6" type="design"/>
 <property name="PROP_DevDevice" value="xc6slx25" type="design"/>

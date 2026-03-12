@@ -15,6 +15,7 @@
 // - Removed internal phase_shift_calculator instance
 // - Added external calculator interface (request/response signals)
 // - Calculator is now shared with manual beamforming in parent module
+<<<<<<< Updated upstream
 //////////////////////////////////////////////////////////////////////////////////
 
 module beam_scan_controller_v2 #(
@@ -22,6 +23,22 @@ module beam_scan_controller_v2 #(
     parameter MAX_SCAN_DIRECTIONS = 16,
     parameter SPI_DATA_LEN = 24,
     parameter TIMEOUT_US_DEFAULT = 10000
+=======
+//
+// added 2025-12-16 15:33:46
+//  
+// Beam Scan Controller v3 - remove timeout logic
+//
+// - Remove all timeout logic and multiplier
+//
+//
+//////////////////////////////////////////////////////////////////////////////////
+
+module beam_scan_controller_v3 #(
+    parameter CLK_FREQ = 100_000_000,
+    parameter MAX_SCAN_DIRECTIONS = 16,
+    parameter SPI_DATA_LEN = 24
+>>>>>>> Stashed changes
 )(
     input wire i_clk,
     input wire i_rst_n,
@@ -101,7 +118,11 @@ module beam_scan_controller_v2 #(
     localparam S_DONE            = 3'd7;
     
     // LP timing parameters
+<<<<<<< Updated upstream
     localparam LP_LAG_CYCLES     = 3;     // 30ns > 20ns requirement
+=======
+    localparam LP_LAG_CYCLES     = 50;     // 20ns requirement, 500ns for pulse debouncing
+>>>>>>> Stashed changes
     
     // LP enable register
     reg lp_enable;
@@ -119,13 +140,20 @@ module beam_scan_controller_v2 #(
     // Configuration registers
     reg [7:0] num_directions;
     reg [1:0] scan_mode;
+<<<<<<< Updated upstream
     reg [31:0] timeout_cycles;
+=======
+>>>>>>> Stashed changes
     
     // State machine registers
     reg [2:0] state;
     reg [5:0] dir_index;
+<<<<<<< Updated upstream
     reg [4:0] timing_cnt; // for LP lag control 
     reg [31:0] timeout_cnt;
+=======
+    reg [6:0] timing_cnt; // for LP lag control 
+>>>>>>> Stashed changes
     
     // Edge detection for i_lp_trigger
     reg update_pha_d1, update_pha_d2;
@@ -159,7 +187,10 @@ module beam_scan_controller_v2 #(
         if (!i_rst_n) begin
             num_directions <= 8'd0;
             scan_mode <= SCAN_MODE_TXRX;
+<<<<<<< Updated upstream
             timeout_cycles <= TIMEOUT_US_DEFAULT * (CLK_FREQ / 1_000_000);
+=======
+>>>>>>> Stashed changes
             o_calc_request <= 1'b0;
             o_calc_azimuth <= 8'd0;
             o_calc_pitch <= 8'd0;
@@ -180,9 +211,18 @@ module beam_scan_controller_v2 #(
                         o_calc_pitch <= i_cfg_pitch;
                     end
                     
+<<<<<<< Updated upstream
                     CMD_SCAN_ARM: begin
                         if (i_cfg_timeout_us > 0)
                             timeout_cycles <= i_cfg_timeout_us * (CLK_FREQ / 1_000_000);
+=======
+                    // CMD_SCAN_ARM: begin
+                    //     if (i_cfg_timeout_us > 0)
+                    //         timeout_cycles <= i_cfg_timeout_us * (CLK_FREQ / 1_000_000);
+                    // end
+                    default: begin
+                    // nothing changed
+>>>>>>> Stashed changes
                     end
                 endcase
             end
@@ -242,12 +282,19 @@ module beam_scan_controller_v2 #(
         if (!i_rst_n) begin
             state <= S_IDLE;
             dir_index <= 6'd0;
+<<<<<<< Updated upstream
             timing_cnt <= 5'd0;
             timeout_cnt <= 32'd0;
             o_scan_armed <= 1'b0;
             o_scan_active <= 1'b0;
             o_scan_done <= 1'b0;
             o_scan_timeout <= 1'b0;
+=======
+            timing_cnt <= 0;
+            o_scan_armed <= 1'b0;
+            o_scan_active <= 1'b0;
+            o_scan_done <= 1'b0;
+>>>>>>> Stashed changes
             o_spi_start <= 1'b0;
             o_spi_data_0 <= {SPI_DATA_LEN{1'b0}};
             o_spi_data_1 <= {SPI_DATA_LEN{1'b0}};
@@ -258,6 +305,10 @@ module beam_scan_controller_v2 #(
             o_spi_data_6 <= {SPI_DATA_LEN{1'b0}};
             o_spi_data_7 <= {SPI_DATA_LEN{1'b0}};
             o_spi_chip_en <= 8'd0;
+<<<<<<< Updated upstream
+=======
+            o_scan_timeout <= 0;
+>>>>>>> Stashed changes
             lp_enable <= 1'b0;
         end else begin
             o_spi_start <= 1'b0;
@@ -269,12 +320,19 @@ module beam_scan_controller_v2 #(
                     o_scan_done <= 1'b0;
                     lp_enable <= 1'b0;
                     
+<<<<<<< Updated upstream
                     if (i_cfg_valid && i_cfg_cmd == CMD_SCAN_ARM && num_directions > 0 && timeout_cnt < timeout_cycles) begin
                         state <= S_PRELOAD_FIRST;
                         o_scan_timeout <= 1'b0;
                         o_scan_armed <= 1'b1;
                         dir_index <= 6'd0;
                         timeout_cnt <= 32'd0;
+=======
+                    if (i_cfg_valid && i_cfg_cmd == CMD_SCAN_ARM && num_directions > 0) begin
+                        state <= S_PRELOAD_FIRST;
+                        o_scan_armed <= 1'b1;
+                        dir_index <= 6'd0;
+>>>>>>> Stashed changes
                     end
                 end
                 
@@ -308,8 +366,12 @@ module beam_scan_controller_v2 #(
                         // SPI complete, now arm and enable LP
                         state <= S_ARMED;
                         lp_enable <= 1'b1;  // Enable combinational LP pass-through
+<<<<<<< Updated upstream
                         timing_cnt <= 5'd0;
                         timeout_cnt <= 32'd0;
+=======
+                        timing_cnt <= 0;
+>>>>>>> Stashed changes
                     end
                 end
                 
@@ -324,6 +386,7 @@ module beam_scan_controller_v2 #(
                         // i_UPDATE just fell, LP pulse completed
                         // Now wait LP_LAG_CYCLES before starting next SPI
                         lp_enable <= 1'b0;  // Disable LP until next direction ready
+<<<<<<< Updated upstream
                         timing_cnt <= 5'd0;
                         state <= S_LP_LAG_WAIT;
                     end
@@ -344,6 +407,12 @@ module beam_scan_controller_v2 #(
                             end
                         end                        
                     end
+=======
+                        timing_cnt <= 0;
+                        state <= S_LP_LAG_WAIT;
+                    end
+                    
+>>>>>>> Stashed changes
                 end
                 
                 S_LP_LAG_WAIT: begin
@@ -380,7 +449,10 @@ module beam_scan_controller_v2 #(
                     if (i_spi_ready) begin
                         // SPI complete, re-enable LP and wait for next trigger
                         lp_enable <= 1'b1;
+<<<<<<< Updated upstream
                         timeout_cnt <= 32'd0;
+=======
+>>>>>>> Stashed changes
                         state <= S_ARMED;
                     end
                 end
@@ -390,16 +462,20 @@ module beam_scan_controller_v2 #(
                     o_scan_done <= 1'b1;
                     o_scan_armed <= 1'b0;
                     lp_enable <= 1'b0;
+<<<<<<< Updated upstream
                     
                     if (i_cfg_valid && i_cfg_cmd == CMD_SCAN_DISARM) begin
                         state <= S_IDLE;
                     end
+=======
+>>>>>>> Stashed changes
                 end
                 
                 default: state <= S_IDLE;
             endcase
             
             // Disarm from any state
+<<<<<<< Updated upstream
             if (cfg_valid_d1 && i_cfg_cmd == CMD_SCAN_DISARM) begin
                 state <= S_IDLE;
                 o_scan_armed <= 1'b0;
@@ -420,6 +496,15 @@ module beam_scan_controller_v2 #(
             //     end
             // end
             
+=======
+            if (i_cfg_cmd == CMD_SCAN_DISARM) begin
+                state <= S_IDLE;
+                o_scan_armed <= 1'b0;
+                o_scan_active <= 1'b0;
+                lp_enable <= 1'b0;
+            end
+            
+>>>>>>> Stashed changes
         end // end of non-rst_n
     end
 

@@ -36,10 +36,17 @@ Setup/Hold to clock HOST_SCLK
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
+<<<<<<< Updated upstream
 HOST_LE     |    3.452(R)|      SLOW  |   -0.544(R)|      FAST  |selected_SCLK     |   0.000|
 HOST_SDI    |    0.883(R)|      SLOW  |    0.132(R)|      SLOW  |selected_SCLK     |   0.000|
 MCU_DATA    |    1.715(R)|      SLOW  |   -0.418(R)|      FAST  |selected_SCLK     |   0.000|
 MCU_LE      |    1.573(R)|      SLOW  |    0.910(R)|      SLOW  |selected_SCLK     |   0.000|
+=======
+HOST_LE     |    1.332(R)|      SLOW  |    0.945(R)|      SLOW  |selected_SCLK     |   0.000|
+HOST_SDI    |    0.130(R)|      SLOW  |    1.224(R)|      SLOW  |selected_SCLK     |   0.000|
+MCU_DATA    |    1.828(R)|      SLOW  |   -0.247(R)|      FAST  |selected_SCLK     |   0.000|
+MCU_LE      |    1.981(R)|      SLOW  |    1.175(R)|      SLOW  |selected_SCLK     |   0.000|
+>>>>>>> Stashed changes
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Setup/Hold to clock MCU_DCLK
@@ -47,10 +54,17 @@ Setup/Hold to clock MCU_DCLK
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
+<<<<<<< Updated upstream
 HOST_LE     |    2.724(R)|      SLOW  |   -0.097(R)|      SLOW  |selected_SCLK     |   0.000|
 HOST_SDI    |    0.155(R)|      SLOW  |    0.904(R)|      SLOW  |selected_SCLK     |   0.000|
 MCU_DATA    |    0.987(R)|      SLOW  |    0.118(R)|      SLOW  |selected_SCLK     |   0.000|
 MCU_LE      |    0.845(R)|      SLOW  |    1.682(R)|      SLOW  |selected_SCLK     |   0.000|
+=======
+HOST_LE     |    0.765(R)|      SLOW  |    1.542(R)|      SLOW  |selected_SCLK     |   0.000|
+HOST_SDI    |   -0.355(R)|      FAST  |    1.821(R)|      SLOW  |selected_SCLK     |   0.000|
+MCU_DATA    |    1.261(R)|      SLOW  |    0.217(R)|      SLOW  |selected_SCLK     |   0.000|
+MCU_LE      |    1.414(R)|      SLOW  |    1.772(R)|      SLOW  |selected_SCLK     |   0.000|
+>>>>>>> Stashed changes
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Setup/Hold to clock MCU_PLUG
@@ -58,10 +72,17 @@ Setup/Hold to clock MCU_PLUG
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
+<<<<<<< Updated upstream
 HOST_LE     |    1.699(R)|      SLOW  |    0.985(R)|      SLOW  |selected_SCLK     |   0.000|
 HOST_SDI    |   -0.524(R)|      FAST  |    1.986(R)|      SLOW  |selected_SCLK     |   0.000|
 MCU_DATA    |   -0.027(R)|      FAST  |    1.200(R)|      SLOW  |selected_SCLK     |   0.000|
 MCU_LE      |   -0.162(R)|      FAST  |    2.764(R)|      SLOW  |selected_SCLK     |   0.000|
+=======
+HOST_LE     |    0.049(R)|      SLOW  |    2.298(R)|      SLOW  |selected_SCLK     |   0.000|
+HOST_SDI    |   -0.750(R)|      FAST  |    2.577(R)|      SLOW  |selected_SCLK     |   0.000|
+MCU_DATA    |    0.545(R)|      SLOW  |    0.973(R)|      SLOW  |selected_SCLK     |   0.000|
+MCU_LE      |    0.698(R)|      SLOW  |    2.528(R)|      SLOW  |selected_SCLK     |   0.000|
+>>>>>>> Stashed changes
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Setup/Hold to clock clk_in
@@ -69,8 +90,13 @@ Setup/Hold to clock clk_in
             |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
 Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------+------------+------------------+--------+
+<<<<<<< Updated upstream
 DEV_MODE    |    7.609(R)|      SLOW  |   -3.395(R)|      FAST  |clk_in_BUFGP      |   0.000|
 UPDATE      |    1.581(R)|      SLOW  |   -0.176(R)|      SLOW  |clk_in_BUFGP      |   0.000|
+=======
+DEV_MODE    |    6.715(R)|      SLOW  |   -2.556(R)|      FAST  |clk_in_BUFGP      |   0.000|
+UPDATE      |    2.805(R)|      SLOW  |   -1.040(R)|      FAST  |clk_in_BUFGP      |   0.000|
+>>>>>>> Stashed changes
 ------------+------------+------------+------------+------------+------------------+--------+
 
 Clock clk_in to Pad
@@ -78,6 +104,7 @@ Clock clk_in to Pad
                |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                  | Clock  |
 Destination    |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s) | Phase  |
 ---------------+-----------------+------------+-----------------+------------+------------------+--------+
+<<<<<<< Updated upstream
 FEM_RX_ON<0>   |        11.974(R)|      SLOW  |         5.153(R)|      FAST  |clk_in_BUFGP      |   0.000|
 FEM_RX_ON<1>   |        12.430(R)|      SLOW  |         5.459(R)|      FAST  |clk_in_BUFGP      |   0.000|
 FEM_RX_ON<2>   |        11.027(R)|      SLOW  |         4.588(R)|      FAST  |clk_in_BUFGP      |   0.000|
@@ -132,6 +159,63 @@ PE44951_SCLK<0>|         9.767(R)|      SLOW  |         4.038(R)|      FAST  |cl
 PE44951_SCLK<1>|         9.665(R)|      SLOW  |         3.975(R)|      FAST  |clk_in_BUFGP      |   0.000|
 RX_ON_LED      |        16.315(R)|      SLOW  |         6.980(R)|      FAST  |clk_in_BUFGP      |   0.000|
 TX_ON_LED      |        15.674(R)|      SLOW  |         6.715(R)|      FAST  |clk_in_BUFGP      |   0.000|
+=======
+FEM_RX_ON<0>   |        12.574(R)|      SLOW  |         5.546(R)|      FAST  |clk_in_BUFGP      |   0.000|
+FEM_RX_ON<1>   |        13.459(R)|      SLOW  |         6.134(R)|      FAST  |clk_in_BUFGP      |   0.000|
+FEM_RX_ON<2>   |        11.350(R)|      SLOW  |         4.889(R)|      FAST  |clk_in_BUFGP      |   0.000|
+FEM_RX_ON<3>   |        10.761(R)|      SLOW  |         4.520(R)|      FAST  |clk_in_BUFGP      |   0.000|
+FEM_RX_ON<4>   |        10.808(R)|      SLOW  |         4.534(R)|      FAST  |clk_in_BUFGP      |   0.000|
+FEM_RX_ON<5>   |        10.866(R)|      SLOW  |         4.608(R)|      FAST  |clk_in_BUFGP      |   0.000|
+FEM_RX_ON<6>   |        11.109(R)|      SLOW  |         4.756(R)|      FAST  |clk_in_BUFGP      |   0.000|
+FEM_RX_ON<7>   |        11.728(R)|      SLOW  |         5.138(R)|      FAST  |clk_in_BUFGP      |   0.000|
+FEM_TX_ON<0>   |        13.422(R)|      SLOW  |         6.216(R)|      FAST  |clk_in_BUFGP      |   0.000|
+FEM_TX_ON<1>   |        13.156(R)|      SLOW  |         5.910(R)|      FAST  |clk_in_BUFGP      |   0.000|
+FEM_TX_ON<2>   |        11.235(R)|      SLOW  |         4.849(R)|      FAST  |clk_in_BUFGP      |   0.000|
+FEM_TX_ON<3>   |        11.290(R)|      SLOW  |         4.843(R)|      FAST  |clk_in_BUFGP      |   0.000|
+FEM_TX_ON<4>   |        11.379(R)|      SLOW  |         4.861(R)|      FAST  |clk_in_BUFGP      |   0.000|
+FEM_TX_ON<5>   |        10.904(R)|      SLOW  |         4.568(R)|      FAST  |clk_in_BUFGP      |   0.000|
+FEM_TX_ON<6>   |        10.983(R)|      SLOW  |         4.599(R)|      FAST  |clk_in_BUFGP      |   0.000|
+FEM_TX_ON<7>   |        13.653(R)|      SLOW  |         6.122(R)|      FAST  |clk_in_BUFGP      |   0.000|
+IF_DSA_DIN<0>  |         9.995(R)|      SLOW  |         4.249(R)|      FAST  |clk_in_BUFGP      |   0.000|
+IF_DSA_DIN<1>  |         9.703(R)|      SLOW  |         4.069(R)|      FAST  |clk_in_BUFGP      |   0.000|
+IF_DSA_DIN<2>  |         9.714(R)|      SLOW  |         4.074(R)|      FAST  |clk_in_BUFGP      |   0.000|
+IF_DSA_DIN<3>  |        13.691(R)|      SLOW  |         6.295(R)|      FAST  |clk_in_BUFGP      |   0.000|
+IF_DSA_DIN<4>  |         9.653(R)|      SLOW  |         3.991(R)|      FAST  |clk_in_BUFGP      |   0.000|
+IF_DSA_DIN<5>  |         9.354(R)|      SLOW  |         3.725(R)|      FAST  |clk_in_BUFGP      |   0.000|
+IF_DSA_DIN<6>  |         9.181(R)|      SLOW  |         3.648(R)|      FAST  |clk_in_BUFGP      |   0.000|
+IF_DSA_DIN<7>  |         9.297(R)|      SLOW  |         3.754(R)|      FAST  |clk_in_BUFGP      |   0.000|
+IF_DSA_DIN<8>  |         9.305(R)|      SLOW  |         3.787(R)|      FAST  |clk_in_BUFGP      |   0.000|
+IF_DSA_DIN<9>  |         9.550(R)|      SLOW  |         3.907(R)|      FAST  |clk_in_BUFGP      |   0.000|
+IF_DSA_DIN<10> |         9.558(R)|      SLOW  |         3.922(R)|      FAST  |clk_in_BUFGP      |   0.000|
+IF_DSA_DIN<11> |         9.592(R)|      SLOW  |         3.956(R)|      FAST  |clk_in_BUFGP      |   0.000|
+IF_DSA_LE<0>   |        10.777(R)|      SLOW  |         4.420(R)|      FAST  |clk_in_BUFGP      |   0.000|
+IF_DSA_LE<1>   |         9.126(R)|      SLOW  |         3.659(R)|      FAST  |clk_in_BUFGP      |   0.000|
+IF_RX_ON       |        15.283(R)|      SLOW  |         6.118(R)|      FAST  |clk_in_BUFGP      |   0.000|
+IF_TX_ON       |        13.965(R)|      SLOW  |         5.071(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_CS<0>  |        11.250(R)|      SLOW  |         4.861(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_CS<1>  |         9.618(R)|      SLOW  |         3.985(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_CS<2>  |        10.766(R)|      SLOW  |         4.568(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_CS<3>  |        11.732(R)|      SLOW  |         5.122(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_CS<4>  |        11.289(R)|      SLOW  |         4.873(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_CS<5>  |        11.241(R)|      SLOW  |         4.817(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_CS<6>  |         9.403(R)|      SLOW  |         3.806(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_CS<7>  |        10.760(R)|      SLOW  |         4.585(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_LP<0>  |        12.304(R)|      SLOW  |         4.637(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_LP<1>  |        12.697(R)|      SLOW  |         4.654(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_MOSI<0>|        11.131(R)|      SLOW  |         4.763(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_MOSI<1>|         9.752(R)|      SLOW  |         4.053(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_MOSI<2>|        10.945(R)|      SLOW  |         4.685(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_MOSI<3>|        11.873(R)|      SLOW  |         5.218(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_MOSI<4>|        11.232(R)|      SLOW  |         4.830(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_MOSI<5>|         9.775(R)|      SLOW  |         4.006(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_MOSI<6>|        10.946(R)|      SLOW  |         4.669(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_MOSI<7>|        11.462(R)|      SLOW  |         4.942(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_Rset   |        10.675(R)|      SLOW  |         4.770(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_SCLK<0>|        11.412(R)|      SLOW  |         4.944(R)|      FAST  |clk_in_BUFGP      |   0.000|
+PE44951_SCLK<1>|         9.557(R)|      SLOW  |         3.907(R)|      FAST  |clk_in_BUFGP      |   0.000|
+RX_ON_LED      |        14.733(R)|      SLOW  |         6.085(R)|      FAST  |clk_in_BUFGP      |   0.000|
+TX_ON_LED      |        14.979(R)|      SLOW  |         5.919(R)|      FAST  |clk_in_BUFGP      |   0.000|
+>>>>>>> Stashed changes
 ---------------+-----------------+------------+-----------------+------------+------------------+--------+
 
 Clock to Setup on destination clock HOST_SCLK
@@ -139,9 +223,15 @@ Clock to Setup on destination clock HOST_SCLK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
+<<<<<<< Updated upstream
 HOST_SCLK      |    2.649|         |         |         |
 MCU_DCLK       |    2.649|         |         |         |
 MCU_PLUG       |    3.238|    3.238|         |         |
+=======
+HOST_SCLK      |    3.392|         |         |         |
+MCU_DCLK       |    3.392|         |         |         |
+MCU_PLUG       |    3.392|    3.316|         |         |
+>>>>>>> Stashed changes
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock MCU_DCLK
@@ -149,9 +239,15 @@ Clock to Setup on destination clock MCU_DCLK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
+<<<<<<< Updated upstream
 HOST_SCLK      |    2.649|         |         |         |
 MCU_DCLK       |    2.649|         |         |         |
 MCU_PLUG       |    2.649|    2.510|         |         |
+=======
+HOST_SCLK      |    3.392|         |         |         |
+MCU_DCLK       |    3.392|         |         |         |
+MCU_PLUG       |    3.392|    2.749|         |         |
+>>>>>>> Stashed changes
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock MCU_PLUG
@@ -159,9 +255,15 @@ Clock to Setup on destination clock MCU_PLUG
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
+<<<<<<< Updated upstream
 HOST_SCLK      |    2.649|         |         |         |
 MCU_DCLK       |    2.649|         |         |         |
 MCU_PLUG       |    2.649|    1.485|         |         |
+=======
+HOST_SCLK      |    3.392|         |         |         |
+MCU_DCLK       |    3.392|         |         |         |
+MCU_PLUG       |    3.392|    2.033|         |         |
+>>>>>>> Stashed changes
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock clk_in
@@ -169,16 +271,24 @@ Clock to Setup on destination clock clk_in
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
+<<<<<<< Updated upstream
 HOST_SCLK      |    7.278|         |         |         |
 MCU_DCLK       |    7.278|         |         |         |
 MCU_PLUG       |    7.278|         |         |         |
 clk_in         |   15.678|         |         |         |
+=======
+HOST_SCLK      |    6.773|         |         |         |
+MCU_DCLK       |    6.773|         |         |         |
+MCU_PLUG       |    6.773|         |         |         |
+clk_in         |   20.451|         |         |         |
+>>>>>>> Stashed changes
 ---------------+---------+---------+---------+---------+
 
 Pad to Pad
 ---------------+---------------+---------+
 Source Pad     |Destination Pad|  Delay  |
 ---------------+---------------+---------+
+<<<<<<< Updated upstream
 DEV_MODE       |FEM_RX_ON<0>   |   16.966|
 DEV_MODE       |FEM_RX_ON<1>   |   17.014|
 DEV_MODE       |FEM_RX_ON<2>   |   15.445|
@@ -245,13 +355,85 @@ UPDATE         |PE44951_LP<1>  |   13.728|
 
 
 Analysis completed Fri Dec 12 14:40:05 2025 
+=======
+DEV_MODE       |FEM_RX_ON<0>   |   16.895|
+DEV_MODE       |FEM_RX_ON<1>   |   17.233|
+DEV_MODE       |FEM_RX_ON<2>   |   15.050|
+DEV_MODE       |FEM_RX_ON<3>   |   14.762|
+DEV_MODE       |FEM_RX_ON<4>   |   14.403|
+DEV_MODE       |FEM_RX_ON<5>   |   14.976|
+DEV_MODE       |FEM_RX_ON<6>   |   15.258|
+DEV_MODE       |FEM_RX_ON<7>   |   15.253|
+DEV_MODE       |FEM_TX_ON<0>   |   16.521|
+DEV_MODE       |FEM_TX_ON<1>   |   16.927|
+DEV_MODE       |FEM_TX_ON<2>   |   15.411|
+DEV_MODE       |FEM_TX_ON<3>   |   15.415|
+DEV_MODE       |FEM_TX_ON<4>   |   15.825|
+DEV_MODE       |FEM_TX_ON<5>   |   15.246|
+DEV_MODE       |FEM_TX_ON<6>   |   14.550|
+DEV_MODE       |FEM_TX_ON<7>   |   17.049|
+DEV_MODE       |IF_RX_ON       |   15.863|
+DEV_MODE       |IF_TX_ON       |   13.378|
+DEV_MODE       |RX_ON_LED      |   15.313|
+DEV_MODE       |TX_ON_LED      |   14.392|
+RX_ON          |FEM_RX_ON<0>   |   14.043|
+RX_ON          |FEM_RX_ON<1>   |   14.381|
+RX_ON          |FEM_RX_ON<2>   |   12.736|
+RX_ON          |FEM_RX_ON<3>   |   12.448|
+RX_ON          |FEM_RX_ON<4>   |   12.054|
+RX_ON          |FEM_RX_ON<5>   |   12.627|
+RX_ON          |FEM_RX_ON<6>   |   12.922|
+RX_ON          |FEM_RX_ON<7>   |   12.917|
+RX_ON          |FEM_TX_ON<0>   |   13.838|
+RX_ON          |FEM_TX_ON<1>   |   14.244|
+RX_ON          |FEM_TX_ON<2>   |   12.422|
+RX_ON          |FEM_TX_ON<3>   |   12.426|
+RX_ON          |FEM_TX_ON<4>   |   13.098|
+RX_ON          |FEM_TX_ON<5>   |   12.519|
+RX_ON          |FEM_TX_ON<6>   |   11.625|
+RX_ON          |FEM_TX_ON<7>   |   14.124|
+RX_ON          |IF_RX_ON       |   13.004|
+RX_ON          |IF_TX_ON       |   10.519|
+RX_ON          |RX_ON_LED      |   12.454|
+RX_ON          |TX_ON_LED      |   11.533|
+TX_ON          |FEM_RX_ON<0>   |   14.202|
+TX_ON          |FEM_RX_ON<1>   |   14.540|
+TX_ON          |FEM_RX_ON<2>   |   13.250|
+TX_ON          |FEM_RX_ON<3>   |   12.962|
+TX_ON          |FEM_RX_ON<4>   |   12.270|
+TX_ON          |FEM_RX_ON<5>   |   12.843|
+TX_ON          |FEM_RX_ON<6>   |   12.880|
+TX_ON          |FEM_RX_ON<7>   |   12.875|
+TX_ON          |FEM_TX_ON<0>   |   13.909|
+TX_ON          |FEM_TX_ON<1>   |   14.315|
+TX_ON          |FEM_TX_ON<2>   |   12.768|
+TX_ON          |FEM_TX_ON<3>   |   12.772|
+TX_ON          |FEM_TX_ON<4>   |   13.409|
+TX_ON          |FEM_TX_ON<5>   |   12.830|
+TX_ON          |FEM_TX_ON<6>   |   11.623|
+TX_ON          |FEM_TX_ON<7>   |   14.122|
+TX_ON          |IF_RX_ON       |   13.137|
+TX_ON          |IF_TX_ON       |   10.652|
+TX_ON          |RX_ON_LED      |   12.587|
+TX_ON          |TX_ON_LED      |   11.666|
+UPDATE         |PE44951_LP<0>  |   12.564|
+UPDATE         |PE44951_LP<1>  |   12.980|
+---------------+---------------+---------+
+
+
+Analysis completed Mon Jan 05 14:24:36 2026 
+>>>>>>> Stashed changes
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
+<<<<<<< Updated upstream
 Peak Memory Usage: 4694 MB
+=======
+Peak Memory Usage: 4693 MB
+>>>>>>> Stashed changes
 
 
 

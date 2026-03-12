@@ -3,7 +3,7 @@ close all;
 clc;
 addpath(genpath('UART'));%生成指定的文件夹及其子文件的路径，并添加到matlab的搜索路径中。
 addpath(genpath('VNA'));
-addpath(genpath('Script'));
+addpath(genpath('Script')); 
 addpath(genpath('Function'));
 addpath(genpath('mat'));
 
@@ -23,7 +23,7 @@ COM = OpenSerial(COM_VT,baudrate,@ReadFcn_Com);
 
 %% 帧格式
 UART.Head = hex2dec(['55';'5D']);  
-UART.Pause_Sec = 0.1; %Between each frame
+UART.Pause_Sec = 0.1; % Between each frame
 UART.End = hex2dec(['0D';'0A']);
 UART.End_mcu = hex2dec(['0A';'0D']);
 
@@ -33,8 +33,8 @@ fwrite(COM,Frame);
 fprintf('已打开开发者模式。')
 
 %% 设备
-Module_ID = 2;
-isTX = 1;
+Module_ID = 0;
+isTX = 0;
 %% Open
 func_channel_switch(COM, Module_ID, 8, 8, isTX, 0);
 %% Close all

@@ -1,6 +1,16 @@
+<<<<<<< Updated upstream
 xst -intstyle ise -ifn "F:/ISE/eMIMO_SubArray4/top_v3.xst" -ofn "F:/ISE/eMIMO_SubArray4/top_v3.syr" 
+=======
+xst -intstyle ise -ifn "F:/ISE/eMIMO_SubArray6/top_v3.xst" -ofn "F:/ISE/eMIMO_SubArray6/top_v3.syr" 
+xst -intstyle ise -ifn "F:/ISE/eMIMO_SubArray6/top_v3.xst" -ofn "F:/ISE/eMIMO_SubArray6/top_v3.syr" 
+xst -intstyle ise -ifn "F:/ISE/eMIMO_SubArray6/top_v3.xst" -ofn "F:/ISE/eMIMO_SubArray6/top_v3.syr" 
+>>>>>>> Stashed changes
 ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc srcs/top_v3.ucf -p xc6slx25-ftg256-2 top_v3.ngc top_v3.ngd  
 map -intstyle ise -p xc6slx25-ftg256-2 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o top_v3_map.ncd top_v3.ngd top_v3.pcf 
 par -w -intstyle ise -ol high -mt off top_v3_map.ncd top_v3.ncd top_v3.pcf 
 trce -intstyle ise -v 3 -s 2 -n 3 -fastpaths -xml top_v3.twx top_v3.ncd -o top_v3.twr top_v3.pcf 
 bitgen -intstyle ise -f top_v3.ut top_v3.ncd 
+<<<<<<< Updated upstream
+=======
+bitgen -intstyle ise -f top_v3.ut top_v3.ncd 
+>>>>>>> Stashed changes
